@@ -1,9 +1,14 @@
+*********************************************
+
 GIT OWNER : TheWilli67
 Contact : william.hertrich@numericable.fr
 
 *********************************************
 THEME :
 CV-WEBPAGE
+HTML training
+Try as best you can to put yourself forward
+Studying
 
 *********************************************
 support used : 
