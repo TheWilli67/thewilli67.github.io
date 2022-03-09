@@ -1,6 +1,9 @@
 body{
 background-color: aliceblue;
-margin: 0%;
+margin-top: 0%;
+margin-left: 0%;
+margin-right: 0%;
+margin-bottom: 2%;
 font-family: 'Roboto', sans-serif;
 scroll-behavior: smooth;
 }
@@ -40,8 +43,10 @@ scroll-behavior: smooth;
   margin: 0.3%;
 }
 .texte_de_présentation{
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  display: inline-block;
   padding: 10%;
 }
 /*#2 partie de la page*/
@@ -63,23 +68,27 @@ scroll-behavior: smooth;
 }
 /*Objectifs #3e partie de la page*/
 .objectifs{
-  margin-top: 15%;
+  margin-top: 8%;
 }
 .title_objectifs{
-  text-align:center;
-  background-color: #E0E0E0;  
-  margin-left:30%;
-  margin-right:30%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  text-align:center; 
 }
 .barre{
-  margin: 0%;
-  margin-left: 49%;
-  padding: 0%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 0%;
+  margin-bottom: 0%;
 }
 .text_obj_barre{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   text-align: center;
-  margin-left:13%;
-  margin-right:15%;
 }
 .bouton{
   background-color: #e7e7e7; /* Green */
@@ -92,20 +101,25 @@ scroll-behavior: smooth;
   font-size: 16px;
 }
 .mep{
-  margin-top: 10%;
-  margin-left: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 8%;
+  background-color: #E0E0E0; 
+  padding: 2%;
 }
 .title_mep{
   width: fit-content;
   padding: 1%;
+  margin-bottom: 5px;
+  margin-top: 1%;
 }
 .soustexte_mep{
   width: fit-content;
   padding: 1%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .mep_ul{
-  margin-top: 0%;
-  background-color: 		#E8E8E8;
-  width: fit-content;
-  padding: 4%;
+  margin-top: 5px;
 }
