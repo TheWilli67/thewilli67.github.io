@@ -1,0 +1,111 @@
+body{
+background-color: aliceblue;
+margin: 0%;
+font-family: 'Roboto', sans-serif;
+scroll-behavior: smooth;
+}
+/*barre de navigation*/
+.navbar{
+  background-color: rgb(53,56,57);
+  text-align: justify;
+  padding-left: 2%;
+}
+.name{
+  color: white;
+  display: inline-block;
+}
+.lien{
+  color: white;
+  text-decoration: none;
+  float: right;
+  padding-right: 3%;
+}
+.lien_black{
+  text-decoration: none;
+  color: black;
+}
+.contact{
+  margin-top: 5%;
+}
+/* #1 partie de la page*/
+.lientxt{
+  text-decoration: none;
+  color: black;
+}
+.photo_de_présentation{
+  width: 20%;
+  height: auto;
+  float: right;
+  display: inline-block;
+  margin: 0.3%;
+}
+.texte_de_présentation{
+  text-align: center;
+  display: inline-block;
+  padding: 10%;
+}
+/*#2 partie de la page*/
+.cv{
+  margin: 5%;
+  margin-left: 12%;
+  margin-right: 12%;
+  padding: 1%;
+  padding-bottom: 6%;
+  background-color: #E8E8E8;
+}
+.Maintitle{
+  font-size:xx-large;
+  margin-left: 10%;
+}
+.describe_myself{
+  width: 60%;
+  margin: auto;
+}
+/*Objectifs #3e partie de la page*/
+.objectifs{
+  margin-top: 15%;
+}
+.title_objectifs{
+  text-align:center;
+  background-color: #E0E0E0;  
+  margin-left:30%;
+  margin-right:30%;
+}
+.barre{
+  margin: 0%;
+  margin-left: 49%;
+  padding: 0%;
+}
+.text_obj_barre{
+  text-align: center;
+  margin-left:13%;
+  margin-right:15%;
+}
+.bouton{
+  background-color: #e7e7e7; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.mep{
+  margin-top: 10%;
+  margin-left: 20%;
+}
+.title_mep{
+  width: fit-content;
+  padding: 1%;
+}
+.soustexte_mep{
+  width: fit-content;
+  padding: 1%;
+}
+.mep_ul{
+  margin-top: 0%;
+  background-color: 		#E8E8E8;
+  width: fit-content;
+  padding: 4%;
+}
