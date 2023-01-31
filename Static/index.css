@@ -142,7 +142,7 @@ scroll-behavior: smooth;
 	display: block;
 	float: right;
 	margin-right: 12%;
-	width: 30%;
+	width: 29%;
 }
 .text_vue_g{
 	float: left;
@@ -166,4 +166,13 @@ scroll-behavior: smooth;
 	background-color: #E8E8E8;
 	padding: 3%;
 	width: 40%;
+}
+.vue_sansechelle{
+	width: 76%;
+	margin-left: 12%;
+	margin-right: auto;
+	margin-top: 1%;
+}
+.top{
+	text-align: center;
 }
