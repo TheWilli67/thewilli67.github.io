@@ -176,3 +176,9 @@ scroll-behavior: smooth;
 .top{
 	text-align: center;
 }
+.spacing_portfolio{
+  margin-left: 5%;
+}
+.img_portfolio{
+  width: 15%;
+}
