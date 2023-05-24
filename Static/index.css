@@ -11,17 +11,17 @@ scroll-behavior: smooth;
 .navbar{
   background-color: rgb(53,56,57);
   text-align: justify;
-  padding-left: 2%;
 }
 .name{
   color: white;
   display: inline-block;
+  margin-left: 3%;
 }
 .lien{
   color: white;
   text-decoration: none;
   float: right;
-  padding-right: 3%;
+  margin-right: 3%;
 }
 .lien_black{
   text-decoration: none;
@@ -180,5 +180,8 @@ scroll-behavior: smooth;
   margin-left: 5%;
 }
 .img_portfolio{
-  width: 15%;
+  width: 10%;
+}
+.img_contact{
+  width: 5%;
 }
