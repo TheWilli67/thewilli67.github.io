@@ -1,0 +1,206 @@
+/* Styles pour les écrans de taille moyenne (tablettes) */
+@media (min-width: 768px) and (max-width: 1023px) {
+.working{
+  text-align: center;
+  margin-top: 10%;
+}
+.working_text{
+  color: red;
+}
+  body{
+background-color: aliceblue;
+margin-top: 0%;
+margin-left: 0%;
+margin-right: 0%;
+margin-bottom: 2%;
+font-family: 'Roboto', sans-serif;
+scroll-behavior: smooth;
+}
+/*barre de navigation*/
+.navbar{
+  background-color: rgb(53,56,57);
+  text-align: justify;
+}
+.name{
+  color: white;
+  display: inline-block;
+  margin-left: 3%;
+}
+.lien{
+  color: white;
+  text-decoration: none;
+  float: right;
+  margin-right: 3%;
+}
+.lien_black{
+  text-decoration: none;
+  color: black;
+}
+.contact{
+  margin-top: 5%;
+}
+/* #1 partie de la page*/
+.lientxt{
+  text-decoration: none;
+  color: black;
+}
+.photo_de_présentation{
+  margin-right: 1%;
+  width: 30%;
+  float: right;
+}
+.texte_de_présentation{
+  margin-right: 35%;
+  margin-left: auto;
+  width: 30%;
+  text-align: center;
+  padding: 10%;
+}
+/*#2 partie de la page*/
+.cv{
+  margin: 5%;
+  margin-left: 12%;
+  margin-right: 12%;
+  padding: 1%;
+  padding-bottom: 6%;
+  background-color: #E8E8E8;
+}
+.Maintitle{
+  font-size:xx-large;
+  margin-left: 10%;
+}
+.describe_myself{
+  width: 60%;
+  margin: auto;
+}
+/*Objectifs #3e partie de la page*/
+.objectifs{
+  margin-top: 8%;
+}
+.title_objectifs{
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  text-align:center; 
+}
+.barre{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+.text_obj_barre{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+}
+.bouton{
+  background-color: #e7e7e7; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.mep{
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 8%;
+  background-color: #E0E0E0; 
+  padding: 2%;
+  border-top-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+.title_mep{
+  width: fit-content;
+  padding: 1%;
+  margin-bottom: 5px;
+  margin-top: 1%;
+}
+.soustexte_mep{
+  width: fit-content;
+  padding: 1%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.mep_ul{
+  margin-top: 5px;
+}
+.portfolio_text{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.bouton_portfolio{
+	background-color: #e7e7e7;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin-left: 40%;
+}
+.vues_d{
+	display: block;
+	float: right;
+	margin-right: 12%;
+	width: 29%;
+}
+.text_vue_g{
+	float: left;
+	margin-left: 12%;
+	background-color: #E8E8E8;
+	padding: 3%;
+	width: 40%;
+}
+.text_vue_espace {
+	float: left;
+	margin-top: 15%;
+	margin-left: 12%;
+	background-color: #E8E8E8;
+	padding: 3%;
+	width: 40%;
+}
+.text_vue_espace_more{
+	float: left;
+	margin-top: 25%;
+	margin-left: 12%;
+	background-color: #E8E8E8;
+	padding: 3%;
+	width: 40%;
+}
+.vue_sansechelle{
+	width: 76%;
+	margin-left: 12%;
+	margin-right: auto;
+	margin-top: 1%;
+}
+.top{
+	text-align: center;
+}
+.spacing_portfolio{
+  margin-left: 5%;
+}
+.img_portfolio{
+  width: 20%;
+  border-radius: 50%;
+}
+.img_contact{
+  width: 20%;
+}
+.cahier_charges{
+  text-align: center;
+}
+.bouton_charges{
+  background-color: aliceblue;
+  border: #c3b7b7;
+  padding: 0.5%;
+}
+}
