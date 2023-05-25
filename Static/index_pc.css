@@ -16,6 +16,21 @@ margin-bottom: 2%;
 font-family: 'Roboto', sans-serif;
 scroll-behavior: smooth;
 }
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-out.active {
+  display: none;
+}
+
+
 /*barre de navigation*/
 .navbar{
   background-color: rgb(53,56,57);
@@ -187,6 +202,7 @@ scroll-behavior: smooth;
 }
 .spacing_portfolio{
   margin-left: 5%;
+  text-decoration: none;
 }
 .img_portfolio{
   width: 10%;
@@ -207,4 +223,21 @@ scroll-behavior: smooth;
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+#emailPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
 }
