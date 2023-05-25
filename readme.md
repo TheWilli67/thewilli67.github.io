@@ -6,7 +6,7 @@ THEME :
 Making kind of a CV-WEBPAGE1.
 Havin fun & HTML training.
 Create a portfolio for my studies and expand it to complement my pseudo CV-WEBPAGE.
->Fuck
+>Fuck.
 Gandhi - 2023
 
 ---
