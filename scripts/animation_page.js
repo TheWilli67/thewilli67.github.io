@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         // Redirige vers la nouvelle page
         window.location.href = nextPage;
-      }, 500); // Ajustez le délai selon vos préférences (500ms = 0,5 seconde)
+      }, 50); // Ajustez le délai selon vos préférences (500ms = 0,5 seconde)
     });
   });
 });
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Attends un court délai avant d'ajouter la classe fade-in à l'élément <body>
   setTimeout(function() {
     document.body.classList.add('fade-in');
-  }, 100); // Ajustez le délai selon vos préférences (100ms = 0,1 seconde)
+  }, 500); // Ajustez le délai selon vos préférences (100ms = 0,1 seconde)
 });
 
 window.addEventListener('load', function() {
