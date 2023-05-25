@@ -18,3 +18,7 @@ Contact : william.hertrich@numericable.fr
 - VS Code for code formatting and writing. 
 
 ---
+## Todo list : 
+- [x] Make a CV in web page mode
+- [x] Make a Contact page where I fill in the different ways to contact me 
+- [x] Make the site correct for different devices (mobile, tablets, PC, Nintendo DS?)
