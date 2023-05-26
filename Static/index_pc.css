@@ -29,24 +29,42 @@ scroll-behavior: smooth;
 .fade-out.active {
   display: none;
 }
-
-
 /*barre de navigation*/
-.navbar{
-  background-color: rgb(53,56,57);
-  text-align: justify;
-}
 .name{
   color: white;
   display: inline-block;
   margin-left: 3%;
 }
+.navbar{
+  background-color: rgb(53,56,57);
+  text-align: justify;
+}
 .lien{
   color: white;
   text-decoration: none;
   float: right;
-  margin-right: 3%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 15px;
+  padding: 0%;
+
 }
+.navbar .lien {
+  color: white;
+  text-decoration: none;
+  float: right;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.navbar .lien:hover {
+  background-color: aliceblue;
+  color: rgb(53, 56, 57);
+  margin-top: 3px;
+  padding: 1px 2px; /* Ajuste le padding au survol pour créer une petite marge autour du texte */
+  line-height: 0.5; /* Assurez-vous que la hauteur de la ligne reste la même au survol */
+}
+
 .lien_black{
   text-decoration: none;
   color: black;
@@ -232,6 +250,9 @@ scroll-behavior: smooth;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 9999;
+}
+.div_center{
+  text-align: center;
 }
 }
 .close {

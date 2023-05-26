@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         // Redirige vers la nouvelle page
         window.location.href = nextPage;
-      }, 50); // Ajustez le délai selon vos préférences (500ms = 0,5 seconde)
+      }, 700); // Ajustez le délai selon vos préférences (500ms = 0,5 seconde)
     });
   });
 });

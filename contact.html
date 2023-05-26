@@ -14,6 +14,7 @@
 	<link rel="icon" href="/Images_photos/reprendre.png" />
 	<script src="/scripts/emailpopup.js"></script>
 	<script src="/scripts/animation_page.js"></script>
+	<script src="/scripts/script_blocket.js"></script>
 	<title>HERTRICH William | Contact </title>
 </head>
 
@@ -46,24 +47,24 @@
 			<a class="spacing_portfolio" href="https://www.facebook.com/william.hertrich.10" target="_blank">
 				<img class="img_contact" src="/icones/Facebook.png" alt="">
 			</a>
-			<a class="spacing_portfolio" href="#" onclick="openEmailPopup()">
+			<a class="spacing_portfolio no-script-execution" href="#" onclick="openEmailPopup()">
 				<img class="img_contact" src="/icones/email.png" alt="">
-			</a>
-			
-			<div id="emailPopup" class="no-script-execution" style="display: none;">
-				<span class="close" onclick="closeEmailPopup()">&times;</span>
-				<div class="popup-content">
-					<h3>Choisissez une adresse e-mail :</h3>
-					<ul class="email-list">
-						<li><a href="mailto:info@example.com">info@example.com</a> (Information générale)</li>
-						<li><a href="mailto:support@example.com">support@example.com</a> (Assistance technique)</li>
-					</ul>
+				</a>
+				<div id="emailPopup" class="no-script-execution" style="display: none;">
+					<span class="close" onclick="closeEmailPopup()">&times;</span>
+					<div class="popup-content">
+						<h3>Choisissez une adresse e-mail :</h3>
+						<ul class="email-list">
+							<li><a href="mailto:info@example.com">info@example.com</a> (Information générale)</li>
+							<li><a href="mailto:support@example.com">support@example.com</a> (Assistance technique)</li>
+						</ul>
+					</div>
 				</div>
-			</div>
 
 
-			<a class="spacing_portfolio" href="/documents/CV-Complet.pdf" download=""><img class="img_contact"
-					src="/icones/cv.png" alt=""></a>
+
+				<a class="spacing_portfolio" href="/documents/CV-Complet.pdf" download=""><img class="img_contact"
+						src="/icones/cv.png" alt=""></a>
 		</article>
 	</body>
 
