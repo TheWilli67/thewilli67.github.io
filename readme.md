@@ -21,4 +21,10 @@ Contact : william.hertrich@numericable.fr
 ## Todo list : 
 - [x] Make a CV in web page mode
 - [x] Make a Contact page where I fill in the different ways to contact me 
-- [x] Make the site correct for different devices (mobile, tablets, PC, Nintendo DS?)
+- [] Complete the "A PROPOS" page
+- [] Make the site correct for different devices (mobile, tablets, PC, Nintendo DS?)
+- [x] Transfert my portfolio from Mahara to this website
+- [] Complete well one of my project : "Projet 27h" part
+- [] Complete well BUT 1 part
+- [x] Complete well BUT 2 part
+- [] Complete well BUT 3 part
