@@ -79,7 +79,7 @@ scroll-behavior: smooth;
 }
 .photo_de_présentation{
   margin-right: 1%;
-  width: 30%;
+  width: 25%;
   float: right;
 }
 .texte_de_présentation{
@@ -261,4 +261,8 @@ scroll-behavior: smooth;
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+}
+.titre_centre{
+  text-align: center;
+  margin-top: 5%;
 }
