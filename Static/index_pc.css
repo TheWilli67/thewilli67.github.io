@@ -1,5 +1,3 @@
-/* Styles pour les écrans de grande taille (PC) */
-@media (min-width: 1024px) {
 .working{
   text-align: center;
   margin-top: 13%;
@@ -253,7 +251,6 @@ scroll-behavior: smooth;
 }
 .div_center{
   text-align: center;
-}
 }
 .close {
   position: absolute;
