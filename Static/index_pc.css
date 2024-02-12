@@ -100,6 +100,14 @@ scroll-behavior: smooth;
   font-size:xx-large;
   margin-left: 10%;
 }
+.Title1{
+  font-size: x-large;
+  margin-left: 5%;
+}
+.Title2{
+  font-size: large;
+  margin-left: 5%;
+}
 .describe_myself{
   width: 60%;
   margin: auto;
