@@ -272,3 +272,20 @@ scroll-behavior: smooth;
   text-align: center;
   margin-top: 5%;
 }
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #E8E8E8; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* Arrondir les coins */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour donner du volume */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transitions pour l'effet au survol */
+}
+
+a.button:hover {
+    background-color: #fdfcfc; /* Couleur de fond au survol */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
