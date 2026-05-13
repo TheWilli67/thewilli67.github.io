@@ -1,38 +1,360 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/Static/index_pc.css">
-	<link rel="icon" href="/Images_photos/reprendre.png" />
-	<script src="/scripts/animation_page.js"></script>
-	<title>HERTRICH William | à propos </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="À propos de William Hertrich — Ingénieur Systèmes & Réseaux, passionné de cybersécurité">
+  <title>William Hertrich — À propos</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(37,99,235,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 15% 70%, rgba(99,102,241,.08) 0%, transparent 50%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: flex; align-items: center; gap: 4rem; }
+    .ph-text { flex: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .75rem; }
+    .ph-sub { font-size: 1rem; color: #64748b; max-width: 550px; line-height: 1.75; }
+    .ph-photo { flex-shrink: 0; }
+    .ph-photo img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center center; border: 3px solid rgba(37,99,235,.4); box-shadow: 0 0 40px rgba(37,99,235,.15); }
+
+    /* Sections */
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .s-header { text-align: center; margin-bottom: 3rem; }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+
+    /* Story section */
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .story-block h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .75rem; }
+    .story-block p { font-size: .93rem; color: var(--text-m); line-height: 1.8; margin-bottom: .85rem; }
+    .story-block p:last-child { margin-bottom: 0; }
+    .story-quote {
+      background: var(--accent-lt); border-left: 3px solid var(--accent);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      font-style: italic; color: var(--text-m); font-size: .93rem; line-height: 1.75;
+    }
+
+    /* Values grid */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .value-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.5rem;
+      box-shadow: var(--sh-sm); transition: var(--t); text-align: center;
+    }
+    .value-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .value-icon { font-size: 1.75rem; margin-bottom: .75rem; }
+    .value-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .value-desc { font-size: .83rem; color: var(--text-m); line-height: 1.6; }
+
+    /* Interests grid */
+    .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .interest-card {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--r);
+      box-shadow: var(--sh-sm); transition: var(--t);
+    }
+    .interest-card:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .interest-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem; flex-shrink: 0;
+    }
+    .interest-title { font-size: .88rem; font-weight: 600; color: var(--text); }
+    .interest-desc  { font-size: .78rem; color: var(--text-m); margin-top: .1rem; }
+
+    /* Goals timeline */
+    .goals-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin: 0 auto; }
+    .goal-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-sm); }
+    .goal-num { width: 36px; height: 36px; background: var(--accent-lt); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+    .goal-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+    .goal-desc  { font-size: .84rem; color: var(--text-m); line-height: 1.6; }
+
+    /* CTA */
+    .cta-block { text-align: center; padding: 3.5rem 2rem; background: var(--bg-dark); border-radius: var(--r); color: #f8fafc; }
+    .cta-block h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: .75rem; letter-spacing: -.01em; }
+    .cta-block p { font-size: .95rem; color: #64748b; margin-bottom: 2rem; }
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: .875rem; transition: var(--t); }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(37,99,235,.3); }
+    .btn-primary:hover { background: var(--accent-h); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: #cbd5e1; border: 1.5px solid #2d3f57; }
+    .btn-ghost:hover { border-color: #60a5fa; color: #93c5fd; transform: translateY(-2px); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 900px) {
+      .ph-inner { flex-direction: column-reverse; gap: 2rem; align-items: center; text-align: center; }
+      .ph-sub { margin-inline: auto; }
+      .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3.5rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+    }
+  </style>
 </head>
-
 <body>
-	<div class="navbar">
-		<p class="name"><a style="text-decoration: none;color:white;" href="/index.html">HERTRICH William</a></p>
-		<a class="lien" href="/a_propos.html">
-			<p>A PROPOS</p>
-			<a class="lien" href="/contact.html">
-				<p>CONTACT</p>
-			</a>
-			<a class="lien" href="/portfolio.html">
-				<p>PORTFOLIO</p>
-			</a>
-		</a>
-		<a class="lien" href="/index.html">
-			<p>ACCUEIL</p>
-		</a>
-	</div>
-	<div class="working">
-		<h1 class="working_text">This page "A PROPOS" is under development</h1>
-	</div>
-</body>
 
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html" class="active show">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html">Accueil</a></li>
+    </ul>
+  </nav>
+
+  <header class="pheader">
+    <div class="ph-inner">
+      <div class="ph-text">
+        <span class="ph-eyebrow">Qui suis-je vraiment ?</span>
+        <h1 class="ph-title">À propos</h1>
+        <p class="ph-sub">Au-delà du CV — ma passion pour l'informatique, mes valeurs, mes centres d'intérêt et mes ambitions pour l'avenir.</p>
+      </div>
+      <div class="ph-photo">
+        <img src="/Images_photos/photo_william.jpg" alt="William Hertrich">
+      </div>
+    </div>
+  </header>
+
+  <!-- Mon histoire -->
+  <section class="section" id="histoire">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Mon histoire</span>
+        <h2 class="s-title">D'Alsace aux réseaux &amp; à la cyber</h2>
+      </div>
+      <div class="story-grid">
+        <div class="story-block reveal">
+          <h3>Le début : une curiosité naturelle</h3>
+          <p>Originaire de Zelsheim, petit village du Bas-Rhin en Alsace, j'ai grandi avec une curiosité naturelle pour la technologie. Ce qui a commencé par démonter des ordinateurs et bricoler des réseaux domestiques s'est rapidement transformé en une véritable vocation.</p>
+          <p>Après un Baccalauréat Technologique ITEC au Lycée Jean-Baptiste Schwillgué de Sélestat en 2021, j'ai choisi l'IUT de Colmar pour préparer un <strong>BUT Réseaux &amp; Télécommunications</strong>, option Cybersécurité — un programme alliant théorie solide et projets pratiques (SAE).</p>
+          <div class="story-quote">
+            "Ce qui me passionne, c'est de comprendre comment les systèmes fonctionnent — et surtout comment ils peuvent être sécurisés."
+          </div>
+        </div>
+        <div class="story-block reveal" style="transition-delay:.15s">
+          <h3>L'alternance : l'école de la réalité</h3>
+          <p>En parallèle de mes études, j'ai effectué deux alternances structurantes :</p>
+          <p>Chez <strong>SOLINEST</strong> (2022–2024), entreprise agroalimentaire multi-sites, j'ai découvert les enjeux du support IT en entreprise, la gestion de parc, les projets de migration et la sensibilisation cybersécurité des utilisateurs.</p>
+          <p>Chez <strong>Réseau-Net</strong> (depuis août 2024), ESN spécialisée en infogérance, j'interviens quotidiennement sur des infrastructures multi-clients : virtualisation VMware/Hyper-V, firewalling Fortinet, EDR SentinelOne, supervision Observium, sauvegarde Veeam — et j'automatise avec Python et Bash.</p>
+          <p>En 2024, j'ai intégré le <strong>Master CDSI</strong> (Cyberdéfense et Sécurité de l'Information) à l'INSA Hauts-de-France, pour approfondir ma spécialisation en sécurité des systèmes d'information.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valeurs -->
+  <section class="section section-alt" id="valeurs">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Ce qui me définit</span>
+        <h2 class="s-title">Mes valeurs &amp; mon approche</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">🎯</div>
+          <p class="value-title">Rigueur</p>
+          <p class="value-desc">En sécurité comme en réseau, les détails comptent. Je documente, je teste et je valide chaque étape avant de passer à la suivante.</p>
+        </div>
+        <div class="value-card reveal" style="transition-delay:.1s">
+          <div class="value-icon">🚀</div>
+          <p class="value-title">Autonomie</p>
+          <p class="value-desc">Capable de prendre en charge un problème de bout en bout, de la collecte d'informations à la résolution, sans avoir besoin d'être guidé à chaque étape.</p>
+        </div>
+        <div class="value-card reveal" style="transition-delay:.2s">
+          <div class="value-icon">💡</div>
+          <p class="value-title">Curiosité</p>
+          <p class="value-desc">Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité — j'aime apprendre en dehors du cadre scolaire.</p>
+        </div>
+        <div class="value-card reveal" style="transition-delay:.3s">
+          <div class="value-icon">🤝</div>
+          <p class="value-title">Bon relationnel</p>
+          <p class="value-desc">Capable de vulgariser des sujets techniques pour des utilisateurs non-avertis, et de collaborer efficacement avec différents prestataires et métiers.</p>
+        </div>
+        <div class="value-card reveal" style="transition-delay:.1s">
+          <div class="value-icon">⚡</div>
+          <p class="value-title">Réactivité</p>
+          <p class="value-desc">En infogérance, la rapidité de réponse est critique. J'ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d'incident.</p>
+        </div>
+        <div class="value-card reveal" style="transition-delay:.2s">
+          <div class="value-icon">📋</div>
+          <p class="value-title">Force de proposition</p>
+          <p class="value-desc">Je ne me contente pas d'exécuter — je propose des améliorations, j'identifie les risques en amont et je cherche à optimiser les processus existants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Centres d'intérêt -->
+  <section class="section" id="interets">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">En dehors du bureau</span>
+        <h2 class="s-title">Mes centres d'intérêt</h2>
+      </div>
+      <div class="interests-grid reveal">
+        <div class="interest-card">
+          <div class="interest-icon" style="background:rgba(239,68,68,.1);color:#dc2626"><i class="fas fa-motorcycle"></i></div>
+          <div>
+            <p class="interest-title">Moto</p>
+            <p class="interest-desc">Titulaire du permis A1-A2, passionné par la mécanique de précision et la conduite sur route.</p>
+          </div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon" style="background:rgba(234,179,8,.1);color:#b45309"><i class="fas fa-music"></i></div>
+          <div>
+            <p class="interest-title">Musique</p>
+            <p class="interest-desc">Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code.</p>
+          </div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon" style="background:rgba(34,197,94,.1);color:#16a34a"><i class="fas fa-fish"></i></div>
+          <div>
+            <p class="interest-title">Pêche</p>
+            <p class="interest-desc">Une activité qui demande patience et observation — deux qualités qui se retrouvent aussi dans le métier de sysadmin.</p>
+          </div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon" style="background:rgba(99,102,241,.1);color:#6366f1"><i class="fas fa-gamepad"></i></div>
+          <div>
+            <p class="interest-title">Jeux vidéos</p>
+            <p class="interest-desc">Stratégie et coopération — j'aime les jeux qui demandent réflexion, planification et travail d'équipe.</p>
+          </div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-icon" style="background:rgba(37,99,235,.1);color:var(--accent)"><i class="fas fa-shield-halved"></i></div>
+          <div>
+            <p class="interest-title">TryHackMe &amp; CTF</p>
+            <p class="interest-desc">Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Objectifs -->
+  <section class="section section-alt" id="objectifs">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Ambitions</span>
+        <h2 class="s-title">Mes objectifs professionnels</h2>
+      </div>
+      <div class="goals-list reveal">
+        <div class="goal-item">
+          <div class="goal-num">1</div>
+          <div>
+            <p class="goal-title">Obtenir mon Master CDSI (2026)</p>
+            <p class="goal-desc">Valider le Master Réseaux &amp; Télécommunications option Cyberdéfense et Sécurité de l'Information à l'INSA Hauts-de-France, en parallèle de mon alternance chez Réseau-Net.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-num">2</div>
+          <div>
+            <p class="goal-title">Évoluer vers l'ingénierie sécurité</p>
+            <p class="goal-desc">Consolider mon expertise en cybersécurité opérationnelle — architecture sécurisée, pentest, SIEM, gestion d'incidents — pour évoluer vers un poste d'Ingénieur Sécurité ou de Consultant en cybersécurité.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-num">3</div>
+          <div>
+            <p class="goal-title">Viser le rôle de RSSI</p>
+            <p class="goal-desc">À moyen terme, contribuer à la stratégie de sécurité d'une organisation en tant que Responsable de la Sécurité des Systèmes d'Information — alliant expertise technique et vision globale des risques.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-num">4</div>
+          <div>
+            <p class="goal-title">Certifications et montée en compétences</p>
+            <p class="goal-desc">Progresser dans les certifications sécurité : CSNA déjà obtenu, et à venir — certifications Fortinet NSE, CompTIA Security+, ou parcours OSCP.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="inner">
+      <div class="cta-block reveal">
+        <h3>Envie d'échanger ?</h3>
+        <p>N'hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux.</p>
+        <div class="cta-btns">
+          <a href="/contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Me contacter</a>
+          <a href="/portfolio.html" class="btn btn-ghost"><i class="fas fa-folder-open"></i> Voir mon portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
 </html>

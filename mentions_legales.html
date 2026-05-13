@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mentions légales — William Hertrich">
+  <title>William Hertrich — Mentions légales</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.08) 0%, transparent 60%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-sub { font-size: .95rem; color: #64748b; line-height: 1.7; }
+
+    /* Content */
+    .section { padding: 4rem 5% 5rem; }
+    .inner { max-width: 860px; margin: 0 auto; }
+
+    .ml-block {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 2rem 2.25rem;
+      box-shadow: var(--sh-sm); margin-bottom: 1.5rem;
+    }
+    .ml-block-title {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      margin-bottom: 1.25rem; padding-bottom: .75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .ml-block-title i {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--accent-lt); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; flex-shrink: 0;
+    }
+    .ml-row { display: flex; gap: .6rem; margin-bottom: .6rem; font-size: .9rem; }
+    .ml-row:last-child { margin-bottom: 0; }
+    .ml-label { font-weight: 600; color: var(--text); min-width: 180px; flex-shrink: 0; }
+    .ml-val { color: var(--text-m); }
+    .ml-val a { color: var(--accent); transition: var(--t); }
+    .ml-val a:hover { color: var(--accent-h); text-decoration: underline; }
+
+    .ml-note {
+      background: var(--bg-alt); border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0; padding: 1rem 1.25rem;
+      font-size: .87rem; color: var(--text-m); line-height: 1.75;
+      margin-top: .85rem;
+    }
+
+    .ml-update { text-align: center; font-size: .8rem; color: var(--text-lt); margin-top: 2.5rem; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 600px) {
+      .section { padding: 3rem 1.25rem 4rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+      .ml-row { flex-direction: column; gap: .15rem; }
+      .ml-label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html" class="show">Accueil</a></li>
+    </ul>
+  </nav>
+
+  <header class="pheader">
+    <div class="ph-inner">
+      <span class="ph-eyebrow">Informations légales</span>
+      <h1 class="ph-title">Mentions légales</h1>
+      <p class="ph-sub">Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), les informations suivantes sont portées à la connaissance des utilisateurs de ce site.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="inner">
+
+      <!-- Éditeur -->
+      <div class="ml-block reveal">
+        <h2 class="ml-block-title"><i class="fas fa-user"></i> Éditeur du site</h2>
+        <div class="ml-row"><span class="ml-label">Nom et prénom</span><span class="ml-val">William Hertrich</span></div>
+        <div class="ml-row"><span class="ml-label">Qualité</span><span class="ml-val">Particulier — portfolio personnel non commercial</span></div>
+        <div class="ml-row"><span class="ml-label">Adresse</span><span class="ml-val">Zelsheim, 67290, Bas-Rhin, France</span></div>
+        <div class="ml-row"><span class="ml-label">Adresse électronique</span><span class="ml-val"><a href="mailto:william.hertrich67@gmail.com" class="no-script-execution">william.hertrich67@gmail.com</a></span></div>
+        <div class="ml-row"><span class="ml-label">Téléphone</span><span class="ml-val">+33 6 73 98 12 09</span></div>
+        <div class="ml-note">Ce site est un portfolio personnel à vocation non commerciale. Il n'est rattaché à aucune activité commerciale enregistrée (pas de numéro SIRET).</div>
+      </div>
+
+      <!-- Hébergement -->
+      <div class="ml-block reveal" style="transition-delay:.1s">
+        <h2 class="ml-block-title"><i class="fas fa-server"></i> Hébergement</h2>
+        <div class="ml-row"><span class="ml-label">Hébergeur</span><span class="ml-val">GitHub, Inc.</span></div>
+        <div class="ml-row"><span class="ml-label">Service</span><span class="ml-val">GitHub Pages</span></div>
+        <div class="ml-row"><span class="ml-label">Adresse</span><span class="ml-val">88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</span></div>
+        <div class="ml-row"><span class="ml-label">Téléphone</span><span class="ml-val">+1 (877) 448-4820</span></div>
+        <div class="ml-row"><span class="ml-label">Site web</span><span class="ml-val"><a href="https://pages.github.com" target="_blank" class="no-script-execution">pages.github.com</a></span></div>
+      </div>
+
+      <!-- Propriété intellectuelle -->
+      <div class="ml-block reveal" style="transition-delay:.15s">
+        <h2 class="ml-block-title"><i class="fas fa-copyright"></i> Propriété intellectuelle</h2>
+        <div class="ml-row"><span class="ml-label">Textes &amp; contenus</span><span class="ml-val">© 2026 William Hertrich — tous droits réservés. Toute reproduction, même partielle, est soumise à autorisation préalable.</span></div>
+        <div class="ml-row"><span class="ml-label">Photos personnelles</span><span class="ml-val">© William Hertrich — réalisées par l'auteur ou avec son consentement explicite.</span></div>
+        <div class="ml-row"><span class="ml-label">Captures de projets</span><span class="ml-val">© William Hertrich — documents et rendus issus de travaux personnels réalisés dans le cadre de formations ou d'emplois.</span></div>
+        <div class="ml-row"><span class="ml-label">Carte Google Maps</span><span class="ml-val">© Google Maps — utilisée à titre illustratif dans le cadre d'une présentation non commerciale, conformément aux conditions d'utilisation de Google.</span></div>
+        <div class="ml-row"><span class="ml-label">Icônes</span><span class="ml-val">Font Awesome 6.5.0 — licence MIT &amp; CC BY 4.0 (<a href="https://fontawesome.com/license/free" target="_blank" class="no-script-execution">fontawesome.com/license/free</a>).</span></div>
+        <div class="ml-row"><span class="ml-label">Police de caractères</span><span class="ml-val">Inter — Google Fonts, licence SIL Open Font License 1.1.</span></div>
+      </div>
+
+      <!-- Données personnelles -->
+      <div class="ml-block reveal" style="transition-delay:.2s">
+        <h2 class="ml-block-title"><i class="fas fa-shield-halved"></i> Données personnelles</h2>
+        <div class="ml-row"><span class="ml-label">Collecte de données</span><span class="ml-val">Ce site ne collecte aucune donnée personnelle. Aucun formulaire de contact, aucun cookie de suivi ni aucun outil d'analyse n'est utilisé.</span></div>
+        <div class="ml-row"><span class="ml-label">Liens externes</span><span class="ml-val">Les liens vers LinkedIn, GitHub et Facebook renvoient vers des services tiers soumis à leurs propres politiques de confidentialité.</span></div>
+        <div class="ml-row"><span class="ml-label">Droit d'accès</span><span class="ml-val">Conformément au RGPD (Règlement UE 2016/679) et à la loi Informatique et Libertés, vous pouvez exercer vos droits en contactant : <a href="mailto:william.hertrich67@gmail.com" class="no-script-execution">william.hertrich67@gmail.com</a></span></div>
+      </div>
+
+      <!-- Responsabilité -->
+      <div class="ml-block reveal" style="transition-delay:.25s">
+        <h2 class="ml-block-title"><i class="fas fa-scale-balanced"></i> Limitation de responsabilité</h2>
+        <p style="font-size:.9rem;color:var(--text-m);line-height:1.75">
+          L'éditeur s'efforce de maintenir les informations publiées sur ce site aussi précises et à jour que possible, mais ne peut en garantir l'exhaustivité ni l'exactitude absolue. Ce site est fourni à titre informatif et ne constitue en aucun cas un conseil professionnel. L'éditeur décline toute responsabilité quant aux dommages directs ou indirects résultant de l'utilisation de ce site ou des informations qu'il contient.
+        </p>
+      </div>
+
+      <p class="ml-update reveal">Dernière mise à jour : mai 2026</p>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
+</html>

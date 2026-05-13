@@ -1,71 +1,226 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/Static/index_pc.css">
-	<link rel="icon" href="/Images_photos/reprendre.png" />
-	<script src="/scripts/emailpopup.js"></script>
-	<script src="/scripts/animation_page.js"></script>
-	<script src="/scripts/script_blocket.js"></script>
-	<title>HERTRICH William | Contact </title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacter William Hertrich — Ingénieur Systèmes & Réseaux">
+  <title>William Hertrich — Contact</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-sub { font-size: 1rem; color: #64748b; max-width: 600px; line-height: 1.7; }
+
+    /* Sections */
+    .section { padding: 5rem 5%; }
+    .inner { max-width: 900px; margin: 0 auto; }
+    .s-header { text-align: center; margin-bottom: 3rem; }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+
+    /* Contact grid */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .ccard {
+      display: flex; align-items: center; gap: 1.1rem;
+      padding: 1.4rem 1.5rem;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); box-shadow: var(--sh-sm);
+      transition: var(--t); cursor: pointer;
+    }
+    .ccard:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.25); }
+    .ccard-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .ci-linkedin  { background: rgba(10,102,194,.1);  color: #0a66c2; }
+    .ci-github    { background: rgba(36,41,47,.08);   color: #24292f; }
+    .ci-email     { background: rgba(37,99,235,.1);   color: var(--accent); }
+    .ci-phone     { background: rgba(34,197,94,.1);   color: #16a34a; }
+    .ci-cv        { background: rgba(239,68,68,.1);   color: #dc2626; }
+    .ci-facebook  { background: rgba(24,119,242,.1);  color: #1877f2; }
+    .ccard > div:not(.ccard-icon) { min-width: 0; flex: 1; }
+    .ccard-label { font-size: .72rem; font-weight: 600; color: var(--text-lt); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .2rem; }
+    .ccard-value { font-size: .92rem; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+    .ccard-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; transition: var(--t); flex-shrink: 0; }
+    .ccard:hover .ccard-arrow { color: var(--accent); transform: translateX(3px); }
+
+    /* Message box */
+    .msg-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 2rem; text-align: center;
+      box-shadow: var(--sh-sm); margin-bottom: 3rem;
+    }
+    .msg-box p { font-size: .95rem; color: var(--text-m); line-height: 1.75; }
+    .msg-box strong { color: var(--text); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+    }
+  </style>
+</head>
 <body>
 
-	<body>
-		<div class="navbar">
-			<p class="name"><a style="text-decoration: none;color:white;" href="/index.html">HERTRICH William</a></p>
-			<a class="lien" href="/a_propos.html">
-				<p>A PROPOS</p>
-			</a>
-			<a class="lien" href="/contact.html">
-				<p>CONTACT</p>
-			</a>
-			<a class="lien" href="/portfolio.html">
-				<p>PORTFOLIO</p>
-			</a>
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html" class="active show">Contact</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html">Accueil</a></li>
+    </ul>
+  </nav>
 
-			<a class="lien" href="/index.html">
-				<p>ACCUEIL</p>
-			</a>
-		</div>
-		<article class="contact" style="text-align: center;">
-			<h1 class="text_obj_barre" style="margin-bottom:7%;">
-				Contact
-			</h1>
-			<a href="https://www.linkedin.com/in/williamhertrich-67860-2003/" class="no-script-execution"
-				target="_blank"><img class="img_contact" src="/icones/linkedin.png" alt=""></a>
-			<a class="spacing_portfolio no-script-execution " href="https://github.com/TheWilli67" target="_blank"><img
-					class="img_contact" src="/icones/Github.png" alt=""></a>
-			<a class="spacing_portfolio no-script-execution" href="https://www.facebook.com/william.hertrich.10"
-				target="_blank"> <img class="img_contact" src="/icones/Facebook.png" alt=""></a>
-			<a class="spacing_portfolio no-script-execution" href="#" onclick="openEmailPopup()">
-				<img class="img_contact" src="/icones/email.png" alt="">
-			</a>
-			<div id="emailPopup" class="no-script-execution" style="display: none;">
-				<span class="close" onclick="closeEmailPopup()">&times;</span>
-				<div class="popup-content">
-					<h3>Choisissez une adresse e-mail :</h3>
-					<ul class="email-list" style="text-align: left;">
-						<li><a href="mailto:info@example.com" class="no-script-execution">william.hertrich67@gmail.com
-							</a> courriel personnel</li>
-						<li><a href="mailto:support@example.com" class="no-script-execution">william.hertrich@uha.fr
-							</a> Courriel scolaire </li>
-					</ul>
-				</div>
-			</div>
+  <header class="pheader">
+    <div class="ph-inner">
+      <span class="ph-eyebrow">Prenons contact</span>
+      <h1 class="ph-title">Contact</h1>
+      <p class="ph-sub">N'hésitez pas à me contacter pour toute opportunité professionnelle, collaboration ou question.</p>
+    </div>
+  </header>
 
+  <section class="section">
+    <div class="inner">
 
+      <div class="msg-box reveal">
+        <p>Je suis actuellement en alternance chez <strong>Réseau-Net</strong> jusqu'en août 2026,<br>
+        et toujours disponible pour échanger sur des projets ou opportunités futures.</p>
+      </div>
 
-			<a class="spacing_portfolio no-script-execution" href="/documents/CV_HERTRICH_William.pdf" target="_blank"
-				download><img class="img_contact" src="/icones/cv.png" alt=""></a>
-		</article>
-	</body>
+      <div class="s-header">
+        <span class="s-tag">Me trouver</span>
+        <h2 class="s-title">Mes coordonnées</h2>
+      </div>
 
+      <div class="contact-grid">
+
+        <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="ccard reveal no-script-execution">
+          <div class="ccard-icon ci-linkedin"><i class="fab fa-linkedin-in"></i></div>
+          <div>
+            <p class="ccard-label">LinkedIn</p>
+            <p class="ccard-value">williamhertrich-67860-2003</p>
+          </div>
+          <i class="fas fa-arrow-right ccard-arrow"></i>
+        </a>
+
+        <a href="https://github.com/TheWilli67" target="_blank" class="ccard reveal no-script-execution" style="transition-delay:.1s">
+          <div class="ccard-icon ci-github"><i class="fab fa-github"></i></div>
+          <div>
+            <p class="ccard-label">GitHub</p>
+            <p class="ccard-value">TheWilli67</p>
+          </div>
+          <i class="fas fa-arrow-right ccard-arrow"></i>
+        </a>
+
+        <a href="mailto:william.hertrich67@gmail.com" class="ccard reveal no-script-execution" style="transition-delay:.15s">
+          <div class="ccard-icon ci-email"><i class="fas fa-envelope"></i></div>
+          <div>
+            <p class="ccard-label">E-mail personnel</p>
+            <p class="ccard-value">william.hertrich67@gmail.com</p>
+          </div>
+          <i class="fas fa-arrow-right ccard-arrow"></i>
+        </a>
+
+        <a href="tel:+33673981209" class="ccard reveal no-script-execution" style="transition-delay:.2s">
+          <div class="ccard-icon ci-phone"><i class="fas fa-phone"></i></div>
+          <div>
+            <p class="ccard-label">Téléphone</p>
+            <p class="ccard-value">+33 6 73 98 12 09</p>
+          </div>
+          <i class="fas fa-arrow-right ccard-arrow"></i>
+        </a>
+
+        <a href="https://www.facebook.com/william.hertrich.10" target="_blank" class="ccard reveal no-script-execution" style="transition-delay:.25s">
+          <div class="ccard-icon ci-facebook"><i class="fab fa-facebook-f"></i></div>
+          <div>
+            <p class="ccard-label">Facebook</p>
+            <p class="ccard-value">william.hertrich.10</p>
+          </div>
+          <i class="fas fa-arrow-right ccard-arrow"></i>
+        </a>
+
+        <a href="/documents/CV_HERTRICH_William.pdf" target="_blank" class="ccard reveal no-script-execution" style="transition-delay:.3s" download>
+          <div class="ccard-icon ci-cv"><i class="fas fa-file-pdf"></i></div>
+          <div>
+            <p class="ccard-label">Curriculum Vitæ</p>
+            <p class="ccard-value">Télécharger mon CV (PDF)</p>
+          </div>
+          <i class="fas fa-download ccard-arrow"></i>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
 </html>

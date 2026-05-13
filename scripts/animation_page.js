@@ -27,11 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('load', function() {
-  // Supprime la classe fade-in de l'élément <body> après l'animation de transition fade-in
   var body = document.body;
   body.addEventListener('transitionend', function(event) {
     if (event.target === body && event.propertyName === 'opacity') {
-      body.classList.remove('fade-in');
+      if (body.classList.contains('fade-in')) {
+        body.style.opacity = '1';
+        body.classList.remove('fade-in');
+      }
     }
   });
 });

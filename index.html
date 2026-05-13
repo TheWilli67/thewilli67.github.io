@@ -1,180 +1,792 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/Static/index_pc.css">
-	<link rel="icon" href="/Images_photos/reprendre.png" />
-	<script src="/scripts/animation_page.js"></script>
-	<script src="/scripts/script_blocket.js"></script>
-	<title>HERTRICH William | Index </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="William Hertrich — Ingénieur Systèmes & Réseaux, Master CDSI INSA Hauts-de-France, Alternant Réseau-Net">
+  <title>William Hertrich — Ingénieur Systèmes & Réseaux</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    /* ===== Variables ===== */
+    :root {
+      --bg:          #f8fafc;
+      --bg-alt:      #f1f5f9;
+      --bg-card:     #ffffff;
+      --bg-dark:     #0f172a;
+      --bg-dark-2:   #1e293b;
+      --bg-dark-3:   #334155;
+      --accent:      #2563eb;
+      --accent-h:    #1d4ed8;
+      --accent-lt:   #dbeafe;
+      --text:        #0f172a;
+      --text-m:      #64748b;
+      --text-lt:     #94a3b8;
+      --border:      #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --sh:    0 4px 16px rgba(0,0,0,.08);
+      --sh-lg: 0 8px 32px rgba(0,0,0,.12);
+      --r:     12px;
+      --font:  'Inter', system-ui, sans-serif;
+      --t:     0.25s ease;
+    }
+
+    /* ===== Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      line-height: 1.6;
+    }
+    body.fade-in  { opacity: 1; }
+    body.fade-out { opacity: 0; }
+    a   { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul  { list-style: none; }
+
+    /* ===== Navbar ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 64px;
+      background: rgba(15,23,42,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a {
+      display: block; padding: .45rem 1rem;
+      color: #94a3b8; font-size: .82rem; font-weight: 500;
+      letter-spacing: .07em; text-transform: uppercase;
+      border-radius: 6px; transition: var(--t);
+    }
+    .nav-links a:hover  { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 100vh;
+      background: var(--bg-dark);
+      display: flex; align-items: center;
+      padding: 7rem 5% 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 75% 50%, rgba(37,99,235,.1)  0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 15% 80%, rgba(99,102,241,.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; gap: 5rem;
+      position: relative; z-index: 1;
+    }
+    .hero-text { flex: 1; min-width: 0; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .8rem; font-weight: 600; color: #60a5fa;
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 24px; height: 2px;
+      background: #60a5fa; border-radius: 2px;
+    }
+    .hero-name {
+      font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 800;
+      color: #f8fafc; line-height: 1.05;
+      margin-bottom: .6rem; letter-spacing: -.02em;
+    }
+    .hero-role { font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400; color: #64748b; margin-bottom: 1.75rem; }
+    .hero-role strong { color: #94a3b8; font-weight: 600; }
+    .hero-desc {
+      font-size: .97rem; color: #475569;
+      max-width: 500px; line-height: 1.75; margin-bottom: 2rem;
+    }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .3rem .85rem;
+      background: rgba(37,99,235,.1);
+      border: 1px solid rgba(37,99,235,.25);
+      color: #93c5fd; border-radius: 100px;
+      font-size: .78rem; font-weight: 500;
+    }
+    .hero-chip i { font-size: .7rem; }
+    .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.6rem; border-radius: 8px;
+      font-weight: 600; font-size: .875rem;
+      transition: var(--t); cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent); color: white;
+      box-shadow: 0 4px 14px rgba(37,99,235,.3);
+    }
+    .btn-primary:hover {
+      background: var(--accent-h); transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,99,235,.45);
+    }
+    .btn-ghost {
+      background: transparent; color: #cbd5e1;
+      border: 1.5px solid #2d3f57;
+    }
+    .btn-ghost:hover {
+      border-color: #60a5fa; color: #93c5fd;
+      background: rgba(37,99,235,.07); transform: translateY(-2px);
+    }
+
+    .hero-visual { position: relative; flex-shrink: 0; }
+    .hero-ring {
+      width: 300px; height: 300px; border-radius: 50%; padding: 3px;
+      background: conic-gradient(from 180deg, #2563eb, #6366f1, #2563eb);
+      box-shadow: 0 0 60px rgba(37,99,235,.2);
+    }
+    .hero-ring img {
+      width: 100%; height: 100%; border-radius: 50%;
+      object-fit: cover; object-position: center center;
+      border: 4px solid var(--bg-dark);
+    }
+    .hero-badge {
+      position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+      background: var(--bg-dark-2);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: .6rem 1rem;
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .75rem; color: #94a3b8;
+      white-space: nowrap; box-shadow: var(--sh-lg);
+    }
+    .dot-green {
+      width: 8px; height: 8px; background: #22c55e;
+      border-radius: 50%; flex-shrink: 0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+      50%      { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      color: #334155; font-size: .7rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      animation: scroll-bounce 2.5s ease-in-out infinite;
+    }
+    .hero-scroll i { color: #475569; font-size: .85rem; }
+    @keyframes scroll-bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== Sections ===== */
+    .section     { padding: 5.5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner       { max-width: 1100px; margin: 0 auto; }
+    .s-header    { text-align: center; margin-bottom: 3.5rem; }
+    .s-tag {
+      display: inline-block; margin-bottom: .75rem;
+      font-size: .72rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px;
+    }
+    .s-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+      color: var(--text); letter-spacing: -.02em; line-height: 1.2;
+    }
+
+    /* ===== About ===== */
+    .about-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem; align-items: start;
+    }
+    .about-lead { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; line-height: 1.5; }
+    .about-body p { font-size: .93rem; color: var(--text-m); line-height: 1.8; margin-bottom: .85rem; }
+    .info-list { margin-top: 1.75rem; display: flex; flex-direction: column; gap: .65rem; }
+    .info-item { display: flex; align-items: center; gap: .75rem; font-size: .875rem; color: var(--text-m); }
+    .info-item i { color: var(--accent); width: 16px; text-align: center; font-size: .85rem; flex-shrink: 0; }
+    .info-item a { color: var(--accent); transition: var(--t); }
+    .info-item a:hover { color: var(--accent-h); text-decoration: underline; }
+
+    /* Education Timeline */
+    .edu-tl { position: relative; padding-left: 1.25rem; }
+    .edu-tl::before {
+      content: ''; position: absolute;
+      left: 0; top: 8px; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(37,99,235,.15) 100%);
+      border-radius: 2px;
+    }
+    .edu-item { position: relative; padding-left: 1.5rem; margin-bottom: 1.75rem; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-dot {
+      position: absolute; left: -1.25rem; top: 5px;
+      width: 10px; height: 10px; background: var(--accent);
+      border-radius: 50%; border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .edu-period {
+      display: inline-block; font-size: .72rem; font-weight: 600;
+      color: var(--accent); letter-spacing: .06em; text-transform: uppercase;
+      background: var(--accent-lt); padding: .15rem .55rem;
+      border-radius: 4px; margin-bottom: .35rem;
+    }
+    .edu-degree  { font-size: .92rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: .2rem; }
+    .edu-sub     { font-size: .8rem; color: var(--text-m); font-weight: 400; }
+    .edu-school  { font-size: .82rem; color: var(--text-lt); margin-top: .2rem; }
+    .edu-school i { margin-right: .3rem; font-size: .75rem; }
+
+    /* ===== Skills ===== */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.25rem; }
+    .skill-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.4rem;
+      box-shadow: var(--sh-sm); transition: var(--t);
+    }
+    .skill-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .skill-head { display: flex; align-items: center; gap: .65rem; margin-bottom: 1rem; }
+    .skill-icon {
+      width: 38px; height: 38px; background: var(--accent-lt);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: .95rem; flex-shrink: 0;
+    }
+    .skill-cat { font-size: .9rem; font-weight: 700; color: var(--text); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .stag {
+      padding: .22rem .65rem; background: #f1f5f9; color: var(--text-m);
+      border-radius: 100px; font-size: .75rem; font-weight: 500;
+      border: 1px solid var(--border); transition: var(--t);
+    }
+    .stag:hover { background: var(--accent-lt); color: var(--accent); border-color: rgba(37,99,235,.3); }
+
+    /* Certifications */
+    .certs-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; justify-content: center; }
+    .cert {
+      display: flex; align-items: center; gap: .85rem;
+      padding: .9rem 1.25rem; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--r);
+      box-shadow: var(--sh-sm); transition: var(--t); min-width: 260px;
+    }
+    .cert:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: var(--accent); }
+    .cert-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--accent), #6366f1);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: .9rem; flex-shrink: 0;
+    }
+    .cert-name { font-size: .84rem; font-weight: 600; color: var(--text); }
+    .cert-sub   { font-size: .75rem; color: var(--text-m); margin-top: .1rem; }
+
+    /* ===== Experience Timeline ===== */
+    .exp-tl { position: relative; padding-left: 21px; }
+    .exp-tl::before {
+      content: ''; position: absolute;
+      left: 20px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(37,99,235,.1) 100%);
+    }
+    .exp-item { display: flex; gap: 1.75rem; margin-bottom: 2.5rem; position: relative; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-marker {
+      flex-shrink: 0; width: 42px; height: 42px;
+      background: var(--bg-dark); border: 2.5px solid var(--accent);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: #60a5fa; font-size: .85rem;
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 4px var(--accent-lt);
+      transition: var(--t); margin-left: -21px;
+    }
+    .exp-item:hover .exp-marker { background: var(--accent); color: white; }
+    .exp-card {
+      flex: 1; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--r);
+      padding: 1.5rem 1.75rem; box-shadow: var(--sh-sm); transition: var(--t);
+    }
+    .exp-card:hover { box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .exp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; flex-wrap: wrap; }
+    .exp-role    { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .exp-company { font-size: .875rem; color: var(--accent); font-weight: 600; }
+    .exp-loc     { font-size: .8rem; color: var(--text-lt); margin-top: .15rem; }
+    .exp-loc i   { margin-right: .3rem; }
+    .exp-period  {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .77rem; color: var(--text-m);
+      padding: .3rem .8rem; background: var(--bg-alt);
+      border: 1px solid var(--border); border-radius: 100px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .exp-period.current { background: rgba(34,197,94,.07); border-color: rgba(34,197,94,.3); color: #15803d; }
+    .exp-period.current i { color: #22c55e; font-size: .65rem; }
+    .exp-desc { font-size: .875rem; color: var(--text-m); line-height: 1.75; margin-bottom: 1.1rem; }
+    .exp-cats   { display: flex; flex-direction: column; gap: .6rem; }
+    .exp-cat    { display: flex; align-items: flex-start; gap: .6rem; }
+    .exp-clabel {
+      font-size: .72rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .06em;
+      min-width: 90px; padding-top: .2rem; white-space: nowrap; flex-shrink: 0;
+    }
+    .exp-chips  { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .echip {
+      padding: .18rem .55rem; background: var(--bg-alt); color: var(--text-m);
+      border-radius: 4px; font-size: .73rem; font-weight: 500; border: 1px solid var(--border);
+    }
+
+    /* ===== Footer ===== */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    /* ===== Reveal animation ===== */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero-inner      { flex-direction: column-reverse; gap: 3rem; text-align: center; }
+      .hero-eyebrow,
+      .hero-chips,
+      .hero-actions    { justify-content: center; }
+      .hero-desc       { margin-inline: auto; }
+      .hero-ring       { width: 220px; height: 220px; }
+      .hero-badge      { bottom: -20px; }
+      .about-grid      { grid-template-columns: 1fr; gap: 2.5rem; }
+      .nav             { padding: 0 1.25rem; }
+      .nav-links a     { padding: .4rem .6rem; font-size: .75rem; }
+    }
+    @media (max-width: 600px) {
+      .section         { padding: 4rem 1.25rem; }
+      .hero            { padding: 6rem 1.25rem 4rem; }
+      .hero-name       { font-size: 2.2rem; }
+      .nav-links a     { display: none; }
+      .nav-links .show { display: block; }
+    }
+  </style>
 </head>
-
 <body>
-	<div class="navbar">
-		<p class="name"><a style="text-decoration: none;color:white;" href="/index.html">HERTRICH William</a></p>
-		<a class="lien" href="/a_propos.html">
-			<p>A PROPOS</p>
-		</a>
-		<a class="lien" href="/contact.html">
-			<p>CONTACT</p>
-		</a>
-		<a class="lien" href="/portfolio.html">
-			<p>PORTFOLIO</p>
-		</a>
 
-		<a class="lien" href="/index.html">
-			<p>ACCUEIL</p>
-		</a>
-	</div>
-	<article>
-		<div class="div_center">
-			<img class="photo_de_présentation" src="Images_photos/hertrich.jpg" alt="photo">
-		</div>
-		<div class="div_center">
-			<p class="texte_de_présentation">Bonjour, je m'appelle William. Je suis actuellement en
-				Bachelor Universitaire de Technologie (BUT), spécialisé en cybersécurité. En outre, je
-				suis en alternance chez Solinest où j'applique et approfondis mes connaissances en pratique.</p>
-		</div>
-	</article>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html" class="active show">Accueil</a></li>
+    </ul>
+  </nav>
 
-	<div class="cv">
-		<p class="Maintitle">Qui suis-je ?</p>
-		<P class="describe_myself">
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
 
-			<!-- Parcours BAC +5 :  -->
+      <div class="hero-text">
+        <span class="hero-eyebrow">Bonjour, je suis</span>
+        <h1 class="hero-name">William Hertrich</h1>
+        <p class="hero-role">Ingénieur <strong>Systèmes &amp; Réseaux</strong> · Master CDSI</p>
+        <p class="hero-desc">
+          Passionné par les infrastructures numériques et la cybersécurité, je suis alternant ingénieur
+          systèmes et réseaux chez <strong style="color:#94a3b8">Réseau-Net</strong> et en Master
+          Réseaux &amp; Télécoms option Cyberdéfense à l'<strong style="color:#94a3b8">INSA Hauts-de-France</strong>.
+        </p>
+        <div class="hero-chips">
+          <span class="hero-chip"><i class="fas fa-shield-halved"></i> Cybersécurité</span>
+          <span class="hero-chip"><i class="fas fa-network-wired"></i> Réseaux</span>
+          <span class="hero-chip"><i class="fas fa-server"></i> Systèmes</span>
+          <span class="hero-chip"><i class="fas fa-cloud"></i> Virtualisation</span>
+        </div>
+        <div class="hero-actions">
+          <a href="/contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Me contacter</a>
+          <a href="/portfolio.html" class="btn btn-ghost"><i class="fas fa-folder-open"></i> Portfolio</a>
+          <a href="/documents/CV_HERTRICH_William.pdf" class="btn btn-ghost no-script-execution" target="_blank"><i class="fas fa-file-pdf"></i> CV</a>
+        </div>
+      </div>
 
-			Actuellement je suis en première année de master a l'INSA Hauts-De-France en Réseau et télécommunication
-			option cyberdéfense et sécurité de l'information (<a
-				href="https://www.insa-hautsdefrance.fr/sites/default/files/media/2024-10/master_cdsi.pdf">fiche_master_CDSI</a>)
-			pour encore plus d'information sur mes études voici le site de l'INSA sur ma formation : <a
-				href="https://www.insa-hautsdefrance.fr/formation/masters">https://www.insa-hautsdefrance.fr/formation/masters</a>
-			<br><br>
+      <div class="hero-visual">
+        <div class="hero-ring">
+          <img src="Images_photos/photo_william.jpg" alt="William Hertrich">
+        </div>
+        <div class="hero-badge">
+          <span class="dot-green"></span>
+          Alternant @ Réseau-Net
+        </div>
+      </div>
 
-			<!-- Parcours BAC +3 :  -->
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
 
-			J'ai eu en 2024 un BUT réseaux et télécommunication option cybersécurité à l'IUT de Colmar (<a
-				href="https://www.iutcolmar.uha.fr/" class="no-script-execution" target="_blank">Lien vers le site
-				web</a>).
-			<br><br>
-			<!-- Parcours Primaire :  -->
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Qui suis-je ?</span>
+        <h2 class="s-title">Mon parcours &amp; ma formation</h2>
+      </div>
+      <div class="about-grid">
 
+        <div class="about-body reveal">
+          <p class="about-lead">Un passionné d'infrastructures IT et de cybersécurité</p>
+          <p>
+            Actuellement en Master Réseaux et Télécommunications (Parcours CDSI — Cyberdéfense et
+            Sécurité de l'Information) à l'INSA Hauts-de-France, je construis une expertise solide en
+            ingénierie réseaux, systèmes et sécurité.
+          </p>
+          <p>
+            Mon alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance, me permet
+            d'intervenir quotidiennement sur des infrastructures multi-clients variées : virtualisation,
+            firewalling, supervision, sauvegarde et support niveau 2/3.
+          </p>
+          <p>
+            En dehors du technique, je suis passionné par la moto, la musique, la pêche et les jeux de
+            stratégie &amp; coopération — des centres d'intérêt qui reflètent ma rigueur et ma curiosité.
+          </p>
+          <div class="info-list">
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Zelsheim, Grand Est (67)</span></div>
+            <div class="info-item"><i class="fas fa-envelope"></i><a href="mailto:william.hertrich67@gmail.com" class="no-script-execution">william.hertrich67@gmail.com</a></div>
+            <div class="info-item"><i class="fas fa-phone"></i><span>+33 6 73 98 12 09</span></div>
+            <div class="info-item">
+              <i class="fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">linkedin.com/in/williamhertrich-67860-2003</a>
+            </div>
+            <div class="info-item"><i class="fas fa-language"></i><span>Anglais — TOEIC 915 / 990</span></div>
+            <div class="info-item"><i class="fas fa-motorcycle"></i><span>Permis B, A1-A2</span></div>
+          </div>
+        </div>
 
-			j'ai effectué mon parcours scolaire au collège St Joseph à Matzenheim (<a class="no-script-execution"
-				href="http://www.college-matzenheim.fr/" class="no-script-execution" target="_blank">Lien vers le site
-				web en http ...</a>) dans le 67 (Grand-Est), où j'ai
-			obtenu mon Brevet des collèges. J'ai
-			poursuivi mes études au Lycée Jean-Baptiste Schwillgué (<a
-				href="https://lyc-schwilgue-selestat.site.ac-strasbourg.fr/" class="no-script-execution"
-				target="_blank">Lien
-				vers le site web</a>), et y ai décroché un Baccalauréat Technologique avec une option en ITEC. Je suis
-			passionné
-			par la moto, l'informatique et les jeux vidéos.
-		</P>
-	</div>
-	<div>
-		<article class="objectifs">
-			<h3 class="title_objectifs">Mes objectifs <br> |<br> Devenir Ingénieur sysème et réseaux <br> RSSI <br>
-				Administrateur systèmes et réseaux
-			</h3>
-			<p class="barre">|</p>
-			<h3 class="text_obj_barre">Mes compétences clés</h3>
-			<p class="text_obj_barre">Métrologie</p>
-			<p class="text_obj_barre"><a class="no-script-execution"
-					href="https://ryax.tech/fr/quest-ce-quun-middleware/#:~:text=Un%20middleware%2C%20appel%C3%A9%20aussi%20logiciel,afin%20de%20faciliter%20leurs%20interactions."
-					class="no-script-execution" target="_blank">Middleware</a></p>
-			<p class="text_obj_barre">Règles de sécurité informatique et télécoms</p>
-			<p class="text_obj_barre">Fondamentaux de la cybersécurité</p>
-			<p class="text_obj_barre">Création d'infrastructures réseau de moyenne envergure</p>
-			<p class="text_obj_barre">Python3.12</p>
-			<p class="text_obj_barre">Aruba Instant One</p>
-			<p class="text_obj_barre"><a class="no-script-execution" href="/documents/HERTRICH_William_stormshield.pdf"
-					target="_blank">Certified Stormshield Network
-					Administrator</a> (2024-2027)</p>
-		</article>
-	</div>
-	<article class="mep">
-		<p class="Maintitle">Mon parcours professionnel</p>
-		<p class="title_mep" style="font-weight:800;">Ingénieur Réseau et Système</p>
-		<p class="soustexte_mep">Réseau-net (08/2024 - 08/2026)</p>
-		<ul class="mep_ul">
-			<li>Gestion et maintenance de l'infrastructure réseau et des systèmes de l'entreprise</li>
-			<li>Configuration, installation et supervision des équipements réseau (routeurs, switches, points d'accès)
-			</li>
-			<li>Support technique de niveau 2 et 3 pour les incidents réseau et système</li>
-			<li>Développement de procédures de sécurité et amélioration de la politique d'hygiène informatique</li>
-			<li>Déploiement et gestion de solutions de virtualisation et de sauvegarde</li>
-			<li>Optimisation de la performance des réseaux et surveillance des flux</li>
-			<li>Documentation et mise à jour des procédures dans la base de connaissances</li>
-			<p>Projets :</p>
-			<li>Mise en œuvre d’une solution de supervision réseau avancée</li>
-			<li>Refonte des infrastructures réseau pour améliorer la sécurité et la performance</li>
-			<li>Participation à la migration des serveurs vers un environnement virtualisé</li>
-		</ul>
+        <div class="edu-tl reveal" style="transition-delay:.15s">
+          <div class="edu-item">
+            <span class="edu-dot"></span>
+            <span class="edu-period">2024 — 2026</span>
+            <p class="edu-degree">Master Réseaux &amp; Télécommunications<br><span class="edu-sub">option Cyberdéfense &amp; Sécurité de l'Information</span></p>
+            <p class="edu-school"><i class="fas fa-university"></i>INSA Hauts-de-France, Maubeuge</p>
+          </div>
+          <div class="edu-item">
+            <span class="edu-dot"></span>
+            <span class="edu-period">2021 — 2024</span>
+            <p class="edu-degree">BUT Réseaux &amp; Télécommunications<br><span class="edu-sub">option Cybersécurité</span></p>
+            <p class="edu-school"><i class="fas fa-university"></i>Université de Haute-Alsace, Colmar</p>
+          </div>
+          <div class="edu-item">
+            <span class="edu-dot"></span>
+            <span class="edu-period">2018 — 2021</span>
+            <p class="edu-degree">Baccalauréat Technologique<br><span class="edu-sub">ITEC — Innovation Technologique</span></p>
+            <p class="edu-school"><i class="fas fa-school"></i>Lycée Jean-Baptiste Schwillgué, Sélestat</p>
+          </div>
+          <div class="edu-item">
+            <span class="edu-dot"></span>
+            <span class="edu-period">2014 — 2018</span>
+            <p class="edu-degree">Brevet des Collèges</p>
+            <p class="edu-school"><i class="fas fa-school"></i>Collège Saint-Joseph, Matzenheim</p>
+          </div>
+        </div>
 
-		<p class="title_mep" style="font-weight:800;">Technicien IT en alternance</p>
-		<p class="soustexte_mep">Solinest, Brunstatt (09/2022 - 09/2024)</p>
-		<ul class="mep_ul">
-			<li>Formation des utilisateurs</li>
-			<li>Formation à l'hygiène informatique</li>
-			<li>Préparation du matériel informatique du personnel (téléphones, tablettes, ordinateurs)</li>
-			<li>Assistance informatique et support hotline (téléphone, via TeamViewer, ou en direct)</li>
-			<li>Gestion du parc informatique</li>
-			<li>Masterisation d'ordinateurs (voir : <a class="no-script-execution"
-					href="https://fr.wikipedia.org/wiki/Mastering" target="_blank">Mastering</a>)</li>
-			<li>Élaboration de procédures</li>
-			<li>Maintenance de la base de connaissances sur GLPI (notre logiciel de gestion de tickets)</li>
-			<p>Projets :</p>
-			<li>Installation et configuration de <a class="no-script-execution" href="https://glpi-project.org/fr/"
-					target="_blank">GLPI</a></li>
-			<li>Renouvellement des ordinateurs portables du siège</li>
-			<li>Participation au remplacement des équipements réseau et points d'accès de l'entreprise</li>
-		</ul>
+      </div>
+    </div>
+  </section>
 
-		<p class="title_mep" style="font-weight:800;">Employé polyvalent</p>
-		<p class="soustexte_mep">McDonald, Sélestat (08/2021 - 01/2022)</p>
-		<ul class="mep_ul">
-			<li>Relation avec les clients</li>
-			<li>Réception et préparation des commandes</li>
-			<li>Respect et mise en œuvre des procédures d'hygiène</li>
-			<li>Préparation de la salle de restaurant</li>
-		</ul>
-		<p>
-			J'y ai appris la rigueur et l'hygiène à apporter dans le travail, le dialogue et la gestion des clients et
-			l'intégration
-			dans une équipe de travail.
-		</p>
+  <!-- ===== SKILLS ===== -->
+  <section class="section section-alt" id="skills">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Expertise technique</span>
+        <h2 class="s-title">Compétences &amp; Certifications</h2>
+      </div>
+      <div class="skills-grid">
 
-		<p class="title_mep" style="font-weight:800;">Stage en entreprise</p>
-		<p class="soustexte_mep">Würth France, Erstein (01/2018)</p>
-		<ul class="mep_ul">
-			<li>Assistance informatique</li>
-			<li>Configuration de PDA</li>
-			<li>Gestion de stock
-				<ol>
-					<li>Conditionnement en gros</li>
-					<li>Préparation de commandes clients</li>
-				</ol>
-			</li>
-			<li>Vente et démarchage client</li>
-			<li>Service après-vente
-				<ol>
-					<li>Diagnostic des machines en réparation</li>
-					<li>Gestion des pièces nécessaires pour les réparations</li>
-				</ol>
-			</li>
-			<p>
-				J'ai découvert qu'une entreprise était constituée d'une multitudes de services dépendant entre eux d'une
-				communication
-				interservices clients fournisseurs.
-			</p>
-		</ul>
-	</article>
+        <div class="skill-card reveal">
+          <div class="skill-head">
+            <div class="skill-icon"><i class="fas fa-shield-halved"></i></div>
+            <span class="skill-cat">Cybersécurité</span>
+          </div>
+          <div class="skill-tags">
+            <span class="stag">Fortinet FortiGate</span>
+            <span class="stag">FortiManager</span>
+            <span class="stag">Stormshield CSNA</span>
+            <span class="stag">SentinelOne EDR</span>
+            <span class="stag">VPN site-to-site</span>
+            <span class="stag">VPN client-to-site</span>
+            <span class="stag">Segmentation réseau</span>
+            <span class="stag">TryHackMe</span>
+          </div>
+        </div>
 
+        <div class="skill-card reveal" style="transition-delay:.1s">
+          <div class="skill-head">
+            <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+            <span class="skill-cat">Réseaux</span>
+          </div>
+          <div class="skill-tags">
+            <span class="stag">TCP/IP</span>
+            <span class="stag">VLAN</span>
+            <span class="stag">Routage dynamique</span>
+            <span class="stag">Switching</span>
+            <span class="stag">Observium</span>
+            <span class="stag">Centreon</span>
+            <span class="stag">Aruba Instant</span>
+            <span class="stag">Wi-Fi</span>
+          </div>
+        </div>
 
+        <div class="skill-card reveal" style="transition-delay:.2s">
+          <div class="skill-head">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <span class="skill-cat">Systèmes &amp; Virtualisation</span>
+          </div>
+          <div class="skill-tags">
+            <span class="stag">Windows Server 2025</span>
+            <span class="stag">Linux RHEL</span>
+            <span class="stag">Ubuntu / Debian</span>
+            <span class="stag">VMware vCenter / ESXi</span>
+            <span class="stag">Hyper-V</span>
+            <span class="stag">Veeam</span>
+            <span class="stag">Synology ActiveBackup</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" style="transition-delay:.3s">
+          <div class="skill-head">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <span class="skill-cat">Automatisation &amp; Support</span>
+          </div>
+          <div class="skill-tags">
+            <span class="stag">Python</span>
+            <span class="stag">Bash scripting</span>
+            <span class="stag">GLPI</span>
+            <span class="stag">Office 365</span>
+            <span class="stag">Google Workspace</span>
+            <span class="stag">Helpdesk N2 / N3</span>
+            <span class="stag">WithSecure AV</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="certs-row">
+        <a href="/documents/HERTRICH_William_stormshield.pdf" class="cert no-script-execution" target="_blank">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <p class="cert-name">Certified Stormshield Network Administrator</p>
+            <p class="cert-sub">CSNA — Valable 2024 → 2027</p>
+          </div>
+        </a>
+        <div class="cert">
+          <div class="cert-icon"><i class="fas fa-language"></i></div>
+          <div>
+            <p class="cert-name">TOEIC Listening &amp; Reading</p>
+            <p class="cert-sub">Score : 915 / 990</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="section" id="experience">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Parcours professionnel</span>
+        <h2 class="s-title">Expériences</h2>
+      </div>
+      <div class="exp-tl">
+
+        <!-- Réseau-Net -->
+        <div class="exp-item reveal">
+          <div class="exp-marker"><i class="fas fa-building"></i></div>
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <p class="exp-role">Alternant Ingénieur Systèmes &amp; Réseaux</p>
+                <p class="exp-company">Réseau-Net — ESN / Infogérance</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Oberhausbergen, Grand Est</p>
+              </div>
+              <span class="exp-period current"><i class="fas fa-circle"></i> Août 2024 — Août 2026</span>
+            </div>
+            <p class="exp-desc">
+              Au sein d'un MSP multi-clients, j'assure le maintien en condition opérationnelle et la sécurisation
+              des infrastructures IT d'un portefeuille de clients multi-secteurs. Je travaille en tandem avec
+              différents prestataires et interlocuteurs métiers pour garantir la disponibilité et la performance
+              des environnements de production.
+            </p>
+            <div class="exp-cats">
+              <div class="exp-cat">
+                <span class="exp-clabel">Systèmes</span>
+                <div class="exp-chips">
+                  <span class="echip">Windows Server 2025</span>
+                  <span class="echip">Linux RHEL / Ubuntu / Debian</span>
+                  <span class="echip">VMware vCenter / ESXi</span>
+                  <span class="echip">Hyper-V</span>
+                  <span class="echip">Snapshots &amp; migration VM</span>
+                </div>
+              </div>
+              <div class="exp-cat">
+                <span class="exp-clabel">Sécurité</span>
+                <div class="exp-chips">
+                  <span class="echip">FortiGate / FortiManager</span>
+                  <span class="echip">Règles firewall</span>
+                  <span class="echip">VPN S2S &amp; C2S</span>
+                  <span class="echip">SentinelOne EDR</span>
+                  <span class="echip">Stormshield CSNA</span>
+                </div>
+              </div>
+              <div class="exp-cat">
+                <span class="exp-clabel">Supervision</span>
+                <div class="exp-chips">
+                  <span class="echip">Observium</span>
+                  <span class="echip">Veeam</span>
+                  <span class="echip">Synology ActiveBackup</span>
+                  <span class="echip">GLPI N2 / N3</span>
+                </div>
+              </div>
+              <div class="exp-cat">
+                <span class="exp-clabel">Scripts</span>
+                <div class="exp-chips">
+                  <span class="echip">Bash</span>
+                  <span class="echip">Python</span>
+                  <span class="echip">Automatisation reporting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLINEST -->
+        <div class="exp-item reveal" style="transition-delay:.1s">
+          <div class="exp-marker"><i class="fas fa-industry"></i></div>
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <p class="exp-role">Alternant Technicien Informatique</p>
+                <p class="exp-company">SOLINEST — Secteur agroalimentaire</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Brunstatt-Didenheim, Grand Est</p>
+              </div>
+              <span class="exp-period"><i class="far fa-calendar"></i> Sept. 2022 — Août 2024</span>
+            </div>
+            <p class="exp-desc">
+              Au sein du service IT d'une entreprise agroalimentaire multi-sites, j'ai assuré le bon fonctionnement
+              du système d'information en étant l'interlocuteur direct des collaborateurs pour leurs besoins IT,
+              tout en participant à des projets de migration d'infrastructure.
+            </p>
+            <div class="exp-cats">
+              <div class="exp-cat">
+                <span class="exp-clabel">Support</span>
+                <div class="exp-chips">
+                  <span class="echip">Helpdesk N1 / N2 GLPI</span>
+                  <span class="echip">Google Workspace</span>
+                  <span class="echip">Gestion de parc</span>
+                  <span class="echip">Masterisation postes</span>
+                </div>
+              </div>
+              <div class="exp-cat">
+                <span class="exp-clabel">Projets</span>
+                <div class="exp-chips">
+                  <span class="echip">Migration WS 2008 R2 → 2016</span>
+                  <span class="echip">VMware vCenter / ESXi</span>
+                  <span class="echip">Veeam</span>
+                  <span class="echip">Centreon</span>
+                  <span class="echip">WithSecure AV</span>
+                </div>
+              </div>
+              <div class="exp-cat">
+                <span class="exp-clabel">Cyber</span>
+                <div class="exp-chips">
+                  <span class="echip">Sensibilisation cybersécurité</span>
+                  <span class="echip">Rédaction procédures</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- McDonald's -->
+        <div class="exp-item reveal" style="transition-delay:.2s">
+          <div class="exp-marker"><i class="fas fa-utensils"></i></div>
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <p class="exp-role">Employé Polyvalent</p>
+                <p class="exp-company">McDonald's</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Sélestat</p>
+              </div>
+              <span class="exp-period"><i class="far fa-calendar"></i> Sept. 2021 — Janv. 2022</span>
+            </div>
+            <p class="exp-desc">
+              Collaboration en équipe et gestion des commandes dans un environnement dynamique.
+              Expérience m'ayant apporté rigueur, sens du service et intégration réussie dans une équipe.
+            </p>
+          </div>
+        </div>
+
+        <!-- Würth -->
+        <div class="exp-item reveal" style="transition-delay:.3s">
+          <div class="exp-marker"><i class="fas fa-toolbox"></i></div>
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <p class="exp-role">Stage — Assistance Informatique &amp; Logistique</p>
+                <p class="exp-company">Würth France</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Erstein</p>
+              </div>
+              <span class="exp-period"><i class="far fa-calendar"></i> Janvier 2018</span>
+            </div>
+            <p class="exp-desc">
+              Découverte du monde de l'entreprise : assistance informatique, configuration de PDA,
+              gestion de stock et préparation de commandes clients.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
 </html>
