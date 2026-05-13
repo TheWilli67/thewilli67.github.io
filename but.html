@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BUT Réseaux & Télécommunications — Compétences et SAE de William Hertrich">
+  <title>William Hertrich — BUT R&T</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(99,102,241,.12) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 30%, rgba(37,99,235,.08) 0%, transparent 50%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #a5b4fc; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #a5b4fc; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-sub { font-size: 1rem; color: #64748b; max-width: 650px; line-height: 1.7; }
+    .ph-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+    .ph-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .9rem; background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.25); color: #a5b4fc; border-radius: 100px; font-size: .8rem; font-weight: 500; }
+
+    /* Sections */
+    .section { padding: 4rem 5%; }
+    .inner { max-width: 1000px; margin: 0 auto; }
+
+    /* Tabs */
+    .tabs-wrapper { background: var(--bg-alt); border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; border: 1px solid var(--border); }
+    .tabs-nav { display: flex; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+    .tab-btn {
+      flex: 1; padding: 1.1rem 1rem;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font); font-size: .88rem; font-weight: 600;
+      color: var(--text-lt); transition: var(--t);
+      border-bottom: 2px solid transparent; position: relative; bottom: -1px;
+    }
+    .tab-btn:hover { color: var(--text-m); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--bg-alt); }
+    .tab-btn span { display: block; font-size: .72rem; font-weight: 400; color: var(--text-lt); margin-top: .15rem; }
+    .tab-btn.active span { color: rgba(37,99,235,.7); }
+
+    .tab-panel { display: none; padding: 2rem; }
+    .tab-panel.active { display: block; }
+
+    /* Year intro */
+    .year-intro { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.5rem; margin-bottom: 1.75rem; display: flex; align-items: center; gap: 1rem; }
+    .year-badge { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; flex-shrink: 0; }
+    .year-badge.y1 { background: rgba(37,99,235,.1); color: var(--accent); }
+    .year-badge.y2 { background: rgba(99,102,241,.1); color: #6366f1; }
+    .year-badge.y3 { background: rgba(139,92,246,.1); color: #7c3aed; }
+    .year-intro-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .year-intro-sub   { font-size: .83rem; color: var(--text-m); margin-top: .15rem; }
+
+    /* Accordion */
+    .accordion { display: flex; flex-direction: column; gap: .75rem; }
+    details { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: var(--t); }
+    details[open] { border-color: rgba(37,99,235,.25); box-shadow: var(--sh-sm); }
+    summary {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.1rem 1.5rem; cursor: pointer; list-style: none;
+      user-select: none; transition: var(--t);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary:hover { background: var(--bg-alt); }
+    details[open] summary { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+    .sum-left { display: flex; align-items: center; gap: .9rem; }
+    .sum-num { width: 30px; height: 30px; background: var(--accent-lt); color: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+    .sum-num.c2 { background: rgba(99,102,241,.1); color: #6366f1; }
+    .sum-num.c3 { background: rgba(139,92,246,.1); color: #7c3aed; }
+    .sum-title { font-size: .92rem; font-weight: 600; color: var(--text); }
+    .sum-sub   { font-size: .78rem; color: var(--text-m); margin-top: .1rem; }
+    .sum-icon { color: var(--text-lt); font-size: .8rem; transition: transform var(--t); flex-shrink: 0; }
+    details[open] .sum-icon { transform: rotate(180deg); }
+
+    /* Accordion body */
+    .acc-body { padding: 1.5rem; }
+    .acc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .acc-block h4 { font-size: .78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem; }
+    .acc-block ul { display: flex; flex-direction: column; gap: .35rem; }
+    .acc-block li { font-size: .84rem; color: var(--text-m); line-height: 1.5; padding-left: 1rem; position: relative; }
+    .acc-block li::before { content: ''; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+
+    /* Situation pro tags */
+    .sit-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1.5rem; }
+    .stag { padding: .22rem .65rem; background: var(--bg-alt); color: var(--text-m); border-radius: 100px; font-size: .75rem; font-weight: 500; border: 1px solid var(--border); }
+
+    /* SAE block */
+    .sae-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .sae-header { display: flex; align-items: center; gap: .75rem; margin-bottom: .75rem; }
+    .sae-badge { padding: .2rem .65rem; background: rgba(234,179,8,.1); color: #b45309; border-radius: 100px; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+    .sae-title { font-size: .92rem; font-weight: 700; color: var(--text); }
+    .sae-desc  { font-size: .84rem; color: var(--text-m); line-height: 1.7; margin-bottom: .85rem; }
+    .sae-reflection { font-size: .84rem; color: var(--text-m); line-height: 1.7; margin-bottom: .85rem; border-left: 2px solid var(--accent); padding-left: .85rem; }
+    .sae-validated { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .sae-ac { padding: .18rem .55rem; background: rgba(37,99,235,.07); color: var(--accent); border-radius: 4px; font-size: .72rem; font-weight: 600; border: 1px solid rgba(37,99,235,.15); }
+    .sae-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .85rem; }
+    .sae-link { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 600; color: var(--accent); padding: .3rem .75rem; background: var(--bg-card); border: 1px solid rgba(37,99,235,.2); border-radius: 6px; transition: var(--t); }
+    .sae-link:hover { background: var(--accent-lt); }
+
+    /* No SAE placeholder */
+    .no-sae { text-align: center; padding: 1rem; color: var(--text-lt); font-size: .83rem; font-style: italic; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 700px) {
+      .acc-cols { grid-template-columns: 1fr; }
+      .tabs-nav { flex-direction: column; }
+      .tab-btn { border-bottom: none; border-left: 2px solid transparent; text-align: left; }
+      .tab-btn.active { border-left-color: var(--accent); }
+      .section { padding: 3rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
+      <li><a href="/index.html">Accueil</a></li>
+    </ul>
+  </nav>
+
+  <header class="pheader">
+    <div class="ph-inner">
+      <span class="ph-eyebrow">Formation universitaire</span>
+      <h1 class="ph-title">BUT Réseaux &amp; Télécommunications</h1>
+      <p class="ph-sub">Trois ans de formation à l'Université de Haute-Alsace (Colmar), option Cybersécurité — compétences, apprentissages critiques et projets SAE regroupés par année.</p>
+      <div class="ph-meta">
+        <span class="ph-chip"><i class="fas fa-university"></i> UHA — IUT de Colmar</span>
+        <span class="ph-chip"><i class="fas fa-calendar"></i> 2021 — 2024</span>
+        <span class="ph-chip"><i class="fas fa-shield-halved"></i> Option Cybersécurité</span>
+        <span class="ph-chip"><i class="fas fa-graduation-cap"></i> Diplôme obtenu 2024</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="inner">
+
+      <div class="tabs-wrapper reveal">
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-btn active" role="tab" data-tab="but1">
+            BUT 1 — S1/S2
+            <span>Assister · Connecter · S'intégrer</span>
+          </button>
+          <button class="tab-btn" role="tab" data-tab="but2">
+            BUT 2 — S3/S4
+            <span>Administrer · Développer · Sécuriser</span>
+          </button>
+          <button class="tab-btn" role="tab" data-tab="but3">
+            BUT 3 — S5/S6
+            <span>Concevoir · Déployer · Surveiller</span>
+          </button>
+        </div>
+
+        <!-- ===== BUT 1 ===== -->
+        <div class="tab-panel active" id="but1">
+          <div class="year-intro">
+            <div class="year-badge y1">B1</div>
+            <div>
+              <p class="year-intro-title">BUT 1 — Première année (2021–2022)</p>
+              <p class="year-intro-sub">3 compétences · Initiation aux réseaux, transmissions et outils informatiques</p>
+            </div>
+          </div>
+          <div class="accordion">
+
+            <!-- B1 C1 -->
+            <details open>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num">C1</div>
+                  <div>
+                    <p class="sum-title">Administrer les réseaux et l'Internet</p>
+                    <p class="sum-sub">Assister l'administrateur du réseau</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC11.01 — Maîtriser les lois fondamentales de l'électricité</li>
+                      <li>AC11.02 — Comprendre l'architecture des systèmes numériques et de l'Internet</li>
+                      <li>AC11.03 — Configurer les fonctions de base du réseau local</li>
+                      <li>AC11.04 — Maîtriser les rôles des systèmes d'exploitation</li>
+                      <li>AC11.05 — Identifier les dysfonctionnements réseau</li>
+                      <li>AC11.06 — Installer un poste client</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE1.01 — Choisir les solutions et technologies réseaux adaptées</li>
+                      <li>CE1.02 — Respecter les principes fondamentaux de la sécurité</li>
+                      <li>CE1.03 — Utiliser une approche rigoureuse pour la résolution</li>
+                      <li>CE1.04 — Respecter les règles métiers</li>
+                      <li>CE1.05 — Assurer une veille technologique</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sit-tags">
+                  <span class="stag">Conception et administration d'infrastructure réseau</span>
+                  <span class="stag">Installation et administration de services réseau</span>
+                  <span class="stag">Déploiement de solutions fixes pour opérateur</span>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 1.2 — S1</span>
+                    <p class="sae-title">S'initier aux réseaux informatiques</p>
+                  </div>
+                  <p class="sae-desc">Mise en conditions concrètes de création et gestion d'un réseau internet de petite envergure (type domicile, salle de classe) à l'aide du simulateur EVE-NG.</p>
+                  <p class="sae-reflection">J'ai réussi ce projet grâce à une grande analyse, une base en réseau solide et de bonnes recherches. Il m'a donné une tout autre vision des réseaux informatiques et de leur gestion.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC11.03</span>
+                    <span class="sae-ac">AC11.06</span>
+                    <span class="sae-ac">CE1.01</span>
+                    <span class="sae-ac">CE1.03</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B1 C2 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num">C2</div>
+                  <div>
+                    <p class="sum-title">Connecter les entreprises et les usagers</p>
+                    <p class="sum-sub">Découvrir les transmissions et la ToIP</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC12.01 — Mesurer, analyser et commenter les signaux</li>
+                      <li>AC12.02 — Caractériser des systèmes de transmissions élémentaires</li>
+                      <li>AC12.03 — Déployer des supports de transmission</li>
+                      <li>AC12.04 — Connecter les systèmes de ToIP</li>
+                      <li>AC12.05 — Communiquer avec un tiers et adapter son discours</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE2.01 — Communiquer avec le client, parfois en anglais</li>
+                      <li>CE2.02 — Faire preuve d'une démarche scientifique</li>
+                      <li>CE2.03 — Choisir les solutions et technologies adaptées</li>
+                      <li>CE2.04 — Proposer des solutions respectueuses de l'environnement</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sit-tags">
+                  <span class="stag">Déploiement des supports et systèmes de transmission</span>
+                  <span class="stag">Administration des équipements d'accès fixe ou mobile</span>
+                  <span class="stag">Déploiement des systèmes de communications</span>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 2.4 — S2</span>
+                    <p class="sae-title">Projet intégratif de S2</p>
+                  </div>
+                  <p class="no-sae">Projet intégratif du semestre 2 — contenu en cours de documentation.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- B1 C3 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num">C3</div>
+                  <div>
+                    <p class="sum-title">Créer des outils et applications informatiques</p>
+                    <p class="sum-sub">S'intégrer dans un service informatique</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC13.01 — Utiliser un système informatique et ses outils</li>
+                      <li>AC13.02 — Lire, exécuter, corriger et modifier un programme</li>
+                      <li>AC13.03 — Traduire un algorithme dans un langage donné</li>
+                      <li>AC13.04 — Connaître l'architecture et les technologies d'un site Web</li>
+                      <li>AC13.05 — Choisir les mécanismes de gestion de données adaptés</li>
+                      <li>AC13.06 — S'intégrer dans un environnement de développement collaboratif</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE3.01 — Être à l'écoute des besoins du client</li>
+                      <li>CE3.02 — Documenter le travail réalisé</li>
+                      <li>CE3.03 — Utiliser les outils numériques à bon escient</li>
+                      <li>CE3.04 — Choisir les outils de développement adaptés</li>
+                      <li>CE3.05 — Intégrer les problématiques de sécurité</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sit-tags">
+                  <span class="stag">Conception et déploiement du système d'information</span>
+                  <span class="stag">Automatisation du déploiement et de la maintenance</span>
+                  <span class="stag">Développement d'outils à usage interne</span>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 2.3 — S2</span>
+                    <a href="/SAE23/SAE23_fr.html" class="sae-title" style="color:var(--accent)">Mettre en place une solution informatique pour l'entreprise →</a>
+                  </div>
+                  <p class="sae-desc">Conception et déploiement d'une solution applicative pour un contexte entreprise, intégrant la gestion des données, la documentation et les bonnes pratiques de développement.</p>
+                  <div class="sae-links">
+                    <a href="/SAE23/SAE23_fr.html" class="sae-link no-script-execution"><i class="fas fa-external-link-alt"></i> Voir le projet SAE23</a>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div><!-- /but1 -->
+
+        <!-- ===== BUT 2 ===== -->
+        <div class="tab-panel" id="but2">
+          <div class="year-intro">
+            <div class="year-badge y2">B2</div>
+            <div>
+              <p class="year-intro-title">BUT 2 — Deuxième année (2022–2023)</p>
+              <p class="year-intro-sub">5 compétences · Approfondissement réseau, développement et initiation à la cybersécurité</p>
+            </div>
+          </div>
+          <div class="accordion">
+
+            <!-- B2 C1 -->
+            <details open>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c2">C1</div>
+                  <div>
+                    <p class="sum-title">Administrer les réseaux et l'Internet</p>
+                    <p class="sum-sub">Administrer un réseau</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC21.01 — Configurer et dépanner le routage dynamique</li>
+                      <li>AC21.02 — Configurer une politique de QoS et sécurité de base</li>
+                      <li>AC21.03 — Déployer des postes clients et solutions virtualisées</li>
+                      <li>AC21.04 — Déployer des services réseaux avancés</li>
+                      <li>AC21.05 — Identifier les réseaux opérateurs et l'architecture d'Internet</li>
+                      <li>AC21.06 — Travailler en équipe pour développer ses compétences</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE1.01 — Choisir les solutions et technologies réseaux adaptées</li>
+                      <li>CE1.02 — Respecter les principes fondamentaux de la sécurité</li>
+                      <li>CE1.03 — Approche rigoureuse pour la résolution</li>
+                      <li>CE1.04 — Respecter les règles métiers</li>
+                      <li>CE1.05 — Assurer une veille technologique</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 3.03 — S3</span>
+                    <p class="sae-title">Conception d'un réseau multi-site</p>
+                  </div>
+                  <p class="sae-desc">Architecture réseau pour deux entreprises e-commerce (UC Exchange, ABC Conseil) dans l'Est de la France : double FAI, 4 services par site (DHCP, AD), MSTP, VRRP, NAT — maquette fonctionnelle réalisée.</p>
+                  <p class="sae-reflection">Ce projet m'a permis d'approfondir mes connaissances des protocoles MSTP, NAT et VRRP, et d'apprendre à collaborer efficacement face à un cahier des charges vague nécessitant de nombreuses questions sur la topologie.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC21.01</span><span class="sae-ac">AC21.04</span><span class="sae-ac">AC21.06</span>
+                    <span class="sae-ac">CE1.01</span><span class="sae-ac">CE1.03</span><span class="sae-ac">CE1.05</span>
+                  </div>
+                  <div class="sae-links">
+                    <a href="/documents/SAE303/Partie-LAN.pdf" target="_blank" class="sae-link no-script-execution"><i class="fas fa-file-pdf"></i> Partie LAN</a>
+                    <a href="/documents/SAE303/Partie-service-reseaux.pdf" target="_blank" class="sae-link no-script-execution"><i class="fas fa-file-pdf"></i> Services réseau</a>
+                    <a href="/documents/SAE303/Compte_rendu_partie_FAI.pdf" target="_blank" class="sae-link no-script-execution"><i class="fas fa-file-pdf"></i> Partie FAI</a>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B2 C2 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c2">C2</div>
+                  <div>
+                    <p class="sum-title">Connecter les entreprises et les usagers</p>
+                    <p class="sum-sub">Maîtriser les solutions de connexion</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC22.01 — Déployer et caractériser des systèmes de transmissions complexes</li>
+                      <li>AC22.02 — Mettre en place un accès distant sécurisé</li>
+                      <li>AC22.03 — Connexion multi-site via réseau opérateur</li>
+                      <li>AC22.04 — Déployer des réseaux d'accès des opérateurs</li>
+                      <li>AC22.05 — Questionner un cahier des charges R&T</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE2.01 — Communiquer avec le client, parfois en anglais</li>
+                      <li>CE2.02 — Faire preuve d'une démarche scientifique</li>
+                      <li>CE2.03 — Choisir les solutions et technologies adaptées</li>
+                      <li>CE2.04 — Proposer des solutions respectueuses de l'environnement</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 3.03 — S3</span>
+                    <p class="sae-title">Conception d'un réseau multi-site (même SAE)</p>
+                  </div>
+                  <p class="sae-desc">Ce projet SAE303 valide également les compétences de connexion multi-site : mise en place d'interconnexion entre sites via réseau opérateur avec haute disponibilité.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC22.01</span><span class="sae-ac">AC22.03</span><span class="sae-ac">AC22.05</span>
+                    <span class="sae-ac">CE2.02</span><span class="sae-ac">CE2.03</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B2 C3 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c2">C3</div>
+                  <div>
+                    <p class="sum-title">Créer des outils et applications R&T</p>
+                    <p class="sum-sub">Développer une application R&T</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC23.01 — Automatiser l'administration système avec des scripts</li>
+                      <li>AC23.02 — Développer une application à partir d'un cahier des charges</li>
+                      <li>AC23.03 — Utiliser un protocole réseau pour programmer client/serveur</li>
+                      <li>AC23.04 — Installer, administrer un SGBD</li>
+                      <li>AC23.05 — Accéder à des données depuis une app ou un site web</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE3.01 — Être à l'écoute des besoins du client</li>
+                      <li>CE3.02 — Documenter le travail réalisé</li>
+                      <li>CE3.03 — Utiliser les outils numériques à bon escient</li>
+                      <li>CE3.04 — Choisir les outils de développement adaptés</li>
+                      <li>CE3.05 — Intégrer les problématiques de sécurité</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 3.02 — S3</span>
+                    <p class="sae-title">Interface de surveillance de serveurs à distance</p>
+                  </div>
+                  <p class="sae-desc">Système client-serveur permettant d'envoyer des commandes système à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP. Gestion des adresses IP, exécution de commandes distantes, gestion des erreurs.</p>
+                  <p class="sae-reflection">Deux programmes fonctionnels (client &amp; serveur) rendus, mais certains points non résolus : lecture d'une liste d'IPs depuis un fichier et sécurisation de la connexion (aucun mot de passe requis à la connexion). J'aurais dû mieux gérer mon temps sur ce projet.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC23.01</span><span class="sae-ac">AC23.03</span>
+                    <span class="sae-ac">CE3.02</span><span class="sae-ac">CE3.04</span><span class="sae-ac">CE3.05</span>
+                  </div>
+                  <div class="sae-links">
+                    <a href="https://github.com/TheWilli67/SAE302" target="_blank" class="sae-link no-script-execution"><i class="fab fa-github"></i> GitHub SAE302</a>
+                    <a href="/documents/SAE302/Cahier des charges SAE302.pdf" target="_blank" class="sae-link no-script-execution"><i class="fas fa-file-pdf"></i> Cahier des charges</a>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B2 C4 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c2">C4</div>
+                  <div>
+                    <p class="sum-title">Administrer un système d'information sécurisé</p>
+                    <p class="sum-sub">Sensibiliser aux vulnérabilités et remédiations</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC24.01 — Bonnes pratiques et recommandations cybersécurité</li>
+                      <li>AC24.02 — Mettre en œuvre les outils fondamentaux de sécurisation</li>
+                      <li>AC24.03 — Sécuriser les services</li>
+                      <li>AC24.04 — Choisir les outils cryptographiques adaptés</li>
+                      <li>AC24.05 — Connaître les différents types d'attaque</li>
+                      <li>AC24.06 — Comprendre des documents techniques en anglais</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE4.01 — Juste compromis sécurité / contraintes d'utilisation</li>
+                      <li>CE4.02 — Respecter les normes et le cadre juridique</li>
+                      <li>CE4.03 — Intégrer les dernières technologies</li>
+                      <li>CE4.04 — Travailler en équipe</li>
+                      <li>CE4.05 — Sensibiliser efficacement des utilisateurs</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 3.04 — S3</span>
+                    <p class="sae-title">Découverte du pentesting — Root-Me</p>
+                  </div>
+                  <p class="sae-desc">Résolution d'une quarantaine de défis sur la plateforme Root-Me (cryptographie, stéganographie, failles web, reverse engineering, cracking de mots de passe) en ~20 heures.</p>
+                  <p class="sae-reflection">Projet stimulant et ludique — j'ai appris à analyser des situations complexes et à appliquer des connaissances acquises progressivement. Rapport non publié : la plateforme Root-Me est régulée par l'État et la fourniture de réponses y est interdite.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC24.05</span><span class="sae-ac">AC24.06</span><span class="sae-ac">CE4.02</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B2 C5 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c2">C5</div>
+                  <div>
+                    <p class="sum-title">Surveiller un système d'information sécurisé</p>
+                    <p class="sum-sub">Prendre en main les outils de surveillance et de test</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC25.01 — Administrer les protections contre les logiciels malveillants</li>
+                      <li>AC25.02 — Prendre en main des outils de test de pénétration réseau/système</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE5.01 — Assurer une veille permanente</li>
+                      <li>CE5.02 — Réaliser les mises à jour critiques</li>
+                      <li>CE5.03 — Automatiser des tâches</li>
+                      <li>CE5.04 — S'intégrer dans une équipe</li>
+                      <li>CE5.05 — Surveiller le comportement du réseau</li>
+                      <li>CE5.06 — Veiller au respect des contrats et à la conformité SI</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAE 3.04 — S3</span>
+                    <p class="sae-title">Découverte du pentesting — Root-Me (même SAE)</p>
+                  </div>
+                  <p class="sae-desc">Utilisation d'outils d'analyse réseau (Wireshark, Burp Suite) pour résoudre les défis Root-Me et surveiller le comportement du réseau.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC25.02</span><span class="sae-ac">CE5.05</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div><!-- /but2 -->
+
+        <!-- ===== BUT 3 ===== -->
+        <div class="tab-panel" id="but3">
+          <div class="year-intro">
+            <div class="year-badge y3">B3</div>
+            <div>
+              <p class="year-intro-title">BUT 3 — Troisième année (2023–2024)</p>
+              <p class="year-intro-sub">5 compétences · Conception avancée, cybersécurité appliquée et pilotage de projet</p>
+            </div>
+          </div>
+          <div class="accordion">
+
+            <!-- B3 C1 -->
+            <details open>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c3">C1</div>
+                  <div>
+                    <p class="sum-title">Administrer les réseaux et l'Internet</p>
+                    <p class="sum-sub">Concevoir un réseau</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC31.01 — Concevoir un projet réseau (HA, QoS, sécurité, supervision)</li>
+                      <li>AC31.02 — Réaliser la documentation technique du projet</li>
+                      <li>AC31.03 — Réaliser une maquette de démonstration</li>
+                      <li>AC31.04 — Défendre / argumenter un projet</li>
+                      <li>AC31.05 — Communiquer avec les acteurs du projet</li>
+                      <li>AC31.06 — Gérer le projet et respecter les délais</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE1.01 — Choisir les solutions et technologies réseaux adaptées</li>
+                      <li>CE1.02 — Respecter les principes fondamentaux de la sécurité</li>
+                      <li>CE1.03 — Approche rigoureuse pour la résolution</li>
+                      <li>CE1.04 — Respecter les règles métiers</li>
+                      <li>CE1.05 — Assurer une veille technologique</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAÉ 5.02 — S5</span>
+                    <p class="sae-title">Piloter un projet informatique (TODO-List)</p>
+                  </div>
+                  <p class="sae-desc">Développement en équipe de 7-8 personnes, méthode SCRUM, d'une application TODO-List en Python. Outils : Trello, GitHub, Pycharm/conda, PyTest, Sphinx, Docker. Fonctionnalités : tâches/sous-tâches, affectation, dates limites, priorités, étiquettes.</p>
+                  <p class="sae-reflection">Projet complexe et stimulant qui nous a permis d'approfondir Python, Docker, GitHub et d'apprendre à collaborer via SCRUM. La méthodologie agile nous a aidés à structurer notre travail et à respecter les délais.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC31.02</span><span class="sae-ac">AC31.05</span><span class="sae-ac">AC31.06</span>
+                    <span class="sae-ac">CE1.01</span><span class="sae-ac">CE1.02</span><span class="sae-ac">CE1.03</span>
+                  </div>
+                  <div class="sae-links">
+                    <a href="/documents/SAE502/Sphinx.docx" target="_blank" class="sae-link no-script-execution"><i class="fas fa-file-word"></i> Installation Sphinx</a>
+                    <a href="/documents/SAE502/Documentation de la base de données.docx" target="_blank" class="sae-link no-script-execution"><i class="fas fa-file-word"></i> Doc base de données</a>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B3 C2 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c3">C2</div>
+                  <div>
+                    <p class="sum-title">Connecter les entreprises et les usagers</p>
+                    <p class="sum-sub">Déployer une solution de connexion ou de communication sur IP</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC32.01 — Déployer un système de communication pour l'entreprise</li>
+                      <li>AC32.02 — Déployer un réseau sans fil avec enjeux de sécurité</li>
+                      <li>AC32.03 — Déployer un réseau d'accès fixe ou mobile pour un opérateur</li>
+                      <li>AC32.04 — Connexion sécurisée au système d'information de l'entreprise</li>
+                      <li>AC32.05 — Collaborer en mode projet en français et en anglais</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE2.01 — Communiquer avec le client, parfois en anglais</li>
+                      <li>CE2.02 — Faire preuve d'une démarche scientifique</li>
+                      <li>CE2.03 — Choisir les solutions et technologies adaptées</li>
+                      <li>CE2.04 — Proposer des solutions respectueuses de l'environnement</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <p class="no-sae">Compétences validées en cours et travaux pratiques — pas de SAE dédiée sur ce semestre.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- B3 C3 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c3">C3</div>
+                  <div>
+                    <p class="sum-title">Créer des outils et applications R&T</p>
+                    <p class="sum-sub">Piloter un projet de développement d'une application R&T</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC33.01 — Élaborer les spécifications techniques et le cahier des charges</li>
+                      <li>AC33.02 — Mettre en place un environnement de travail collaboratif</li>
+                      <li>AC33.03 — Participer à la formation des utilisateurs</li>
+                      <li>AC33.04 — Déployer et maintenir une solution informatique</li>
+                      <li>AC33.05 — S'informer sur les évolutions technologiques</li>
+                      <li>AC33.06 — Sécuriser l'environnement numérique d'une application</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE3.01 — Être à l'écoute des besoins du client</li>
+                      <li>CE3.02 — Documenter le travail réalisé</li>
+                      <li>CE3.03 — Utiliser les outils numériques à bon escient</li>
+                      <li>CE3.04 — Choisir les outils de développement adaptés</li>
+                      <li>CE3.05 — Intégrer les problématiques de sécurité</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <div class="sae-header">
+                    <span class="sae-badge">SAÉ 5.02 — S5</span>
+                    <p class="sae-title">Piloter un projet informatique (même SAE — voir C1)</p>
+                  </div>
+                  <p class="sae-desc">La même SAÉ 5.02 valide également la compétence C3 — pilotage de projet applicatif avec SCRUM, collaboration et déploiement via Docker.</p>
+                  <div class="sae-validated">
+                    <span class="sae-ac">AC33.02</span><span class="sae-ac">AC33.04</span>
+                    <span class="sae-ac">CE3.02</span><span class="sae-ac">CE3.03</span><span class="sae-ac">CE3.04</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- B3 C4 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c3">C4</div>
+                  <div>
+                    <p class="sum-title">Administrer un système d'information sécurisé</p>
+                    <p class="sum-sub">Mettre en œuvre un SI sécurisé pour une petite structure</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC34.01 — Analyse de risque et politique de sécurité</li>
+                      <li>AC34.02 — Mettre en œuvre des outils avancés de sécurisation réseau</li>
+                      <li>AC34.03 — Sécuriser les systèmes d'exploitation</li>
+                      <li>AC34.04 — Proposer une architecture sécurisée de SI</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE4.01 — Juste compromis sécurité / contraintes d'utilisation</li>
+                      <li>CE4.02 — Respecter les normes et le cadre juridique</li>
+                      <li>CE4.03 — Intégrer les dernières technologies</li>
+                      <li>CE4.04 — Travailler en équipe</li>
+                      <li>CE4.05 — Sensibiliser efficacement des utilisateurs</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <p class="no-sae">Compétences validées en cours et travaux pratiques de cybersécurité avancée — consolidées par l'expérience en alternance chez SOLINEST.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- B3 C5 -->
+            <details>
+              <summary>
+                <div class="sum-left">
+                  <div class="sum-num c3">C5</div>
+                  <div>
+                    <p class="sum-title">Surveiller un système d'information sécurisé</p>
+                    <p class="sum-sub">Mettre en œuvre le système de surveillance d'incidents</p>
+                  </div>
+                </div>
+                <i class="fas fa-chevron-down sum-icon"></i>
+              </summary>
+              <div class="acc-body">
+                <div class="acc-cols">
+                  <div class="acc-block">
+                    <h4>Apprentissages Critiques</h4>
+                    <ul>
+                      <li>AC35.01 — Surveiller l'activité du système d'information</li>
+                      <li>AC35.02 — Appliquer une méthodologie de tests de pénétration</li>
+                      <li>AC35.03 — Réagir face à un incident de sécurité</li>
+                      <li>AC35.04 — Administrer les outils de surveillance du SI</li>
+                    </ul>
+                  </div>
+                  <div class="acc-block">
+                    <h4>Composantes Essentielles</h4>
+                    <ul>
+                      <li>CE5.01 — Assurer une veille permanente</li>
+                      <li>CE5.02 — Réaliser les mises à jour critiques</li>
+                      <li>CE5.03 — Automatiser des tâches</li>
+                      <li>CE5.04 — S'intégrer dans une équipe</li>
+                      <li>CE5.05 — Surveiller le comportement du réseau</li>
+                      <li>CE5.06 — Veiller au respect des contrats et à la conformité SI</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sae-block">
+                  <p class="no-sae">Compétences validées en cours et approfondies par l'usage de Centreon en alternance chez SOLINEST, et d'Observium chez Réseau-Net.</p>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </div><!-- /but3 -->
+
+      </div><!-- /tabs-wrapper -->
+
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/portfolio.html" style="display:inline-flex;align-items:center;gap:.5rem;font-size:.88rem;font-weight:600;color:var(--accent);transition:var(--t)">
+          <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(id).classList.add('active');
+      });
+    });
+    // Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
+</html>

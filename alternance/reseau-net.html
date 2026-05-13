@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alternance Réseau-Net — William Hertrich, Ingénieur Systèmes & Réseaux en alternance depuis 2024">
+  <title>William Hertrich — Alternance Réseau-Net</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --rn: #0ea5e9; --rn-lt: #e0f2fe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(14,165,233,.1) 0%, transparent 60%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #64748b; margin-bottom: 1.5rem; transition: var(--t); }
+    .ph-back:hover { color: #94a3b8; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #38bdf8; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #38bdf8; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-title span { color: #38bdf8; }
+    .ph-sub { font-size: 1rem; color: #64748b; max-width: 640px; line-height: 1.7; margin-bottom: 1.5rem; }
+    .ph-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .75rem; border-radius: 100px; font-size: .75rem; font-weight: 600; }
+    .chip-loc  { background: rgba(255,255,255,.08); color: #94a3b8; }
+    .chip-period { background: rgba(56,189,248,.15); color: #38bdf8; }
+    .chip-role { background: rgba(37,99,235,.15); color: #60a5fa; }
+    .chip-live { background: rgba(34,197,94,.15); color: #4ade80; }
+
+    /* Sections */
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .s-header { margin-bottom: 2.5rem; }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .s-sub { margin-top: .5rem; font-size: .95rem; color: var(--text-m); }
+
+    /* Highlight band */
+    .highlight-band {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-radius: var(--r); padding: 2rem 2.5rem;
+      border: 1px solid rgba(56,189,248,.15);
+      display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem;
+    }
+    .hb-icon { width: 56px; height: 56px; border-radius: 12px; background: rgba(56,189,248,.15); color: #38bdf8; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .hb-text p { font-size: .95rem; color: #94a3b8; line-height: 1.7; }
+    .hb-text strong { color: #f1f5f9; }
+
+    /* Company section */
+    .company-text p { font-size: .95rem; color: var(--text-m); line-height: 1.8; margin-bottom: 1rem; }
+    .company-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .kpi { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem; text-align: center; }
+    .kpi-val { font-size: 2rem; font-weight: 800; color: var(--rn); line-height: 1; margin-bottom: .25rem; }
+    .kpi-label { font-size: .78rem; color: var(--text-m); font-weight: 500; }
+
+    /* Missions */
+    .missions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .mission-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.75rem;
+      box-shadow: var(--sh-sm); transition: var(--t);
+    }
+    .mission-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(14,165,233,.2); }
+    .mission-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1rem; }
+    .mi-sky    { background: rgba(14,165,233,.1);  color: #0ea5e9; }
+    .mi-blue   { background: rgba(37,99,235,.1);  color: var(--accent); }
+    .mi-green  { background: rgba(34,197,94,.1);  color: #16a34a; }
+    .mi-amber  { background: rgba(245,158,11,.1); color: #d97706; }
+    .mi-purple { background: rgba(139,92,246,.1); color: #7c3aed; }
+    .mi-red    { background: rgba(239,68,68,.1);  color: #dc2626; }
+    .mi-teal   { background: rgba(20,184,166,.1); color: #0d9488; }
+    .mi-rose   { background: rgba(244,63,94,.1);  color: #e11d48; }
+    .mission-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; }
+    .mission-desc { font-size: .875rem; color: var(--text-m); line-height: 1.75; }
+    .mission-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .mtag { display: inline-block; padding: .2rem .55rem; font-size: .7rem; font-weight: 600; border-radius: 4px; background: var(--bg-alt); color: var(--text-m); border: 1px solid var(--border); }
+
+    /* Stack section */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .stack-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh-sm); }
+    .stack-cat-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.1rem; }
+    .stack-cat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
+    .stack-cat-title { font-size: .82rem; font-weight: 700; color: var(--text); }
+    .stack-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .stag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+      .highlight-band { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
+      <li><a href="/index.html">Accueil</a></li>
+    </ul>
+  </nav>
+
+  <header class="pheader">
+    <div class="ph-inner">
+      <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+      <span class="ph-eyebrow">Alternance Master</span>
+      <h1 class="ph-title">Alternance <span>Réseau-Net</span></h1>
+      <p class="ph-sub">Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace — administration infrastructure, sécurité réseau et scripting.</p>
+      <div class="ph-chips">
+        <span class="chip chip-loc"><i class="fas fa-map-marker-alt"></i> Alsace</span>
+        <span class="chip chip-period"><i class="fas fa-calendar"></i> Août 2024 — Août 2026</span>
+        <span class="chip chip-role"><i class="fas fa-briefcase"></i> Ingénieur Sys&amp;Rés — Master CDSI</span>
+        <span class="chip chip-live"><i class="fas fa-circle"></i> En cours</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Highlight band -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="inner">
+      <div class="highlight-band reveal">
+        <div class="hb-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="hb-text">
+          <p><strong>Réseau-Net</strong> est un <strong>MSP (Managed Service Provider)</strong> alsacien proposant des services IT managés à une clientèle multi-secteurs (PME, industries, collectivités). Spécialisé dans l'infogérance, la cybersécurité et l'administration systèmes &amp; réseaux, Réseau-Net s'appuie sur un stack technique moderne incluant virtualisation, firewalls FortiGate et solutions EDR de nouvelle génération.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="inner">
+      <div class="company-kpis reveal">
+        <div class="kpi">
+          <p class="kpi-val">MSP</p>
+          <p class="kpi-label">Managed Service Provider</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-val">N2/N3</p>
+          <p class="kpi-label">Niveau support clients</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-val">Multi</p>
+          <p class="kpi-label">Clients multi-secteurs</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-val">2 ans</p>
+          <p class="kpi-label">Durée de l'alternance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missions -->
+  <section class="section section-alt">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag">Missions</span>
+        <h2 class="s-title">Mes missions chez Réseau-Net</h2>
+        <p class="s-sub">Interventions sur infrastructure clients dans un contexte MSP multi-sites</p>
+      </div>
+      <div class="missions-grid">
+
+        <div class="mission-card reveal">
+          <div class="mission-icon mi-sky"><i class="fas fa-headset"></i></div>
+          <h3 class="mission-title">Support N2 / N3 clients</h3>
+          <p class="mission-desc">Prise en charge des tickets escaladés depuis le niveau N1, résolution d'incidents complexes sur les infrastructures clients. Interventions à distance et sur site. Gestion et suivi via GLPI.</p>
+          <div class="mission-tags">
+            <span class="mtag">GLPI</span>
+            <span class="mtag">N2/N3</span>
+            <span class="mtag">Multi-clients</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.05s">
+          <div class="mission-icon mi-blue"><i class="fas fa-server"></i></div>
+          <h3 class="mission-title">Administration systèmes</h3>
+          <p class="mission-desc">Administration de serveurs Windows Server 2025, 2022, 2019 et Linux (Debian/Ubuntu). Gestion des rôles AD, GPO, DNS, DHCP. Mises à jour, patching et maintenance préventive des parcs clients.</p>
+          <div class="mission-tags">
+            <span class="mtag">Windows Server 2025</span>
+            <span class="mtag">Linux</span>
+            <span class="mtag">Active Directory</span>
+            <span class="mtag">GPO</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.1s">
+          <div class="mission-icon mi-purple"><i class="fas fa-layer-group"></i></div>
+          <h3 class="mission-title">Virtualisation</h3>
+          <p class="mission-desc">Administration des hyperviseurs VMware vSphere/ESXi et Microsoft Hyper-V. Création, migration et supervision de VMs. Gestion des ressources et des snapshots en environnement de production.</p>
+          <div class="mission-tags">
+            <span class="mtag">VMware vSphere</span>
+            <span class="mtag">ESXi</span>
+            <span class="mtag">Hyper-V</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.15s">
+          <div class="mission-icon mi-amber"><i class="fas fa-fire-alt"></i></div>
+          <h3 class="mission-title">Sécurité réseau — FortiGate</h3>
+          <p class="mission-desc">Configuration et administration de firewalls FortiGate (règles de sécurité, VPN SSL/IPSec, NAT, IPS). Gestion centralisée des équipements via FortiManager. Déploiement et mise à jour des politiques de sécurité.</p>
+          <div class="mission-tags">
+            <span class="mtag">FortiGate</span>
+            <span class="mtag">FortiManager</span>
+            <span class="mtag">VPN SSL/IPSec</span>
+            <span class="mtag">IPS/UTM</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.2s">
+          <div class="mission-icon mi-red"><i class="fas fa-shield-virus"></i></div>
+          <h3 class="mission-title">EDR — SentinelOne</h3>
+          <p class="mission-desc">Déploiement et gestion de l'agent SentinelOne sur les postes et serveurs clients. Analyse des alertes de sécurité, investigation des menaces détectées, isolation des hôtes compromis et remédiation.</p>
+          <div class="mission-tags">
+            <span class="mtag">SentinelOne</span>
+            <span class="mtag">EDR</span>
+            <span class="mtag">Threat Hunting</span>
+            <span class="mtag">Remédiation</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.25s">
+          <div class="mission-icon mi-green"><i class="fas fa-chart-network"></i></div>
+          <h3 class="mission-title">Monitoring réseau — Observium</h3>
+          <p class="mission-desc">Supervision SNMP des équipements réseau et serveurs via Observium. Création et gestion des tableaux de bord de monitoring. Paramétrage des alertes et suivi de la disponibilité des services clients.</p>
+          <div class="mission-tags">
+            <span class="mtag">Observium</span>
+            <span class="mtag">SNMP</span>
+            <span class="mtag">Monitoring</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.3s">
+          <div class="mission-icon mi-teal"><i class="fas fa-database"></i></div>
+          <h3 class="mission-title">Sauvegarde & Restauration</h3>
+          <p class="mission-desc">Mise en place et gestion des plans de sauvegarde via Veeam Backup &amp; Replication et Synology ActiveBackup for Business. Tests de restauration réguliers, supervision des jobs et gestion des incidents de backup.</p>
+          <div class="mission-tags">
+            <span class="mtag">Veeam</span>
+            <span class="mtag">Synology ActiveBackup</span>
+            <span class="mtag">PRA</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.35s">
+          <div class="mission-icon mi-rose"><i class="fas fa-code"></i></div>
+          <h3 class="mission-title">Scripting & Automatisation</h3>
+          <p class="mission-desc">Développement de scripts Bash et Python pour automatiser les tâches d'administration répétitives : inventaire de parc, rapports de conformité, déploiement de configurations, gestion des utilisateurs AD en masse.</p>
+          <div class="mission-tags">
+            <span class="mtag">Bash</span>
+            <span class="mtag">Python</span>
+            <span class="mtag">Automatisation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="section">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag">Stack technique</span>
+        <h2 class="s-title">Technologies maîtrisées</h2>
+        <p class="s-sub">Environnement technique d'un MSP moderne orienté cybersécurité</p>
+      </div>
+      <div class="stack-grid">
+
+        <div class="stack-cat reveal">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-blue"><i class="fas fa-server"></i></div>
+            <p class="stack-cat-title">Systèmes</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">Windows Server 2025/2022/2019</span>
+            <span class="stag">Debian Linux</span>
+            <span class="stag">Ubuntu Server</span>
+            <span class="stag">Active Directory</span>
+            <span class="stag">DNS / DHCP</span>
+            <span class="stag">GPO</span>
+          </div>
+        </div>
+
+        <div class="stack-cat reveal" style="transition-delay:.05s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-purple"><i class="fas fa-layer-group"></i></div>
+            <p class="stack-cat-title">Virtualisation</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">VMware vSphere</span>
+            <span class="stag">VMware ESXi</span>
+            <span class="stag">Hyper-V</span>
+          </div>
+        </div>
+
+        <div class="stack-cat reveal" style="transition-delay:.1s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-amber"><i class="fas fa-shield-alt"></i></div>
+            <p class="stack-cat-title">Sécurité réseau</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">FortiGate</span>
+            <span class="stag">FortiManager</span>
+            <span class="stag">VPN SSL</span>
+            <span class="stag">VPN IPSec</span>
+            <span class="stag">IPS/UTM</span>
+            <span class="stag">Pare-feu NG</span>
+          </div>
+        </div>
+
+        <div class="stack-cat reveal" style="transition-delay:.15s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-red"><i class="fas fa-bug"></i></div>
+            <p class="stack-cat-title">Cybersécurité endpoint</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">SentinelOne EDR</span>
+            <span class="stag">Threat Hunting</span>
+            <span class="stag">Incident Response</span>
+            <span class="stag">Isolation &amp; Remédiation</span>
+          </div>
+        </div>
+
+        <div class="stack-cat reveal" style="transition-delay:.2s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-green"><i class="fas fa-chart-line"></i></div>
+            <p class="stack-cat-title">Monitoring & Sauvegarde</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">Observium</span>
+            <span class="stag">SNMP</span>
+            <span class="stag">Veeam Backup &amp; Replication</span>
+            <span class="stag">Synology ActiveBackup</span>
+          </div>
+        </div>
+
+        <div class="stack-cat reveal" style="transition-delay:.25s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-rose"><i class="fas fa-terminal"></i></div>
+            <p class="stack-cat-title">ITSM & Scripting</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">GLPI</span>
+            <span class="stag">Bash</span>
+            <span class="stag">Python</span>
+            <span class="stag">PowerShell</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
+</html>

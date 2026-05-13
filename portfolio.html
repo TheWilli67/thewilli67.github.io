@@ -1,55 +1,362 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/Static/index_pc.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de William Hertrich — Projets, alternances et formation">
+  <title>William Hertrich — Portfolio</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
-	<link rel="icon" href="/Images_photos/reprendre.png" />
-	<script src="/scripts/animation_page.js"></script>
-	<title>HERTRICH William | Contact </title>
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(99,102,241,.07) 0%, transparent 50%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-sub { font-size: 1rem; color: #64748b; max-width: 600px; line-height: 1.7; }
+
+    /* Sections */
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .s-header { text-align: center; margin-bottom: 3rem; }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .s-sub { font-size: .95rem; color: var(--text-m); margin-top: .5rem; }
+
+    /* Project cards grid */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
+    .proj-grid.proj-center { display: flex; flex-wrap: wrap; justify-content: center; }
+    .proj-grid.proj-center .proj-card { flex: 0 0 min(460px, 100%); }
+
+    .proj-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+      box-shadow: var(--sh-sm); transition: var(--t);
+      display: flex; flex-direction: column;
+    }
+    .proj-card:hover { transform: translateY(-4px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .proj-card-thumb {
+      height: 160px; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative; overflow: hidden;
+    }
+    .proj-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .proj-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .07em; padding: .2rem .6rem; border-radius: 100px;
+      margin-bottom: .75rem; width: fit-content;
+    }
+    .badge-alt   { background: rgba(37,99,235,.1);  color: var(--accent); }
+    .badge-form  { background: rgba(99,102,241,.1); color: #6366f1; }
+    .badge-proj  { background: rgba(234,179,8,.1);  color: #b45309; }
+    .badge-wip   { background: rgba(100,116,139,.1); color: #64748b; }
+    .proj-title  { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; line-height: 1.3; }
+    .proj-desc   { font-size: .845rem; color: var(--text-m); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+    .proj-tags   { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
+    .ptag        { padding: .18rem .55rem; background: var(--bg-alt); color: var(--text-m); border-radius: 4px; font-size: .73rem; font-weight: 500; border: 1px solid var(--border); }
+    .proj-link   { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: auto; transition: var(--t); }
+    .proj-link:hover { color: var(--accent-h); gap: .6rem; }
+    .proj-link.disabled { color: var(--text-lt); pointer-events: none; }
+
+    /* Thumb backgrounds */
+    .thumb-alt  { background: linear-gradient(135deg, #0f172a, #1e293b); color: #60a5fa; }
+    .thumb-but  { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #a5b4fc; }
+    .thumb-proj { background: linear-gradient(135deg, #1c1917, #292524); color: #fbbf24; }
+    .thumb-insa { background: linear-gradient(135deg, #0c1832, #1e3a5f); color: #93c5fd; }
+    .thumb-wip  { background: linear-gradient(135deg, #1e293b, #334155); color: #64748b; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+    }
+  </style>
 </head>
-
 <body>
 
-	<body>
-		<div class="navbar">
-			<p class="name"><a style="text-decoration: none;color:white;" href="/index.html">HERTRICH William</a></p>
-			<a class="lien" href="/a_propos.html">
-				<p>A PROPOS</p>
-			</a>
-			<a class="lien" href="/contact.html">
-				<p>CONTACT</p>
-			</a>
-			<a class="lien" href="/portfolio.html">
-				<p>PORTFOLIO</p>
-			</a>
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
+      <li><a href="/index.html">Accueil</a></li>
+    </ul>
+  </nav>
 
-			<a class="lien" href="/index.html">
-				<p>ACCUEIL</p>
-			</a>
-		</div>
-		<article class="contact" style="text-align: center;">
-			<h1 class="text_obj_barre" style="font-size: xxx-large;">
-				Mon Portfolio
-			</h1>
-			<a href="/projet_72h.html"><img class="img_portfolio" src="/Images_photos/vue_isométrique500px.png"
-					alt=""></a>
-			<a class="spacing_portfolio" href="/BUT1/Competence_BUT1_1.html"><img class="img_portfolio"
-					src="/Images_photos/BUT 1.png" alt=""></a>
-			<a class="spacing_portfolio" href="/BUT2/Competence_BUT2_1.html"><img class="img_portfolio"
-					src="/Images_photos/BUT 2.png" alt=""></a>
-			<a class="spacing_portfolio" href="/BUT3/Competence_BUT3_1.html"><img class="img_portfolio"
-					src="/Images_photos/BUT 3.png" alt=""></a>
-			<a class="spacing_portfolio" href="/alternance.html"><img class="img_portfolio"
-					src="/Images_photos/img_alternance.png" alt=""></a>
+  <header class="pheader">
+    <div class="ph-inner">
+      <span class="ph-eyebrow">Mes travaux</span>
+      <h1 class="ph-title">Portfolio</h1>
+      <p class="ph-sub">Retrouvez ici ma formation Master INSA, mon BUT R&T, mes projets académiques et mes expériences en alternance.</p>
+    </div>
+  </header>
 
-		</article>
-	</body>
+  <!-- Alternances -->
+  <section class="section" id="alternance">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Expériences professionnelles</span>
+        <h2 class="s-title">Alternances</h2>
+        <p class="s-sub">Deux expériences en alternance qui constituent le cœur de ma formation pratique.</p>
+      </div>
+      <div class="proj-grid">
 
+        <a href="/alternance/reseau-net.html" class="proj-card reveal">
+          <div class="proj-card-thumb thumb-alt"><i class="fas fa-building-shield"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-alt"><i class="fas fa-circle"></i> En cours</span>
+            <h3 class="proj-title">Réseau-Net — Alternant Ingénieur Systèmes &amp; Réseaux</h3>
+            <p class="proj-desc">Administration d'infrastructures multi-clients : virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium, sauvegarde Veeam, support N2/N3.</p>
+            <div class="proj-tags">
+              <span class="ptag">FortiGate</span><span class="ptag">VMware</span><span class="ptag">SentinelOne</span><span class="ptag">Veeam</span><span class="ptag">Python/Bash</span>
+            </div>
+            <span class="proj-link">Voir le détail <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <a href="/alternance/solinest.html" class="proj-card reveal" style="transition-delay:.1s">
+          <div class="proj-card-thumb thumb-alt" style="background:linear-gradient(135deg,#1a2e1a,#1e3a1e);"><i class="fas fa-industry" style="color:#4ade80"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a">Terminé (2024)</span>
+            <h3 class="proj-title">SOLINEST — Alternant Technicien Informatique</h3>
+            <p class="proj-desc">Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité.</p>
+            <div class="proj-tags">
+              <span class="ptag">GLPI</span><span class="ptag">VMware</span><span class="ptag">Veeam</span><span class="ptag">Centreon</span><span class="ptag">Google Workspace</span>
+            </div>
+            <span class="proj-link">Voir le détail <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Master INSA -->
+  <section class="section section-alt" id="insa">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">En cours — 2024 / 2026</span>
+        <h2 class="s-title">Master INSA — Cyberdéfense &amp; Sécurité</h2>
+        <p class="s-sub">INSA Hauts-de-France, Maubeuge · Master Réseaux &amp; Télécommunications, option CDSI</p>
+      </div>
+      <div class="proj-grid proj-center">
+        <div class="proj-card reveal">
+          <div class="proj-card-thumb thumb-insa"><i class="fas fa-shield-halved"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-wip"><i class="fas fa-hourglass-half"></i> En cours</span>
+            <h3 class="proj-title">Master CDSI — Projets &amp; Compétences</h3>
+            <p class="proj-desc">Contenu en cours de construction au fil de la formation. Cyberdéfense, sécurité des systèmes d'information, architecture réseaux avancée, cryptographie, gestion d'incidents.</p>
+            <div class="proj-tags">
+              <span class="ptag">Cyberdéfense</span><span class="ptag">SIEM</span><span class="ptag">Cryptographie</span><span class="ptag">Pentesting</span><span class="ptag">RGPD</span>
+            </div>
+            <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link no-script-execution">Voir la formation INSA <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formation BUT -->
+  <section class="section" id="but">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Formation académique</span>
+        <h2 class="s-title">BUT Réseaux &amp; Télécommunications</h2>
+        <p class="s-sub">Université de Haute-Alsace, Colmar · 2021–2024 · Option Cybersécurité</p>
+      </div>
+      <div class="proj-grid proj-center">
+        <a href="/but.html" class="proj-card reveal">
+          <div class="proj-card-thumb thumb-but"><i class="fas fa-graduation-cap"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-form"><i class="fas fa-layer-group"></i> BUT 1 · 2 · 3</span>
+            <h3 class="proj-title">Compétences &amp; SAE — BUT complet (3 ans)</h3>
+            <p class="proj-desc">Toutes mes compétences du BUT R&T regroupées en une seule page : apprentissages critiques, composantes essentielles et projets SAE par année et par domaine.</p>
+            <div class="proj-tags">
+              <span class="ptag">Réseau</span><span class="ptag">Cybersécurité</span><span class="ptag">ToIP</span><span class="ptag">Python</span><span class="ptag">Pentesting</span>
+            </div>
+            <span class="proj-link">Voir toutes les compétences <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets académiques -->
+  <section class="section section-alt" id="projets">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Projets SAE</span>
+        <h2 class="s-title">Projets académiques</h2>
+        <p class="s-sub">Situations d'apprentissage et d'évaluation réalisées durant le BUT R&T.</p>
+      </div>
+      <div class="proj-grid">
+
+        <a href="/SAE23/SAE23_fr.html" class="proj-card reveal" style="transition-delay:.1s">
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1c1917,#292524);"><i class="fas fa-code" style="color:#fb923c"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-proj"><i class="fas fa-terminal"></i> SAE 2.3 — S2</span>
+            <h3 class="proj-title">SAE23 — Solution informatique pour l'entreprise</h3>
+            <p class="proj-desc">Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation.</p>
+            <div class="proj-tags">
+              <span class="ptag">Python</span><span class="ptag">Documentation</span><span class="ptag">Entreprise</span>
+            </div>
+            <span class="proj-link">Voir le projet <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <div class="proj-card reveal" style="transition-delay:.2s">
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#172028,#1a3040);"><i class="fas fa-network-wired" style="color:#38bdf8"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-proj"><i class="fas fa-diagram-project"></i> SAE 3.03 — S3</span>
+            <h3 class="proj-title">SAE303 — Réseau multi-site</h3>
+            <p class="proj-desc">Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI.</p>
+            <div class="proj-tags">
+              <span class="ptag">MSTP</span><span class="ptag">VRRP</span><span class="ptag">NAT</span><span class="ptag">DHCP</span><span class="ptag">AD</span>
+            </div>
+            <div style="display:flex;gap:.5rem;margin-top:auto;padding-top:.75rem">
+              <a href="/documents/SAE303/Partie-LAN.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">LAN <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE303/Partie-service-reseaux.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">Services <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE303/Compte_rendu_partie_FAI.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">FAI <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" style="transition-delay:.3s">
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a1a2e,#2d1a3e);"><i class="fas fa-bug" style="color:#a78bfa"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-proj"><i class="fas fa-shield-halved"></i> SAE 3.04 — S3</span>
+            <h3 class="proj-title">SAE304 — Découverte du pentesting (Root-Me)</h3>
+            <p class="proj-desc">Résolution de ~40 défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils.</p>
+            <div class="proj-tags">
+              <span class="ptag">Pentest</span><span class="ptag">Wireshark</span><span class="ptag">Burp Suite</span><span class="ptag">Root-Me</span>
+            </div>
+            <span class="proj-link disabled">Rapport non public (Root-Me) <i class="fas fa-lock"></i></span>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" style="transition-delay:.15s">
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2018,#283a20);"><i class="fas fa-terminal" style="color:#86efac"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-proj"><i class="fas fa-code-branch"></i> SAE 3.02 — S3</span>
+            <h3 class="proj-title">SAE302 — Interface de surveillance distante</h3>
+            <p class="proj-desc">Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP.</p>
+            <div class="proj-tags">
+              <span class="ptag">Python</span><span class="ptag">Sockets</span><span class="ptag">Client-Serveur</span><span class="ptag">SSH</span>
+            </div>
+            <a href="https://github.com/TheWilli67/SAE302" target="_blank" class="proj-link no-script-execution">GitHub <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" style="transition-delay:.25s">
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2028,#1a3028);"><i class="fas fa-list-check" style="color:#34d399"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-proj"><i class="fas fa-users-gear"></i> SAÉ 5.02 — S5</span>
+            <h3 class="proj-title">SAE502 — Pilotage de projet (TODO-List)</h3>
+            <p class="proj-desc">Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello.</p>
+            <div class="proj-tags">
+              <span class="ptag">Python</span><span class="ptag">SCRUM</span><span class="ptag">Docker</span><span class="ptag">PyTest</span><span class="ptag">GitHub</span>
+            </div>
+            <div style="display:flex;gap:.5rem;margin-top:auto;padding-top:.75rem">
+              <a href="https://github.com/TheWilli67/YeGrec" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">GitHub <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE502/Sphinx.docx" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">Sphinx.docx <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projet de Terminale -->
+  <section class="section" id="lycee">
+    <div class="inner">
+      <div class="s-header">
+        <span class="s-tag">Lycée Jean-Baptiste Schwillgué — Terminale STI2D</span>
+        <h2 class="s-title">Projet de Terminale</h2>
+        <p class="s-sub">Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT.</p>
+      </div>
+      <div class="proj-grid proj-center">
+        <a href="/projet_72h.html" class="proj-card reveal">
+          <div class="proj-card-thumb thumb-proj"><i class="fas fa-water"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-proj"><i class="fas fa-clock"></i> Projet 72h</span>
+            <h3 class="proj-title">Hydrolienne portable — Projet intégratif 72h</h3>
+            <p class="proj-desc">Conception et modélisation 3D d'une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge.</p>
+            <div class="proj-tags">
+              <span class="ptag">CAO 3D</span><span class="ptag">Impression 3D</span><span class="ptag">Mécanique</span><span class="ptag">Énergie</span>
+            </div>
+            <span class="proj-link">Voir le projet <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
+</body>
 </html>

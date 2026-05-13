@@ -1,159 +1,325 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Static/index.css">
-    <link rel="icon" href="/Images_photos/reprendre.png" />
-    <title>SAE23 | Mettre en place une solution informatique pour l’entreprise </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SAE 2.3 — Bibliothèque de jeux — William Hertrich, projet Django / Python / MySQL">
+  <title>William Hertrich — SAE 2.3 : Bibliothèque de jeux</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/animation_page.js" defer></script>
+  <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    /* Language toggle */
+    .lang-toggle { display: inline-flex; align-items: center; gap: .3rem; padding: .3rem .8rem; border-radius: 100px; font-size: .75rem; font-weight: 600; background: rgba(255,255,255,.08); color: #94a3b8; border: 1px solid rgba(255,255,255,.1); transition: var(--t); }
+    .lang-toggle:hover { background: rgba(255,255,255,.14); color: #f1f5f9; }
+
+    /* Page header */
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(59,130,246,.1) 0%, transparent 60%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #64748b; transition: var(--t); }
+    .ph-back:hover { color: #94a3b8; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-title span { color: #60a5fa; }
+    .ph-sub { font-size: 1rem; color: #64748b; max-width: 620px; line-height: 1.7; margin-bottom: 1.5rem; }
+    .ph-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .75rem; border-radius: 100px; font-size: .75rem; font-weight: 600; }
+    .chip-year { background: rgba(96,165,250,.15); color: #60a5fa; }
+    .chip-team { background: rgba(139,92,246,.15); color: #a78bfa; }
+    .chip-tech { background: rgba(59,130,246,.15); color: #93c5fd; }
+    .chip-loc  { background: rgba(255,255,255,.08); color: #94a3b8; }
+
+    /* Sections */
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .s-header { margin-bottom: 2.5rem; }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .s-sub { margin-top: .5rem; font-size: .95rem; color: var(--text-m); }
+
+    /* Two col */
+    .two-col { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+    .prose p { font-size: .95rem; color: var(--text-m); line-height: 1.8; margin-bottom: 1rem; }
+
+    /* Schema list */
+    .schema-list { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
+    .schema-list h4 { font-size: .8rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+    .schema-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .875rem; color: var(--text-m); padding: .4rem 0; border-bottom: 1px solid var(--border); }
+    .schema-list li:last-child { border-bottom: none; }
+    .schema-list li i { color: var(--accent); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
+
+    /* Screenshot */
+    .screenshot-card { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh); }
+    .screenshot-card img { width: 100%; display: block; }
+    .screenshot-cap { padding: .85rem 1.25rem; font-size: .82rem; color: var(--text-m); background: var(--bg-alt); border-top: 1px solid var(--border); font-weight: 500; }
+
+    /* Stack */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .stack-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem; text-align: center; transition: var(--t); }
+    .stack-item:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .stack-icon { font-size: 1.5rem; margin-bottom: .5rem; }
+    .stack-name { font-size: .88rem; font-weight: 700; color: var(--text); }
+    .stack-desc { font-size: .75rem; color: var(--text-m); margin-top: .2rem; }
+
+    /* Tasks image */
+    .img-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm); }
+    .img-card img { width: 100%; }
+    .img-card-cap { padding: .85rem 1.25rem; font-size: .82rem; color: var(--text-m); background: var(--bg-alt); border-top: 1px solid var(--border); }
+
+    /* GitHub links */
+    .gh-list { display: flex; flex-direction: column; gap: .75rem; }
+    .gh-link { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); transition: var(--t); }
+    .gh-link:hover { border-color: rgba(37,99,235,.3); box-shadow: var(--sh); transform: translateX(3px); }
+    .gh-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(36,41,47,.08); color: #24292f; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .gh-name { font-size: .88rem; font-weight: 600; color: var(--text); }
+    .gh-handle { font-size: .75rem; color: var(--text-lt); }
+    .gh-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--t); }
+    .gh-link:hover .gh-arrow { color: var(--accent); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+      .ph-top { flex-direction: column; align-items: flex-start; gap: .75rem; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="navbar">
-        <p class="name"><a style="text-decoration: none;color:white;" href="/index.html">HERTRICH William</a></p>
-        <a class="lien" href="/a_propos.html">
-            <p>A PROPOS</p>
-        <a class="lien" href="/contact.html">
-            <p>CONTACT</p>
-        </a>
-        <a class="lien" href="/portfolio.html">
-            <p>PORTFOLIO</p>
-        </a>
-        
-        </a>
-        <a class="lien" href="/index.html">
-            <p>ACCUEIL</p>
-        </a>
-    </div>
-    <p class="Maintitle">
-        SAE 23 | Mettre en place une solution informatique pour l’entreprise
-    </p>
-    <a href="/SAE23/SAE23.html" style="text-decoration:none;color:black;float:right;margin-right:12%">
-        English
-    </a>
-    <div class="cv">
-        <p class="Maintitle">
-            Introduction
-        </p>
-        <p class="portfolio_text">
-            Ce thème vous permettra de fournir une interface de gestion d'une bibliothèque de jeux. Les utilisateurs
-            pourront
-            commenter les jeux et les ajouter à leur liste personnelle. Le schéma de données est le suivant
-            <li class="portfolio_text">Jeux categories (id, name, description)</li>
-            <li class="portfolio_text">Jeux (id, title, year of release, box picture, publisher, author, category)</li>
-            <li class="portfolio_text">Auteurs (id, name, first name, age, photos)</li>
-            <li class="portfolio_text">Joueurs (id, name, email, password, type => professional or private)</li>
-            <li class="portfolio_text">Commentaires sur le jeux (games, players, note, comment, date)</li>
-            <li class="portfolio_text">Une liste de jeux pour les utilisateurs</li>
-        <p class="portfolio_text">
-            Vous devez mettre en œuvre un CRUD pour chacun de ces types de données. Vous préparerez la base de données à
-            l'avance et
-            la remplirez
-            avec
-            catégories, jeux et auteurs.
-            Votre site web doit permettre l'entrée de nouveaux utilisateurs et les commentaires qu'ils font sur les
-            jeux. Vous
-            devrez
-            calculerez pour
-            pour chaque jeu le score moyen de chaque type de commentateur. vous devrez également mettre en évidence les
-            commentaires
-            ayant
-            le plus haut et le plus bas
-            Vous devrez également mettre en évidence les commentaires ayant le score le plus élevé et le plus bas sur
-            chaque page de
-            jeu.
 
-            Vous devrez également être en mesure d'insérer de nouveaux jeux à l'aide d'un fichier. Si l'auteur n'existe
-            pas, il sera
-            créé
-            avec le nom
-            et le nom de famille. La structure du fichier attendu doit bien sûr être décrite soit dans une aide, soit
-            dans le
-            préambule de la
-            page de chargement.
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
+      <li><a href="/index.html">Accueil</a></li>
+    </ul>
+  </nav>
 
-            Vous devriez pouvoir générer un fichier pour un joueur, avec sa liste de parties et les commentaires qu'il a
-            faits sur
-            chaque partie, ainsi que le nom du joueur.
-            jeu et le
-            score moyen de la partie.
-        </p>
-        </p>
+  <header class="pheader">
+    <div class="ph-inner">
+      <div class="ph-top">
+        <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+        <a href="/SAE23/SAE23.html" class="lang-toggle"><i class="fas fa-language"></i> English</a>
+      </div>
+      <span class="ph-eyebrow">SAE — Projet académique BUT1</span>
+      <h1 class="ph-title">SAE 2.3 — <span>Bibliothèque de jeux</span></h1>
+      <p class="ph-sub">Mettre en place une solution informatique pour l'entreprise — application web full-stack de gestion de bibliothèque de jeux, avec gestion des utilisateurs, opérations CRUD et système de commentaires/notes.</p>
+      <div class="ph-chips">
+        <span class="chip chip-year"><i class="fas fa-calendar"></i> BUT1 — 2022/2023</span>
+        <span class="chip chip-team"><i class="fas fa-users"></i> Binôme</span>
+        <span class="chip chip-tech"><i class="fab fa-python"></i> Django / Python</span>
+        <span class="chip chip-loc"><i class="fas fa-database"></i> MySQL</span>
+      </div>
     </div>
-    <div class="cv">
-        <p class="Maintitle">
-            Apparence de la librairie de jeux
-        </p>
-        <img style="width:100%;" src="/SAE23/SAE23_Documents/game_library_appearance.png"
-            alt="game_library_appearance.png">
-        <p class="portfolio_text">
-            Ce projet a été assez compliqué dans sa réalisation, nous avons dû nous former et apprendre à intégrer et
-            gérer
-            une base de données
-            dans le Framework Django, le travail conséquent qui nous a été demandé a tout de même été réalisé en
-            comptant le
-            le fait que nous
-            n'étions que deux alors que les autres groupes étaient des groupes de trois. Mon collègue a fait le Django
-            et
-            l'intégration de la base de données
-            base de données
-            tandis que je me suis occupé du CSS, de la machine virtuelle et du planning de Gantt. Mais malgré le temps
-            limité, nous
-            avons
-            avons réussi à
-            le site est 100% fonctionnel et sur une VM lorsqu'il est bridé, il fonctionne.
-            fonctionne comme un site hébergé sur
-            comme un site hébergé sur un serveur externe.
-            <br><br>
-            Ressources utilisées pour faire notre projet:
-            <li class="portfolio_text">Django Framework</li>
-            <li class="portfolio_text">Python</li>
-            <li class="portfolio_text">HTML 5</li>
-            <li class="portfolio_text">CSS 4</li>
-            <li class="portfolio_text">MySQL</li>
-            <li class="portfolio_text">VM-Ware/VirtualBox</li>
-        <p class="portfolio_text">
-            En conclusion :
-            Ce projet était assez intéressant dans le fond, dans la forme il était néanmoins assez chaotique, un manque
-            de temps
-            assez important.
-            temps assez
-            important. Mais je trouve que ce type de projet nous permet de grandir, de pouvoir confronter nos idées et
-            nos idéaux,
-            et d'aller plus loin.
-            idéaux, et de
-            d'être dans des conditions de travail stressantes que je trouve assez intéressantes à analyser par la suite.
-        </p>
-        </p>
+  </header>
+
+  <!-- Context + Schema -->
+  <section class="section">
+    <div class="inner">
+      <div class="two-col">
+        <div>
+          <div class="s-header reveal">
+            <span class="s-tag">Présentation du projet</span>
+            <h2 class="s-title">Introduction</h2>
+          </div>
+          <div class="prose reveal">
+            <p>Ce projet consistait à développer une interface de gestion d'une bibliothèque de jeux à l'aide du framework Django. Les utilisateurs pouvaient parcourir les jeux, rédiger des commentaires, les noter et gérer leur liste personnelle.</p>
+            <p>Nous avons travaillé en binôme alors que tous les autres groupes étaient composés de trois personnes. Mon collègue a pris en charge Django et l'intégration de la base de données, tandis que je me suis occupé du CSS, de la machine virtuelle et du planning Gantt.</p>
+            <p>Malgré le temps limité, nous avons livré un projet entièrement fonctionnel, hébergé sur une VM VirtualBox en mode bridgé — fonctionnant comme un serveur accessible depuis l'extérieur. Une seule fonctionnalité mineure manquait à la remise.</p>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:.1s">
+          <div class="s-header">
+            <span class="s-tag">Schéma de données</span>
+            <h2 class="s-title" style="font-size:1.3rem;">Entités de la base</h2>
+          </div>
+          <ul class="schema-list">
+            <li><i class="fas fa-tag"></i> <span><strong>Catégories</strong> — id, nom, description</span></li>
+            <li><i class="fas fa-gamepad"></i> <span><strong>Jeux</strong> — id, titre, année, couverture, éditeur, auteur, catégorie</span></li>
+            <li><i class="fas fa-pen"></i> <span><strong>Auteurs</strong> — id, nom, prénom, âge, photo</span></li>
+            <li><i class="fas fa-user"></i> <span><strong>Joueurs</strong> — id, nom, email, mot de passe, type (pro / particulier)</span></li>
+            <li><i class="fas fa-comment"></i> <span><strong>Commentaires</strong> — jeu, joueur, note, commentaire, date</span></li>
+            <li><i class="fas fa-list"></i> <span><strong>Liste de jeux</strong> — liste personnelle par joueur</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="cv">
-        <p class="Maintitle">
-            Distribution des tâches
-        </p>
-        <img src="/SAE23/SAE23_Documents/distribution_des_tâches.png" alt="distribution_of_tasks.pdf">
+  </section>
+
+  <!-- Screenshot -->
+  <section class="section section-alt">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag">Résultat</span>
+        <h2 class="s-title">Bibliothèque de jeux — interface</h2>
+      </div>
+      <div class="screenshot-card reveal">
+        <img src="/SAE23/SAE23_Documents/game_library_appearance.png" alt="Capture d'écran de l'interface">
+        <p class="screenshot-cap"><i class="fas fa-desktop"></i> Rendu final de l'interface web de la bibliothèque de jeux</p>
+      </div>
     </div>
-    <div class="cv">
-        <p class="Maintitle">
-            Lien Github de notre projet (SAE)
-        </p>
-        <p class="portfolio_text">
-            <a class="portfolio_text"
-                href="https://github.com/ZitoouN/SAE23test">https://github.com/ZitoouN/SAE23test</a>
-            <br><br>
-        <p class="portfolio_text">
-            Mon Github :
-        </p>
-        <a class="portfolio_text" href="https://github.com/TheWilli67">https://github.com/TheWilli67</a>
-        <p class="portfolio_text">
-            le Github de mon collègue:
-        </p> <br>
-        <a class="portfolio_text" href="https://github.com/TheWilli67">https://github.com/ZitoouN</a>
-        </p>
+  </section>
+
+  <!-- Stack -->
+  <section class="section">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag">Technologies</span>
+        <h2 class="s-title">Stack utilisée</h2>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item reveal">
+          <div class="stack-icon" style="color:#3776ab;"><i class="fab fa-python"></i></div>
+          <p class="stack-name">Python</p>
+          <p class="stack-desc">Logique backend</p>
+        </div>
+        <div class="stack-item reveal" style="transition-delay:.05s">
+          <div class="stack-icon" style="color:#092e20;"><i class="fas fa-leaf"></i></div>
+          <p class="stack-name">Django</p>
+          <p class="stack-desc">Framework web</p>
+        </div>
+        <div class="stack-item reveal" style="transition-delay:.1s">
+          <div class="stack-icon" style="color:#e44d26;"><i class="fab fa-html5"></i></div>
+          <p class="stack-name">HTML5</p>
+          <p class="stack-desc">Balisage &amp; templates</p>
+        </div>
+        <div class="stack-item reveal" style="transition-delay:.15s">
+          <div class="stack-icon" style="color:#1572b6;"><i class="fab fa-css3-alt"></i></div>
+          <p class="stack-name">CSS</p>
+          <p class="stack-desc">Mise en forme</p>
+        </div>
+        <div class="stack-item reveal" style="transition-delay:.2s">
+          <div class="stack-icon" style="color:#4479a1;"><i class="fas fa-database"></i></div>
+          <p class="stack-name">MySQL</p>
+          <p class="stack-desc">Base de données relationnelle</p>
+        </div>
+        <div class="stack-item reveal" style="transition-delay:.25s">
+          <div class="stack-icon" style="color:#183a61;"><i class="fas fa-server"></i></div>
+          <p class="stack-name">VirtualBox</p>
+          <p class="stack-desc">Déploiement VM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Task distribution + GitHub -->
+  <section class="section section-alt">
+    <div class="inner">
+      <div class="two-col">
+        <div>
+          <div class="s-header reveal">
+            <span class="s-tag">Organisation</span>
+            <h2 class="s-title">Répartition des tâches</h2>
+          </div>
+          <div class="img-card reveal">
+            <img src="/SAE23/SAE23_Documents/distribution_des_tâches.png" alt="Répartition des tâches">
+            <p class="img-card-cap"><i class="fas fa-tasks"></i> Distribution des tâches entre les deux contributeurs</p>
+          </div>
+        </div>
+        <div>
+          <div class="s-header reveal" style="transition-delay:.1s">
+            <span class="s-tag">Code source</span>
+            <h2 class="s-title">Dépôts GitHub</h2>
+          </div>
+          <div class="gh-list">
+            <a href="https://github.com/ZitoouN/SAE23test" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.15s">
+              <div class="gh-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <p class="gh-name">SAE23test</p>
+                <p class="gh-handle">github.com/ZitoouN/SAE23test — dépôt du projet</p>
+              </div>
+              <i class="fas fa-external-link-alt gh-arrow"></i>
+            </a>
+            <a href="https://github.com/TheWilli67" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.2s">
+              <div class="gh-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <p class="gh-name">TheWilli67</p>
+                <p class="gh-handle">github.com/TheWilli67 — mon profil GitHub</p>
+              </div>
+              <i class="fas fa-external-link-alt gh-arrow"></i>
+            </a>
+            <a href="https://github.com/ZitoouN" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.25s">
+              <div class="gh-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <p class="gh-name">ZitoouN</p>
+                <p class="gh-handle">github.com/ZitoouN — GitHub de mon collègue</p>
+              </div>
+              <i class="fas fa-external-link-alt gh-arrow"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+
 </body>
-
 </html>
