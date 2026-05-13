@@ -12,7 +12,7 @@
 
 ## Aperçu
 
-**[→ Voir le site en ligne](https://thewilli67.github.io)**
+**[→ Voir sur le site en ligne](https://thewilli67.github.io)**
 
 Site statique HTML/CSS vanilla hébergé sur GitHub Pages. Conçu pour présenter mon parcours académique, mes expériences professionnelles et mes projets techniques dans un format moderne et responsive.
 
