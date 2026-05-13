@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
   <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
@@ -114,18 +115,19 @@
   <nav class="nav">
     <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
     <ul class="nav-links">
-      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
       <li><a href="/contact.html" class="active show">Contact</a></li>
       <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
     </ul>
   </nav>
 
   <header class="pheader">
     <div class="ph-inner">
-      <span class="ph-eyebrow">Prenons contact</span>
+      <span class="ph-eyebrow" data-fr="Prenons contact" data-en="Get in touch">Prenons contact</span>
       <h1 class="ph-title">Contact</h1>
-      <p class="ph-sub">N'hésitez pas à me contacter pour toute opportunité professionnelle, collaboration ou question.</p>
+      <p class="ph-sub" data-fr="N'hésitez pas à me contacter pour toute opportunité professionnelle, collaboration ou question." data-en="Feel free to reach out for any professional opportunity, collaboration, or question.">N'hésitez pas à me contacter pour toute opportunité professionnelle, collaboration ou question.</p>
     </div>
   </header>
 
@@ -133,13 +135,13 @@
     <div class="inner">
 
       <div class="msg-box reveal">
-        <p>Je suis actuellement en alternance chez <strong>Réseau-Net</strong> jusqu'en août 2026,<br>
+        <p data-fr="Je suis actuellement en alternance chez <strong>Réseau-Net</strong> jusqu'en août 2026, et toujours disponible pour échanger sur des projets ou opportunités futures." data-en="I am currently on a work-study contract at <strong>Réseau-Net</strong> until August 2026, and always available to discuss projects or future opportunities." data-i18n-html>Je suis actuellement en alternance chez <strong>Réseau-Net</strong> jusqu'en août 2026,<br>
         et toujours disponible pour échanger sur des projets ou opportunités futures.</p>
       </div>
 
       <div class="s-header">
-        <span class="s-tag">Me trouver</span>
-        <h2 class="s-title">Mes coordonnées</h2>
+        <span class="s-tag" data-fr="Me trouver" data-en="Find me">Me trouver</span>
+        <h2 class="s-title" data-fr="Mes coordonnées" data-en="My details">Mes coordonnées</h2>
       </div>
 
       <div class="contact-grid">
@@ -165,7 +167,7 @@
         <a href="mailto:william.hertrich67@gmail.com" class="ccard reveal no-script-execution" style="transition-delay:.15s">
           <div class="ccard-icon ci-email"><i class="fas fa-envelope"></i></div>
           <div>
-            <p class="ccard-label">E-mail personnel</p>
+            <p class="ccard-label" data-fr="E-mail personnel" data-en="Personal e-mail">E-mail personnel</p>
             <p class="ccard-value">william.hertrich67@gmail.com</p>
           </div>
           <i class="fas fa-arrow-right ccard-arrow"></i>
@@ -174,7 +176,7 @@
         <a href="tel:+33673981209" class="ccard reveal no-script-execution" style="transition-delay:.2s">
           <div class="ccard-icon ci-phone"><i class="fas fa-phone"></i></div>
           <div>
-            <p class="ccard-label">Téléphone</p>
+            <p class="ccard-label" data-fr="Téléphone" data-en="Phone">Téléphone</p>
             <p class="ccard-value">+33 6 73 98 12 09</p>
           </div>
           <i class="fas fa-arrow-right ccard-arrow"></i>
@@ -193,7 +195,7 @@
           <div class="ccard-icon ci-cv"><i class="fas fa-file-pdf"></i></div>
           <div>
             <p class="ccard-label">Curriculum Vitæ</p>
-            <p class="ccard-value">Télécharger mon CV (PDF)</p>
+            <p class="ccard-value" data-fr="Télécharger mon CV (PDF)" data-en="Download my résumé (PDF)">Télécharger mon CV (PDF)</p>
           </div>
           <i class="fas fa-download ccard-arrow"></i>
         </a>
@@ -204,14 +206,14 @@
 
   <footer>
     <div class="footer-links">
-      <a href="/index.html">Accueil</a>
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="/portfolio.html">Portfolio</a>
       <a href="/contact.html">Contact</a>
       <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
-      <a href="/mentions_legales.html">Mentions légales</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich — Systems &amp; Network Engineer">&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

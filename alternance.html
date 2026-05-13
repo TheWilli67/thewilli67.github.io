@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
   <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
@@ -125,27 +126,28 @@
   <nav class="nav">
     <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
     <ul class="nav-links">
-      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
-      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
     </ul>
   </nav>
 
   <header class="pheader">
     <div class="ph-inner">
-      <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
-      <span class="ph-eyebrow">Expériences professionnelles</span>
-      <h1 class="ph-title">Mes alternances</h1>
-      <p class="ph-sub">4 ans d'expérience terrain en entreprise, du support IT à l'ingénierie systèmes &amp; réseaux, en passant par la cybersécurité.</p>
+      <a href="/portfolio.html" class="ph-back" data-fr="<i class=&quot;fas fa-arrow-left&quot;></i> Retour au portfolio" data-en="<i class=&quot;fas fa-arrow-left&quot;></i> Back to portfolio" data-i18n-html><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+      <span class="ph-eyebrow" data-fr="Expériences professionnelles" data-en="Professional experience">Expériences professionnelles</span>
+      <h1 class="ph-title" data-fr="Mes alternances" data-en="My work-study experience">Mes alternances</h1>
+      <p class="ph-sub" data-fr="4 ans d'expérience terrain en entreprise, du support IT à l'ingénierie systèmes &amp; réseaux, en passant par la cybersécurité." data-en="4 years of hands-on enterprise experience, from IT support to systems &amp; network engineering, including cybersecurity.">4 ans d'expérience terrain en entreprise, du support IT à l'ingénierie systèmes &amp; réseaux, en passant par la cybersécurité.</p>
     </div>
   </header>
 
   <section class="section">
     <div class="inner">
       <div class="s-header reveal">
-        <span class="s-tag">Parcours</span>
-        <h2 class="s-title">Deux entreprises, deux niveaux d'expertise</h2>
+        <span class="s-tag" data-fr="Parcours" data-en="Experience">Parcours</span>
+        <h2 class="s-title" data-fr="Deux entreprises, deux niveaux d'expertise" data-en="Two companies, two levels of expertise">Deux entreprises, deux niveaux d'expertise</h2>
       </div>
 
       <div class="alt-cards">
@@ -153,17 +155,17 @@
         <!-- Réseau-Net -->
         <div class="alt-card reveal">
           <div class="alt-card-header rn">
-            <span class="alt-badge badge-live"><i class="fas fa-circle" style="font-size:.5rem"></i> En cours</span>
+            <span class="alt-badge badge-live" data-fr="<i class=&quot;fas fa-circle&quot; style=&quot;font-size:.5rem&quot;></i> En cours" data-en="<i class=&quot;fas fa-circle&quot; style=&quot;font-size:.5rem&quot;></i> Ongoing" data-i18n-html><i class="fas fa-circle" style="font-size:.5rem"></i> En cours</span>
             <h2 class="alt-company rn">Réseau-Net</h2>
-            <p class="alt-role">Ingénieur Systèmes &amp; Réseaux — Master CDSI</p>
+            <p class="alt-role" data-fr="Ingénieur Systèmes &amp; Réseaux — Master CDSI" data-en="Systems &amp; Network Engineer — CDSI Master's">Ingénieur Systèmes &amp; Réseaux — Master CDSI</p>
             <div class="alt-meta">
-              <span class="alt-chip"><i class="fas fa-calendar"></i> Août 2024 — Août 2026</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-calendar&quot;></i> Août 2024 — Août 2026" data-en="<i class=&quot;fas fa-calendar&quot;></i> Aug 2024 — Aug 2026" data-i18n-html><i class="fas fa-calendar"></i> Août 2024 — Août 2026</span>
               <span class="alt-chip"><i class="fas fa-map-marker-alt"></i> Alsace</span>
-              <span class="alt-chip"><i class="fas fa-building"></i> MSP multi-clients</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-building&quot;></i> MSP multi-clients" data-en="<i class=&quot;fas fa-building&quot;></i> Multi-client MSP" data-i18n-html><i class="fas fa-building"></i> MSP multi-clients</span>
             </div>
           </div>
           <div class="alt-card-body">
-            <p class="alt-desc">Ingénierie systèmes &amp; réseaux au sein d'un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python.</p>
+            <p class="alt-desc" data-fr="Ingénierie systèmes &amp; réseaux au sein d'un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python." data-en="Systems &amp; network engineering within an MSP. Multi-client infrastructure administration, FortiGate network security, SentinelOne EDR, VMware/Hyper-V virtualisation, Observium monitoring and Bash/Python scripting.">Ingénierie systèmes &amp; réseaux au sein d'un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python.</p>
             <div class="alt-tech">
               <span class="tech-tag">Windows Server 2025</span>
               <span class="tech-tag">Linux</span>
@@ -175,24 +177,24 @@
               <span class="tech-tag">GLPI</span>
               <span class="tech-tag">Bash / Python</span>
             </div>
-            <a href="/alternance/reseau-net.html" class="alt-link rn">Voir le détail <i class="fas fa-arrow-right"></i></a>
+            <a href="/alternance/reseau-net.html" class="alt-link rn" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
         <!-- SOLINEST -->
         <div class="alt-card reveal" style="transition-delay:.1s">
           <div class="alt-card-header sol">
-            <span class="alt-badge badge-terminated"><i class="fas fa-check-circle"></i> Terminée</span>
+            <span class="alt-badge badge-terminated" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminée" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed" data-i18n-html><i class="fas fa-check-circle"></i> Terminée</span>
             <h2 class="alt-company sol">SOLINEST</h2>
-            <p class="alt-role">Technicien IT — BUT Réseaux &amp; Télécommunications</p>
+            <p class="alt-role" data-fr="Technicien IT — BUT Réseaux &amp; Télécommunications" data-en="IT Technician — B.Tech Networks &amp; Telecommunications">Technicien IT — BUT Réseaux &amp; Télécommunications</p>
             <div class="alt-meta">
-              <span class="alt-chip"><i class="fas fa-calendar"></i> Août 2022 — Août 2024</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-calendar&quot;></i> Août 2022 — Août 2024" data-en="<i class=&quot;fas fa-calendar&quot;></i> Aug 2022 — Aug 2024" data-i18n-html><i class="fas fa-calendar"></i> Août 2022 — Août 2024</span>
               <span class="alt-chip"><i class="fas fa-map-marker-alt"></i> Bischheim, Alsace</span>
-              <span class="alt-chip"><i class="fas fa-users"></i> +500 collaborateurs</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-users&quot;></i> +500 collaborateurs" data-en="<i class=&quot;fas fa-users&quot;></i> +500 employees" data-i18n-html><i class="fas fa-users"></i> +500 collaborateurs</span>
             </div>
           </div>
           <div class="alt-card-body">
-            <p class="alt-desc">Helpdesk, administration systèmes et gestion d'infrastructure au sein du service IT d'un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon.</p>
+            <p class="alt-desc" data-fr="Helpdesk, administration systèmes et gestion d'infrastructure au sein du service IT d'un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon." data-en="Helpdesk, systems administration and infrastructure management within the IT department of a snack food distributor. User support, AD/Google Workspace administration, Windows server updates, Centreon monitoring.">Helpdesk, administration systèmes et gestion d'infrastructure au sein du service IT d'un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon.</p>
             <div class="alt-tech">
               <span class="tech-tag">Active Directory</span>
               <span class="tech-tag">Google Workspace</span>
@@ -203,7 +205,7 @@
               <span class="tech-tag">Netbackup</span>
               <span class="tech-tag">SAP GUI</span>
             </div>
-            <a href="/alternance/solinest.html" class="alt-link sol">Voir le détail <i class="fas fa-arrow-right"></i></a>
+            <a href="/alternance/solinest.html" class="alt-link sol" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -213,14 +215,14 @@
 
   <footer>
     <div class="footer-links">
-      <a href="/index.html">Accueil</a>
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="/portfolio.html">Portfolio</a>
       <a href="/contact.html">Contact</a>
       <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
-      <a href="/mentions_legales.html">Mentions légales</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich — Systems &amp; Network Engineer">&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

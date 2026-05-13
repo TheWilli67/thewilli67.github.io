@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
   <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
@@ -122,18 +123,19 @@
   <nav class="nav">
     <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
     <ul class="nav-links">
-      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
-      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
     </ul>
   </nav>
 
   <header class="pheader">
     <div class="ph-inner">
-      <span class="ph-eyebrow">Mes travaux</span>
+      <span class="ph-eyebrow" data-fr="Mes travaux" data-en="My work">Mes travaux</span>
       <h1 class="ph-title">Portfolio</h1>
-      <p class="ph-sub">Retrouvez ici ma formation Master INSA, mon BUT R&T, mes projets académiques et mes expériences en alternance.</p>
+      <p class="ph-sub" data-fr="Retrouvez ici ma formation Master INSA, mon BUT R&T, mes projets académiques et mes expériences en alternance." data-en="Browse my INSA Master's degree, my B.Tech (BUT R&T), academic projects, and work-study experience.">Retrouvez ici ma formation Master INSA, mon BUT R&T, mes projets académiques et mes expériences en alternance.</p>
     </div>
   </header>
 
@@ -141,35 +143,35 @@
   <section class="section" id="alternance">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag">Expériences professionnelles</span>
-        <h2 class="s-title">Alternances</h2>
-        <p class="s-sub">Deux expériences en alternance qui constituent le cœur de ma formation pratique.</p>
+        <span class="s-tag" data-fr="Expériences professionnelles" data-en="Professional experience">Expériences professionnelles</span>
+        <h2 class="s-title" data-fr="Alternances" data-en="Work-study">Alternances</h2>
+        <p class="s-sub" data-fr="Deux expériences en alternance qui constituent le cœur de ma formation pratique." data-en="Two work-study experiences that form the core of my practical training.">Deux expériences en alternance qui constituent le cœur de ma formation pratique.</p>
       </div>
       <div class="proj-grid">
 
         <a href="/alternance/reseau-net.html" class="proj-card reveal">
           <div class="proj-card-thumb thumb-alt"><i class="fas fa-building-shield"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt"><i class="fas fa-circle"></i> En cours</span>
-            <h3 class="proj-title">Réseau-Net — Alternant Ingénieur Systèmes &amp; Réseaux</h3>
-            <p class="proj-desc">Administration d'infrastructures multi-clients : virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium, sauvegarde Veeam, support N2/N3.</p>
+            <span class="proj-badge badge-alt" data-fr="<i class=&quot;fas fa-circle&quot;></i> En cours" data-en="<i class=&quot;fas fa-circle&quot;></i> Ongoing" data-i18n-html><i class="fas fa-circle"></i> En cours</span>
+            <h3 class="proj-title" data-fr="Réseau-Net — Alternant Ingénieur Systèmes &amp; Réseaux" data-en="Réseau-Net — Work-study Systems &amp; Network Engineer">Réseau-Net — Alternant Ingénieur Systèmes &amp; Réseaux</h3>
+            <p class="proj-desc" data-fr="Administration d'infrastructures multi-clients : virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium, sauvegarde Veeam, support N2/N3." data-en="Multi-client infrastructure administration: VMware/Hyper-V virtualization, Fortinet security, Observium monitoring, Veeam backup, L2/L3 support.">Administration d'infrastructures multi-clients : virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium, sauvegarde Veeam, support N2/N3.</p>
             <div class="proj-tags">
               <span class="ptag">FortiGate</span><span class="ptag">VMware</span><span class="ptag">SentinelOne</span><span class="ptag">Veeam</span><span class="ptag">Python/Bash</span>
             </div>
-            <span class="proj-link">Voir le détail <i class="fas fa-arrow-right"></i></span>
+            <span class="proj-link" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
         <a href="/alternance/solinest.html" class="proj-card reveal" style="transition-delay:.1s">
           <div class="proj-card-thumb thumb-alt" style="background:linear-gradient(135deg,#1a2e1a,#1e3a1e);"><i class="fas fa-industry" style="color:#4ade80"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a">Terminé (2024)</span>
-            <h3 class="proj-title">SOLINEST — Alternant Technicien Informatique</h3>
-            <p class="proj-desc">Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité.</p>
+            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a" data-fr="Terminé (2024)" data-en="Completed (2024)">Terminé (2024)</span>
+            <h3 class="proj-title" data-fr="SOLINEST — Alternant Technicien Informatique" data-en="SOLINEST — Work-study IT Technician">SOLINEST — Alternant Technicien Informatique</h3>
+            <p class="proj-desc" data-fr="Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité." data-en="L1/L2 helpdesk support, multi-site asset management, Windows Server 2008 R2 to 2016 migration, Centreon monitoring, cybersecurity awareness.">Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité.</p>
             <div class="proj-tags">
               <span class="ptag">GLPI</span><span class="ptag">VMware</span><span class="ptag">Veeam</span><span class="ptag">Centreon</span><span class="ptag">Google Workspace</span>
             </div>
-            <span class="proj-link">Voir le détail <i class="fas fa-arrow-right"></i></span>
+            <span class="proj-link" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
@@ -181,21 +183,21 @@
   <section class="section section-alt" id="insa">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag">En cours — 2024 / 2026</span>
-        <h2 class="s-title">Master INSA — Cyberdéfense &amp; Sécurité</h2>
+        <span class="s-tag" data-fr="En cours — 2024 / 2026" data-en="In progress — 2024 / 2026">En cours — 2024 / 2026</span>
+        <h2 class="s-title" data-fr="Master INSA — Cyberdéfense &amp; Sécurité" data-en="INSA Master's — Cyberdefense &amp; Security">Master INSA — Cyberdéfense &amp; Sécurité</h2>
         <p class="s-sub">INSA Hauts-de-France, Maubeuge · Master Réseaux &amp; Télécommunications, option CDSI</p>
       </div>
       <div class="proj-grid proj-center">
         <div class="proj-card reveal">
           <div class="proj-card-thumb thumb-insa"><i class="fas fa-shield-halved"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-wip"><i class="fas fa-hourglass-half"></i> En cours</span>
-            <h3 class="proj-title">Master CDSI — Projets &amp; Compétences</h3>
-            <p class="proj-desc">Contenu en cours de construction au fil de la formation. Cyberdéfense, sécurité des systèmes d'information, architecture réseaux avancée, cryptographie, gestion d'incidents.</p>
+            <span class="proj-badge badge-wip" data-fr="<i class=&quot;fas fa-hourglass-half&quot;></i> En cours" data-en="<i class=&quot;fas fa-hourglass-half&quot;></i> In progress" data-i18n-html><i class="fas fa-hourglass-half"></i> En cours</span>
+            <h3 class="proj-title" data-fr="Master CDSI — Projets &amp; Compétences" data-en="CDSI Master's — Projects &amp; Skills">Master CDSI — Projets &amp; Compétences</h3>
+            <p class="proj-desc" data-fr="Contenu en cours de construction au fil de la formation. Cyberdéfense, sécurité des systèmes d'information, architecture réseaux avancée, cryptographie, gestion d'incidents." data-en="Content being built throughout the course. Cyberdefense, information systems security, advanced network architecture, cryptography, incident management.">Contenu en cours de construction au fil de la formation. Cyberdéfense, sécurité des systèmes d'information, architecture réseaux avancée, cryptographie, gestion d'incidents.</p>
             <div class="proj-tags">
               <span class="ptag">Cyberdéfense</span><span class="ptag">SIEM</span><span class="ptag">Cryptographie</span><span class="ptag">Pentesting</span><span class="ptag">RGPD</span>
             </div>
-            <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link no-script-execution">Voir la formation INSA <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link no-script-execution" data-fr="Voir la formation INSA <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="View INSA programme <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>Voir la formation INSA <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
       </div>
@@ -206,21 +208,21 @@
   <section class="section" id="but">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag">Formation académique</span>
+        <span class="s-tag" data-fr="Formation académique" data-en="Academic training">Formation académique</span>
         <h2 class="s-title">BUT Réseaux &amp; Télécommunications</h2>
-        <p class="s-sub">Université de Haute-Alsace, Colmar · 2021–2024 · Option Cybersécurité</p>
+        <p class="s-sub" data-fr="Université de Haute-Alsace, Colmar · 2021–2024 · Option Cybersécurité" data-en="Université de Haute-Alsace, Colmar · 2021–2024 · Cybersecurity track">Université de Haute-Alsace, Colmar · 2021–2024 · Option Cybersécurité</p>
       </div>
       <div class="proj-grid proj-center">
         <a href="/but.html" class="proj-card reveal">
           <div class="proj-card-thumb thumb-but"><i class="fas fa-graduation-cap"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-form"><i class="fas fa-layer-group"></i> BUT 1 · 2 · 3</span>
-            <h3 class="proj-title">Compétences &amp; SAE — BUT complet (3 ans)</h3>
-            <p class="proj-desc">Toutes mes compétences du BUT R&T regroupées en une seule page : apprentissages critiques, composantes essentielles et projets SAE par année et par domaine.</p>
+            <h3 class="proj-title" data-fr="Compétences &amp; SAE — BUT complet (3 ans)" data-en="Skills &amp; Projects — Full B.Tech (3 years)">Compétences &amp; SAE — BUT complet (3 ans)</h3>
+            <p class="proj-desc" data-fr="Toutes mes compétences du BUT R&T regroupées en une seule page : apprentissages critiques, composantes essentielles et projets SAE par année et par domaine." data-en="All my BUT R&T skills on one page: critical learning outcomes, core components, and SAE projects by year and domain.">Toutes mes compétences du BUT R&T regroupées en une seule page : apprentissages critiques, composantes essentielles et projets SAE par année et par domaine.</p>
             <div class="proj-tags">
-              <span class="ptag">Réseau</span><span class="ptag">Cybersécurité</span><span class="ptag">ToIP</span><span class="ptag">Python</span><span class="ptag">Pentesting</span>
+              <span class="ptag" data-fr="Réseau" data-en="Network">Réseau</span><span class="ptag" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span><span class="ptag">ToIP</span><span class="ptag">Python</span><span class="ptag">Pentesting</span>
             </div>
-            <span class="proj-link">Voir toutes les compétences <i class="fas fa-arrow-right"></i></span>
+            <span class="proj-link" data-fr="Voir toutes les compétences <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View all skills <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir toutes les compétences <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
       </div>
@@ -231,22 +233,22 @@
   <section class="section section-alt" id="projets">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag">Projets SAE</span>
-        <h2 class="s-title">Projets académiques</h2>
-        <p class="s-sub">Situations d'apprentissage et d'évaluation réalisées durant le BUT R&T.</p>
+        <span class="s-tag" data-fr="Projets SAE" data-en="Academic projects">Projets SAE</span>
+        <h2 class="s-title" data-fr="Projets académiques" data-en="Academic projects">Projets académiques</h2>
+        <p class="s-sub" data-fr="Situations d'apprentissage et d'évaluation réalisées durant le BUT R&T." data-en="Learning and assessment projects completed during the B.Tech (BUT R&T).">Situations d'apprentissage et d'évaluation réalisées durant le BUT R&T.</p>
       </div>
       <div class="proj-grid">
 
-        <a href="/SAE23/SAE23_fr.html" class="proj-card reveal" style="transition-delay:.1s">
+        <a href="/SAE23/SAE23_fr.html" class="proj-card reveal" style="transition-delay:.1s" data-href-fr="/SAE23/SAE23_fr.html" data-href-en="/SAE23/SAE23.html">
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1c1917,#292524);"><i class="fas fa-code" style="color:#fb923c"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj"><i class="fas fa-terminal"></i> SAE 2.3 — S2</span>
-            <h3 class="proj-title">SAE23 — Solution informatique pour l'entreprise</h3>
-            <p class="proj-desc">Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation.</p>
+            <h3 class="proj-title" data-fr="SAE23 — Solution informatique pour l'entreprise" data-en="SAE23 — IT solution for business">SAE23 — Solution informatique pour l'entreprise</h3>
+            <p class="proj-desc" data-fr="Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation." data-en="Setting up an application-based IT solution for a business context. System integration, development and documentation.">Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation.</p>
             <div class="proj-tags">
-              <span class="ptag">Python</span><span class="ptag">Documentation</span><span class="ptag">Entreprise</span>
+              <span class="ptag">Python</span><span class="ptag">Documentation</span><span class="ptag" data-fr="Entreprise" data-en="Business">Entreprise</span>
             </div>
-            <span class="proj-link">Voir le projet <i class="fas fa-arrow-right"></i></span>
+            <span class="proj-link" data-fr="Voir le projet <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View project <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
@@ -254,15 +256,15 @@
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#172028,#1a3040);"><i class="fas fa-network-wired" style="color:#38bdf8"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj"><i class="fas fa-diagram-project"></i> SAE 3.03 — S3</span>
-            <h3 class="proj-title">SAE303 — Réseau multi-site</h3>
-            <p class="proj-desc">Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI.</p>
+            <h3 class="proj-title" data-fr="SAE303 — Réseau multi-site" data-en="SAE303 — Multi-site network">SAE303 — Réseau multi-site</h3>
+            <p class="proj-desc" data-fr="Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI." data-en="Multi-site network architecture for two e-commerce companies (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, high availability with dual ISP.">Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI.</p>
             <div class="proj-tags">
               <span class="ptag">MSTP</span><span class="ptag">VRRP</span><span class="ptag">NAT</span><span class="ptag">DHCP</span><span class="ptag">AD</span>
             </div>
             <div style="display:flex;gap:.5rem;margin-top:auto;padding-top:.75rem">
               <a href="/documents/SAE303/Partie-LAN.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">LAN <i class="fas fa-external-link-alt"></i></a>
-              <a href="/documents/SAE303/Partie-service-reseaux.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">Services <i class="fas fa-external-link-alt"></i></a>
-              <a href="/documents/SAE303/Compte_rendu_partie_FAI.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">FAI <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE303/Partie-service-reseaux.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem" data-fr="Services <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="Services <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>Services <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE303/Compte_rendu_partie_FAI.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem" data-fr="FAI <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="ISP <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>FAI <i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
@@ -271,12 +273,12 @@
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a1a2e,#2d1a3e);"><i class="fas fa-bug" style="color:#a78bfa"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj"><i class="fas fa-shield-halved"></i> SAE 3.04 — S3</span>
-            <h3 class="proj-title">SAE304 — Découverte du pentesting (Root-Me)</h3>
-            <p class="proj-desc">Résolution de ~40 défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils.</p>
+            <h3 class="proj-title" data-fr="SAE304 — Découverte du pentesting (Root-Me)" data-en="SAE304 — Introduction to pentesting (Root-Me)">SAE304 — Découverte du pentesting (Root-Me)</h3>
+            <p class="proj-desc" data-fr="Résolution de ~40 défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils." data-en="Solving ~40 challenges on Root-Me covering cryptography, steganography, web vulnerabilities, and reverse engineering. Using Wireshark, Burp Suite, and other tools.">Résolution de ~40 défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils.</p>
             <div class="proj-tags">
               <span class="ptag">Pentest</span><span class="ptag">Wireshark</span><span class="ptag">Burp Suite</span><span class="ptag">Root-Me</span>
             </div>
-            <span class="proj-link disabled">Rapport non public (Root-Me) <i class="fas fa-lock"></i></span>
+            <span class="proj-link disabled" data-fr="Rapport non public (Root-Me) <i class=&quot;fas fa-lock&quot;></i>" data-en="Non-public report (Root-Me) <i class=&quot;fas fa-lock&quot;></i>" data-i18n-html>Rapport non public (Root-Me) <i class="fas fa-lock"></i></span>
           </div>
         </div>
 
@@ -284,8 +286,8 @@
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2018,#283a20);"><i class="fas fa-terminal" style="color:#86efac"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj"><i class="fas fa-code-branch"></i> SAE 3.02 — S3</span>
-            <h3 class="proj-title">SAE302 — Interface de surveillance distante</h3>
-            <p class="proj-desc">Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP.</p>
+            <h3 class="proj-title" data-fr="SAE302 — Interface de surveillance distante" data-en="SAE302 — Remote monitoring interface">SAE302 — Interface de surveillance distante</h3>
+            <p class="proj-desc" data-fr="Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP." data-en="Client-server system for sending system commands remotely to monitor and diagnose machines, similar to the SNMP protocol.">Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP.</p>
             <div class="proj-tags">
               <span class="ptag">Python</span><span class="ptag">Sockets</span><span class="ptag">Client-Serveur</span><span class="ptag">SSH</span>
             </div>
@@ -297,8 +299,8 @@
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2028,#1a3028);"><i class="fas fa-list-check" style="color:#34d399"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj"><i class="fas fa-users-gear"></i> SAÉ 5.02 — S5</span>
-            <h3 class="proj-title">SAE502 — Pilotage de projet (TODO-List)</h3>
-            <p class="proj-desc">Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello.</p>
+            <h3 class="proj-title" data-fr="SAE502 — Pilotage de projet (TODO-List)" data-en="SAE502 — Project management (TODO-List)">SAE502 — Pilotage de projet (TODO-List)</h3>
+            <p class="proj-desc" data-fr="Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello." data-en="Team development (7-8 people, SCRUM methodology) of a Python TODO-List app using Docker, PyTest, Sphinx, GitHub, and Trello.">Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello.</p>
             <div class="proj-tags">
               <span class="ptag">Python</span><span class="ptag">SCRUM</span><span class="ptag">Docker</span><span class="ptag">PyTest</span><span class="ptag">GitHub</span>
             </div>
@@ -317,21 +319,21 @@
   <section class="section" id="lycee">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag">Lycée Jean-Baptiste Schwillgué — Terminale STI2D</span>
-        <h2 class="s-title">Projet de Terminale</h2>
-        <p class="s-sub">Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT.</p>
+        <span class="s-tag" data-fr="Lycée Jean-Baptiste Schwillgué — Terminale STI2D" data-en="Jean-Baptiste Schwillgué High School — Final year">Lycée Jean-Baptiste Schwillgué — Terminale STI2D</span>
+        <h2 class="s-title" data-fr="Projet de Terminale" data-en="High School Final-year Project">Projet de Terminale</h2>
+        <p class="s-sub" data-fr="Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT." data-en="Multi-technology integrative project completed in the final year of high school (ITEC track), before starting the B.Tech.">Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT.</p>
       </div>
       <div class="proj-grid proj-center">
         <a href="/projet_72h.html" class="proj-card reveal">
           <div class="proj-card-thumb thumb-proj"><i class="fas fa-water"></i></div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj"><i class="fas fa-clock"></i> Projet 72h</span>
-            <h3 class="proj-title">Hydrolienne portable — Projet intégratif 72h</h3>
-            <p class="proj-desc">Conception et modélisation 3D d'une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge.</p>
+            <h3 class="proj-title" data-fr="Hydrolienne portable — Projet intégratif 72h" data-en="Portable water turbine — 72h integrative project">Hydrolienne portable — Projet intégratif 72h</h3>
+            <p class="proj-desc" data-fr="Conception et modélisation 3D d'une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge." data-en="Design and 3D modelling of a portable hydroelectric turbine in 72 hours. 3D printing, waterproofing, transmission chain and charging.">Conception et modélisation 3D d'une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge.</p>
             <div class="proj-tags">
-              <span class="ptag">CAO 3D</span><span class="ptag">Impression 3D</span><span class="ptag">Mécanique</span><span class="ptag">Énergie</span>
+              <span class="ptag">CAO 3D</span><span class="ptag" data-fr="Impression 3D" data-en="3D printing">Impression 3D</span><span class="ptag" data-fr="Mécanique" data-en="Mechanics">Mécanique</span><span class="ptag" data-fr="Énergie" data-en="Energy">Énergie</span>
             </div>
-            <span class="proj-link">Voir le projet <i class="fas fa-arrow-right"></i></span>
+            <span class="proj-link" data-fr="Voir le projet <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View project <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
       </div>
@@ -340,14 +342,14 @@
 
   <footer>
     <div class="footer-links">
-      <a href="/index.html">Accueil</a>
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="/portfolio.html">Portfolio</a>
       <a href="/contact.html">Contact</a>
       <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
-      <a href="/mentions_legales.html">Mentions légales</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich — Systems &amp; Network Engineer">&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>
