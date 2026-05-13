@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
   <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
@@ -145,10 +146,11 @@
   <nav class="nav">
     <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
     <ul class="nav-links">
-      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
-      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
     </ul>
   </nav>
 
@@ -344,12 +346,12 @@
 
   <footer>
     <div class="footer-links">
-      <a href="/index.html">Accueil</a>
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="/portfolio.html">Portfolio</a>
       <a href="/contact.html">Contact</a>
       <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
-      <a href="/mentions_legales.html">Mentions légales</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
     <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
