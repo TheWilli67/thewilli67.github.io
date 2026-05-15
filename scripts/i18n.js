@@ -39,7 +39,7 @@
   /* ─── Toggle buttons ─── */
   function updateToggles(lang) {
     document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
-      btn.textContent = lang === 'en' ? 'FR' : 'EN';
+      btn.textContent = lang === 'en' ? 'EN' : 'FR';
       btn.title = lang === 'en' ? 'Passer en français' : 'Switch to English';
     });
   }
