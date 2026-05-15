@@ -226,7 +226,7 @@
     }
     .about-lead { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; line-height: 1.5; }
     .about-body p { font-size: .93rem; color: var(--text-m); line-height: 1.8; margin-bottom: .85rem; }
-    .info-list { margin-top: 1.75rem; display: flex; flex-direction: column; gap: .65rem; }
+    .info-list { margin-top: 1.75rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem 2rem; }
     .info-item { display: flex; align-items: center; gap: .75rem; font-size: .875rem; color: var(--text-m); }
     .info-item i { color: var(--accent); width: 16px; text-align: center; font-size: .85rem; flex-shrink: 0; }
     .info-item a { color: var(--accent); transition: var(--t); }
@@ -383,6 +383,7 @@
       .hero-name       { font-size: 2.2rem; }
       .nav-links a     { display: none; }
       .nav-links .show { display: block; }
+      .info-list       { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -467,9 +468,9 @@
             d'intervenir quotidiennement sur des infrastructures multi-clients variées : virtualisation,
             firewalling, supervision, sauvegarde et support niveau 2/3.
           </p>
-          <p data-fr="En dehors du technique, je suis passionné par la moto, la musique, la pêche et les jeux de stratégie &amp; coopération — des centres d'intérêt qui reflètent ma rigueur et ma curiosité." data-en="Outside of work, I am passionate about motorcycles, music, fishing, and strategy &amp; co-op games — hobbies that reflect my discipline and curiosity.">
+          <p data-fr="En dehors du technique, je suis passionné par la moto, la musique, la pêche et les jeux de stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité." data-en="Outside of work, I am passionate about motorcycles, music, fishing, and strategy &amp; co-op games, hobbies that reflect my discipline and curiosity.">
             En dehors du technique, je suis passionné par la moto, la musique, la pêche et les jeux de
-            stratégie &amp; coopération — des centres d'intérêt qui reflètent ma rigueur et ma curiosité.
+            stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité.
           </p>
           <div class="info-list">
             <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Zelsheim, Grand Est (67)</span></div>
@@ -534,6 +535,7 @@
             <span class="stag">FortiManager</span>
             <span class="stag">Stormshield CSNA</span>
             <span class="stag">SentinelOne EDR</span>
+            <span class="stag">WithSecure</span>
             <span class="stag">VPN site-to-site</span>
             <span class="stag">VPN client-to-site</span>
             <span class="stag" data-fr="Segmentation réseau" data-en="Network segmentation">Segmentation réseau</span>
@@ -549,8 +551,16 @@
           <div class="skill-tags">
             <span class="stag">TCP/IP</span>
             <span class="stag">VLAN</span>
+            <span class="stag">OSPF</span>
+            <span class="stag">BGP</span>
+            <span class="stag">MSTP / STP</span>
+            <span class="stag">LACP</span>
+            <span class="stag">NAT / PAT</span>
+            <span class="stag">QoS</span>
             <span class="stag" data-fr="Routage dynamique" data-en="Dynamic routing">Routage dynamique</span>
             <span class="stag">Switching</span>
+            <span class="stag">Cisco</span>
+            <span class="stag">Fortinet</span>
             <span class="stag">Observium</span>
             <span class="stag">Centreon</span>
             <span class="stag">Aruba Instant</span>
@@ -566,8 +576,10 @@
           <div class="skill-tags">
             <span class="stag">Windows Server 2025</span>
             <span class="stag">Linux RHEL</span>
-            <span class="stag">Ubuntu / Debian</span>
-            <span class="stag">VMware vCenter / ESXi</span>
+            <span class="stag">Ubuntu Server</span>
+            <span class="stag">Debian</span>
+            <span class="stag">VMware vCenter</span>
+            <span class="stag">VMware ESXi</span>
             <span class="stag">Hyper-V</span>
             <span class="stag">Veeam</span>
             <span class="stag">Synology ActiveBackup</span>
@@ -586,7 +598,6 @@
             <span class="stag">Office 365</span>
             <span class="stag">Google Workspace</span>
             <span class="stag" data-fr="Helpdesk N2 / N3" data-en="Helpdesk L2 / L3">Helpdesk N2 / N3</span>
-            <span class="stag">WithSecure AV</span>
           </div>
         </div>
 

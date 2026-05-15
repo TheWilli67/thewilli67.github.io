@@ -115,6 +115,13 @@
     .stack-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
     .stag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
 
+    /* Tools section */
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .tool-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh-sm); }
+    .tool-cat-title { font-size: .75rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+    .tool-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .ttag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
+
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.up { opacity: 1; transform: none; }
@@ -151,15 +158,15 @@
 
   <header class="pheader">
     <div class="ph-inner">
-      <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
-      <span class="ph-eyebrow">Alternance Master</span>
+      <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> <span data-fr="Retour au portfolio" data-en="Back to portfolio">Retour au portfolio</span></a>
+      <span class="ph-eyebrow" data-fr="Alternance Master" data-en="Master's work-study">Alternance Master</span>
       <h1 class="ph-title">Alternance <span>Réseau-Net</span></h1>
-      <p class="ph-sub">Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace — administration infrastructure, sécurité réseau et scripting.</p>
+      <p class="ph-sub" data-fr="Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace : administration infrastructure, sécurité réseau et scripting." data-en="Systems &amp; Network Engineer within a multi-client MSP in Alsace: infrastructure administration, network security and scripting.">Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace : administration infrastructure, sécurité réseau et scripting.</p>
       <div class="ph-chips">
-        <span class="chip chip-loc"><i class="fas fa-map-marker-alt"></i> Alsace</span>
-        <span class="chip chip-period"><i class="fas fa-calendar"></i> Août 2024 — Août 2026</span>
-        <span class="chip chip-role"><i class="fas fa-briefcase"></i> Ingénieur Sys&amp;Rés — Master CDSI</span>
-        <span class="chip chip-live"><i class="fas fa-circle"></i> En cours</span>
+        <span class="chip chip-loc" data-fr="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Alsace" data-en="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Alsace" data-i18n-html><i class="fas fa-map-marker-alt"></i> Alsace</span>
+        <span class="chip chip-period" data-fr="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Août 2024 — Août 2026" data-en="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Aug 2024 — Aug 2026" data-i18n-html><i class="fas fa-calendar"></i> Août 2024 — Août 2026</span>
+        <span class="chip chip-role" data-fr="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Ingénieur Sys&amp;Rés — Master CDSI" data-en="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Sys&amp;Net Engineer — Master CDSI" data-i18n-html><i class="fas fa-briefcase"></i> Ingénieur Sys&amp;Rés — Master CDSI</span>
+        <span class="chip chip-live" data-fr="&lt;i class=&quot;fas fa-circle&quot;&gt;&lt;/i&gt; En cours" data-en="&lt;i class=&quot;fas fa-circle&quot;&gt;&lt;/i&gt; Ongoing" data-i18n-html><i class="fas fa-circle"></i> En cours</span>
       </div>
     </div>
   </header>
@@ -170,7 +177,7 @@
       <div class="highlight-band reveal">
         <div class="hb-icon"><i class="fas fa-network-wired"></i></div>
         <div class="hb-text">
-          <p><strong>Réseau-Net</strong> est un <strong>MSP (Managed Service Provider)</strong> alsacien proposant des services IT managés à une clientèle multi-secteurs (PME, industries, collectivités). Spécialisé dans l'infogérance, la cybersécurité et l'administration systèmes &amp; réseaux, Réseau-Net s'appuie sur un stack technique moderne incluant virtualisation, firewalls FortiGate et solutions EDR de nouvelle génération.</p>
+          <p data-fr="&lt;strong&gt;Réseau-Net&lt;/strong&gt; est un &lt;strong&gt;MSP (Managed Service Provider)&lt;/strong&gt; alsacien proposant des services IT managés à une clientèle multi-secteurs (PME, industries, collectivités). Spécialisé dans l'infogérance, la cybersécurité et l'administration systèmes &amp;amp; réseaux, Réseau-Net s'appuie sur un stack technique moderne incluant virtualisation, firewalls FortiGate et solutions EDR de nouvelle génération." data-en="&lt;strong&gt;Réseau-Net&lt;/strong&gt; is an Alsatian &lt;strong&gt;MSP (Managed Service Provider)&lt;/strong&gt; offering managed IT services to a multi-sector client base (SMEs, industries, local authorities). Specialised in managed services, cybersecurity and systems &amp;amp; network administration, Réseau-Net relies on a modern technical stack including virtualisation, FortiGate firewalls and next-generation EDR solutions." data-i18n-html><strong>Réseau-Net</strong> est un <strong>MSP (Managed Service Provider)</strong> alsacien proposant des services IT managés à une clientèle multi-secteurs (PME, industries, collectivités). Spécialisé dans l'infogérance, la cybersécurité et l'administration systèmes &amp; réseaux, Réseau-Net s'appuie sur un stack technique moderne incluant virtualisation, firewalls FortiGate et solutions EDR de nouvelle génération.</p>
         </div>
       </div>
     </div>
@@ -182,19 +189,19 @@
       <div class="company-kpis reveal">
         <div class="kpi">
           <p class="kpi-val">MSP</p>
-          <p class="kpi-label">Managed Service Provider</p>
+          <p class="kpi-label" data-fr="Managed Service Provider" data-en="Managed Service Provider">Managed Service Provider</p>
         </div>
         <div class="kpi">
           <p class="kpi-val">N2/N3</p>
-          <p class="kpi-label">Niveau support clients</p>
+          <p class="kpi-label" data-fr="Niveau support clients" data-en="Client support level">Niveau support clients</p>
         </div>
         <div class="kpi">
-          <p class="kpi-val">Multi</p>
-          <p class="kpi-label">Clients multi-secteurs</p>
+          <p class="kpi-val" data-fr="Multi" data-en="Multi">Multi</p>
+          <p class="kpi-label" data-fr="Clients multi-secteurs" data-en="Multi-sector clients">Clients multi-secteurs</p>
         </div>
         <div class="kpi">
-          <p class="kpi-val">2 ans</p>
-          <p class="kpi-label">Durée de l'alternance</p>
+          <p class="kpi-val" data-fr="2 ans" data-en="2 years">2 ans</p>
+          <p class="kpi-label" data-fr="Durée de l'alternance" data-en="Work-study duration">Durée de l'alternance</p>
         </div>
       </div>
     </div>
@@ -204,27 +211,27 @@
   <section class="section section-alt">
     <div class="inner">
       <div class="s-header reveal">
-        <span class="s-tag">Missions</span>
-        <h2 class="s-title">Mes missions chez Réseau-Net</h2>
-        <p class="s-sub">Interventions sur infrastructure clients dans un contexte MSP multi-sites</p>
+        <span class="s-tag" data-fr="Missions" data-en="Assignments">Missions</span>
+        <h2 class="s-title" data-fr="Mes missions chez Réseau-Net" data-en="My assignments at Réseau-Net">Mes missions chez Réseau-Net</h2>
+        <p class="s-sub" data-fr="Interventions sur infrastructure clients dans un contexte MSP multi-sites" data-en="Client infrastructure interventions in a multi-site MSP context">Interventions sur infrastructure clients dans un contexte MSP multi-sites</p>
       </div>
       <div class="missions-grid">
 
         <div class="mission-card reveal">
           <div class="mission-icon mi-sky"><i class="fas fa-headset"></i></div>
-          <h3 class="mission-title">Support N2 / N3 clients</h3>
-          <p class="mission-desc">Prise en charge des tickets escaladés depuis le niveau N1, résolution d'incidents complexes sur les infrastructures clients. Interventions à distance et sur site. Gestion et suivi via GLPI.</p>
+          <h3 class="mission-title" data-fr="Support N2 / N3 clients" data-en="N2 / N3 client support">Support N2 / N3 clients</h3>
+          <p class="mission-desc" data-fr="Prise en charge des tickets escaladés depuis le niveau N1, résolution d'incidents complexes sur les infrastructures clients. Interventions à distance et sur site. Gestion et suivi via GLPI." data-en="Handling tickets escalated from N1, resolving complex incidents on client infrastructures. Remote and on-site interventions. Management and tracking via GLPI.">Prise en charge des tickets escaladés depuis le niveau N1, résolution d'incidents complexes sur les infrastructures clients. Interventions à distance et sur site. Gestion et suivi via GLPI.</p>
           <div class="mission-tags">
             <span class="mtag">GLPI</span>
             <span class="mtag">N2/N3</span>
-            <span class="mtag">Multi-clients</span>
+            <span class="mtag" data-fr="Multi-clients" data-en="Multi-client">Multi-clients</span>
           </div>
         </div>
 
         <div class="mission-card reveal" style="transition-delay:.05s">
           <div class="mission-icon mi-blue"><i class="fas fa-server"></i></div>
-          <h3 class="mission-title">Administration systèmes</h3>
-          <p class="mission-desc">Administration de serveurs Windows Server 2025, 2022, 2019 et Linux (Debian/Ubuntu). Gestion des rôles AD, GPO, DNS, DHCP. Mises à jour, patching et maintenance préventive des parcs clients.</p>
+          <h3 class="mission-title" data-fr="Administration systèmes" data-en="Systems administration">Administration systèmes</h3>
+          <p class="mission-desc" data-fr="Administration de serveurs Windows Server 2025, 2022, 2019 et Linux (Debian/Ubuntu). Gestion des rôles AD, GPO, DNS, DHCP. Mises à jour, patching et maintenance préventive des parcs clients." data-en="Administration of Windows Server 2025, 2022, 2019 and Linux (Debian/Ubuntu) servers. Management of AD roles, GPO, DNS, DHCP. Updates, patching and preventive maintenance of client fleets.">Administration de serveurs Windows Server 2025, 2022, 2019 et Linux (Debian/Ubuntu). Gestion des rôles AD, GPO, DNS, DHCP. Mises à jour, patching et maintenance préventive des parcs clients.</p>
           <div class="mission-tags">
             <span class="mtag">Windows Server 2025</span>
             <span class="mtag">Linux</span>
@@ -235,8 +242,8 @@
 
         <div class="mission-card reveal" style="transition-delay:.1s">
           <div class="mission-icon mi-purple"><i class="fas fa-layer-group"></i></div>
-          <h3 class="mission-title">Virtualisation</h3>
-          <p class="mission-desc">Administration des hyperviseurs VMware vSphere/ESXi et Microsoft Hyper-V. Création, migration et supervision de VMs. Gestion des ressources et des snapshots en environnement de production.</p>
+          <h3 class="mission-title" data-fr="Virtualisation" data-en="Virtualisation">Virtualisation</h3>
+          <p class="mission-desc" data-fr="Administration des hyperviseurs VMware vSphere/ESXi et Microsoft Hyper-V. Création, migration et supervision de VMs. Gestion des ressources et des snapshots en environnement de production." data-en="Administration of VMware vSphere/ESXi and Microsoft Hyper-V hypervisors. Creation, migration and supervision of VMs. Resource and snapshot management in production environments.">Administration des hyperviseurs VMware vSphere/ESXi et Microsoft Hyper-V. Création, migration et supervision de VMs. Gestion des ressources et des snapshots en environnement de production.</p>
           <div class="mission-tags">
             <span class="mtag">VMware vSphere</span>
             <span class="mtag">ESXi</span>
@@ -246,10 +253,11 @@
 
         <div class="mission-card reveal" style="transition-delay:.15s">
           <div class="mission-icon mi-amber"><i class="fas fa-fire-alt"></i></div>
-          <h3 class="mission-title">Sécurité réseau — FortiGate</h3>
-          <p class="mission-desc">Configuration et administration de firewalls FortiGate (règles de sécurité, VPN SSL/IPSec, NAT, IPS). Gestion centralisée des équipements via FortiManager. Déploiement et mise à jour des politiques de sécurité.</p>
+          <h3 class="mission-title" data-fr="Sécurité réseau — FortiGate" data-en="Network security — FortiGate">Sécurité réseau — FortiGate</h3>
+          <p class="mission-desc" data-fr="Configuration et administration de firewalls FortiGate (règles de sécurité, VPN SSL/IPSec, NAT, IPS). Gestion centralisée des équipements via FortiManager. Déploiement et mise à jour des politiques de sécurité." data-en="Configuration and administration of FortiGate firewalls (security rules, VPN SSL/IPSec, NAT, IPS). Centralised management of appliances via FortiManager. Deployment and update of security policies.">Configuration et administration de firewalls FortiGate (règles de sécurité, VPN SSL/IPSec, NAT, IPS). Gestion centralisée des équipements via FortiManager. Déploiement et mise à jour des politiques de sécurité.</p>
           <div class="mission-tags">
             <span class="mtag">FortiGate</span>
+            <span class="mtag">Aruba</span>
             <span class="mtag">FortiManager</span>
             <span class="mtag">VPN SSL/IPSec</span>
             <span class="mtag">IPS/UTM</span>
@@ -258,20 +266,20 @@
 
         <div class="mission-card reveal" style="transition-delay:.2s">
           <div class="mission-icon mi-red"><i class="fas fa-shield-virus"></i></div>
-          <h3 class="mission-title">EDR — SentinelOne</h3>
-          <p class="mission-desc">Déploiement et gestion de l'agent SentinelOne sur les postes et serveurs clients. Analyse des alertes de sécurité, investigation des menaces détectées, isolation des hôtes compromis et remédiation.</p>
+          <h3 class="mission-title" data-fr="EDR — SentinelOne" data-en="EDR — SentinelOne">EDR — SentinelOne</h3>
+          <p class="mission-desc" data-fr="Déploiement et gestion de l'agent SentinelOne sur les postes et serveurs clients. Analyse des alertes de sécurité, investigation des menaces détectées, isolation des hôtes compromis et remédiation." data-en="Deployment and management of the SentinelOne agent on client workstations and servers. Analysis of security alerts, investigation of detected threats, isolation of compromised hosts and remediation.">Déploiement et gestion de l'agent SentinelOne sur les postes et serveurs clients. Analyse des alertes de sécurité, investigation des menaces détectées, isolation des hôtes compromis et remédiation.</p>
           <div class="mission-tags">
             <span class="mtag">SentinelOne</span>
             <span class="mtag">EDR</span>
             <span class="mtag">Threat Hunting</span>
-            <span class="mtag">Remédiation</span>
+            <span class="mtag" data-fr="Remédiation" data-en="Remediation">Remédiation</span>
           </div>
         </div>
 
         <div class="mission-card reveal" style="transition-delay:.25s">
-          <div class="mission-icon mi-green"><i class="fas fa-chart-network"></i></div>
-          <h3 class="mission-title">Monitoring réseau — Observium</h3>
-          <p class="mission-desc">Supervision SNMP des équipements réseau et serveurs via Observium. Création et gestion des tableaux de bord de monitoring. Paramétrage des alertes et suivi de la disponibilité des services clients.</p>
+          <div class="mission-icon mi-green"><i class="fas fa-gauge-high"></i></div>
+          <h3 class="mission-title" data-fr="Monitoring réseau Observium" data-en="Network monitoring Observium">Monitoring réseau Observium</h3>
+          <p class="mission-desc" data-fr="Supervision SNMP des équipements réseau et serveurs via Observium. Création et gestion des tableaux de bord de monitoring. Paramétrage des alertes et suivi de la disponibilité des services clients." data-en="SNMP monitoring of network equipment and servers via Observium. Creation and management of monitoring dashboards. Alert configuration and tracking of client service availability.">Supervision SNMP des équipements réseau et serveurs via Observium. Création et gestion des tableaux de bord de monitoring. Paramétrage des alertes et suivi de la disponibilité des services clients.</p>
           <div class="mission-tags">
             <span class="mtag">Observium</span>
             <span class="mtag">SNMP</span>
@@ -281,8 +289,8 @@
 
         <div class="mission-card reveal" style="transition-delay:.3s">
           <div class="mission-icon mi-teal"><i class="fas fa-database"></i></div>
-          <h3 class="mission-title">Sauvegarde & Restauration</h3>
-          <p class="mission-desc">Mise en place et gestion des plans de sauvegarde via Veeam Backup &amp; Replication et Synology ActiveBackup for Business. Tests de restauration réguliers, supervision des jobs et gestion des incidents de backup.</p>
+          <h3 class="mission-title" data-fr="Sauvegarde &amp; Restauration" data-en="Backup &amp; Recovery">Sauvegarde & Restauration</h3>
+          <p class="mission-desc" data-fr="Mise en place et gestion des plans de sauvegarde via Veeam Backup &amp;amp; Replication et Synology ActiveBackup for Business. Tests de restauration réguliers, supervision des jobs et gestion des incidents de backup." data-en="Implementation and management of backup plans via Veeam Backup &amp;amp; Replication and Synology ActiveBackup for Business. Regular restore tests, job monitoring and management of backup incidents.">Mise en place et gestion des plans de sauvegarde via Veeam Backup &amp; Replication et Synology ActiveBackup for Business. Tests de restauration réguliers, supervision des jobs et gestion des incidents de backup.</p>
           <div class="mission-tags">
             <span class="mtag">Veeam</span>
             <span class="mtag">Synology ActiveBackup</span>
@@ -292,12 +300,24 @@
 
         <div class="mission-card reveal" style="transition-delay:.35s">
           <div class="mission-icon mi-rose"><i class="fas fa-code"></i></div>
-          <h3 class="mission-title">Scripting & Automatisation</h3>
-          <p class="mission-desc">Développement de scripts Bash et Python pour automatiser les tâches d'administration répétitives : inventaire de parc, rapports de conformité, déploiement de configurations, gestion des utilisateurs AD en masse.</p>
+          <h3 class="mission-title" data-fr="Scripting &amp; Automatisation" data-en="Scripting &amp; Automation">Scripting & Automatisation</h3>
+          <p class="mission-desc" data-fr="Développement de scripts Bash et Python pour automatiser les tâches d'administration répétitives : inventaire de parc, rapports de conformité, déploiement de configurations, gestion des utilisateurs AD en masse." data-en="Development of Bash and Python scripts to automate repetitive administration tasks: asset inventory, compliance reports, configuration deployment, bulk AD user management.">Développement de scripts Bash et Python pour automatiser les tâches d'administration répétitives : inventaire de parc, rapports de conformité, déploiement de configurations, gestion des utilisateurs AD en masse.</p>
           <div class="mission-tags">
             <span class="mtag">Bash</span>
             <span class="mtag">Python</span>
-            <span class="mtag">Automatisation</span>
+            <span class="mtag" data-fr="Automatisation" data-en="Automation">Automatisation</span>
+          </div>
+        </div>
+
+        <div class="mission-card reveal" style="transition-delay:.4s">
+          <div class="mission-icon" style="background:rgba(99,102,241,.1);color:#6366f1"><i class="fas fa-file-lines"></i></div>
+          <h3 class="mission-title" data-fr="Documentation technique" data-en="Technical documentation">Documentation technique</h3>
+          <p class="mission-desc" data-fr="Rédaction et maintien de la documentation technique : fiches d'installation, procédures d'exploitation, runbooks et guides de remédiation. Mise à jour des schémas réseau et des inventaires clients pour garantir une base de connaissance à jour et accessible à l'équipe." data-en="Writing and maintaining technical documentation: installation guides, operational procedures, runbooks and remediation guides. Updating network diagrams and client inventories to ensure an up-to-date knowledge base accessible to the team.">Rédaction et maintien de la documentation technique : fiches d'installation, procédures d'exploitation, runbooks et guides de remédiation. Mise à jour des schémas réseau et des inventaires clients pour garantir une base de connaissance à jour et accessible à l'équipe.</p>
+          <div class="mission-tags">
+            <span class="mtag" data-fr="Procédures" data-en="Procedures">Procédures</span>
+            <span class="mtag">Runbooks</span>
+            <span class="mtag" data-fr="Schémas réseau" data-en="Network diagrams">Schémas réseau</span>
+            <span class="mtag" data-fr="Base de connaissance" data-en="Knowledge base">Base de connaissance</span>
           </div>
         </div>
 
@@ -309,16 +329,16 @@
   <section class="section">
     <div class="inner">
       <div class="s-header reveal">
-        <span class="s-tag">Stack technique</span>
-        <h2 class="s-title">Technologies maîtrisées</h2>
-        <p class="s-sub">Environnement technique d'un MSP moderne orienté cybersécurité</p>
+        <span class="s-tag" data-fr="Stack technique" data-en="Technical environment">Stack technique</span>
+        <h2 class="s-title" data-fr="Technologies maîtrisées" data-en="Mastered technologies">Technologies maîtrisées</h2>
+        <p class="s-sub" data-fr="Environnement technique d'un MSP moderne orienté cybersécurité" data-en="Technical environment of a modern cybersecurity-focused MSP">Environnement technique d'un MSP moderne orienté cybersécurité</p>
       </div>
       <div class="stack-grid">
 
         <div class="stack-cat reveal">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-blue"><i class="fas fa-server"></i></div>
-            <p class="stack-cat-title">Systèmes</p>
+            <p class="stack-cat-title" data-fr="Systèmes" data-en="Systems">Systèmes</p>
           </div>
           <div class="stack-tags">
             <span class="stag">Windows Server 2025/2022/2019</span>
@@ -333,7 +353,7 @@
         <div class="stack-cat reveal" style="transition-delay:.05s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-purple"><i class="fas fa-layer-group"></i></div>
-            <p class="stack-cat-title">Virtualisation</p>
+            <p class="stack-cat-title" data-fr="Virtualisation" data-en="Virtualisation">Virtualisation</p>
           </div>
           <div class="stack-tags">
             <span class="stag">VMware vSphere</span>
@@ -345,7 +365,7 @@
         <div class="stack-cat reveal" style="transition-delay:.1s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-amber"><i class="fas fa-shield-alt"></i></div>
-            <p class="stack-cat-title">Sécurité réseau</p>
+            <p class="stack-cat-title" data-fr="Sécurité réseau" data-en="Network security">Sécurité réseau</p>
           </div>
           <div class="stack-tags">
             <span class="stag">FortiGate</span>
@@ -353,27 +373,27 @@
             <span class="stag">VPN SSL</span>
             <span class="stag">VPN IPSec</span>
             <span class="stag">IPS/UTM</span>
-            <span class="stag">Pare-feu NG</span>
+            <span class="stag" data-fr="Pare-feu NG" data-en="Next-gen Firewall">Pare-feu NG</span>
           </div>
         </div>
 
         <div class="stack-cat reveal" style="transition-delay:.15s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-red"><i class="fas fa-bug"></i></div>
-            <p class="stack-cat-title">Cybersécurité endpoint</p>
+            <p class="stack-cat-title" data-fr="Cybersécurité endpoint" data-en="Endpoint cybersecurity">Cybersécurité endpoint</p>
           </div>
           <div class="stack-tags">
             <span class="stag">SentinelOne EDR</span>
             <span class="stag">Threat Hunting</span>
             <span class="stag">Incident Response</span>
-            <span class="stag">Isolation &amp; Remédiation</span>
+            <span class="stag" data-fr="Isolation &amp; Remédiation" data-en="Isolation &amp; Remediation">Isolation &amp; Remédiation</span>
           </div>
         </div>
 
         <div class="stack-cat reveal" style="transition-delay:.2s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-green"><i class="fas fa-chart-line"></i></div>
-            <p class="stack-cat-title">Monitoring & Sauvegarde</p>
+            <p class="stack-cat-title" data-fr="Monitoring &amp; Sauvegarde" data-en="Monitoring &amp; Backup">Monitoring & Sauvegarde</p>
           </div>
           <div class="stack-tags">
             <span class="stag">Observium</span>
@@ -386,13 +406,86 @@
         <div class="stack-cat reveal" style="transition-delay:.25s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-rose"><i class="fas fa-terminal"></i></div>
-            <p class="stack-cat-title">ITSM & Scripting</p>
+            <p class="stack-cat-title" data-fr="ITSM &amp; Scripting" data-en="ITSM &amp; Scripting">ITSM & Scripting</p>
           </div>
           <div class="stack-tags">
             <span class="stag">GLPI</span>
             <span class="stag">Bash</span>
             <span class="stag">Python</span>
             <span class="stag">PowerShell</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section class="section section-alt">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag" data-fr="Outils" data-en="Tools">Outils</span>
+        <h2 class="s-title" data-fr="Mes outils au quotidien" data-en="My day-to-day tools">Mes outils au quotidien</h2>
+        <p class="s-sub" data-fr="Les outils utilisés au quotidien dans un contexte MSP multi-clients" data-en="Tools used daily in a multi-client MSP context">Les outils utilisés au quotidien dans un contexte MSP multi-clients</p>
+      </div>
+      <div class="tools-grid">
+
+        <div class="tool-cat reveal">
+          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-display&quot;&gt;&lt;/i&gt; &amp;nbsp;Accès distant" data-en="&lt;i class=&quot;fas fa-display&quot;&gt;&lt;/i&gt; &amp;nbsp;Remote access" data-i18n-html><i class="fas fa-display"></i> &nbsp;Accès distant</p>
+          <div class="tool-tags">
+            <span class="ttag">TeamViewer</span>
+            <span class="ttag">mRemoteNG</span>
+            <span class="ttag">Tabby</span>
+            <span class="ttag">PuTTY</span>
+            <span class="ttag">RDP</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.05s">
+          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-magnifying-glass&quot;&gt;&lt;/i&gt; &amp;nbsp;Diagnostic réseau" data-en="&lt;i class=&quot;fas fa-magnifying-glass&quot;&gt;&lt;/i&gt; &amp;nbsp;Network diagnostics" data-i18n-html><i class="fas fa-magnifying-glass"></i> &nbsp;Diagnostic réseau</p>
+          <div class="tool-tags">
+            <span class="ttag">Wireshark</span>
+            <span class="ttag">Nmap</span>
+            <span class="ttag">Advanced IP Scanner</span>
+            <span class="ttag">Observium</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.1s">
+          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-file-lines&quot;&gt;&lt;/i&gt; &amp;nbsp;Documentation &amp; Collaboration" data-en="&lt;i class=&quot;fas fa-file-lines&quot;&gt;&lt;/i&gt; &amp;nbsp;Documentation &amp; Collaboration" data-i18n-html><i class="fas fa-file-lines"></i> &nbsp;Documentation &amp; Collaboration</p>
+          <div class="tool-tags">
+            <span class="ttag">Draw.io</span>
+            <span class="ttag">SharePoint</span>
+            <span class="ttag">Microsoft Loop</span>
+            <span class="ttag">Microsoft Planner</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.15s">
+          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-cloud&quot;&gt;&lt;/i&gt; &amp;nbsp;Administration cloud" data-en="&lt;i class=&quot;fas fa-cloud&quot;&gt;&lt;/i&gt; &amp;nbsp;Cloud administration" data-i18n-html><i class="fas fa-cloud"></i> &nbsp;Administration cloud</p>
+          <div class="tool-tags">
+            <span class="ttag">Microsoft 365 Admin Center</span>
+            <span class="ttag">Entra ID</span>
+            <span class="ttag">Intune / MEM</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.2s">
+          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt; &amp;nbsp;Sécurité &amp; Secrets" data-en="&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt; &amp;nbsp;Security &amp; Secrets" data-i18n-html><i class="fas fa-lock"></i> &nbsp;Sécurité &amp; Secrets</p>
+          <div class="tool-tags">
+            <span class="ttag">SentinelOne</span>
+            <span class="ttag">Passbolt</span>
+            <span class="ttag">Yopass</span>
+            <span class="ttag">ManInBlack</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.25s">
+          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-comments&quot;&gt;&lt;/i&gt; &amp;nbsp;Communication" data-en="&lt;i class=&quot;fas fa-comments&quot;&gt;&lt;/i&gt; &amp;nbsp;Communication" data-i18n-html><i class="fas fa-comments"></i> &nbsp;Communication</p>
+          <div class="tool-tags">
+            <span class="ttag">Microsoft Teams</span>
+            <span class="ttag">Mattermost</span>
+            <span class="ttag">3CX</span>
           </div>
         </div>
 
