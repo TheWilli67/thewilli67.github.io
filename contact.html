@@ -81,6 +81,28 @@
     .ccard-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; transition: var(--t); flex-shrink: 0; }
     .ccard:hover .ccard-arrow { color: var(--accent); transform: translateX(3px); }
 
+    .section-alt { background: var(--bg-alt); }
+    .s-sub { font-size: .95rem; color: var(--text-m); margin-top: .5rem; }
+
+    /* Form */
+    .form-wrapper {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+      box-shadow: var(--sh-sm); margin-bottom: 1.25rem;
+    }
+    .form-wrapper iframe { display: block; width: 100%; border: none; }
+    .form-privacy {
+      display: flex; align-items: flex-start; gap: .6rem;
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: .9rem 1.1rem;
+      font-size: .8rem; color: var(--text-m); line-height: 1.65;
+    }
+    .form-privacy i { color: var(--accent); margin-top: .15rem; flex-shrink: 0; }
+    .form-privacy a { color: var(--accent); }
+    .form-privacy a:hover { text-decoration: underline; }
+
     /* Message box */
     .msg-box {
       background: var(--bg-card); border: 1px solid var(--border);
@@ -116,10 +138,10 @@
   <nav class="nav">
     <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
     <ul class="nav-links">
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
       <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
       <li><a href="/contact.html" class="active show">Contact</a></li>
-      <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
       <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
     </ul>
   </nav>
@@ -165,25 +187,16 @@
           <i class="fas fa-download ccard-arrow"></i>
         </a>
 
-        <a href="mailto:william.hertrich67@gmail.com" class="ccard reveal no-script-execution" style="transition-delay:.15s">
+        <a href="mailto:william.hertrich@proton.me" class="ccard reveal no-script-execution" style="transition-delay:.15s">
           <div class="ccard-icon ci-email"><i class="fas fa-envelope"></i></div>
           <div>
             <p class="ccard-label" data-fr="E-mail personnel" data-en="Personal e-mail">E-mail personnel</p>
-            <p class="ccard-value">william.hertrich67@gmail.com</p>
+            <p class="ccard-value">william.hertrich@proton.me</p>
           </div>
           <i class="fas fa-arrow-right ccard-arrow"></i>
         </a>
 
-        <a href="tel:+33673981209" class="ccard reveal no-script-execution" style="transition-delay:.2s">
-          <div class="ccard-icon ci-phone"><i class="fas fa-phone"></i></div>
-          <div>
-            <p class="ccard-label" data-fr="Téléphone" data-en="Phone">Téléphone</p>
-            <p class="ccard-value">+33 6 73 98 12 09</p>
-          </div>
-          <i class="fas fa-arrow-right ccard-arrow"></i>
-        </a>
-
-        <a href="https://github.com/TheWilli67" target="_blank" class="ccard reveal no-script-execution" style="transition-delay:.25s">
+        <a href="https://github.com/TheWilli67" target="_blank" class="ccard reveal no-script-execution" style="transition-delay:.2s">
           <div class="ccard-icon ci-github"><i class="fab fa-github"></i></div>
           <div>
             <p class="ccard-label">GitHub</p>
@@ -192,16 +205,36 @@
           <i class="fas fa-arrow-right ccard-arrow"></i>
         </a>
 
-        <a href="https://www.facebook.com/william.hertrich.10" target="_blank" class="ccard reveal no-script-execution" style="transition-delay:.3s">
-          <div class="ccard-icon ci-facebook"><i class="fab fa-facebook-f"></i></div>
-          <div>
-            <p class="ccard-label">Facebook</p>
-            <p class="ccard-value">william.hertrich.10</p>
-          </div>
-          <i class="fas fa-arrow-right ccard-arrow"></i>
-        </a>
-
       </div>
+    </div>
+  </section>
+
+  <!-- Formulaire de contact -->
+  <section class="section section-alt" id="formulaire">
+    <div class="inner">
+
+      <div class="s-header">
+        <span class="s-tag" data-fr="Formulaire de contact" data-en="Contact form">Formulaire de contact</span>
+        <h2 class="s-title" data-fr="Envoyer un message" data-en="Send a message">Envoyer un message</h2>
+        <p class="s-sub" data-fr="Remplissez le formulaire ci-dessous, je vous répondrai dans les meilleurs délais." data-en="Fill in the form below and I'll get back to you as soon as possible.">Remplissez le formulaire ci-dessous, je vous répondrai dans les meilleurs délais.</p>
+      </div>
+
+      <div class="form-wrapper reveal">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSeiwEalkJyMqfiKao8_2wHNXZsJvhy1OJ1YSw1k8sqStK8ahw/viewform?embedded=true"
+          width="100%"
+          height="1163"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Formulaire de contact — William Hertrich">Chargement…</iframe>
+      </div>
+
+      <div class="form-privacy reveal">
+        <i class="fas fa-lock"></i>
+        <span data-fr="Votre adresse e-mail est utilisée <strong>exclusivement</strong> pour répondre à votre demande. Elle ne fait l'objet d'aucune revente ni exploitation commerciale. Suppression sur demande : <a href=&quot;mailto:william.hertrich@proton.me&quot;>william.hertrich@proton.me</a> — <a href=&quot;/mentions_legales.html&quot;>Mentions légales</a>" data-en="Your email address is used <strong>exclusively</strong> to respond to your request. It is never sold or commercially exploited. Deletion on request: <a href=&quot;mailto:william.hertrich@proton.me&quot;>william.hertrich@proton.me</a> — <a href=&quot;/mentions_legales.html&quot;>Legal notice</a>" data-i18n-html>Votre adresse e-mail est utilisée <strong>exclusivement</strong> pour répondre à votre demande. Elle ne fait l'objet d'aucune revente ni exploitation commerciale. Suppression sur demande : <a href="mailto:william.hertrich@proton.me">william.hertrich@proton.me</a> — <a href="/mentions_legales.html">Mentions légales</a></span>
+      </div>
+
     </div>
   </section>
 

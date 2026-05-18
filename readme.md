@@ -123,7 +123,7 @@ Alternant Ingénieur Systèmes & Réseaux — Master CDSI, INSA Hauts-de-France
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-williamhertrich-0a66c2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/williamhertrich-67860-2003)
 [![GitHub](https://img.shields.io/badge/GitHub-TheWilli67-24292f?logo=github&logoColor=white)](https://github.com/TheWilli67)
-[![Email](https://img.shields.io/badge/Email-william.hertrich67%40gmail.com-2563eb?logo=gmail&logoColor=white)](mailto:william.hertrich67@gmail.com)
+[![Email](https://img.shields.io/badge/Email-william.hertrich67%40gmail.com-2563eb?logo=gmail&logoColor=white)](mailto:william.hertrich@proton.me)
 
 ---
 
