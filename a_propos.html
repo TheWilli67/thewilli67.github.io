@@ -99,6 +99,8 @@
     }
     .interest-title { font-size: .9rem; font-weight: 600; color: var(--text); }
     .interest-desc  { font-size: .82rem; color: var(--text-m); margin-top: .25rem; line-height: 1.55; }
+    .interest-link  { display: block; text-align: right; margin-top: .6rem; font-size: .76rem; font-weight: 600; color: #6366f1; transition: var(--t); }
+    .interest-link:hover { opacity: .7; }
 
     /* Goals timeline */
     .goals-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin: 0 auto; }
@@ -271,9 +273,10 @@
         </div>
         <div class="interest-card">
           <div class="interest-icon" style="background:rgba(99,102,241,.1);color:#6366f1"><i class="fas fa-gamepad"></i></div>
-          <div>
+          <div style="flex:1">
             <p class="interest-title" data-fr="Jeux vidéos" data-en="Video games">Jeux vidéos</p>
             <p class="interest-desc" data-fr="Stratégie et coopération — j'aime les jeux qui demandent réflexion, planification et travail d'équipe." data-en="Strategy and co-op — I enjoy games that require thinking, planning, and teamwork.">Stratégie et coopération — j'aime les jeux qui demandent réflexion, planification et travail d'équipe.</p>
+            <a href="/jeux.html" class="interest-link" data-fr="Voir ma ludothèque →" data-en="See my game library →">Voir ma ludothèque →</a>
           </div>
         </div>
         <div class="interest-card">

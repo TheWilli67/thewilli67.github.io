@@ -5,7 +5,9 @@
       "Bash(Select-Object FullName, PSIsContainer)",
       "Bash(Format-Table -AutoSize)",
       "PowerShell(Move-Item -Path \"c:\\\\Users\\\\wh\\\\OneDrive - reseau-net.com\\\\Documents\\\\GitHub\\\\thewilli67.github.io\\\\PHOTO_2024.jpg\" -Destination \"c:\\\\Users\\\\wh\\\\OneDrive - reseau-net.com\\\\Documents\\\\GitHub\\\\thewilli67.github.io\\\\Images_photos\\\\photo_william.jpg\" -Force)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(Select-Object FullName)",
+      "Bash(Head -100)"
     ]
   }
 }
