@@ -48,7 +48,9 @@
     .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .75rem; }
     .ph-sub { font-size: 1rem; color: #64748b; max-width: 550px; line-height: 1.75; }
     .ph-photo { flex-shrink: 0; }
-    .ph-photo img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center center; border: 3px solid rgba(37,99,235,.4); box-shadow: 0 0 40px rgba(37,99,235,.15); }
+    .ph-ring { width: 220px; height: 279px; border-radius: 18px; padding: 3px; background: conic-gradient(from 180deg, #2563eb, #6366f1, #2563eb); box-shadow: 0 0 60px rgba(37,99,235,.2); }
+    .ph-img-clip { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; border: 4px solid #0f172a; }
+    .ph-img { width: 100%; height: 100%; background-image: url('/Images_photos/photo_william.JPG'); background-repeat: no-repeat; background-size: 102%; background-position: 50% 0%; }
 
     /* Sections */
     .section { padding: 5rem 5%; }
@@ -168,7 +170,11 @@
         <p class="ph-sub" data-fr="Au-delà du CV — ma passion pour l'informatique, mes valeurs, mes centres d'intérêt et mes ambitions pour l'avenir." data-en="Beyond the résumé — my passion for IT, my values, interests, and ambitions for the future.">Au-delà du CV — ma passion pour l'informatique, mes valeurs, mes centres d'intérêt et mes ambitions pour l'avenir.</p>
       </div>
       <div class="ph-photo">
-        <img src="/Images_photos/photo_william.jpg" alt="William Hertrich">
+        <div class="ph-ring">
+          <div class="ph-img-clip">
+            <div class="ph-img" role="img" aria-label="Photo de William Hertrich"></div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
