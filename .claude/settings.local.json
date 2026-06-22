@@ -7,7 +7,8 @@
       "PowerShell(Move-Item -Path \"c:\\\\Users\\\\wh\\\\OneDrive - reseau-net.com\\\\Documents\\\\GitHub\\\\thewilli67.github.io\\\\PHOTO_2024.jpg\" -Destination \"c:\\\\Users\\\\wh\\\\OneDrive - reseau-net.com\\\\Documents\\\\GitHub\\\\thewilli67.github.io\\\\Images_photos\\\\photo_william.jpg\" -Force)",
       "Bash(python -c ' *)",
       "Bash(Select-Object FullName)",
-      "Bash(Head -100)"
+      "Bash(Head -100)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\thewi\\\\Proton Drive\\\\william.hertrich\\\\My files\\\\GitHub\\\\thewilli67.github.io\\\\thewilli67.github.io\\\\photo_calibration.html\")"
     ]
   }
 }
