@@ -109,11 +109,14 @@
     /* Stack section */
     .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .stack-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh-sm); }
+    .stack-cat.with-legend { display: flex; flex-direction: column; }
+    .stack-cat.with-legend .stack-legend:first-of-type { margin-top: auto; padding-top: .75rem; }
     .stack-cat-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.1rem; }
     .stack-cat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
     .stack-cat-title { font-size: .82rem; font-weight: 700; color: var(--text); }
     .stack-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
     .stag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
+    .stack-legend { margin-top: .5rem; font-size: .7rem; color: var(--text-lt); font-style: italic; }
 
     /* Tools section */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
@@ -160,7 +163,7 @@
     <div class="ph-inner">
       <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> <span data-fr="Retour au portfolio" data-en="Back to portfolio">Retour au portfolio</span></a>
       <span class="ph-eyebrow" data-fr="Alternance Master" data-en="Master's work-study">Alternance Master</span>
-      <h1 class="ph-title">Alternance <span>Réseau-Net</span></h1>
+      <h1 class="ph-title" data-fr="Alternance <span>Réseau-Net</span>" data-en="Work-study <span>Réseau-Net</span>" data-i18n-html>Alternance <span>Réseau-Net</span></h1>
       <p class="ph-sub" data-fr="Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace : administration infrastructure, sécurité réseau et scripting." data-en="Systems &amp; Network Engineer within a multi-client MSP in Alsace: infrastructure administration, network security and scripting.">Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace : administration infrastructure, sécurité réseau et scripting.</p>
       <div class="ph-chips">
         <span class="chip chip-loc" data-fr="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Alsace" data-en="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Alsace" data-i18n-html><i class="fas fa-map-marker-alt"></i> Alsace</span>
@@ -335,21 +338,23 @@
       </div>
       <div class="stack-grid">
 
-        <div class="stack-cat reveal">
+        <!-- Systèmes -->
+        <div class="stack-cat with-legend reveal">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-blue"><i class="fas fa-server"></i></div>
             <p class="stack-cat-title" data-fr="Systèmes" data-en="Systems">Systèmes</p>
           </div>
           <div class="stack-tags">
-            <span class="stag">Windows Server 2025/2022/2019</span>
-            <span class="stag">Debian Linux</span>
+            <span class="stag">Windows Server</span>
+            <span class="stag">Debian Server</span>
             <span class="stag">Ubuntu Server</span>
-            <span class="stag">Active Directory</span>
-            <span class="stag">DNS / DHCP</span>
-            <span class="stag">GPO</span>
           </div>
+          <p class="stack-legend">Windows Server : 2008 R2 · 2016 · 2019 · 2022 · 2025</p>
+          <p class="stack-legend">Debian : 11 · 12 · 13</p>
+          <p class="stack-legend">Ubuntu : 22.04 · 24.04 · 26.04</p>
         </div>
 
+        <!-- Virtualisation -->
         <div class="stack-cat reveal" style="transition-delay:.05s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-purple"><i class="fas fa-layer-group"></i></div>
@@ -362,7 +367,32 @@
           </div>
         </div>
 
+        <!-- Active Directory & IAM -->
         <div class="stack-cat reveal" style="transition-delay:.1s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-purple"><i class="fas fa-users-cog"></i></div>
+            <p class="stack-cat-title" data-fr="Active Directory &amp; IAM" data-en="Active Directory &amp; IAM">Active Directory &amp; IAM</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">AD DS</span>
+            <span class="stag">GPO</span>
+            <span class="stag">RBAC</span>
+            <span class="stag">OU / Délégation</span>
+            <span class="stag">LAPS</span>
+            <span class="stag">Tiering Model</span>
+            <span class="stag">AGDLP</span>
+            <span class="stag">DNS / DHCP intégré AD</span>
+            <span class="stag">FSMO</span>
+            <span class="stag">Sites &amp; Services</span>
+            <span class="stag">Kerberos</span>
+            <span class="stag">LDAP</span>
+            <span class="stag">Fine-Grained Password Policy</span>
+            <span class="stag">MSA / gMSA</span>
+          </div>
+        </div>
+
+        <!-- Sécurité réseau -->
+        <div class="stack-cat reveal" style="transition-delay:.15s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-amber"><i class="fas fa-shield-alt"></i></div>
             <p class="stack-cat-title" data-fr="Sécurité réseau" data-en="Network security">Sécurité réseau</p>
@@ -370,43 +400,105 @@
           <div class="stack-tags">
             <span class="stag">FortiGate</span>
             <span class="stag">FortiManager</span>
+            <span class="stag">FortiClient</span>
+            <span class="stag">FortiAnalyzer</span>
+            <span class="stag">FortiSwitch</span>
+            <span class="stag">FortiAP</span>
+            <span class="stag">Stormshield SN</span>
             <span class="stag">VPN SSL</span>
             <span class="stag">VPN IPSec</span>
-            <span class="stag">IPS/UTM</span>
+            <span class="stag">IPS / UTM</span>
             <span class="stag" data-fr="Pare-feu NG" data-en="Next-gen Firewall">Pare-feu NG</span>
+            <span class="stag" data-fr="Proxy filtrant" data-en="Filtering proxy">Proxy filtrant</span>
+            <span class="stag">WAF</span>
+            <span class="stag">Zero Trust</span>
+            <span class="stag">MFA</span>
+            <span class="stag">NAC</span>
           </div>
         </div>
 
-        <div class="stack-cat reveal" style="transition-delay:.15s">
+        <!-- Cybersécurité endpoint -->
+        <div class="stack-cat reveal" style="transition-delay:.2s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-red"><i class="fas fa-bug"></i></div>
             <p class="stack-cat-title" data-fr="Cybersécurité endpoint" data-en="Endpoint cybersecurity">Cybersécurité endpoint</p>
           </div>
           <div class="stack-tags">
             <span class="stag">SentinelOne EDR</span>
+            <span class="stag">CrowdStrike</span>
+            <span class="stag">Microsoft Defender for Endpoint</span>
             <span class="stag">Threat Hunting</span>
             <span class="stag">Incident Response</span>
+            <span class="stag" data-fr="Analyse de logs" data-en="Log analysis">Analyse de logs</span>
             <span class="stag" data-fr="Isolation &amp; Remédiation" data-en="Isolation &amp; Remediation">Isolation &amp; Remédiation</span>
           </div>
         </div>
 
-        <div class="stack-cat reveal" style="transition-delay:.2s">
+        <!-- Monitoring & Sauvegarde -->
+        <div class="stack-cat reveal" style="transition-delay:.25s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-green"><i class="fas fa-chart-line"></i></div>
-            <p class="stack-cat-title" data-fr="Monitoring &amp; Sauvegarde" data-en="Monitoring &amp; Backup">Monitoring & Sauvegarde</p>
+            <p class="stack-cat-title" data-fr="Monitoring &amp; Sauvegarde" data-en="Monitoring &amp; Backup">Monitoring &amp; Sauvegarde</p>
           </div>
           <div class="stack-tags">
             <span class="stag">Observium</span>
+            <span class="stag">Grafana</span>
+            <span class="stag">Prometheus</span>
+            <span class="stag">Blackbox Exporter</span>
             <span class="stag">SNMP</span>
             <span class="stag">Veeam Backup &amp; Replication</span>
             <span class="stag">Synology ActiveBackup</span>
           </div>
         </div>
 
-        <div class="stack-cat reveal" style="transition-delay:.25s">
+        <!-- Cloud & Microsoft 365 -->
+        <div class="stack-cat reveal" style="transition-delay:.3s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-sky"><i class="fas fa-cloud"></i></div>
+            <p class="stack-cat-title" data-fr="Cloud &amp; Microsoft 365" data-en="Cloud &amp; Microsoft 365">Cloud &amp; Microsoft 365</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">Microsoft 365 Admin Center</span>
+            <span class="stag">Exchange Online</span>
+            <span class="stag">SharePoint Online</span>
+            <span class="stag">OneDrive</span>
+            <span class="stag">Teams</span>
+            <span class="stag">Azure AD / Entra ID</span>
+            <span class="stag">Azure AD Connect</span>
+            <span class="stag">Intune (MDM/MAM)</span>
+            <span class="stag">Autopilot</span>
+            <span class="stag">Conditional Access</span>
+            <span class="stag">MFA / SSPR</span>
+            <span class="stag">Defender for Business</span>
+            <span class="stag">Microsoft Purview</span>
+            <span class="stag">Power Automate</span>
+            <span class="stag">Licences CSP</span>
+          </div>
+        </div>
+
+        <!-- Téléphonie / VoIP -->
+        <div class="stack-cat reveal" style="transition-delay:.35s">
+          <div class="stack-cat-header">
+            <div class="stack-cat-icon mi-teal"><i class="fas fa-phone-alt"></i></div>
+            <p class="stack-cat-title" data-fr="Téléphonie / VoIP" data-en="Telephony / VoIP">Téléphonie / VoIP</p>
+          </div>
+          <div class="stack-tags">
+            <span class="stag">3CX</span>
+            <span class="stag">Microsoft Teams Phone</span>
+            <span class="stag">SIP Trunk</span>
+            <span class="stag">IPBX</span>
+            <span class="stag">Polycom</span>
+            <span class="stag">Yealink</span>
+            <span class="stag">ToIP</span>
+            <span class="stag">DECT IP</span>
+          </div>
+        </div>
+
+        <!-- ITSM & Scripting -->
+        <div class="stack-cat reveal" style="transition-delay:.4s">
           <div class="stack-cat-header">
             <div class="stack-cat-icon mi-rose"><i class="fas fa-terminal"></i></div>
-            <p class="stack-cat-title" data-fr="ITSM &amp; Scripting" data-en="ITSM &amp; Scripting">ITSM & Scripting</p>
+            <p class="stack-cat-title" data-fr="ITSM &amp; Scripting" data-en="ITSM &amp; Scripting">ITSM &amp; Scripting</p>
           </div>
           <div class="stack-tags">
             <span class="stag">GLPI</span>
@@ -431,61 +523,97 @@
       <div class="tools-grid">
 
         <div class="tool-cat reveal">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-display&quot;&gt;&lt;/i&gt; &amp;nbsp;Accès distant" data-en="&lt;i class=&quot;fas fa-display&quot;&gt;&lt;/i&gt; &amp;nbsp;Remote access" data-i18n-html><i class="fas fa-display"></i> &nbsp;Accès distant</p>
+          <p class="tool-cat-title" data-fr="<i class='fas fa-display'></i> &nbsp;Accès distant" data-en="<i class='fas fa-display'></i> &nbsp;Remote access" data-i18n-html><i class="fas fa-display"></i> &nbsp;Accès distant</p>
           <div class="tool-tags">
+            <span class="ttag">RDP</span>
+            <span class="ttag">SSH</span>
             <span class="ttag">TeamViewer</span>
             <span class="ttag">mRemoteNG</span>
             <span class="ttag">Tabby</span>
             <span class="ttag">PuTTY</span>
-            <span class="ttag">RDP</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.05s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-magnifying-glass&quot;&gt;&lt;/i&gt; &amp;nbsp;Diagnostic réseau" data-en="&lt;i class=&quot;fas fa-magnifying-glass&quot;&gt;&lt;/i&gt; &amp;nbsp;Network diagnostics" data-i18n-html><i class="fas fa-magnifying-glass"></i> &nbsp;Diagnostic réseau</p>
+          <p class="tool-cat-title" data-fr="<i class='fas fa-magnifying-glass'></i> &nbsp;Diagnostic réseau" data-en="<i class='fas fa-magnifying-glass'></i> &nbsp;Network diagnostics" data-i18n-html><i class="fas fa-magnifying-glass"></i> &nbsp;Diagnostic réseau</p>
           <div class="tool-tags">
             <span class="ttag">Wireshark</span>
             <span class="ttag">Nmap</span>
             <span class="ttag">Advanced IP Scanner</span>
-            <span class="ttag">Observium</span>
+            <span class="ttag">Ping / Traceroute</span>
+            <span class="ttag">Netflow</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.1s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-file-lines&quot;&gt;&lt;/i&gt; &amp;nbsp;Documentation &amp; Collaboration" data-en="&lt;i class=&quot;fas fa-file-lines&quot;&gt;&lt;/i&gt; &amp;nbsp;Documentation &amp; Collaboration" data-i18n-html><i class="fas fa-file-lines"></i> &nbsp;Documentation &amp; Collaboration</p>
+          <p class="tool-cat-title" data-fr="<i class='fas fa-chart-line'></i> &nbsp;Supervision &amp; Monitoring" data-en="<i class='fas fa-chart-line'></i> &nbsp;Monitoring &amp; Supervision" data-i18n-html><i class="fas fa-chart-line"></i> &nbsp;Supervision &amp; Monitoring</p>
           <div class="tool-tags">
-            <span class="ttag">Draw.io</span>
-            <span class="ttag">SharePoint</span>
-            <span class="ttag">Microsoft Loop</span>
-            <span class="ttag">Microsoft Planner</span>
+            <span class="ttag">Observium</span>
+            <span class="ttag">Grafana</span>
+            <span class="ttag">Prometheus</span>
+            <span class="ttag">Blackbox Exporter</span>
+            <span class="ttag">SNMP</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.15s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-cloud&quot;&gt;&lt;/i&gt; &amp;nbsp;Administration cloud" data-en="&lt;i class=&quot;fas fa-cloud&quot;&gt;&lt;/i&gt; &amp;nbsp;Cloud administration" data-i18n-html><i class="fas fa-cloud"></i> &nbsp;Administration cloud</p>
+          <p class="tool-cat-title" data-fr="<i class='fas fa-cloud'></i> &nbsp;Administration cloud" data-en="<i class='fas fa-cloud'></i> &nbsp;Cloud administration" data-i18n-html><i class="fas fa-cloud"></i> &nbsp;Administration cloud</p>
           <div class="tool-tags">
-            <span class="ttag">Microsoft 365 Admin Center</span>
+            <span class="ttag">M365 Admin Center</span>
             <span class="ttag">Entra ID</span>
             <span class="ttag">Intune / MEM</span>
+            <span class="ttag">Exchange Admin</span>
+            <span class="ttag">Azure Portal</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.2s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt; &amp;nbsp;Sécurité &amp; Secrets" data-en="&lt;i class=&quot;fas fa-lock&quot;&gt;&lt;/i&gt; &amp;nbsp;Security &amp; Secrets" data-i18n-html><i class="fas fa-lock"></i> &nbsp;Sécurité &amp; Secrets</p>
+          <p class="tool-cat-title" data-fr="<i class='fas fa-users-cog'></i> &nbsp;Administration AD &amp; systèmes" data-en="<i class='fas fa-users-cog'></i> &nbsp;AD &amp; systems administration" data-i18n-html><i class="fas fa-users-cog"></i> &nbsp;Administration AD &amp; systèmes</p>
           <div class="tool-tags">
-            <span class="ttag">SentinelOne</span>
-            <span class="ttag">Passbolt</span>
-            <span class="ttag">Yopass</span>
-            <span class="ttag">ManInBlack</span>
+            <span class="ttag">RSAT</span>
+            <span class="ttag">ADUC / ADSS</span>
+            <span class="ttag">Éditeur GPO</span>
+            <span class="ttag">DNS Manager</span>
+            <span class="ttag">Hyper-V Manager</span>
+            <span class="ttag">vSphere Client</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.25s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-comments&quot;&gt;&lt;/i&gt; &amp;nbsp;Communication" data-en="&lt;i class=&quot;fas fa-comments&quot;&gt;&lt;/i&gt; &amp;nbsp;Communication" data-i18n-html><i class="fas fa-comments"></i> &nbsp;Communication</p>
+          <p class="tool-cat-title" data-fr="<i class='fas fa-shield-alt'></i> &nbsp;Consoles sécurité" data-en="<i class='fas fa-shield-alt'></i> &nbsp;Security consoles" data-i18n-html><i class="fas fa-shield-alt"></i> &nbsp;Consoles sécurité</p>
           <div class="tool-tags">
-            <span class="ttag">Microsoft Teams</span>
+            <span class="ttag">FortiGate WebUI</span>
+            <span class="ttag">Console SentinelOne</span>
+            <span class="ttag">Passbolt</span>
+            <span class="ttag">Yopass</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.3s">
+          <p class="tool-cat-title" data-fr="<i class='fas fa-phone-alt'></i> &nbsp;Téléphonie" data-en="<i class='fas fa-phone-alt'></i> &nbsp;Telephony" data-i18n-html><i class="fas fa-phone-alt"></i> &nbsp;Téléphonie</p>
+          <div class="tool-tags">
+            <span class="ttag">Console 3CX</span>
+            <span class="ttag">Teams Phone Admin</span>
+            <span class="ttag">Portail opérateur SIP</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.35s">
+          <p class="tool-cat-title" data-fr="<i class='fas fa-ticket-alt'></i> &nbsp;ITSM &amp; Ticketing" data-en="<i class='fas fa-ticket-alt'></i> &nbsp;ITSM &amp; Ticketing" data-i18n-html><i class="fas fa-ticket-alt"></i> &nbsp;ITSM &amp; Ticketing</p>
+          <div class="tool-tags">
+            <span class="ttag">GLPI</span>
+            <span class="ttag">Microsoft Planner</span>
             <span class="ttag">Mattermost</span>
-            <span class="ttag">3CX</span>
+          </div>
+        </div>
+
+        <div class="tool-cat reveal" style="transition-delay:.4s">
+          <p class="tool-cat-title" data-fr="<i class='fas fa-file-lines'></i> &nbsp;Documentation &amp; Collaboration" data-en="<i class='fas fa-file-lines'></i> &nbsp;Documentation &amp; Collaboration" data-i18n-html><i class="fas fa-file-lines"></i> &nbsp;Documentation &amp; Collaboration</p>
+          <div class="tool-tags">
+            <span class="ttag">Draw.io</span>
+            <span class="ttag">SharePoint</span>
+            <span class="ttag">Microsoft Loop</span>
+            <span class="ttag">Microsoft Teams</span>
           </div>
         </div>
 

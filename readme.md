@@ -29,6 +29,7 @@ thewilli67.github.io/
 ├── contact.html                # Coordonnées et liens
 ├── alternance.html             # Hub alternances
 ├── but.html                    # BUT R&T complet (BUT1 + BUT2 + BUT3 fusionnés)
+├── jeux.html                   # Ludothèque — bibliothèque de jeux personnelle
 ├── projet_72h.html             # Projet hydrolienne — Terminale STI2D
 ├── mentions_legales.html       # Mentions légales (LCEN)
 │
@@ -38,13 +39,22 @@ thewilli67.github.io/
 │
 ├── SAE23/
 │   ├── SAE23.html              # SAE23 — Game Library (EN)
-│   └── SAE23_fr.html           # SAE23 — Bibliothèque de jeux (FR)
+│   ├── SAE23_fr.html           # SAE23 — Bibliothèque de jeux (FR)
+│   └── SAE23_Documents/        # Livrables SAE23 (PDF, captures, distribution tâches)
 │
 ├── scripts/
-│   └── animation_page.js       # Transitions fade-in / fade-out entre pages
+│   ├── animation_page.js       # Transitions fade-in / fade-out entre pages
+│   ├── emailpopup.js           # Pop-up copie de l'adresse email
+│   ├── i18n.js                 # Internationalisation (bascule de langue)
+│   └── script_bloque.js        # Blocage clic droit / sélection (protection contenu)
 │
+├── Static/                     # CSS alternatifs / variantes desktop
 ├── Images_photos/              # Photos, illustrations, diagrammes
-├── documents/                  # PDF, documents téléchargeables (CV, certifications, SAE)
+├── icones/                     # Icônes SVG/PNG (réseaux sociaux, liens)
+├── documents/                  # PDF, documents téléchargeables
+│   ├── SAE302/                 # Livrables SAE302
+│   ├── SAE303/                 # Livrables SAE303 (FAI, LAN, services)
+│   └── SAE502/                 # Livrables SAE502 (BDD, documentation)
 │
 ├── BUT1/                       # Pages individuelles BUT1 (legacy, remplacées par but.html)
 ├── BUT2/                       # Pages individuelles BUT2 (legacy)
@@ -59,7 +69,7 @@ thewilli67.github.io/
 |---|---|
 | **HTML5** | Structure sémantique de toutes les pages |
 | **CSS3** | Styles embarqués par page — variables CSS, Grid, Flexbox, animations |
-| **JavaScript vanilla** | Transitions de page (`animation_page.js`), IntersectionObserver (scroll reveal) |
+| **JavaScript vanilla** | Transitions, pop-up email, i18n, protection contenu |
 | **Font Awesome 6.5** | Icônes (CDN) |
 | **Inter — Google Fonts** | Police principale |
 | **GitHub Pages** | Hébergement statique gratuit |
@@ -74,8 +84,10 @@ Aucun framework CSS ni bundler — zéro dépendance de build.
 - **Transitions de page** — fondu entrant/sortant via `animation_page.js`
 - **Scroll reveal** — apparition progressive des éléments au défilement (IntersectionObserver)
 - **Responsive** — breakpoints à 900 px et 600 px, navigation mobile adaptée
-- **Bilinguisme SAE23** — version EN et FR avec bouton de basculement
+- **Bilinguisme SAE23** — version EN et FR avec bouton de basculement (`i18n.js`)
 - **Thème par page** — chaque section a sa couleur d'accent (bleu, orange SOLINEST, sky blue Réseau-Net, teal 72h…)
+- **Pop-up email** — copie de l'adresse au clic via `emailpopup.js`
+- **Ludothèque** — page `jeux.html` listant la bibliothèque de jeux personnelle
 
 ---
 
@@ -107,10 +119,12 @@ cd thewilli67.github.io
 | `portfolio.html` | Vue d'ensemble de tous les projets et formations |
 | `a_propos.html` | Parcours, valeurs, centres d'intérêt, objectifs |
 | `contact.html` | LinkedIn, GitHub, email, téléphone, CV PDF |
+| `jeux.html` | Ludothèque — bibliothèque de jeux personnelle |
 | `alternance/reseau-net.html` | MSP multi-clients, FortiGate, SentinelOne, VMware… |
 | `alternance/solinest.html` | Helpdesk, AD, Centreon, migration WS 2016… |
 | `but.html` | Toutes les compétences BUT R&T (3 ans, option Cybersécurité) |
-| `SAE23/SAE23_fr.html` | Application Django — bibliothèque de jeux vidéo |
+| `SAE23/SAE23.html` | Application Django — Game Library (EN) |
+| `SAE23/SAE23_fr.html` | Application Django — bibliothèque de jeux vidéo (FR) |
 | `projet_72h.html` | Hydrolienne portable — modélisation 3D, Terminale |
 | `mentions_legales.html` | Mentions légales conformes à la LCEN |
 
