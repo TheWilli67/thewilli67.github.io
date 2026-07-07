@@ -14,7 +14,7 @@
 
 **[→ Voir sur le site en ligne](https://thewilli67.github.io)**
 
-Site statique HTML/CSS vanilla hébergé sur GitHub Pages. Conçu pour présenter mon parcours académique, mes expériences professionnelles et mes projets techniques dans un format moderne et responsive.
+Site statique HTML/CSS vanilla hébergé sur GitHub Pages. Conçu pour présenter mon parcours académique, mes expériences professionnelles et mes projets techniques dans un format moderne et responsive, dont deux **projets professionnels phares** menés en alternance (refonte GLPI chez SOLINEST et portail d'administration de la supervision chez Réseau-Net).
 
 ---
 
@@ -37,6 +37,11 @@ thewilli67.github.io/
 │   ├── reseau-net.html         # Détail alternance Réseau-Net (2024–2026)
 │   └── solinest.html           # Détail alternance SOLINEST (2022–2024)
 │
+├── projets_pro/
+│   ├── refonte_glpi.html       # Projet phare SOLINEST — refonte GLPI 9.x → 10.x
+│   ├── monitoring_admin.html   # Projet phare Réseau-Net — portail Prometheus/Grafana
+│   └── screenshots/            # Captures floutées du portail Monitoring Admin
+│
 ├── SAE23/
 │   ├── SAE23.html              # SAE23 — Game Library (EN)
 │   ├── SAE23_fr.html           # SAE23 — Bibliothèque de jeux (FR)
@@ -47,6 +52,11 @@ thewilli67.github.io/
 │   ├── emailpopup.js           # Pop-up copie de l'adresse email
 │   ├── i18n.js                 # Internationalisation (bascule de langue)
 │   └── script_bloque.js        # Blocage clic droit / sélection (protection contenu)
+│
+├── _scripts/                   # Utilitaires de maintenance (non servis par GitHub Pages)
+│   ├── strip_emdash.py         # Retire les em dashes hors titres
+│   ├── reindent_html.py        # Ré-indentation HTML par profondeur de tag
+│   └── reindent_style_js.py    # Ré-indentation CSS/JS dans les blocs <style>/<script>
 │
 ├── Static/                     # CSS alternatifs / variantes desktop
 ├── Images_photos/              # Photos, illustrations, diagrammes
@@ -88,6 +98,7 @@ Aucun framework CSS ni bundler — zéro dépendance de build.
 - **Thème par page** — chaque section a sa couleur d'accent (bleu, orange SOLINEST, sky blue Réseau-Net, teal 72h…)
 - **Pop-up email** — copie de l'adresse au clic via `emailpopup.js`
 - **Ludothèque** — page `jeux.html` listant la bibliothèque de jeux personnelle
+- **Galerie lightbox custom** — sur `projets_pro/monitoring_admin.html`, grille de captures avec ouverture plein écran, navigation clavier (`←` `→` `Esc`), en vanilla JS (aucune lib externe)
 
 ---
 
@@ -122,11 +133,19 @@ cd thewilli67.github.io
 | `jeux.html` | Ludothèque — bibliothèque de jeux personnelle |
 | `alternance/reseau-net.html` | MSP multi-clients, FortiGate, SentinelOne, VMware… |
 | `alternance/solinest.html` | Helpdesk, AD, Centreon, migration WS 2016… |
+| `projets_pro/refonte_glpi.html` | Refonte GLPI 9.x → 10.x chez SOLINEST — types de demandes, workflow d'attribution, SSO Google Workspace, base de connaissances |
+| `projets_pro/monitoring_admin.html` | Portail d'administration de la supervision chez Réseau-Net — stack Prometheus/Grafana pilotée depuis une interface FastAPI + HTMX, sprint de 2 semaines en pair avec Claude Code |
 | `but.html` | Toutes les compétences BUT R&T (3 ans, option Cybersécurité) |
 | `SAE23/SAE23.html` | Application Django — Game Library (EN) |
 | `SAE23/SAE23_fr.html` | Application Django — bibliothèque de jeux vidéo (FR) |
 | `projet_72h.html` | Hydrolienne portable — modélisation 3D, Terminale |
 | `mentions_legales.html` | Mentions légales conformes à la LCEN |
+
+### Projets professionnels
+
+Deux projets phares menés en alternance sont documentés sur des pages dédiées, accessibles depuis `portfolio.html` (section « Projets professionnels ») et depuis la fiche de l'alternance correspondante.
+
+Les deux pages restent volontairement au **niveau conceptuel** (architecture, stack, choix d'ingénierie) et n'exposent aucune information sensible sur les infrastructures des employeurs (IPs, hostnames, chemins internes, secrets, identifiants, configurations spécifiques). Les captures d'écran du portail Monitoring Admin sont **floutées** avant publication.
 
 ---
 
