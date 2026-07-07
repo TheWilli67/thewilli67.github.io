@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Alternance SOLINEST — William Hertrich, Technicien IT en alternance 2022–2024">
+  <meta name="description" content="Alternance SOLINEST William Hertrich, Technicien IT en alternance 2022–2024">
   <title>William Hertrich — Alternance SOLINEST</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,6 +94,43 @@
     .mission-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; }
     .mission-desc { font-size: .875rem; color: var(--text-m); line-height: 1.75; }
 
+    /* Featured project (highlight) */
+    .feat-card {
+      display: flex; align-items: stretch; gap: 0;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm);
+      transition: var(--t);
+    }
+    .feat-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(249,115,22,.3); }
+    .feat-visual {
+      flex: 0 0 200px;
+      background: linear-gradient(135deg, #2a1a0a, #3d2818);
+      display: flex; align-items: center; justify-content: center;
+      color: #fb923c; font-size: 3.5rem;
+      position: relative;
+    }
+    .feat-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(251,146,60,.15), transparent 60%);
+    }
+    .feat-body { flex: 1; padding: 1.75rem 2rem; display: flex; flex-direction: column; }
+    .feat-tag {
+      display: inline-flex; align-items: center; gap: .35rem; width: fit-content;
+      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      padding: .25rem .7rem; border-radius: 100px;
+      background: rgba(249,115,22,.1); color: #ea580c; margin-bottom: .75rem;
+    }
+    .feat-title { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.35; }
+    .feat-desc { font-size: .88rem; color: var(--text-m); line-height: 1.7; margin-bottom: 1rem; flex: 1; }
+    .feat-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
+    .feat-tag-item { padding: .2rem .6rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .72rem; font-weight: 500; color: var(--text-m); }
+    .feat-link { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: #ea580c; transition: var(--t); width: fit-content; }
+    .feat-link:hover { color: #c2410c; gap: .6rem; }
+    @media (max-width: 700px) {
+      .feat-card { flex-direction: column; }
+      .feat-visual { flex-basis: 140px; }
+    }
+
     /* Tools section */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .tool-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
@@ -163,8 +200,8 @@
         <p class="ph-sub" data-fr="Technicien IT au service informatique d'une entreprise de distribution de produits de snacking et confiserie, avec 2 ans d'expérience terrain." data-en="IT Technician in the IT department of a snacking and confectionery distribution company, with 2 years of hands-on experience.">Technicien IT au service informatique d'une entreprise de distribution de produits de snacking et confiserie, avec 2 ans d'expérience terrain.</p>
         <div class="ph-chips">
           <span class="chip chip-loc" data-fr="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Bischheim, Alsace" data-en="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Bischheim, Alsace" data-i18n-html><i class="fas fa-map-marker-alt"></i> Bischheim, Alsace</span>
-          <span class="chip chip-period" data-fr="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Août 2022 — Août 2024" data-en="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Aug 2022 — Aug 2024" data-i18n-html><i class="fas fa-calendar"></i> Août 2022 — Août 2024</span>
-          <span class="chip chip-role" data-fr="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Alternant IT — BUT RT" data-en="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; IT Trainee — B.Tech NT" data-i18n-html><i class="fas fa-briefcase"></i> Alternant IT — BUT RT</span>
+          <span class="chip chip-period" data-fr="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Août 2022 Août 2024" data-en="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Aug 2022 Aug 2024" data-i18n-html><i class="fas fa-calendar"></i> Août 2022 Août 2024</span>
+          <span class="chip chip-role" data-fr="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Alternant IT BUT RT" data-en="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; IT Trainee B.Tech NT" data-i18n-html><i class="fas fa-briefcase"></i> Alternant IT BUT RT</span>
           <span class="chip chip-status" data-fr="&lt;i class=&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt; Terminée" data-en="&lt;i class=&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt; Completed" data-i18n-html><i class="fas fa-check-circle"></i> Terminée</span>
         </div>
       </div>
@@ -247,8 +284,36 @@
     </div>
   </section>
 
-  <!-- Tools -->
+  <!-- Projet phare -->
   <section class="section">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag" data-fr="Projet phare" data-en="Flagship project">Projet phare</span>
+        <h2 class="s-title" data-fr="Refonte de GLPI" data-en="GLPI overhaul">Refonte de GLPI</h2>
+        <p class="s-sub" data-fr="Un projet transverse mené en binôme avec un technicien confirmé de l'équipe" data-en="A cross-functional project run paired with an experienced technician on the team">Un projet transverse mené en binôme avec un technicien confirmé de l'équipe</p>
+      </div>
+      <a href="/projets_pro/refonte_glpi.html" class="feat-card reveal">
+        <div class="feat-visual"><i class="fas fa-ticket"></i></div>
+        <div class="feat-body">
+          <span class="feat-tag" data-fr="<i class=&quot;fas fa-star&quot;></i> Projet professionnel" data-en="<i class=&quot;fas fa-star&quot;></i> Professional project" data-i18n-html><i class="fas fa-star"></i> Projet professionnel</span>
+          <h3 class="feat-title" data-fr="Migration GLPI 9.x → 10.x et refonte fonctionnelle complète" data-en="GLPI 9.x → 10.x migration and complete functional overhaul">Migration GLPI 9.x → 10.x et refonte fonctionnelle complète</h3>
+          <p class="feat-desc" data-fr="Sprint concentré (≈ 1,5 à 2 mois) en binôme avec un collègue administrateur systèmes Linux, portant la partie fonctionnelle : types de demandes, workflow d'attribution alimenté par le SSO Google Workspace, politique de notifications, formulaires Formcreator et base de connaissances pour 500+ collaborateurs. Le vrai enjeu n'était pas la migration mais le redesign fonctionnel." data-en="Focused sprint (≈ 1.5 to 2 months) paired with a Linux systems administrator colleague, owning the functional side: request types, assignment workflow fed by Google Workspace SSO, notification policy, Formcreator forms, and knowledge base for 500+ employees. The real challenge was not the migration but the functional redesign.">Sprint concentré (≈ 1,5 à 2 mois) en binôme avec un collègue administrateur systèmes Linux, portant la partie fonctionnelle : types de demandes, workflow d'attribution alimenté par le SSO Google Workspace, politique de notifications, formulaires Formcreator et base de connaissances pour 500+ collaborateurs. Le vrai enjeu n'était pas la migration mais le redesign fonctionnel.</p>
+          <div class="feat-tags">
+            <span class="feat-tag-item">GLPI 10</span>
+            <span class="feat-tag-item">Formcreator</span>
+            <span class="feat-tag-item">SSO Google Workspace</span>
+            <span class="feat-tag-item" data-fr="Workflow" data-en="Workflow">Workflow</span>
+            <span class="feat-tag-item" data-fr="Notifications" data-en="Notifications">Notifications</span>
+            <span class="feat-tag-item" data-fr="Base de connaissances" data-en="Knowledge base">Base de connaissances</span>
+          </div>
+          <span class="feat-link" data-fr="Voir le projet en détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View the project in detail <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet en détail <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section class="section section-alt">
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Stack &amp; Outils" data-en="Technical environment">Stack &amp; Outils</span>
@@ -304,7 +369,7 @@
   </section>
 
   <!-- Documents -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Documents" data-en="Documents &amp; reports">Documents</span>
@@ -316,8 +381,8 @@
         <a href="/documents/ALTERNANCE_2022_2024.pdf" target="_blank" class="doc-link reveal no-script-execution">
           <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
           <div>
-            <p class="doc-name" data-fr="Rapport d'alternance complet — 2022–2024" data-en="Full work-study report — 2022–2024">Rapport d'alternance complet — 2022–2024</p>
-            <p class="doc-type" data-fr="PDF — Document de bilan des deux années d'alternance BUT" data-en="PDF — Summary document of the two B.Tech work-study years">PDF — Document de bilan des deux années d'alternance BUT</p>
+            <p class="doc-name" data-fr="Rapport d'alternance complet 2022–2024" data-en="Full work-study report 2022–2024">Rapport d'alternance complet 2022–2024</p>
+            <p class="doc-type" data-fr="PDF Document de bilan des deux années d'alternance BUT" data-en="PDF Summary document of the two B.Tech work-study years">PDF Document de bilan des deux années d'alternance BUT</p>
           </div>
           <i class="fas fa-external-link-alt doc-arrow"></i>
         </a>
@@ -325,8 +390,8 @@
         <a href="/documents/Rapport d'alternance BUT3 - Janvier - BUT RT CS 3 - Modele.pdf" target="_blank" class="doc-link reveal no-script-execution" style="transition-delay:.05s">
           <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
           <div>
-            <p class="doc-name" data-fr="Rapport d'alternance BUT3 — Janvier" data-en="B.Tech Y3 work-study report — January">Rapport d'alternance BUT3 — Janvier</p>
-            <p class="doc-type" data-fr="PDF — Rapport S5 remis dans le cadre du BUT Réseaux &amp; Télécommunications" data-en="PDF — Semester 5 report submitted for the B.Tech Networks &amp; Telecommunications">PDF — Rapport S5 remis dans le cadre du BUT Réseaux &amp; Télécommunications</p>
+            <p class="doc-name" data-fr="Rapport d'alternance BUT3 Janvier" data-en="B.Tech Y3 work-study report January">Rapport d'alternance BUT3 Janvier</p>
+            <p class="doc-type" data-fr="PDF Rapport S5 remis dans le cadre du BUT Réseaux &amp; Télécommunications" data-en="PDF Semester 5 report submitted for the B.Tech Networks &amp; Telecommunications">PDF Rapport S5 remis dans le cadre du BUT Réseaux &amp; Télécommunications</p>
           </div>
           <i class="fas fa-external-link-alt doc-arrow"></i>
         </a>
@@ -335,7 +400,7 @@
           <div class="doc-icon img"><i class="fas fa-image"></i></div>
           <div>
             <p class="doc-name" data-fr="Poster A1 de fin d'année" data-en="End-of-year A1 poster">Poster A1 de fin d'année</p>
-            <p class="doc-type" data-fr="Image — Poster de présentation de l'alternance, format A1" data-en="Image — Work-study presentation poster, A1 format">Image — Poster de présentation de l'alternance, format A1</p>
+            <p class="doc-type" data-fr="Image Poster de présentation de l'alternance, format A1" data-en="Image Work-study presentation poster, A1 format">Image Poster de présentation de l'alternance, format A1</p>
           </div>
           <i class="fas fa-external-link-alt doc-arrow"></i>
         </a>
@@ -353,7 +418,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p>&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+    <p>&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

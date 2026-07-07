@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Alternance Réseau-Net — William Hertrich, Ingénieur Systèmes & Réseaux en alternance depuis 2024">
+  <meta name="description" content="Alternance Réseau-Net William Hertrich, Ingénieur Systèmes & Réseaux en alternance depuis 2024">
   <title>William Hertrich — Alternance Réseau-Net</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,6 +118,43 @@
     .stag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
     .stack-legend { margin-top: .5rem; font-size: .7rem; color: var(--text-lt); font-style: italic; }
 
+    /* Featured project (highlight) */
+    .feat-card {
+      display: flex; align-items: stretch; gap: 0;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm);
+      transition: var(--t);
+    }
+    .feat-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(14,165,233,.3); }
+    .feat-visual {
+      flex: 0 0 200px;
+      background: linear-gradient(135deg, #0c1e2e, #14324a);
+      display: flex; align-items: center; justify-content: center;
+      color: #38bdf8; font-size: 3.5rem;
+      position: relative;
+    }
+    .feat-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.18), transparent 60%);
+    }
+    .feat-body { flex: 1; padding: 1.75rem 2rem; display: flex; flex-direction: column; }
+    .feat-tag {
+      display: inline-flex; align-items: center; gap: .35rem; width: fit-content;
+      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      padding: .25rem .7rem; border-radius: 100px;
+      background: rgba(14,165,233,.1); color: #0284c7; margin-bottom: .75rem;
+    }
+    .feat-title { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.35; }
+    .feat-desc { font-size: .88rem; color: var(--text-m); line-height: 1.7; margin-bottom: 1rem; flex: 1; }
+    .feat-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
+    .feat-tag-item { padding: .2rem .6rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .72rem; font-weight: 500; color: var(--text-m); }
+    .feat-link { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: #0284c7; transition: var(--t); width: fit-content; }
+    .feat-link:hover { color: #0369a1; gap: .6rem; }
+    @media (max-width: 700px) {
+      .feat-card { flex-direction: column; }
+      .feat-visual { flex-basis: 140px; }
+    }
+
     /* Tools section */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .tool-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh-sm); }
@@ -167,8 +204,8 @@
       <p class="ph-sub" data-fr="Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace : administration infrastructure, sécurité réseau et scripting." data-en="Systems &amp; Network Engineer within a multi-client MSP in Alsace: infrastructure administration, network security and scripting.">Ingénieur Systèmes &amp; Réseaux au sein d'un MSP multi-clients en Alsace : administration infrastructure, sécurité réseau et scripting.</p>
       <div class="ph-chips">
         <span class="chip chip-loc" data-fr="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Alsace" data-en="&lt;i class=&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt; Alsace" data-i18n-html><i class="fas fa-map-marker-alt"></i> Alsace</span>
-        <span class="chip chip-period" data-fr="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Août 2024 — Août 2026" data-en="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Aug 2024 — Aug 2026" data-i18n-html><i class="fas fa-calendar"></i> Août 2024 — Août 2026</span>
-        <span class="chip chip-role" data-fr="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Ingénieur Sys&amp;Rés — Master CDSI" data-en="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Sys&amp;Net Engineer — Master CDSI" data-i18n-html><i class="fas fa-briefcase"></i> Ingénieur Sys&amp;Rés — Master CDSI</span>
+        <span class="chip chip-period" data-fr="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Août 2024 Août 2026" data-en="&lt;i class=&quot;fas fa-calendar&quot;&gt;&lt;/i&gt; Aug 2024 Aug 2026" data-i18n-html><i class="fas fa-calendar"></i> Août 2024 Août 2026</span>
+        <span class="chip chip-role" data-fr="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Ingénieur Sys&amp;Rés Master CDSI" data-en="&lt;i class=&quot;fas fa-briefcase&quot;&gt;&lt;/i&gt; Sys&amp;Net Engineer Master CDSI" data-i18n-html><i class="fas fa-briefcase"></i> Ingénieur Sys&amp;Rés Master CDSI</span>
         <span class="chip chip-live" data-fr="&lt;i class=&quot;fas fa-circle&quot;&gt;&lt;/i&gt; En cours" data-en="&lt;i class=&quot;fas fa-circle&quot;&gt;&lt;/i&gt; Ongoing" data-i18n-html><i class="fas fa-circle"></i> En cours</span>
       </div>
     </div>
@@ -328,8 +365,37 @@
     </div>
   </section>
 
-  <!-- Stack -->
+  <!-- Projet phare -->
   <section class="section">
+    <div class="inner">
+      <div class="s-header reveal">
+        <span class="s-tag" data-fr="Projet phare" data-en="Flagship project">Projet phare</span>
+        <h2 class="s-title" data-fr="Portail d'administration de la supervision" data-en="Monitoring admin portal">Portail d'administration de la supervision</h2>
+        <p class="s-sub" data-fr="Un projet conçu et développé en solo pour rendre pilotable la stack Prometheus / Grafana par toute l'équipe" data-en="A project designed and built solo to make the Prometheus / Grafana stack operable by the whole team">Un projet conçu et développé en solo pour rendre pilotable la stack Prometheus / Grafana par toute l'équipe</p>
+      </div>
+      <a href="/projets_pro/monitoring_admin.html" class="feat-card reveal">
+        <div class="feat-visual"><i class="fas fa-chart-line"></i></div>
+        <div class="feat-body">
+          <span class="feat-tag" data-fr="<i class=&quot;fas fa-star&quot;></i> Projet professionnel" data-en="<i class=&quot;fas fa-star&quot;></i> Professional project" data-i18n-html><i class="fas fa-star"></i> Projet professionnel</span>
+          <h3 class="feat-title" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana multi-clients" data-en="In-house web interface driving a multi-client Prometheus / Grafana stack">Interface web maison qui pilote une stack Prometheus / Grafana multi-clients</h3>
+          <p class="feat-desc" data-fr="Sprint de <strong>2 semaines en pair avec Claude Code</strong> : base SQLite comme source de vérité, régénération automatique des configurations Prometheus et Grafana, webhook custom pour envoyer des alertes email HTML avec graphes intégrés, digest journalier planifié via systemd. Isolé sur un segment réseau dédié, HTTPS sur le LAN uniquement, sortie limitée à l'ICMP vers les clients." data-en="A <strong>2-week sprint paired with Claude Code</strong>: SQLite as source of truth, automatic regeneration of Prometheus and Grafana configs, custom webhook for HTML email alerts with embedded graphs, daily digest scheduled via systemd. Isolated on a dedicated network segment, HTTPS on the LAN only, outbound restricted to ICMP toward clients." data-i18n-html>Sprint de <strong>2 semaines en pair avec Claude Code</strong> : base SQLite comme source de vérité, régénération automatique des configurations Prometheus et Grafana, webhook custom pour envoyer des alertes email HTML avec graphes intégrés, digest journalier planifié via systemd. Isolé sur un segment réseau dédié, HTTPS sur le LAN uniquement, sortie limitée à l'ICMP vers les clients.</p>
+          <div class="feat-tags">
+            <span class="feat-tag-item">FastAPI</span>
+            <span class="feat-tag-item">HTMX</span>
+            <span class="feat-tag-item">SQLite</span>
+            <span class="feat-tag-item">Prometheus</span>
+            <span class="feat-tag-item">Grafana</span>
+            <span class="feat-tag-item">Docker Compose</span>
+            <span class="feat-tag-item">Claude Code</span>
+          </div>
+          <span class="feat-link" data-fr="Voir le projet en détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View the project in detail <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet en détail <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="section section-alt">
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Stack technique" data-en="Technical environment">Stack technique</span>
@@ -513,7 +579,7 @@
   </section>
 
   <!-- Tools -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Outils" data-en="Tools">Outils</span>
@@ -630,7 +696,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p data-fr="© 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich — Systems &amp; Network Engineer">&copy; 2026 William Hertrich — Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

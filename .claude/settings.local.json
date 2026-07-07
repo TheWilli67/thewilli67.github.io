@@ -8,7 +8,16 @@
       "Bash(python -c ' *)",
       "Bash(Select-Object FullName)",
       "Bash(Head -100)",
-      "Bash(Remove-Item \"c:\\\\Users\\\\thewi\\\\Proton Drive\\\\william.hertrich\\\\My files\\\\GitHub\\\\thewilli67.github.io\\\\thewilli67.github.io\\\\photo_calibration.html\")"
+      "Bash(Remove-Item \"c:\\\\Users\\\\thewi\\\\Proton Drive\\\\william.hertrich\\\\My files\\\\GitHub\\\\thewilli67.github.io\\\\thewilli67.github.io\\\\photo_calibration.html\")",
+      "Bash(python -c \"from bs4 import BeautifulSoup; print\\('bs4 available'\\)\")",
+      "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/strip_emdash.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/refonte_glpi.html\")",
+      "Bash(git -C \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io\" status --short projets_pro/refonte_glpi.html)",
+      "Bash(python -c \"import jsbeautifier; print\\('jsbeautifier ok'\\)\")",
+      "Bash(python -c \"import lxml.html; print\\('lxml ok'\\)\")",
+      "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/strip_emdash.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/monitoring_admin.html\")",
+      "Bash(python _scripts/strip_emdash.py but.html portfolio.html alternance/solinest.html alternance/reseau-net.html alternance.html contact.html a_propos.html photographie.html jeux.html index.html mentions_legales.html SAE23/SAE23.html SAE23/SAE23_fr.html projet_72h.html)",
+      "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/reindent_html.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/refonte_glpi.html\")",
+      "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/reindent_style_js.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/refonte_glpi.html\")"
     ]
   }
 }
