@@ -84,6 +84,13 @@
     .badge-proj  { background: rgba(234,179,8,.1);  color: #b45309; }
     .badge-pro   { background: rgba(249,115,22,.1); color: #ea580c; }
     .badge-wip   { background: rgba(100,116,139,.1); color: #64748b; }
+    .badge-live  { background: rgba(34,197,94,.12);  color: #16a34a; }
+
+    /* Sub-section headers (inside a combined section) */
+    .sub-header { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.4rem; }
+    .sub-header:not(:first-child) { margin-top: 3rem; }
+    .sub-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .sub-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .proj-title  { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; line-height: 1.3; }
     .proj-desc   { font-size: .845rem; color: var(--text-m); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
     .proj-tags   { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
@@ -138,17 +145,36 @@
     <div class="ph-inner">
       <span class="ph-eyebrow" data-fr="Mes travaux" data-en="My work">Mes travaux</span>
       <h1 class="ph-title">Portfolio</h1>
-      <p class="ph-sub" data-fr="Retrouvez ici ma formation Master INSA, mon BUT R&T, mes projets académiques et mes expériences en alternance." data-en="Browse my INSA Master's degree, my B.Tech (BUT R&T), academic projects, and work-study experience.">Retrouvez ici ma formation Master INSA, mon BUT R&T, mes projets académiques et mes expériences en alternance.</p>
+      <p class="ph-sub" data-fr="Retrouvez ici mon expérience professionnelle chez OCI, mes deux alternances, ma formation Master INSA et BUT R&amp;T, ainsi que mes projets académiques." data-en="Browse my professional experience at OCI, my two work-study placements, my INSA Master's and B.Tech (BUT R&amp;T) training, and my academic projects.">Retrouvez ici mon expérience professionnelle chez OCI, mes deux alternances, ma formation Master INSA et BUT R&amp;T, ainsi que mes projets académiques.</p>
     </div>
   </header>
 
-  <!-- Alternances -->
-  <section class="section" id="alternance">
+  <!-- Expériences professionnelles -->
+  <section class="section" id="experience">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag" data-fr="Expériences professionnelles" data-en="Professional experience">Expériences professionnelles</span>
-        <h2 class="s-title" data-fr="Alternances" data-en="Work-study">Alternances</h2>
-        <p class="s-sub" data-fr="Deux expériences en alternance qui constituent le cœur de ma formation pratique." data-en="Two work-study experiences that form the core of my practical training.">Deux expériences en alternance qui constituent le cœur de ma formation pratique.</p>
+        <span class="s-tag" data-fr="Parcours professionnel" data-en="Professional path">Parcours professionnel</span>
+        <h2 class="s-title" data-fr="Expériences professionnelles" data-en="Professional experience">Expériences professionnelles</h2>
+        <p class="s-sub" data-fr="Mon poste actuel, suivi des deux alternances qui ont construit ma formation pratique." data-en="My current role, followed by the two work-study experiences that built my practical training.">Mon poste actuel, suivi des deux alternances qui ont construit ma formation pratique.</p>
+      </div>
+
+      <div class="proj-grid proj-center" style="margin-bottom:3rem;">
+        <a href="/experience/oci.html" class="proj-card reveal">
+          <div class="proj-card-thumb thumb-alt"><i class="fas fa-network-wired"></i></div>
+          <div class="proj-card-body">
+            <span class="proj-badge badge-live" data-fr="<i class=&quot;fas fa-circle&quot; style=&quot;font-size:.5rem&quot;></i> En poste depuis Sept. 2026" data-en="<i class=&quot;fas fa-circle&quot; style=&quot;font-size:.5rem&quot;></i> In role since Sep 2026" data-i18n-html><i class="fas fa-circle" style="font-size:.5rem"></i> En poste depuis Sept. 2026</span>
+            <h3 class="proj-title" data-fr="OCI Informatique — Ingénieur Systèmes &amp; Réseaux (CDI)" data-en="OCI Informatique — Systems &amp; Network Engineer (Permanent)">OCI Informatique — Ingénieur Systèmes &amp; Réseaux (CDI)</h3>
+            <p class="proj-desc" data-fr="Poste au sein de la DSI interne d'OCI : gestion de tickets, conduite de projets d'infrastructure et maintenance opérationnelle. Réseau Aruba (ArubaOS-CX, VSF, 802.1X/RADIUS), virtualisation VMware/Veeam, sécurité Stormshield/WatchGuard et WithSecure EDR." data-en="Role within OCI's internal IT department: ticket management, infrastructure project delivery and operational maintenance. Aruba networking (ArubaOS-CX, VSF, 802.1X/RADIUS), VMware/Veeam virtualisation, Stormshield/WatchGuard security and WithSecure EDR.">Poste au sein de la DSI interne d'OCI : gestion de tickets, conduite de projets d'infrastructure et maintenance opérationnelle. Réseau Aruba (ArubaOS-CX, VSF, 802.1X/RADIUS), virtualisation VMware/Veeam, sécurité Stormshield/WatchGuard et WithSecure EDR.</p>
+            <div class="proj-tags">
+              <span class="ptag">Aruba ArubaOS-CX</span><span class="ptag">802.1X / RADIUS</span><span class="ptag">VMware</span><span class="ptag">Stormshield</span><span class="ptag">3CX</span>
+            </div>
+            <span class="proj-link" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sub-header reveal">
+        <h3 class="sub-title" data-fr="Alternances" data-en="Work-study">Alternances</h3>
       </div>
       <div class="proj-grid">
 
@@ -168,7 +194,7 @@
         <a href="/alternance/solinest.html" class="proj-card reveal" style="transition-delay:.1s">
           <div class="proj-card-thumb thumb-alt" style="background:linear-gradient(135deg,#1a2e1a,#1e3a1e);"><i class="fas fa-industry" style="color:#4ade80"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a" data-fr="Terminé (2024)" data-en="Completed (2024)">Terminé (2024)</span>
+            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminé (2024)" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed (2024)" data-i18n-html><i class="fas fa-check-circle"></i> Terminé (2024)</span>
             <h3 class="proj-title" data-fr="SOLINEST — Alternant Technicien Informatique" data-en="SOLINEST — Work-study IT Technician">SOLINEST — Alternant Technicien Informatique</h3>
             <p class="proj-desc" data-fr="Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité." data-en="L1/L2 helpdesk support, multi-site asset management, Windows Server 2008 R2 to 2016 migration, Centreon monitoring, cybersecurity awareness.">Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité.</p>
             <div class="proj-tags">
@@ -222,15 +248,19 @@
     </div>
   </section>
 
-  <!-- Master INSA -->
-  <section class="section" id="insa">
+  <!-- Formation académique -->
+  <section class="section" id="formation">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag" data-fr="Diplômé 2024 → 2026" data-en="Graduated 2024 → 2026">Diplômé 2024 → 2026</span>
-        <h2 class="s-title" data-fr="Master INSA — Cyberdéfense &amp; Sécurité" data-en="INSA Master's — Cyberdefense &amp; Security">Master INSA — Cyberdéfense &amp; Sécurité</h2>
-        <p class="s-sub">INSA Hauts-de-France, Maubeuge · Master Réseaux &amp; Télécommunications, option CDSI</p>
+        <span class="s-tag" data-fr="Formation académique" data-en="Academic training">Formation académique</span>
+        <h2 class="s-title" data-fr="Master INSA &amp; BUT Réseaux &amp; Télécommunications" data-en="INSA Master's &amp; B.Tech Networks &amp; Telecommunications">Master INSA &amp; BUT Réseaux &amp; Télécommunications</h2>
+        <p class="s-sub" data-fr="INSA Hauts-de-France, Maubeuge (2024–2026) puis Université de Haute-Alsace, Colmar (2021–2024)." data-en="INSA Hauts-de-France, Maubeuge (2024–2026) then Université de Haute-Alsace, Colmar (2021–2024).">INSA Hauts-de-France, Maubeuge (2024–2026) puis Université de Haute-Alsace, Colmar (2021–2024).</p>
       </div>
-      <div class="proj-grid proj-center">
+
+      <div class="sub-header reveal">
+        <h3 class="sub-title" data-fr="Master Réseaux &amp; Télécommunications, option CDSI" data-en="Master's in Networks &amp; Telecommunications, CDSI track">Master Réseaux &amp; Télécommunications, option CDSI</h3>
+      </div>
+      <div class="proj-grid proj-center" style="margin-bottom:3rem;">
         <div class="proj-card reveal">
           <div class="proj-card-thumb thumb-insa"><i class="fas fa-shield-halved"></i></div>
           <div class="proj-card-body">
@@ -244,16 +274,9 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Formation BUT -->
-  <section class="section section-alt" id="but">
-    <div class="inner">
-      <div class="s-header">
-        <span class="s-tag" data-fr="Formation académique" data-en="Academic training">Formation académique</span>
-        <h2 class="s-title">BUT Réseaux &amp; Télécommunications</h2>
-        <p class="s-sub" data-fr="Université de Haute-Alsace, Colmar · 2021–2024 · Option Cybersécurité" data-en="Université de Haute-Alsace, Colmar · 2021–2024 · Cybersecurity track">Université de Haute-Alsace, Colmar · 2021–2024 · Option Cybersécurité</p>
+      <div class="sub-header reveal">
+        <h3 class="sub-title" data-fr="BUT Réseaux &amp; Télécommunications" data-en="B.Tech Networks &amp; Telecommunications">BUT Réseaux &amp; Télécommunications</h3>
       </div>
       <div class="proj-grid proj-center">
         <a href="/but.html" class="proj-card reveal">
@@ -273,7 +296,7 @@
   </section>
 
   <!-- Projets académiques -->
-  <section class="section" id="projets">
+  <section class="section section-alt" id="projets">
     <div class="inner">
       <div class="s-header">
         <span class="s-tag" data-fr="Projets SAE" data-en="Academic projects">Projets SAE</span>
@@ -359,7 +382,7 @@
   </section>
 
   <!-- Projet de Terminale -->
-  <section class="section section-alt" id="lycee">
+  <section class="section" id="lycee">
     <div class="inner">
       <div class="s-header">
         <span class="s-tag" data-fr="Lycée Jean-Baptiste Schwillgué Terminale STI2D" data-en="Jean-Baptiste Schwillgué High School Final year">Lycée Jean-Baptiste Schwillgué Terminale STI2D</span>

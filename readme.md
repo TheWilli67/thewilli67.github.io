@@ -37,6 +37,9 @@ thewilli67.github.io/
 │   ├── reseau-net.html         # Détail alternance Réseau-Net (2024–2026)
 │   └── solinest.html           # Détail alternance SOLINEST (2022–2024)
 │
+├── experience/
+│   └── oci.html                # Détail poste actuel — OCI Informatique (CDI, depuis 09/2026)
+│
 ├── projets_pro/
 │   ├── refonte_glpi.html       # Projet phare SOLINEST — refonte GLPI 9.x → 10.x
 │   ├── monitoring_admin.html   # Projet phare Réseau-Net — portail Prometheus/Grafana
@@ -131,6 +134,7 @@ cd thewilli67.github.io
 | `a_propos.html` | Parcours, valeurs, centres d'intérêt, objectifs |
 | `contact.html` | LinkedIn, GitHub, email, téléphone, CV PDF |
 | `jeux.html` | Ludothèque — bibliothèque de jeux personnelle |
+| `experience/oci.html` | Poste actuel — DSI interne OCI, Aruba, VMware, Stormshield, supervision Zabbix/LibreNMS/NetBox… |
 | `alternance/reseau-net.html` | MSP multi-clients, FortiGate, SentinelOne, VMware… |
 | `alternance/solinest.html` | Helpdesk, AD, Centreon, migration WS 2016… |
 | `projets_pro/refonte_glpi.html` | Refonte GLPI 9.x → 10.x chez SOLINEST — types de demandes, workflow d'attribution, SSO Google Workspace, base de connaissances |
