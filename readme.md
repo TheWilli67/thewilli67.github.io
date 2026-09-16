@@ -6,7 +6,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
 [![License](https://img.shields.io/badge/Licence-Tous%20droits%20réservés-red)](#licence)
 
-> Portfolio personnel d'un ingénieur systèmes & réseaux en Master CDSI (Cyberdéfense & Sécurité de l'Information) à l'INSA Hauts-de-France, alternant chez Réseau-Net.
+> Portfolio personnel d'un ingénieur systèmes & réseaux en CDI chez OCI Informatique, diplômé du Master CDSI (Cyberdéfense & Sécurité de l'Information) de l'INSA Hauts-de-France, après deux ans d'alternance chez Réseau-Net.
 
 ---
 
@@ -152,7 +152,7 @@ Les deux pages restent volontairement au **niveau conceptuel** (architecture, st
 ## Auteur
 
 **William Hertrich**
-Alternant Ingénieur Systèmes & Réseaux — Master CDSI, INSA Hauts-de-France
+Ingénieur Systèmes & Réseaux — OCI Informatique · diplômé du Master CDSI, INSA Hauts-de-France (2026)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-williamhertrich-0a66c2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/williamhertrich-67860-2003)
 [![GitHub](https://img.shields.io/badge/GitHub-TheWilli67-24292f?logo=github&logoColor=white)](https://github.com/TheWilli67)
