@@ -76,11 +76,25 @@ def yaml_masques(text):
     return items
 
 
+def mask_key(value):
+    """'id:<appid>' for an appid (digits, quoted or not, or a Steam store URL), else the normalised name."""
+    s = str(value).strip()
+    m = re.search(r"/app/(\d+)", s)
+    if m:
+        return f"id:{int(m.group(1))}"
+    n = norm(s)
+    return f"id:{int(n)}" if n.isdigit() else n
+
+
 def load_masks():
-    """Set of masked appids (as 'id:<n>') and normalised names."""
+    """Set of masked appids (as 'id:<n>') and normalised names.
+
+    STEAM_MASQUES is split on commas, semicolons and line breaks (not spaces, so that a game
+    name containing spaces stays whole).
+    """
     raw = yaml_masques(JEUX.read_text(encoding="utf-8")) if JEUX.exists() else []
-    raw += [x for x in re.split(r"[\s,;]+", os.environ.get("STEAM_MASQUES", "")) if x]
-    return {f"id:{int(x)}" if str(x).strip().isdigit() else norm(x) for x in raw if str(x).strip()}
+    raw += re.split(r"[,;\r\n]+", os.environ.get("STEAM_MASQUES", ""))
+    return {mask_key(x) for x in raw if norm(x)}
 
 
 def call(method, **params):

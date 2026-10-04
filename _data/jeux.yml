@@ -57,5 +57,4 @@ hors_steam:
 # _data/steam.json ni dans le code source du site.
 # Attention : cette liste est visible dans le dépôt public. Pour ne laisser aucune trace,
 # mettre les appids dans le secret GitHub STEAM_MASQUES (séparés par des virgules) à la place.
-masques:
-  - 3602290
+masques: []
