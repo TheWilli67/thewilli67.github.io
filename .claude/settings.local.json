@@ -17,7 +17,19 @@
       "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/strip_emdash.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/monitoring_admin.html\")",
       "Bash(python _scripts/strip_emdash.py but.html portfolio.html alternance/solinest.html alternance/reseau-net.html alternance.html contact.html a_propos.html photographie.html jeux.html index.html mentions_legales.html SAE23/SAE23.html SAE23/SAE23_fr.html projet_72h.html)",
       "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/reindent_html.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/refonte_glpi.html\")",
-      "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/reindent_style_js.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/refonte_glpi.html\")"
+      "Bash(python \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/_scripts/reindent_style_js.py\" \"c:/Users/wh/OneDrive - reseau-net.com/Documents/GitHub/thewilli67.github.io/projets_pro/refonte_glpi.html\")",
+      "WebFetch(domain:thewilli67.github.io)",
+      "PowerShell(Select-String -Path projets_pro\\\\monitoring_admin.html -Pattern 'filtrée|filtré' | ForEach-Object { $_.Line.Trim\\(\\).Substring\\(0, [Math]::Min\\(300, $_.Line.Trim\\(\\).Length\\)\\) })",
+      "PowerShell($l = \\(Get-Content -LiteralPath projets_pro\\\\refonte_glpi.html -Encoding UTF8\\)[180]; $i = $l.IndexOf\\('migration technique'\\); $l.Substring\\([Math]::Max\\(0,$i-80\\), 260\\); \"---\"; $j = $l.IndexOf\\('technical migration'\\); $l.Substring\\([Math]::Max\\(0,$j-40\\), 200\\))",
+      "PowerShell($c = Get-Content -LiteralPath index.html -Encoding UTF8; $i = \\($c | Select-String -Pattern 'SOLINEST' | Select-Object -Last 1\\).LineNumber; $c[\\($i+30\\)..\\($i+45\\)] -join \"`n\")",
+      "PowerShell(python .github\\\\scripts\\\\strip_exif.py photo Images_photos)",
+      "PowerShell(Remove-Item -Recurse -Force \"C:\\\\Users\\\\willi\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-willi-Documents-GitHub-thewilli67-github-io\\\\6928b460-55b2-4f44-b8d2-9a90c1aec116\\\\scratchpad\\\\exiftest\" -Confirm:$false)",
+      "PowerShell(python -m pip install --quiet --disable-pip-version-check python-liquid 2>&1 | Select-Object -Last 3; python -c \"import liquid; print\\('python-liquid', liquid.__version__\\)\"; Get-Command ruby, jekyll -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; \\(Get-Item \"${env:ProgramFiles\\(x86\\)}\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\" -ErrorAction SilentlyContinue\\).FullName)",
+      "WebSearch",
+      "WebFetch(domain:docs.github.com)",
+      "PowerShell(Remove-Item -LiteralPath .github\\\\workflows\\\\strip-exif.yml -Confirm:$false; Get-ChildItem .github -Recurse -File | ForEach-Object { $_.FullName.Substring\\(\\(Get-Location\\).Path.Length + 1\\) })",
+      "PowerShell(python \"C:\\\\Users\\\\willi\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-willi-Documents-GitHub-thewilli67-github-io\\\\6928b460-55b2-4f44-b8d2-9a90c1aec116\\\\scratchpad\\\\jeux_parts.py\")",
+      "PowerShell(python \"C:\\\\Users\\\\willi\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-willi-Documents-GitHub-thewilli67-github-io\\\\6928b460-55b2-4f44-b8d2-9a90c1aec116\\\\scratchpad\\\\test_steam_sync.py\")"
     ]
   }
 }

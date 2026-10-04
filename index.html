@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="William Hertrich Ingénieur Systèmes & Réseaux chez OCI Informatique, diplômé du Master CDSI INSA Hauts-de-France">
+  <meta name="description" content="William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informatique, diplômé du Master CDSI de l'INSA Hauts-de-France">
+  <link rel="canonical" href="https://thewilli67.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:description" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux chez OCI Informatique, diplômé du Master CDSI de l&#x27;INSA Hauts-de-France">
+  <meta property="og:url" content="https://thewilli67.github.io/">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
   <title>William Hertrich — Ingénieur Systèmes & Réseaux</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +62,9 @@
     }
     body.fade-in  { opacity: 1; }
     body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a   { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
     ul  { list-style: none; }
@@ -119,10 +135,10 @@
       color: #f8fafc; line-height: 1.05;
       margin-bottom: .6rem; letter-spacing: -.02em;
     }
-    .hero-role { font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400; color: #64748b; margin-bottom: 1.75rem; }
-    .hero-role strong { color: #94a3b8; font-weight: 600; }
+    .hero-role { font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400; color: #94a3b8; margin-bottom: 1.75rem; }
+    .hero-role strong { color: #cbd5e1; font-weight: 600; }
     .hero-desc {
-      font-size: .97rem; color: #475569;
+      font-size: .97rem; color: #94a3b8;
       max-width: 500px; line-height: 1.75; margin-bottom: 2rem;
     }
     .hero-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
@@ -201,11 +217,11 @@
       position: absolute; bottom: 2rem; left: 50%;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: .4rem;
-      color: #334155; font-size: .7rem;
+      color: #94a3b8; font-size: .7rem;
       letter-spacing: .12em; text-transform: uppercase;
       animation: scroll-bounce 2.5s ease-in-out infinite;
     }
-    .hero-scroll i { color: #475569; font-size: .85rem; }
+    .hero-scroll i { color: #94a3b8; font-size: .85rem; }
     @keyframes scroll-bounce {
       0%,100% { transform: translateX(-50%) translateY(0); }
       50%      { transform: translateX(-50%) translateY(8px); }
@@ -266,6 +282,9 @@
     .edu-sub     { font-size: .8rem; color: var(--text-m); font-weight: 400; }
     .edu-school  { font-size: .82rem; color: var(--text-lt); margin-top: .2rem; }
     .edu-school i { margin-right: .3rem; font-size: .75rem; }
+    .edu-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: .45rem; font-size: .8rem; font-weight: 600; color: var(--accent); transition: var(--t); }
+    .edu-link:hover { color: var(--accent-h); gap: .6rem; }
+    .edu-link i { font-size: .7rem; }
 
     /* ===== Skills ===== */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.25rem; }
@@ -362,9 +381,9 @@
     }
 
     /* ===== Footer ===== */
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
 
@@ -394,6 +413,7 @@
       .info-list       { grid-template-columns: 1fr; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -418,12 +438,12 @@
         <h1 class="hero-name">William Hertrich</h1>
         <p class="hero-role" data-fr="Ingénieur <strong>Systèmes &amp; Réseaux</strong> chez OCI" data-en="<strong>Systems &amp; Network</strong> Engineer at OCI" data-i18n-html>Ingénieur <strong>Systèmes &amp; Réseaux</strong> chez OCI</p>
         <p class="hero-desc"
-           data-fr="Passionné par les infrastructures numériques et la cybersécurité, je suis Ingénieur Systèmes &amp; Réseaux en CDI chez <strong style=&quot;color:#94a3b8&quot;>OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms option Cyberdéfense de l'<strong style=&quot;color:#94a3b8&quot;>INSA Hauts-de-France</strong> et fort de deux ans d'alternance chez Réseau-Net."
-           data-en="Passionate about digital infrastructure and cybersecurity, I'm a permanent Systems &amp; Network Engineer at <strong style=&quot;color:#94a3b8&quot;>OCI Informatique</strong>, a graduate of the Networks &amp; Telecoms Master's (Cyberdefense track) from <strong style=&quot;color:#94a3b8&quot;>INSA Hauts-de-France</strong>, with two years of prior work-study experience at Réseau-Net."
+           data-fr="Passionné par les infrastructures numériques et la cybersécurité, je suis Ingénieur Systèmes &amp; Réseaux en CDI chez <strong style=&quot;color:#cbd5e1&quot;>OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms option Cyberdéfense de l'<strong style=&quot;color:#cbd5e1&quot;>INSA Hauts-de-France</strong> et fort de deux ans d'alternance chez Réseau-Net."
+           data-en="Passionate about digital infrastructure and cybersecurity, I'm a permanent Systems &amp; Network Engineer at <strong style=&quot;color:#cbd5e1&quot;>OCI Informatique</strong>, a graduate of the Networks &amp; Telecoms Master's (Cyberdefense track) from <strong style=&quot;color:#cbd5e1&quot;>INSA Hauts-de-France</strong>, with two years of prior work-study experience at Réseau-Net."
            data-i18n-html>
           Passionné par les infrastructures numériques et la cybersécurité, je suis Ingénieur Systèmes &amp; Réseaux
-          en CDI chez <strong style="color:#94a3b8">OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms
-          option Cyberdéfense de l'<strong style="color:#94a3b8">INSA Hauts-de-France</strong> et fort de deux ans
+          en CDI chez <strong style="color:#cbd5e1">OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms
+          option Cyberdéfense de l'<strong style="color:#cbd5e1">INSA Hauts-de-France</strong> et fort de deux ans
           d'alternance chez Réseau-Net.
         </p>
         <div class="hero-chips">
@@ -469,8 +489,8 @@
 
         <div class="about-body reveal">
           <p class="about-lead" data-fr="Un passionné d'infrastructures IT et de cybersécurité" data-en="A passionate IT infrastructure and cybersecurity engineer">Un passionné d'infrastructures IT et de cybersécurité</p>
-          <p data-fr="Diplômé en 2026 du Master Réseaux et Télécommunications (Parcours CDSI Cyberdéfense et Sécurité de l'Information) de l'INSA Hauts-de-France, j'ai construit une expertise solide en ingénierie réseaux, systèmes et sécurité." data-en="A 2026 graduate of the Master's in Networks &amp; Telecommunications (CDSI track Cyberdefense &amp; Information Security) at INSA Hauts-de-France, I have built solid expertise in network, systems, and security engineering.">
-            Diplômé en 2026 du Master Réseaux et Télécommunications (Parcours CDSI Cyberdéfense et
+          <p data-fr="Diplômé en 2026 du Master Réseaux et Télécommunications (parcours CDSI : Cyberdéfense et Sécurité de l'Information) de l'INSA Hauts-de-France, j'ai construit une expertise solide en ingénierie réseaux, systèmes et sécurité." data-en="A 2026 graduate of the Master's in Networks &amp; Telecommunications (CDSI track: Cyberdefense &amp; Information Security) at INSA Hauts-de-France, I have built solid expertise in network, systems, and security engineering.">
+            Diplômé en 2026 du Master Réseaux et Télécommunications (parcours CDSI : Cyberdéfense et
             Sécurité de l'Information) de l'INSA Hauts-de-France, j'ai construit une expertise solide en
             ingénierie réseaux, systèmes et sécurité.
           </p>
@@ -490,14 +510,14 @@
             stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité.
           </p>
           <div class="info-list">
-            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Zelsheim, Grand Est (67)</span></div>
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Bas-Rhin (67), Alsace</span></div>
             <div class="info-item"><i class="fas fa-envelope"></i><a href="mailto:william.hertrich@proton.me" class="no-script-execution">william.hertrich@proton.me</a></div>
-            <div class="info-item"><i class="fas fa-phone"></i><span>+33 6 73 98 12 09</span></div>
+            <div class="info-item"><i class="fab fa-github"></i><a href="https://github.com/TheWilli67" target="_blank" class="no-script-execution">github.com/TheWilli67</a></div>
             <div class="info-item">
               <i class="fab fa-linkedin"></i>
               <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">linkedin.com/in/williamhertrich-67860-2003</a>
             </div>
-            <div class="info-item"><i class="fas fa-language"></i><span data-fr="Anglais TOEIC 915 / 990" data-en="English TOEIC 915 / 990">Anglais TOEIC 915 / 990</span></div>
+            <div class="info-item"><i class="fas fa-language"></i><span data-fr="Anglais : TOEIC 915 / 990" data-en="English: TOEIC 915 / 990">Anglais : TOEIC 915 / 990</span></div>
             <div class="info-item"><i class="fas fa-motorcycle"></i><span data-fr="Permis B, A1-A2" data-en="Driving licence B, A1-A2">Permis B, A1-A2</span></div>
           </div>
         </div>
@@ -509,6 +529,7 @@
             <p class="edu-degree">Master Réseaux &amp; Télécommunications<br><span class="edu-sub" data-fr="option Cyberdéfense &amp; Sécurité de l'Information" data-en="Cyberdefense &amp; Information Security track">option Cyberdéfense &amp; Sécurité de l'Information</span></p>
             <p class="edu-school"><i class="fas fa-university"></i>INSA Hauts-de-France, Maubeuge</p>
             <p class="edu-school"><i class="fas fa-graduation-cap"></i><span data-fr="Diplôme obtenu en 2026" data-en="Degree awarded in 2026">Diplôme obtenu en 2026</span></p>
+            <a href="/master.html" class="edu-link" data-fr="Voir le détail du Master &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-en="See the Master's in detail &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-i18n-html>Voir le détail du Master <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="edu-item">
             <span class="edu-dot"></span>
@@ -519,14 +540,8 @@
           <div class="edu-item">
             <span class="edu-dot"></span>
             <span class="edu-period">2018 → 2021</span>
-            <p class="edu-degree" data-fr="Baccalauréat Technologique<br><span class=&quot;edu-sub&quot;>ITEC Innovation Technologique</span>" data-en="Technology Baccalaureate<br><span class=&quot;edu-sub&quot;>ITEC Technological Innovation</span>" data-i18n-html>Baccalauréat Technologique<br><span class="edu-sub">ITEC Innovation Technologique</span></p>
+            <p class="edu-degree" data-fr="Baccalauréat Technologique<br><span class=&quot;edu-sub&quot;>ITEC · Innovation Technologique</span>" data-en="Technology Baccalaureate<br><span class=&quot;edu-sub&quot;>ITEC · Technological Innovation</span>" data-i18n-html>Baccalauréat Technologique<br><span class="edu-sub">ITEC · Innovation Technologique</span></p>
             <p class="edu-school"><i class="fas fa-school"></i>Lycée Jean-Baptiste Schwillgué, Sélestat</p>
-          </div>
-          <div class="edu-item">
-            <span class="edu-dot"></span>
-            <span class="edu-period">2014 → 2018</span>
-            <p class="edu-degree">Brevet des Collèges</p>
-            <p class="edu-school"><i class="fas fa-school"></i>Collège Saint-Joseph, Matzenheim</p>
           </div>
         </div>
 
@@ -626,7 +641,7 @@
           <div class="cert-icon"><i class="fas fa-certificate"></i></div>
           <div>
             <p class="cert-name">Certified Stormshield Network Administrator</p>
-            <p class="cert-sub" data-fr="CSNA Valable 2024 → 2027" data-en="CSNA Valid 2024 → 2027">CSNA Valable 2024 → 2027</p>
+            <p class="cert-sub" data-fr="CSNA · Valable 2024 → 2027" data-en="CSNA · Valid 2024 → 2027">CSNA · Valable 2024 → 2027</p>
           </div>
         </a>
         <div class="cert">
@@ -715,7 +730,7 @@
             <div class="exp-head">
               <div>
                 <p class="exp-role" data-fr="Alternant Ingénieur Systèmes &amp; Réseaux" data-en="Work-study Systems &amp; Network Engineer">Alternant Ingénieur Systèmes &amp; Réseaux</p>
-                <p class="exp-company" data-fr="Réseau-Net ESN / Infogérance" data-en="Réseau-Net MSP / Managed Services">Réseau-Net ESN / Infogérance</p>
+                <p class="exp-company" data-fr="Réseau-Net · ESN / Infogérance" data-en="Réseau-Net · MSP / Managed Services">Réseau-Net · ESN / Infogérance</p>
                 <p class="exp-loc"><i class="fas fa-map-pin"></i>Oberhausbergen, Grand Est</p>
               </div>
               <span class="exp-period" data-fr="<i class=&quot;far fa-calendar&quot;></i> Août 2024 → Sept. 2026" data-en="<i class=&quot;far fa-calendar&quot;></i> Aug 2024 → Sep 2026" data-i18n-html><i class="far fa-calendar"></i> Août 2024 → Sept. 2026</span>
@@ -775,7 +790,7 @@
             <div class="exp-head">
               <div>
                 <p class="exp-role" data-fr="Alternant Technicien Informatique" data-en="Work-study IT Technician">Alternant Technicien Informatique</p>
-                <p class="exp-company" data-fr="SOLINEST Secteur agroalimentaire" data-en="SOLINEST Food industry">SOLINEST Secteur agroalimentaire</p>
+                <p class="exp-company" data-fr="SOLINEST · Secteur agroalimentaire" data-en="SOLINEST · Food industry">SOLINEST · Secteur agroalimentaire</p>
                 <p class="exp-loc"><i class="fas fa-map-pin"></i>Brunstatt-Didenheim, Grand Est</p>
               </div>
               <span class="exp-period" data-fr="<i class=&quot;far fa-calendar&quot;></i> Sept. 2022 → Août 2024" data-en="<i class=&quot;far fa-calendar&quot;></i> Sep 2022 → Aug 2024" data-i18n-html><i class="far fa-calendar"></i> Sept. 2022 → Août 2024</span>
@@ -816,44 +831,6 @@
           </div>
         </div>
 
-        <!-- McDonald's -->
-        <div class="exp-item reveal" style="transition-delay:.2s">
-          <div class="exp-marker"><i class="fas fa-utensils"></i></div>
-          <div class="exp-card">
-            <div class="exp-head">
-              <div>
-                <p class="exp-role" data-fr="Employé Polyvalent" data-en="Multi-role Staff">Employé Polyvalent</p>
-                <p class="exp-company">McDonald's</p>
-                <p class="exp-loc"><i class="fas fa-map-pin"></i>Sélestat</p>
-              </div>
-              <span class="exp-period" data-fr="<i class=&quot;far fa-calendar&quot;></i> Sept. 2021 → Janv. 2022" data-en="<i class=&quot;far fa-calendar&quot;></i> Sep 2021 → Jan 2022" data-i18n-html><i class="far fa-calendar"></i> Sept. 2021 → Janv. 2022</span>
-            </div>
-            <p class="exp-desc" data-fr="Collaboration en équipe et gestion des commandes dans un environnement dynamique. Expérience m'ayant apporté rigueur, sens du service et intégration réussie dans une équipe." data-en="Teamwork and order management in a fast-paced environment. This experience taught me discipline, a service mindset, and successful integration within a team.">
-              Collaboration en équipe et gestion des commandes dans un environnement dynamique.
-              Expérience m'ayant apporté rigueur, sens du service et intégration réussie dans une équipe.
-            </p>
-          </div>
-        </div>
-
-        <!-- Würth -->
-        <div class="exp-item reveal" style="transition-delay:.3s">
-          <div class="exp-marker"><i class="fas fa-toolbox"></i></div>
-          <div class="exp-card">
-            <div class="exp-head">
-              <div>
-                <p class="exp-role" data-fr="Stage Assistance Informatique &amp; Logistique" data-en="Internship IT Assistance &amp; Logistics">Stage Assistance Informatique &amp; Logistique</p>
-                <p class="exp-company">Würth France</p>
-                <p class="exp-loc"><i class="fas fa-map-pin"></i>Erstein</p>
-              </div>
-              <span class="exp-period" data-fr="<i class=&quot;far fa-calendar&quot;></i> Janvier 2018" data-en="<i class=&quot;far fa-calendar&quot;></i> January 2018" data-i18n-html><i class="far fa-calendar"></i> Janvier 2018</span>
-            </div>
-            <p class="exp-desc" data-fr="Découverte du monde de l'entreprise : assistance informatique, configuration de PDA, gestion de stock et préparation de commandes clients." data-en="Introduction to the professional world: IT assistance, PDA configuration, stock management, and customer order preparation.">
-              Découverte du monde de l'entreprise : assistance informatique, configuration de PDA,
-              gestion de stock et préparation de commandes clients.
-            </p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -868,7 +845,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html">Mentions légales</a>
     </div>
-    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

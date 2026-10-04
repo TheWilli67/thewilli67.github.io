@@ -1,0 +1,100 @@
+# Titres et descriptions des photos du dossier /photo/ (page photographie.html).
+#
+# AJOUTER UNE PHOTO : la déposer dans /photo/ puis pousser sur GitHub. Elle apparaît
+# automatiquement dans la galerie (GitHub Pages liste le dossier à chaque publication)
+# et ses métadonnées EXIF sont retirées par l'Action GitHub « Nettoyage des métadonnées photo ».
+#
+# Sans entrée dans ce fichier, le titre est déduit du nom du fichier :
+#   « Coucher de soleil.jpg »  →  « Coucher de soleil »
+#   « IMG_1234.JPG »           →  pas de titre (nom d'appareil photo)
+#
+# Pour personnaliser une photo, ajouter une entrée avec le nom EXACT du fichier.
+# Toutes les clés sont facultatives ; les versions *_en s'affichent quand le site est
+# en anglais (à défaut, la version française est utilisée).
+#   title / title_en : titre
+#   tags  / tags_en  : petite ligne sous le titre (ex. « Faune · Nature »)
+#   desc  / desc_en  : description affichée dans la visionneuse
+#   alt   / alt_en   : texte alternatif (accessibilité)
+#
+# L'ordre de ce fichier est l'ordre d'affichage. Les photos sans entrée s'affichent
+# ensuite, par ordre alphabétique de nom de fichier.
+
+IMG_6466.JPG:
+  title: "Roses en fleur"
+  title_en: "Roses in bloom"
+  tags: "Bokeh · Macro florale"
+  tags_en: "Bokeh · Floral macro"
+  desc: "Bouquet de roses rouges : mise au point sélective, bokeh naturel"
+  desc_en: "A bunch of red roses: selective focus, natural bokeh"
+  alt: "Roses rouges en fleur avec bokeh"
+  alt_en: "Red roses in bloom with bokeh"
+
+IMG_6191.JPG:
+  title: "Mésange perchée"
+  title_en: "Perched great tit"
+  tags: "Faune · Nature"
+  tags_en: "Wildlife · Nature"
+  desc: "Mésange charbonnière dans un saule pleureur : observation nature"
+  desc_en: "A great tit in a weeping willow: nature watching"
+  alt: "Mésange charbonnière dans les branches"
+  alt_en: "Great tit among the branches"
+
+IMG_6455.JPG:
+  title: "Clématite violette"
+  title_en: "Purple clematis"
+  tags: "Macro · Floral"
+  tags_en: "Macro · Floral"
+  desc: "Clématite en pleine floraison : prise de vue macro en lumière naturelle"
+  desc_en: "Clematis in full bloom: macro shot in natural light"
+  alt: "Fleur de clématite violette en gros plan"
+  alt_en: "Close-up of a purple clematis flower"
+
+IMG_6043.JPG:
+  title: "Réverbère et cumulus"
+  title_en: "Street lamp and cumulus"
+  tags: "Ciel · Urbain"
+  tags_en: "Sky · Urban"
+  desc: "Lampadaire rouge face à un cumulonimbus : composition graphique, ciel d'orage"
+  desc_en: "A red street lamp against a cumulonimbus: graphic composition, stormy sky"
+  alt: "Réverbère rouge devant un nuage orageux"
+  alt_en: "Red street lamp in front of a storm cloud"
+
+IMG_5505.JPG:
+  title: "Lanterne dans la nuit"
+  title_en: "Lantern in the night"
+  tags: "Nuit · Lumière"
+  tags_en: "Night · Light"
+  desc: "Lanterne éclairée sur fond noir : photographie nocturne, exposition manuelle"
+  desc_en: "A lit lantern against a black background: night photography, manual exposure"
+  alt: "Lanterne de nuit sur fond sombre"
+  alt_en: "Lantern at night against a dark background"
+
+IMG_5713.JPG:
+  title: "Cygne solitaire"
+  title_en: "Lone swan"
+  tags: "Faune · Eau"
+  tags_en: "Wildlife · Water"
+  desc: "Cygne tuberculé sur une rivière : faune aquatique par temps couvert"
+  desc_en: "A mute swan on a river: waterfowl on an overcast day"
+  alt: "Cygne blanc sur l'eau par temps gris"
+  alt_en: "White swan on the water on a grey day"
+
+IMG_6024.JPG:
+  title: "Grange alsacienne"
+  title_en: "Alsatian barn"
+  tags: "Paysage · Rural"
+  tags_en: "Landscape · Rural"
+  desc: "Vieille grange en bois dans une prairie de pissenlits : paysage rural printanier"
+  desc_en: "An old wooden barn in a dandelion meadow: spring countryside"
+  alt: "Grange en bois dans une prairie fleurie"
+  alt_en: "Wooden barn in a flowering meadow"
+
+IMG_6373.JPG:
+  title: "Cigogne en marche"
+  title_en: "Stork on the move"
+  tags: "Faune · Alsace"
+  tags_en: "Wildlife · Alsace"
+  desc: "Cigogne blanche traversant un pré : emblème de l'Alsace en liberté"
+  desc_en: "A white stork crossing a meadow: the emblem of Alsace, roaming free"
+  alt: "Cigogne blanche marchant dans un pré"
+  alt_en: "White stork walking in a meadow"

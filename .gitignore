@@ -1,0 +1,9 @@
+# Date de la dernière vérification Steam : écrite par l'Action à chaque publication,
+# uniquement pour le site en ligne (voir .github/scripts/steam_sync.py).
+_data/steam_sync.json
+
+# Sortie d'un éventuel build Jekyll local
+_site/
+
+# Cache Python (tests locaux des scripts)
+__pycache__/

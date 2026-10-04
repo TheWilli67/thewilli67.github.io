@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mes alternances William Hertrich, SOLINEST 2022–2024 et Réseau-Net 2024–2026">
+  <meta name="description" content="Mes alternances · William Hertrich, SOLINEST 2022–2024 et Réseau-Net 2024–2026">
+  <link rel="canonical" href="https://thewilli67.github.io/alternance.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Alternances">
+  <meta property="og:description" content="Mes alternances · William Hertrich, SOLINEST 2022–2024 et Réseau-Net 2024–2026">
+  <meta property="og:url" content="https://thewilli67.github.io/alternance.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
   <title>William Hertrich — Alternances</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +39,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
     body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
     /* Nav */
@@ -42,12 +58,12 @@
     .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%); pointer-events: none; }
     .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
     .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #64748b; margin-bottom: 1.5rem; transition: var(--t); }
-    .ph-back:hover { color: #94a3b8; }
+    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #94a3b8; margin-bottom: 1.5rem; transition: var(--t); }
+    .ph-back:hover { color: #cbd5e1; }
     .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
     .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
     .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
-    .ph-sub { font-size: 1rem; color: #64748b; max-width: 600px; line-height: 1.7; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.7; }
 
     /* Sections */
     .section { padding: 5rem 5%; }
@@ -104,9 +120,9 @@
     .reveal.up { opacity: 1; transform: none; }
 
     /* Footer */
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
 
@@ -119,6 +135,7 @@
       .alt-cards { grid-template-columns: 1fr; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -156,7 +173,7 @@
           <div class="alt-card-header rn">
             <span class="alt-badge badge-terminated" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminée" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed" data-i18n-html><i class="fas fa-check-circle"></i> Terminée</span>
             <h2 class="alt-company rn">Réseau-Net</h2>
-            <p class="alt-role" data-fr="Ingénieur Systèmes &amp; Réseaux Master CDSI" data-en="Systems &amp; Network Engineer CDSI Master's">Ingénieur Systèmes &amp; Réseaux Master CDSI</p>
+            <p class="alt-role" data-fr="Ingénieur Systèmes &amp; Réseaux · Master CDSI" data-en="Systems &amp; Network Engineer · CDSI Master's">Ingénieur Systèmes &amp; Réseaux · Master CDSI</p>
             <div class="alt-meta">
               <span class="alt-chip" data-fr="<i class=&quot;fas fa-calendar&quot;></i> Août 2024 → Sept. 2026" data-en="<i class=&quot;fas fa-calendar&quot;></i> Aug 2024 → Sep 2026" data-i18n-html><i class="fas fa-calendar"></i> Août 2024 → Sept. 2026</span>
               <span class="alt-chip"><i class="fas fa-map-marker-alt"></i> Alsace</span>
@@ -185,7 +202,7 @@
           <div class="alt-card-header sol">
             <span class="alt-badge badge-terminated" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminée" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed" data-i18n-html><i class="fas fa-check-circle"></i> Terminée</span>
             <h2 class="alt-company sol">SOLINEST</h2>
-            <p class="alt-role" data-fr="Technicien IT BUT Réseaux &amp; Télécommunications" data-en="IT Technician B.Tech Networks &amp; Telecommunications">Technicien IT BUT Réseaux &amp; Télécommunications</p>
+            <p class="alt-role" data-fr="Technicien IT · BUT Réseaux &amp; Télécommunications" data-en="IT Technician · B.Tech Networks &amp; Telecommunications">Technicien IT · BUT Réseaux &amp; Télécommunications</p>
             <div class="alt-meta">
               <span class="alt-chip" data-fr="<i class=&quot;fas fa-calendar&quot;></i> Août 2022 → Août 2024" data-en="<i class=&quot;fas fa-calendar&quot;></i> Aug 2022 → Aug 2024" data-i18n-html><i class="fas fa-calendar"></i> Août 2022 → Août 2024</span>
               <span class="alt-chip"><i class="fas fa-map-marker-alt"></i> Bischheim, Alsace</span>
@@ -221,7 +238,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

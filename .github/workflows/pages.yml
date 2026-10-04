@@ -1,0 +1,83 @@
+# Publication du site sur GitHub Pages.
+#
+# Déclenchement : à chaque push sur main, tous les jours vers 6 h (heure de Paris) et à la
+# demande (onglet Actions > « Publication du site » > Run workflow).
+#
+#   1. Retire les métadonnées EXIF des photos (sans recompression, orientation conservée).
+#   2. Synchronise la bibliothèque Steam dans _data/steam.json
+#      (secrets STEAM_API_KEY et STEAM_ID ; sans eux, les données existantes sont gardées).
+#   3. Commite ces changements dans le dépôt : penser à faire un « Pull » (Fetch origin)
+#      dans GitHub Desktop avant de pousser à nouveau.
+#   4. Construit le site avec Jekyll et le publie.
+#
+# Pourquoi publier depuis cette Action plutôt que depuis la branche : les commits faits par
+# une Action ne redéclenchent pas la publication GitHub Pages « depuis une branche ».
+# Prérequis : Settings > Pages > Build and deployment > Source = « GitHub Actions ».
+name: Publication du site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Retirer les métadonnées des photos
+        run: python3 .github/scripts/strip_exif.py photo Images_photos
+
+      - name: Synchroniser la bibliothèque Steam
+        continue-on-error: true
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+          STEAM_MASQUES: ${{ secrets.STEAM_MASQUES }}
+        run: python3 .github/scripts/steam_sync.py
+
+      - name: Commiter les changements
+        continue-on-error: true
+        run: |
+          git add photo Images_photos _data/steam.json
+          if git diff --cached --quiet; then
+            echo "Rien à commiter."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Mise à jour automatique (photos nettoyées / données Steam)"
+          git pull --rebase origin main
+          git push
+
+      - uses: actions/configure-pages@v5
+
+      - name: Construire le site (Jekyll)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

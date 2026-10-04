@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portail d'administration de la supervision chez Réseau-Net interface web maison pilotant une stack Prometheus / Grafana multi-clients, développée en 2 semaines en pair avec Claude Code">
+  <meta name="description" content="Portail d'administration de la supervision chez Réseau-Net : interface web maison pilotant une stack Prometheus / Grafana multi-clients, développée en 2 semaines en pair avec Claude Code">
+  <link rel="canonical" href="https://thewilli67.github.io/projets_pro/monitoring_admin.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Portail d&#x27;administration de la supervision">
+  <meta property="og:description" content="Portail d&#x27;administration de la supervision chez Réseau-Net : interface web maison pilotant une stack Prometheus / Grafana multi-clients, développée en 2 semaines en pair avec Claude Code">
+  <meta property="og:url" content="https://thewilli67.github.io/projets_pro/monitoring_admin.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
   <title>William Hertrich — Portail d'administration de la supervision</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +40,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
     body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
     /* Nav */
@@ -43,13 +59,13 @@
     .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(14,165,233,.12) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(37,99,235,.06) 0%, transparent 50%); pointer-events: none; }
     .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
     .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #64748b; margin-bottom: 1.5rem; transition: var(--t); }
-    .ph-back:hover { color: #94a3b8; }
+    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #94a3b8; margin-bottom: 1.5rem; transition: var(--t); }
+    .ph-back:hover { color: #cbd5e1; }
     .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #38bdf8; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
     .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #38bdf8; border-radius: 2px; }
     .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
     .ph-title span { color: #38bdf8; }
-    .ph-sub { font-size: 1rem; color: #64748b; max-width: 720px; line-height: 1.7; margin-bottom: 1.5rem; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 720px; line-height: 1.7; margin-bottom: 1.5rem; }
     .ph-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
     .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .75rem; border-radius: 100px; font-size: .75rem; font-weight: 600; }
     .chip-comp { background: rgba(255,255,255,.08); color: #94a3b8; }
@@ -199,7 +215,7 @@
     .gallery-note {
       margin-top: 2rem;
       display: flex; align-items: center; gap: .65rem;
-      font-size: .78rem; color: #64748b;
+      font-size: .78rem; color: #94a3b8;
       justify-content: center;
     }
     .gallery-note i { color: #38bdf8; }
@@ -225,7 +241,7 @@
     .lb-img { max-width: 92vw; max-height: 78vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.08); }
     .lb-caption { color: #cbd5e1; font-size: .9rem; text-align: center; max-width: 720px; line-height: 1.5; }
     .lb-caption strong { color: #f1f5f9; font-weight: 600; }
-    .lb-caption-count { display: block; margin-top: .35rem; font-size: .75rem; color: #64748b; letter-spacing: .05em; }
+    .lb-caption-count { display: block; margin-top: .35rem; font-size: .75rem; color: #94a3b8; letter-spacing: .05em; }
     .lb-close {
       position: absolute; top: -3rem; right: 0;
       background: rgba(255,255,255,.1); color: #f8fafc;
@@ -279,9 +295,9 @@
     .reveal.up { opacity: 1; transform: none; }
 
     /* Footer */
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
 
@@ -294,6 +310,7 @@
       .nav-links .show { display: block; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -344,7 +361,7 @@
       <div class="ctx-grid">
         <div class="ctx-text reveal">
           <p data-fr="Réseau-Net supervise, pour ses clients, un ensemble de liens (fibres et 4G/5G) via une stack <strong>Prometheus + Blackbox Exporter + Grafana</strong>. La configuration se pilotait via des fichiers YAML et JSON éditables à la main, avec un risque d'erreur élevé et une dépendance forte à celui qui connaissait l'outil." data-en="Réseau-Net supervises, for its clients, a set of links (fibre and 4G/5G) via a <strong>Prometheus + Blackbox Exporter + Grafana</strong> stack. The configuration was piloted through YAML and JSON files edited by hand, with a high risk of error and strong dependency on whoever knew the tooling." data-i18n-html>Réseau-Net supervise, pour ses clients, un ensemble de liens (fibres et 4G/5G) via une stack <strong>Prometheus + Blackbox Exporter + Grafana</strong>. La configuration se pilotait via des fichiers YAML et JSON éditables à la main, avec un risque d'erreur élevé et une dépendance forte à celui qui connaissait l'outil.</p>
-          <p data-fr="J'ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision : ajout/modification/suppression d'un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l'ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière." data-en="I proposed and developed an <strong>in-house web interface</strong> that becomes the source of truth for supervision: adding/modifying/removing a link, managing clients and the alert distribution list all done in a simple tool, with Prometheus and Grafana configuration files <strong>regenerated automatically</strong> behind the scenes." data-i18n-html>J'ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision : ajout/modification/suppression d'un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l'ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière.</p>
+          <p data-fr="J'ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision : ajout/modification/suppression d'un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l'ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière." data-en="I proposed and developed an <strong>in-house web interface</strong> that becomes the source of truth for supervision: adding/modifying/removing a link, managing clients and the alert distribution list, all done in a simple tool, with Prometheus and Grafana configuration files <strong>regenerated automatically</strong> behind the scenes." data-i18n-html>J'ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision : ajout/modification/suppression d'un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l'ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière.</p>
           <p data-fr="Le portail intègre aussi un <strong>webhook d'alerte custom</strong> pour envoyer des emails HTML riches (avec graphes intégrés) que Grafana ne sait pas produire nativement, ainsi qu'un <strong>digest journalier</strong> automatique récapitulant l'état des liens." data-en="The portal also includes a <strong>custom alert webhook</strong> to send rich HTML emails (with embedded graphs) that Grafana cannot produce natively, along with an automatic <strong>daily digest</strong> summarising link status." data-i18n-html>Le portail intègre aussi un <strong>webhook d'alerte custom</strong> pour envoyer des emails HTML riches (avec graphes intégrés) que Grafana ne sait pas produire nativement, ainsi qu'un <strong>digest journalier</strong> automatique récapitulant l'état des liens.</p>
         </div>
         <div class="callout reveal" style="transition-delay:.1s">
@@ -401,7 +418,7 @@
         <div class="arch-flow">
           <div class="arch-layer primary">
             <p class="arch-layer-title" data-fr="1. Interface web (source de vérité)" data-en="1. Web interface (source of truth)">1. Interface web (source de vérité)</p>
-            <p class="arch-layer-body" data-fr="FastAPI + HTMX l'équipe ajoute/modifie/supprime un lien" data-en="FastAPI + HTMX team adds/modifies/removes a link">FastAPI + HTMX l'équipe ajoute/modifie/supprime un lien</p>
+            <p class="arch-layer-body" data-fr="FastAPI + HTMX : l'équipe ajoute/modifie/supprime un lien" data-en="FastAPI + HTMX: the team adds/modifies/removes a link">FastAPI + HTMX : l'équipe ajoute/modifie/supprime un lien</p>
           </div>
           <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
           <div class="arch-layer">
@@ -411,7 +428,7 @@
           <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="3. Régénération des configs" data-en="3. Config regeneration">3. Régénération des configs</p>
-            <p class="arch-layer-body" data-fr="Prometheus (targets JSON) + Grafana (contact points, policies, alert rules) reload API" data-en="Prometheus (target JSON) + Grafana (contact points, policies, alert rules) reload API">Prometheus (targets JSON) + Grafana (contact points, policies, alert rules) reload API</p>
+            <p class="arch-layer-body" data-fr="Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l'API" data-en="Prometheus (target JSON) + Grafana (contact points, policies, alert rules), then reload via the API">Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l'API</p>
           </div>
           <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
           <div class="arch-layer">
@@ -491,7 +508,7 @@
         <div class="real-card reveal" style="transition-delay:.2s">
           <div class="real-icon ri-amber"><i class="fas fa-envelope-open-text"></i></div>
           <h3 class="real-title" data-fr="Webhook custom &amp; email HTML" data-en="Custom webhook &amp; HTML email">Webhook custom &amp; email HTML</h3>
-          <p class="real-desc" data-fr="Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct Grafana HTML-escape le message natif, ce contournement était nécessaire." data-en="Grafana alerts intercepted by a FastAPI webhook that produces a rich HTML email and sends it via direct SMTP Grafana HTML-escapes the native message, so this workaround was needed.">Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct Grafana HTML-escape le message natif, ce contournement était nécessaire.</p>
+          <p class="real-desc" data-fr="Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct : Grafana échappe le HTML du message natif, ce contournement était donc nécessaire." data-en="Grafana alerts intercepted by a FastAPI webhook that produces a rich HTML email and sends it via direct SMTP: Grafana HTML-escapes the native message, so this workaround was needed.">Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct : Grafana échappe le HTML du message natif, ce contournement était donc nécessaire.</p>
           <ul class="real-list">
             <li data-fr="Protection du webhook par token (dans l'URL)" data-en="Token-protected webhook (in the URL)">Protection du webhook par token (dans l'URL)</li>
             <li data-fr="Rendu des panneaux Grafana via grafana-image-renderer" data-en="Grafana panels rendered via grafana-image-renderer">Rendu des panneaux Grafana via grafana-image-renderer</li>
@@ -542,7 +559,7 @@
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Aperçus" data-en="Previews">Aperçus</span>
         <h2 class="s-title" data-fr="L'interface en action" data-en="The interface in action">L'interface en action</h2>
-        <p class="s-sub" data-fr="Six vues clés du portail cliquez pour agrandir. Toutes les données sensibles ont été floutées." data-en="Six key views of the portal click to enlarge. All sensitive data has been blurred.">Six vues clés du portail cliquez pour agrandir. Toutes les données sensibles ont été floutées.</p>
+        <p class="s-sub" data-fr="Six vues clés du portail (cliquez pour agrandir). Toutes les données sensibles ont été floutées." data-en="Six key views of the portal (click to enlarge). All sensitive data has been blurred.">Six vues clés du portail (cliquez pour agrandir). Toutes les données sensibles ont été floutées.</p>
       </div>
 
       <div class="shot-grid">
@@ -554,7 +571,7 @@
             <img src="/projets_pro/screenshots/monitoring-admin-interface-accueil.png" alt="Page d'accueil du portail Monitoring Admin" loading="lazy">
           </div>
           <div class="shot-info">
-            <p class="shot-title" data-fr="Page IPs accueil" data-en="IPs page home">Page IPs accueil</p>
+            <p class="shot-title" data-fr="Page IPs · accueil" data-en="IPs page · home">Page IPs · accueil</p>
             <p class="shot-desc" data-fr="Tableau des liens supervisés avec filtres, édition inline et modal d'ajout d'un nouveau lien." data-en="Table of supervised links with filters, inline editing, and add-link modal.">Tableau des liens supervisés avec filtres, édition inline et modal d'ajout d'un nouveau lien.</p>
           </div>
         </div>
@@ -603,7 +620,7 @@
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Journal d'audit" data-en="Audit log">Journal d'audit</p>
-            <p class="shot-desc" data-fr="Trace horodatée de chaque ajout, modification ou suppression sur la plateforme vue par action et par entité." data-en="Time-stamped trace of every add, modify, or delete filtered by action and entity.">Trace horodatée de chaque ajout, modification ou suppression sur la plateforme vue par action et par entité.</p>
+            <p class="shot-desc" data-fr="Trace horodatée de chaque ajout, modification ou suppression sur la plateforme, filtrable par action et par entité." data-en="Time-stamped trace of every add, modify, or delete, filterable by action and entity.">Trace horodatée de chaque ajout, modification ou suppression sur la plateforme, filtrable par action et par entité.</p>
           </div>
         </div>
 
@@ -797,7 +814,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <!-- Lightbox -->

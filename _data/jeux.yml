@@ -1,0 +1,61 @@
+# Données saisies à la main pour la page jeux.html (Ludothèque).
+#
+# La bibliothèque Steam (jeux, temps de jeu, succès, dernier lancement) est synchronisée
+# automatiquement par l'Action GitHub « Publication du site » dans _data/steam.json :
+# ne pas modifier ce fichier-là à la main, il est réécrit à chaque synchronisation.
+
+
+# Jeux dont la campagne principale est terminée.
+# Les heures et les succès sont repris automatiquement de Steam.
+#   name  : nom affiché sur la carte
+#   appid : numéro du jeu sur Steam (dans l'URL de sa page Steam). Recommandé : la
+#           correspondance résiste aux changements de nom côté Steam.
+#   steam : à défaut d'appid, nom du jeu sur Steam s'il diffère de « name »
+#           (majuscules, accents et ponctuation sont ignorés)
+#   genre : étiquette affichée sur la carte
+termines:
+  - name: "Clair Obscur: Expedition 33"
+    appid: 1903340
+    genre: "RPG"
+  - name: "The Witcher 3: Wild Hunt"
+    appid: 292030
+    genre: "RPG"
+  - name: "Cyberpunk 2077"
+    appid: 1091500
+    genre: "RPG"
+  - name: "DOOM Eternal"
+    appid: 782330
+    genre: "FPS"
+  - name: "DOOM (2016)"
+    appid: 379720
+    genre: "FPS"
+  - name: "Final Fantasy VII Remake Intergrade"
+    appid: 1462040
+    genre: "RPG"
+  - name: "Slay the Princess: The Pristine Cut"
+    appid: 1989270
+    genre: "Visual Novel"
+  - name: "The Spell Brigade"
+    appid: 2904000
+    genre: "Roguelite"
+
+
+# Jeux hors Steam, sans API : à mettre à jour à la main.
+#   hours       : temps de jeu en heures, avec un point décimal
+#   platform    : plateforme affichée à côté du nom
+#   last_played : facultatif, date du dernier lancement au format AAAA-MM-JJ
+#   Ces jeux n'ont pas de colonne succès.
+hors_steam:
+  - name: "Star Citizen"
+    hours: 255.01   # relevé par le script communautaire qui lit les fichiers du jeu
+    platform: "RSI Launcher"
+
+
+# Jeux Steam à ne pas afficher, par appid (de préférence) ou par nom. Avec ta propre clé,
+# l'API Steam renvoie toute ta bibliothèque, y compris les jeux privés ou masqués dans Steam.
+# Les jeux listés ici sont retirés avant l'écriture des données : ils n'apparaissent ni dans
+# _data/steam.json ni dans le code source du site.
+# Attention : cette liste est visible dans le dépôt public. Pour ne laisser aucune trace,
+# mettre les appids dans le secret GitHub STEAM_MASQUES (séparés par des virgules) à la place.
+masques:
+  - 3602290

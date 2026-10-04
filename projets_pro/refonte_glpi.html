@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Refonte de GLPI chez SOLINEST Migration 9.x vers 10.x, types de demandes, workflow d'attribution, notifications, Formcreator et SSO Google Workspace">
+    <meta name="description" content="Refonte de GLPI chez SOLINEST : migration 9.x vers 10.x, types de demandes, workflow d'attribution, notifications, Formcreator et SSO Google Workspace">
+    <link rel="canonical" href="https://thewilli67.github.io/projets_pro/refonte_glpi.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="William Hertrich">
+    <meta property="og:title" content="William Hertrich · Refonte GLPI chez SOLINEST">
+    <meta property="og:description" content="Refonte de GLPI chez SOLINEST : migration 9.x vers 10.x, types de demandes, workflow d&#x27;attribution, notifications, Formcreator et SSO Google Workspace">
+    <meta property="og:url" content="https://thewilli67.github.io/projets_pro/refonte_glpi.html">
+    <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
     <title>William Hertrich — Refonte GLPI chez SOLINEST</title>
     <link rel="icon" href="/Images_photos/reprendre.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +40,9 @@
       html { scroll-behavior: smooth; }
       body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
       body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+      /* Footer toujours en bas de l'écran, même quand la page est courte */
+      body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+      footer { margin-top: auto; }
       a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
       /* Nav */
@@ -43,13 +59,13 @@
       .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(249,115,22,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(37,99,235,.06) 0%, transparent 50%); pointer-events: none; }
       .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
       .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-      .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #64748b; margin-bottom: 1.5rem; transition: var(--t); }
-      .ph-back:hover { color: #94a3b8; }
+      .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #94a3b8; margin-bottom: 1.5rem; transition: var(--t); }
+      .ph-back:hover { color: #cbd5e1; }
       .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #fb923c; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
       .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #fb923c; border-radius: 2px; }
       .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
       .ph-title span { color: #fb923c; }
-      .ph-sub { font-size: 1rem; color: #64748b; max-width: 680px; line-height: 1.7; margin-bottom: 1.5rem; }
+      .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 680px; line-height: 1.7; margin-bottom: 1.5rem; }
       .ph-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
       .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .75rem; border-radius: 100px; font-size: .75rem; font-weight: 600; }
       .chip-comp { background: rgba(255,255,255,.08); color: #94a3b8; }
@@ -119,9 +135,9 @@
       .reveal.up { opacity: 1; transform: none; }
 
       /* Footer */
-      footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+      footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
       .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-      .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+      .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
       .footer-links a:hover { color: #60a5fa; }
       footer p { font-size: .8rem; }
 
@@ -134,6 +150,7 @@
         .nav-links .show { display: block; }
       }
     </style>
+    <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
   </head>
   <body>
 
@@ -178,7 +195,7 @@
       <p data-fr="L'installation a été réalisée <strong>en binôme avec un collègue administrateur systèmes Linux</strong>. De mon côté, j'ai porté la partie fonctionnelle : proposition des workflows, définition des règles d'attribution, politique de notifications, structuration des types de demandes et mise en place de la base de connaissances." data-en="The installation was carried out <strong>paired with a Linux systems administrator colleague</strong>. On my side, I led the functional part: proposing workflows, defining assignment rules, setting the notification policy, structuring request types, and building the knowledge base." data-i18n-html>L'installation a été réalisée <strong>en binôme avec un collègue administrateur systèmes Linux</strong>. De mon côté, j'ai porté la partie fonctionnelle : proposition des workflows, définition des règles d'attribution, politique de notifications, structuration des types de demandes et mise en place de la base de connaissances.</p>
   </div>
   <div class="callout reveal" style="transition-delay:.1s">
-    <p data-fr="<strong>Le vrai enjeu du projet n'était pas la migration technique</strong> bien que celle-ci ait demandé rigueur et méthode mais le <strong>redesign fonctionnel</strong> : structurer les types de demandes, proposer un workflow qui reflète réellement les usages et une politique de notifications lisible pour l'utilisateur comme pour l'équipe IT." data-en="<strong>The real challenge of the project was not the technical migration</strong> even though it required rigour and method but the <strong>functional redesign</strong>: structuring request types, proposing a workflow that reflects real usage, and building a notification policy that reads well for both users and the IT team." data-i18n-html><strong>Le vrai enjeu du projet n'était pas la migration technique</strong> bien que celle-ci ait demandé rigueur et méthode mais le <strong>redesign fonctionnel</strong> : structurer les types de demandes, proposer un workflow qui reflète réellement les usages et une politique de notifications lisible pour l'utilisateur comme pour l'équipe IT.</p>
+    <p data-fr="<strong>Le vrai enjeu du projet n'était pas la migration technique</strong> (bien que celle-ci ait demandé rigueur et méthode) mais le <strong>redesign fonctionnel</strong> : structurer les types de demandes, proposer un workflow qui reflète réellement les usages et une politique de notifications lisible pour l'utilisateur comme pour l'équipe IT." data-en="<strong>The real challenge of the project was not the technical migration</strong> (even though it required rigour and method) but the <strong>functional redesign</strong>: structuring request types, proposing a workflow that reflects real usage, and building a notification policy that reads well for both users and the IT team." data-i18n-html><strong>Le vrai enjeu du projet n'était pas la migration technique</strong> (bien que celle-ci ait demandé rigueur et méthode) mais le <strong>redesign fonctionnel</strong> : structurer les types de demandes, proposer un workflow qui reflète réellement les usages et une politique de notifications lisible pour l'utilisateur comme pour l'équipe IT.</p>
   <p data-fr="Ce projet m'a mis face à des <strong>arbitrages concrets</strong> : simplifier sans trahir la complexité du réel, standardiser sans casser les habitudes utiles, et communiquer un changement d'outil à plus de 500 collaborateurs." data-en="This project put me in front of <strong>concrete trade-offs</strong>: simplifying without betraying real-world complexity, standardising without breaking useful habits, and communicating a tool change to more than 500 employees." data-i18n-html>Ce projet m'a mis face à des <strong>arbitrages concrets</strong> : simplifier sans trahir la complexité du réel, standardiser sans casser les habitudes utiles, et communiquer un changement d'outil à plus de 500 collaborateurs.</p>
 </div>
 </div>
@@ -280,7 +297,7 @@
         <ul class="real-list">
           <li data-fr="Importance calculée à partir de la catégorie" data-en="Importance derived from the category">Importance calculée à partir de la catégorie</li>
           <li data-fr="Réattribution manuelle possible par l'équipe IT" data-en="Manual reassignment available to the IT team">Réattribution manuelle possible par l'équipe IT</li>
-          <li data-fr="Pas de matrice figée : la réalité prime" data-en="No rigid matrix reality wins">Pas de matrice figée : la réalité prime</li>
+          <li data-fr="Pas de matrice figée : la réalité prime" data-en="No rigid matrix: reality wins">Pas de matrice figée : la réalité prime</li>
         </ul>
       </div>
 
@@ -300,7 +317,7 @@
         <h3 class="real-title" data-fr="SSO Google Workspace" data-en="Google Workspace SSO">SSO Google Workspace</h3>
         <p class="real-desc" data-fr="Intégration d'une authentification unique via Google Workspace qui, au-delà de la connexion, remonte et met à jour les informations utilisateur exploitées par les règles d'attribution." data-en="Single sign-on integration via Google Workspace that, beyond authentication, feeds and refreshes user information used by the assignment rules.">Intégration d'une authentification unique via Google Workspace qui, au-delà de la connexion, remonte et met à jour les informations utilisateur exploitées par les règles d'attribution.</p>
         <ul class="real-list">
-          <li data-fr="Authentification unique plus de mots de passe locaux GLPI" data-en="Single sign-on no more local GLPI passwords">Authentification unique plus de mots de passe locaux GLPI</li>
+          <li data-fr="Authentification unique : plus de mots de passe locaux GLPI" data-en="Single sign-on: no more local GLPI passwords">Authentification unique : plus de mots de passe locaux GLPI</li>
           <li data-fr="Remontée &amp; mise à jour des infos utilisateur (responsable inclus)" data-en="User info fed &amp; refreshed (including assignee)">Remontée &amp; mise à jour des infos utilisateur (responsable inclus)</li>
           <li data-fr="Alimente automatiquement les règles d'attribution" data-en="Automatically feeds the assignment rules">Alimente automatiquement les règles d'attribution</li>
           <li data-fr="Recette d'authentification et bascule contrôlée" data-en="Authentication testing and controlled cutover">Recette d'authentification et bascule contrôlée</li>
@@ -419,7 +436,7 @@
     <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
     <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
   </div>
-  <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+  <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
 </footer>
 
 <script>

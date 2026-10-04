@@ -3,11 +3,20 @@
 
   var DEFAULT = 'fr';
 
-  /* ─── Storage ─── */
-  function getLang() { return localStorage.getItem('lang') || DEFAULT; }
+  /* ─── Storage (localStorage peut être indisponible, ex. navigation privée) ─── */
+  function readStored() {
+    try { return localStorage.getItem('lang'); } catch (e) { return null; }
+  }
+  function writeStored(lang) {
+    try { localStorage.setItem('lang', lang); } catch (e) { /* choix non mémorisé */ }
+  }
+  var current = readStored() || DEFAULT;
+
+  function getLang() { return current; }
 
   function setLang(lang) {
-    localStorage.setItem('lang', lang);
+    current = lang;
+    writeStored(lang);
     document.documentElement.lang = lang;
     applyLang(lang);
     updateToggles(lang);
@@ -156,7 +165,7 @@
       'font-family:Inter,sans-serif;box-shadow:0 0 28px rgba(37,99,235,.35);}' +
       '.lm-name{font-size:1.2rem;font-weight:800;color:#f8fafc;' +
       'margin-bottom:.3rem;font-family:Inter,sans-serif;letter-spacing:-.01em;}' +
-      '.lm-hint{font-size:.82rem;color:#64748b;margin-bottom:1.75rem;' +
+      '.lm-hint{font-size:.82rem;color:#94a3b8;margin-bottom:1.75rem;' +
       'font-family:Inter,sans-serif;line-height:1.55;}' +
       '.lm-btns{display:flex;gap:.75rem;}' +
       '.lm-btn{flex:1;padding:.8rem .9rem;border-radius:11px;' +
@@ -210,10 +219,13 @@
   function showModal() {
     var modal = document.createElement('div');
     modal.id = 'lang-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'lm-name');
     modal.innerHTML =
       '<div class="lm-card">' +
         '<div class="lm-avatar">WH</div>' +
-        '<p class="lm-name">William Hertrich</p>' +
+        '<p class="lm-name" id="lm-name">William Hertrich</p>' +
         '<p class="lm-hint">Choisissez votre langue<br>Choose your language</p>' +
         '<div class="lm-btns">' +
           '<button class="lm-btn" id="lm-btn-fr"><span class="fi fis fi-fr lm-flag"></span> Fran&#231;ais</button>' +
@@ -244,7 +256,7 @@
     injectFlagIcons();
     injectStyles();
     injectMobileNav();
-    var stored = localStorage.getItem('lang');
+    var stored = readStored();
     if (stored) {
       document.documentElement.lang = stored;
       applyLang(stored);
@@ -253,8 +265,9 @@
       /* default: French (site content already in French) */
       applyLang(DEFAULT);
       updateToggles(DEFAULT);
-      /* show modal after page has fully faded in (~1100 ms) */
-      setTimeout(showModal, 1100);
+      /* La popup est ajoutée avant le fondu entrant du body (animation_page.js) :
+         elle apparaît en même temps que la page, sans flash du contenu avant. */
+      showModal();
     }
     /* delegate toggle clicks */
     document.addEventListener('click', function (e) {

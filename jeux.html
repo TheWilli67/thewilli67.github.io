@@ -1,9 +1,26 @@
+---
+# Page traitée par Jekyll (GitHub Pages) : elle est générée à partir de _data/steam.json
+# (synchronisé avec Steam par l'Action « Publication du site ») et de _data/jeux.yml.
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ma ludothèque Jeux terminés et bibliothèque Steam de William Hertrich">
+  <meta name="description" content="Ma ludothèque · Jeux terminés et bibliothèque Steam de William Hertrich">
+  <link rel="canonical" href="https://thewilli67.github.io/jeux.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Ludothèque">
+  <meta property="og:description" content="Ma ludothèque · Jeux terminés et bibliothèque Steam de William Hertrich">
+  <meta property="og:url" content="https://thewilli67.github.io/jeux.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
   <title>William Hertrich — Ludothèque</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +44,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
     body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
@@ -44,11 +64,11 @@
     .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #a5b4fc; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
     .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #a5b4fc; border-radius: 2px; }
     .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .75rem; }
-    .ph-sub { font-size: 1rem; color: #64748b; max-width: 600px; line-height: 1.75; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.75; }
     .stats-banner { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
     .stat-item { display: flex; flex-direction: column; }
     .stat-num { font-size: 1.75rem; font-weight: 800; color: #a5b4fc; line-height: 1; }
-    .stat-label { font-size: .72rem; color: #64748b; margin-top: .3rem; letter-spacing: .06em; text-transform: uppercase; }
+    .stat-label { font-size: .72rem; color: #94a3b8; margin-top: .3rem; letter-spacing: .06em; text-transform: uppercase; }
 
     .section { padding: 5rem 5%; }
     .section-alt { background: var(--bg-alt); }
@@ -107,12 +127,19 @@
     .ns-item { padding: .55rem .9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: .78rem; color: var(--text-m); transition: var(--t); }
     .ns-item:hover { border-color: rgba(99,102,241,.3); color: var(--text); }
 
+    [hidden] { display: none !important; }
+    .sync-note { display: inline-flex; align-items: center; gap: .4rem; }
+    .sync-note i { color: var(--indigo); font-size: .8rem; }
+    .td-plat { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; font-size: .66rem; font-weight: 700; color: var(--indigo); background: rgba(99,102,241,.1); border-radius: 100px; vertical-align: middle; white-space: nowrap; }
+    .steam-stat-lbl.top-name { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--text); }
+    .games-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 1rem; }
+
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.up { opacity: 1; transform: none; }
 
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
 
@@ -130,6 +157,7 @@
       .games-table th:nth-child(4), .games-table td:nth-child(4) { display: none; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -151,15 +179,15 @@
       <p class="ph-sub" data-fr="Jeux terminés, bibliothèque Steam et statistiques de jeu." data-en="Completed games, Steam library and gaming stats.">Jeux terminés, bibliothèque Steam et statistiques de jeu.</p>
       <div class="stats-banner">
         <div class="stat-item">
-          <span class="stat-num">~2 250</span>
+          <span class="stat-num" id="hdr-hours">–</span>
           <span class="stat-label" data-fr="heures de jeu" data-en="gaming hours">heures de jeu</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num">85+</span>
+          <span class="stat-num" id="hdr-played">–</span>
           <span class="stat-label" data-fr="jeux joués" data-en="games played">jeux joués</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num">8</span>
+          <span class="stat-num" id="hdr-done">–</span>
           <span class="stat-label" data-fr="jeux terminés" data-en="completed games">jeux terminés</span>
         </div>
       </div>
@@ -174,147 +202,36 @@
         <h2 class="s-title" data-fr="Jeux terminés" data-en="Completed games">Jeux terminés</h2>
         <p class="s-sub" data-fr="Les jeux dont j'ai terminé le scénario principal." data-en="Games where I completed the main story.">Les jeux dont j'ai terminé le scénario principal.</p>
       </div>
-      <div class="finished-grid reveal">
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">RPG</span>
-          </div>
-          <p class="game-title">Clair Obscur: Expedition 33</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 83,4 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 55 / 55</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:100%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct perfect">100 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">RPG</span>
-          </div>
-          <p class="game-title">The Witcher 3: Wild Hunt</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 119,7 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 34 / 78</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:43.6%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">44 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">RPG</span>
-          </div>
-          <p class="game-title">Cyberpunk 2077</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 80,8 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 32 / 57</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:56.1%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">56 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">FPS</span>
-          </div>
-          <p class="game-title">DOOM Eternal</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 15,7 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 16 / 50</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:32%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">32 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">FPS</span>
-          </div>
-          <p class="game-title">DOOM (2016)</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 10,1 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 18 / 54</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:33.3%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">33 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">RPG</span>
-          </div>
-          <p class="game-title">Final Fantasy VII Remake Intergrade</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 31,8 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 36 / 63</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:57.1%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">57 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">Visual Novel</span>
-          </div>
-          <p class="game-title">Slay the Princess The Pristine Cut</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 3,4 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 45 / 131</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:34.4%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">34 %</span></div>
-        </div>
-
-        <div class="game-card">
-          <div class="game-card-top">
-            <span class="badge-done"><i class="fas fa-check"></i> Terminé</span>
-            <span class="badge-genre">Roguelite</span>
-          </div>
-          <p class="game-title">The Spell Brigade</p>
-          <div class="game-meta">
-            <span class="game-stat"><i class="fas fa-clock"></i> 42,7 h</span>
-            <span class="game-stat"><i class="fas fa-trophy"></i> 82 / 115</span>
-          </div>
-          <div class="achiev-bar"><div class="achiev-fill" style="width:71.3%"></div></div>
-          <div class="achiev-label"><span>Succès</span><span class="pct">71 %</span></div>
-        </div>
-
-      </div>
+      <!-- Cartes générées à partir de « termines » dans _data/jeux.yml -->
+      <div class="finished-grid reveal" id="finished-grid"></div>
     </div>
   </section>
 
-  <!-- Bibliothèque Steam -->
+  <!-- Bibliothèque : Steam (synchronisé) + jeux hors Steam (_data/jeux.yml) -->
   <section class="section" id="steam">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag indigo">Steam</span>
-        <h2 class="s-title" data-fr="Ma bibliothèque Steam" data-en="My Steam Library">Ma bibliothèque Steam</h2>
+        <span class="s-tag indigo" data-fr="Steam &amp; autres plateformes" data-en="Steam &amp; other platforms">Steam &amp; autres plateformes</span>
+        <h2 class="s-title" data-fr="Ma bibliothèque" data-en="My library">Ma bibliothèque</h2>
+        <p class="s-sub sync-note" id="sync-note" hidden></p>
       </div>
 
       <div class="steam-stats-row reveal">
         <div class="steam-stat-cell">
-          <span class="steam-stat-num">85</span>
+          <span class="steam-stat-num" id="st-played">–</span>
           <span class="steam-stat-lbl" data-fr="Jeux joués" data-en="Games played">Jeux joués</span>
         </div>
         <div class="steam-stat-cell">
-          <span class="steam-stat-num">~2 250 h</span>
+          <span class="steam-stat-num" id="st-hours">–</span>
           <span class="steam-stat-lbl" data-fr="Temps total" data-en="Total playtime">Temps total</span>
         </div>
         <div class="steam-stat-cell">
-          <span class="steam-stat-num">317 h</span>
-          <span class="steam-stat-lbl" data-fr="Meilleur jeu (MHW)" data-en="Top game (MHW)">Meilleur jeu (MHW)</span>
+          <span class="steam-stat-num" id="st-top">–</span>
+          <span class="steam-stat-lbl" data-fr="Jeu le plus joué" data-en="Most played">Jeu le plus joué</span>
+          <span class="steam-stat-lbl top-name" id="st-top-name"></span>
         </div>
         <div class="steam-stat-cell">
-          <span class="steam-stat-num">101</span>
+          <span class="steam-stat-num" id="st-total">–</span>
           <span class="steam-stat-lbl" data-fr="Jeux au total" data-en="Total games">Jeux au total</span>
         </div>
       </div>
@@ -329,111 +246,16 @@
               <th data-fr="Dernier lancement" data-en="Last played">Dernier lancement</th>
             </tr>
           </thead>
-          <tbody>
-            <tr><td class="td-name">Monster Hunter: World</td><td class="td-hours">317,3 h</td><td class="td-achiev">71 / 100</td><td class="td-date">Mars 2025</td></tr>
-            <tr><td class="td-name">Borderlands 3</td><td class="td-hours">220,8 h</td><td class="td-achiev">58 / 81</td><td class="td-date">Août 2024</td></tr>
-            <tr><td class="td-name">World of Tanks</td><td class="td-hours">205,4 h</td><td class="td-achiev">56 / 60</td><td class="td-date">Mai 2026</td></tr>
-            <tr><td class="td-name">HELLDIVERS™ 2</td><td class="td-hours">156,2 h</td><td class="td-achiev">34 / 38</td><td class="td-date">Mars 2026</td></tr>
-            <tr><td class="td-name">The Witcher 3: Wild Hunt</td><td class="td-hours">119,7 h</td><td class="td-achiev">34 / 78</td><td class="td-date">Août 2025</td></tr>
-            <tr><td class="td-name">Monster Hunter Wilds</td><td class="td-hours">111,4 h</td><td class="td-achiev">36 / 50</td><td class="td-date">Déc. 2025</td></tr>
-            <tr><td class="td-name">Counter-Strike 2</td><td class="td-hours">109,3 h</td><td class="td-achiev perfect">1 / 1 ✓</td><td class="td-date">Mai 2026</td></tr>
-            <tr><td class="td-name">Heavy Metal Machines</td><td class="td-hours">105,7 h</td><td class="td-achiev"></td><td class="td-date">Juin 2022</td></tr>
-            <tr><td class="td-name">Clair Obscur: Expedition 33</td><td class="td-hours">83,4 h</td><td class="td-achiev perfect">55 / 55 ✓</td><td class="td-date">Déc. 2025</td></tr>
-            <tr><td class="td-name">Cyberpunk 2077</td><td class="td-hours">80,8 h</td><td class="td-achiev">32 / 57</td><td class="td-date">Déc. 2025</td></tr>
-            <tr><td class="td-name">Age of Empires IV: Anniversary Edition</td><td class="td-hours">75,8 h</td><td class="td-achiev">31 / 175</td><td class="td-date">Août 2025</td></tr>
-            <tr><td class="td-name">Stardew Valley</td><td class="td-hours">64,6 h</td><td class="td-achiev">16 / 49</td><td class="td-date">Juil. 2025</td></tr>
-            <tr><td class="td-name">Bloons TD 6</td><td class="td-hours">59,8 h</td><td class="td-achiev">49 / 156</td><td class="td-date">Mai 2026</td></tr>
-            <tr><td class="td-name">Satisfactory</td><td class="td-hours">52,1 h</td><td class="td-achiev">21 / 44</td><td class="td-date">Hier</td></tr>
-            <tr><td class="td-name">The Spell Brigade</td><td class="td-hours">42,7 h</td><td class="td-achiev">82 / 115</td><td class="td-date">Juin 2026</td></tr>
-            <tr><td class="td-name">Megabonk</td><td class="td-hours">38,0 h</td><td class="td-achiev">77 / 139</td><td class="td-date">Févr. 2026</td></tr>
-            <tr><td class="td-name">Albion Online</td><td class="td-hours">36,1 h</td><td class="td-achiev">27 / 154</td><td class="td-date">Hier</td></tr>
-            <tr><td class="td-name">Overwatch®</td><td class="td-hours">32,4 h</td><td class="td-achiev">89 / 164</td><td class="td-date">Avr. 2026</td></tr>
-            <tr><td class="td-name">FINAL FANTASY VII REMAKE INTERGRADE</td><td class="td-hours">31,8 h</td><td class="td-achiev">36 / 63</td><td class="td-date">Août 2025</td></tr>
-            <tr><td class="td-name">Assetto Corsa</td><td class="td-hours">22,5 h</td><td class="td-achiev">8 / 709</td><td class="td-date">Juil. 2025</td></tr>
-            <tr><td class="td-name">Grand Theft Auto V</td><td class="td-hours">22,0 h</td><td class="td-achiev">12 / 77</td><td class="td-date">Juin 2024</td></tr>
-            <tr><td class="td-name">Dispatch</td><td class="td-hours">20,4 h</td><td class="td-achiev">25 / 36</td><td class="td-date">Nov. 2025</td></tr>
-            <tr><td class="td-name">Aviassembly</td><td class="td-hours">18,4 h</td><td class="td-achiev">0 / 11</td><td class="td-date">Avr. 2026</td></tr>
-            <tr><td class="td-name">War Thunder</td><td class="td-hours">16,7 h</td><td class="td-achiev">11 / 91</td><td class="td-date">Nov. 2023</td></tr>
-            <tr><td class="td-name">Project Zomboid</td><td class="td-hours">16,2 h</td><td class="td-achiev"></td><td class="td-date">Janv. 2026</td></tr>
-            <tr><td class="td-name">Paladins</td><td class="td-hours">15,7 h</td><td class="td-achiev">16 / 58</td><td class="td-date">Oct. 2022</td></tr>
-            <tr><td class="td-name">DOOM Eternal</td><td class="td-hours">15,7 h</td><td class="td-achiev">16 / 50</td><td class="td-date">Juin 2025</td></tr>
-            <tr><td class="td-name">Cookie Clicker</td><td class="td-hours">14,2 h</td><td class="td-achiev">60 / 637</td><td class="td-date">Mai 2026</td></tr>
-            <tr><td class="td-name">TrackMania² Stadium</td><td class="td-hours">13,6 h</td><td class="td-achiev"></td><td class="td-date">Sept. 2025</td></tr>
-            <tr><td class="td-name">Brotato</td><td class="td-hours">10,5 h</td><td class="td-achiev">35 / 179</td><td class="td-date">Sept. 2025</td></tr>
-            <tr><td class="td-name">DOOM</td><td class="td-hours">10,1 h</td><td class="td-achiev">18 / 54</td><td class="td-date">Nov. 2023</td></tr>
-            <tr><td class="td-name">Borderlands 2</td><td class="td-hours">9,4 h</td><td class="td-achiev">16 / 75</td><td class="td-date">Août 2024</td></tr>
-            <tr><td class="td-name">Skyforge</td><td class="td-hours">9,0 h</td><td class="td-achiev">9 / 52</td><td class="td-date">Juil. 2022</td></tr>
-            <tr><td class="td-name">The Elder Scrolls V: Skyrim SE</td><td class="td-hours">8,5 h</td><td class="td-achiev">8 / 75</td><td class="td-date">Oct. 2024</td></tr>
-            <tr><td class="td-name">FINAL FANTASY VII REBIRTH</td><td class="td-hours">7,7 h</td><td class="td-achiev">18 / 61</td><td class="td-date">Nov. 2025</td></tr>
-            <tr><td class="td-name">ASTRONEER</td><td class="td-hours">7,4 h</td><td class="td-achiev">15 / 56</td><td class="td-date">Déc. 2025</td></tr>
-            <tr><td class="td-name">The Stanley Parable: Ultra Deluxe</td><td class="td-hours">7,4 h</td><td class="td-achiev">5 / 11</td><td class="td-date">Sept. 2025</td></tr>
-            <tr><td class="td-name">Supermarket Together</td><td class="td-hours">6,3 h</td><td class="td-achiev">9 / 48</td><td class="td-date">Mars 2026</td></tr>
-            <tr><td class="td-name">Raft</td><td class="td-hours">6,0 h</td><td class="td-achiev">12 / 104</td><td class="td-date">Août 2022</td></tr>
-            <tr><td class="td-name">Trove</td><td class="td-hours">5,5 h</td><td class="td-achiev">1 / 19</td><td class="td-date">Juil. 2025</td></tr>
-            <tr><td class="td-name">Warframe</td><td class="td-hours">5,2 h</td><td class="td-achiev">16 / 193</td><td class="td-date">Avr. 2020</td></tr>
-            <tr><td class="td-name">HELLDIVERS™</td><td class="td-hours">5,0 h</td><td class="td-achiev">17 / 39</td><td class="td-date">Févr. 2024</td></tr>
-            <tr><td class="td-name">Castle Crashers</td><td class="td-hours">5,0 h</td><td class="td-achiev">4 / 12</td><td class="td-date">Août 2025</td></tr>
-            <tr><td class="td-name">Outer Wilds</td><td class="td-hours">4,7 h</td><td class="td-achiev">4 / 31</td><td class="td-date">Sept. 2024</td></tr>
-            <tr><td class="td-name">Age of Empires III: DE</td><td class="td-hours">4,5 h</td><td class="td-achiev">6 / 88</td><td class="td-date">Août 2025</td></tr>
-            <tr><td class="td-name">Destiny 2</td><td class="td-hours">4,1 h</td><td class="td-achiev">3 / 23</td><td class="td-date">Févr. 2024</td></tr>
-            <tr><td class="td-name">Fallout Shelter</td><td class="td-hours">4,0 h</td><td class="td-achiev">7 / 35</td><td class="td-date">Avr. 2026</td></tr>
-            <tr><td class="td-name">Hades</td><td class="td-hours">3,9 h</td><td class="td-achiev">4 / 49</td><td class="td-date">Nov. 2025</td></tr>
-            <tr><td class="td-name">Neverwinter</td><td class="td-hours">3,5 h</td><td class="td-achiev"></td><td class="td-date">Janv. 2022</td></tr>
-            <tr><td class="td-name">TrackMania Nations Forever</td><td class="td-hours">3,5 h</td><td class="td-achiev"></td><td class="td-date">Nov. 2023</td></tr>
-            <tr><td class="td-name">Slay the Princess The Pristine Cut</td><td class="td-hours">3,4 h</td><td class="td-achiev">45 / 131</td><td class="td-date">Juin 2026</td></tr>
-            <tr><td class="td-name">PEAK</td><td class="td-hours">3,4 h</td><td class="td-achiev">6 / 54</td><td class="td-date">Août 2025</td></tr>
-            <tr><td class="td-name">Paragon: The Overprime</td><td class="td-hours">3,4 h</td><td class="td-achiev">2 / 28</td><td class="td-date">Déc. 2023</td></tr>
-            <tr><td class="td-name">Tiny Tina's Wonderlands</td><td class="td-hours">3,2 h</td><td class="td-achiev">5 / 47</td><td class="td-date">Mai 2025</td></tr>
-            <tr><td class="td-name">Apex Legends</td><td class="td-hours">3,1 h</td><td class="td-achiev">3 / 12</td><td class="td-date">Mai 2024</td></tr>
-            <tr><td class="td-name">FTL: Faster Than Light</td><td class="td-hours">2,7 h</td><td class="td-achiev">2 / 51</td><td class="td-date">Avr. 2026</td></tr>
-            <tr><td class="td-name">WAKFU</td><td class="td-hours">2,7 h</td><td class="td-achiev">0 / 34</td><td class="td-date">Sept. 2019</td></tr>
-            <tr><td class="td-name">Anomalous Coffee Machine</td><td class="td-hours">2,2 h</td><td class="td-achiev">27 / 60</td><td class="td-date">Déc. 2025</td></tr>
-            <tr><td class="td-name">Rayman Legends</td><td class="td-hours">2,0 h</td><td class="td-achiev">9 / 42</td><td class="td-date">Janv. 2026</td></tr>
-            <tr><td class="td-name">Borderlands GOTY Enhanced</td><td class="td-hours">1,9 h</td><td class="td-achiev">3 / 80</td><td class="td-date">Août 2024</td></tr>
-            <tr><td class="td-name">Hollow Knight</td><td class="td-hours">1,8 h</td><td class="td-achiev">3 / 63</td><td class="td-date">Sept. 2025</td></tr>
-            <tr><td class="td-name">Black Desert</td><td class="td-hours">1,7 h</td><td class="td-achiev"></td><td class="td-date">Nov. 2023</td></tr>
-            <tr><td class="td-name">Kingdom: New Lands</td><td class="td-hours">1,5 h</td><td class="td-achiev">5 / 34</td><td class="td-date">Janv. 2026</td></tr>
-            <tr><td class="td-name">Fishing Planet</td><td class="td-hours">1,5 h</td><td class="td-achiev">1 / 17</td><td class="td-date">Avr. 2022</td></tr>
-            <tr><td class="td-name">Bayonetta</td><td class="td-hours">1,4 h</td><td class="td-achiev">4 / 50</td><td class="td-date">Juin 2025</td></tr>
-            <tr><td class="td-name">Crossout</td><td class="td-hours">1,4 h</td><td class="td-achiev">2 / 193</td><td class="td-date">Févr. 2023</td></tr>
-            <tr><td class="td-name">Assassin's Creed Origins</td><td class="td-hours">1,3 h</td><td class="td-achiev">0 / 67</td><td class="td-date">Janv. 2026</td></tr>
-            <tr><td class="td-name">Clicker Heroes</td><td class="td-hours">1,3 h</td><td class="td-achiev">18 / 111</td><td class="td-date">Mai 2026</td></tr>
-            <tr><td class="td-name">KurtzPel</td><td class="td-hours">1,1 h</td><td class="td-achiev">12 / 85</td><td class="td-date">Janv. 2022</td></tr>
-            <tr><td class="td-name">Assetto Corsa EVO</td><td class="td-hours">1,1 h</td><td class="td-achiev"></td><td class="td-date">Janv. 2026</td></tr>
-            <tr><td class="td-name">Oxygen: First Breath</td><td class="td-hours">1,0 h</td><td class="td-achiev">1 / 11</td><td class="td-date">Nov. 2023</td></tr>
-            <tr><td class="td-name">STAR WARS Jedi: Fallen Order</td><td class="td-hours">0,9 h</td><td class="td-achiev">4 / 39</td><td class="td-date">Mars 2024</td></tr>
-            <tr><td class="td-name">The Witcher: Enhanced Edition</td><td class="td-hours">0,7 h</td><td class="td-achiev"></td><td class="td-date">Sept. 2023</td></tr>
-            <tr><td class="td-name">EVE Online</td><td class="td-hours">0,6 h</td><td class="td-achiev"></td><td class="td-date">Mai 2022</td></tr>
-            <tr><td class="td-name">DmC Devil May Cry</td><td class="td-hours">0,6 h</td><td class="td-achiev">1 / 58</td><td class="td-date">Juin 2024</td></tr>
-            <tr><td class="td-name">Mass Effect™ Legendary Edition</td><td class="td-hours">0,4 h</td><td class="td-achiev">0 / 127</td><td class="td-date">Janv. 2026</td></tr>
-            <tr><td class="td-name">Predecessor</td><td class="td-hours">0,3 h</td><td class="td-achiev"></td><td class="td-date">Avr. 2025</td></tr>
-            <tr><td class="td-name">ARK: Survival Evolved</td><td class="td-hours">0,3 h</td><td class="td-achiev">0 / 32</td><td class="td-date">Sept. 2025</td></tr>
-            <tr><td class="td-name">Assassin's Creed Unity</td><td class="td-hours">0,1 h</td><td class="td-achiev">15 / 57</td><td class="td-date">Déc. 2025</td></tr>
-            <tr><td class="td-name">SWORN</td><td class="td-hours">0,1 h</td><td class="td-achiev">0 / 31</td><td class="td-date">Hier</td></tr>
-          </tbody>
+          <tbody id="games-body"></tbody>
         </table>
+        <p class="games-empty" id="games-empty" hidden></p>
       </div>
 
-      <div class="ns-header">
-        <span data-fr="Dans la bibliothèque non commencés" data-en="In library not started">Dans la bibliothèque non commencés</span>
-      </div>
-      <div class="ns-grid reveal" style="transition-delay:.15s">
-        <div class="ns-item">ACE COMBAT™ 7: Skies Unknown</div>
-        <div class="ns-item">ARK: Survival Of The Fittest</div>
-        <div class="ns-item">Batman: Arkham Asylum GOTY</div>
-        <div class="ns-item">Batman: Arkham City GOTY</div>
-        <div class="ns-item">Batman™: Arkham Knight</div>
-        <div class="ns-item">Borderlands GOTY</div>
-        <div class="ns-item">Detroit: Become Human</div>
-        <div class="ns-item">Devil May Cry 4 Special Edition</div>
-        <div class="ns-item">Devil May Cry 5</div>
-        <div class="ns-item">Grand Theft Auto V (Enhanced)</div>
-        <div class="ns-item">GRIS</div>
-        <div class="ns-item">NieR:Automata™</div>
-        <div class="ns-item">No Man's Sky</div>
-        <div class="ns-item">Overcooked! All You Can Eat</div>
-        <div class="ns-item">Rise of the Tomb Raider</div>
-        <div class="ns-item">The Witcher 2: Assassins of Kings</div>
+      <div id="unplayed-block" hidden>
+        <div class="ns-header">
+          <span data-fr="Dans la bibliothèque (non commencés)" data-en="In library (not started)">Dans la bibliothèque (non commencés)</span>
+        </div>
+        <div class="ns-grid reveal" style="transition-delay:.15s" id="unplayed-grid"></div>
       </div>
 
     </div>
@@ -448,15 +270,226 @@
       <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
     </div>
-    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
+  <!--
+    Données injectées par Jekyll au moment de la publication. En local (sans Jekyll),
+    ces blocs ne sont pas interprétés et la page affiche un message à la place des jeux.
+  -->
+  <script id="steam-data" type="application/json">{{ site.data.steam | jsonify }}</script>
+  <script id="steam-sync" type="application/json">{{ site.data.steam_sync | jsonify }}</script>
+  <script id="jeux-conf" type="application/json">{{ site.data.jeux | jsonify }}</script>
+
   <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => io.observe(r));
+    (function () {
+      'use strict';
+
+      function readJSON(id) {
+        try { return JSON.parse(document.getElementById(id).textContent); } catch (e) { return undefined; }
+      }
+      function storedLang() {
+        try { return localStorage.getItem('lang') || 'fr'; } catch (e) { return 'fr'; }
+      }
+      var LANG = storedLang();
+
+      /* Texte bilingue : data-fr / data-en pour que le bouton de langue (i18n.js) le traduise */
+      function bi(node, fr, en) {
+        node.setAttribute('data-fr', fr);
+        node.setAttribute('data-en', en);
+        node.textContent = LANG === 'en' ? en : fr;
+        return node;
+      }
+      function el(tag, cls) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        return n;
+      }
+      function norm(s) {
+        return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '');
+      }
+      function hours(min, lang) {
+        var t = (min / 60).toFixed(1);
+        return (lang === 'en' ? t : t.replace('.', ',')) + ' h';
+      }
+      function int(n, lang) {
+        return Math.round(n).toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR');
+      }
+      var MONTHS = {
+        fr: ['Janv.', 'Févr.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      };
+      function lastPlayed(ts, lang) {
+        if (!ts) return '–';
+        var d = new Date(ts * 1000), now = new Date();
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        if (d.getTime() >= today) return lang === 'en' ? 'Today' : "Aujourd'hui";
+        if (d.getTime() >= today - 864e5) return lang === 'en' ? 'Yesterday' : 'Hier';
+        return MONTHS[lang][d.getMonth()] + ' ' + d.getFullYear();
+      }
+      function achText(a) {
+        if (!a) return '–';
+        return a[0] + ' / ' + a[1] + (a[0] === a[1] && a[1] > 0 ? ' ✓' : '');
+      }
+
+      var steam = readJSON('steam-data');
+      var conf = readJSON('jeux-conf');
+      var sync = readJSON('steam-sync');
+      var empty = document.getElementById('games-empty');
+
+      if (steam === undefined || conf === undefined) {
+        bi(empty, 'La bibliothèque est générée par GitHub Pages : elle s\'affiche sur le site en ligne.',
+                  'The library is generated by GitHub Pages: it shows up on the live site.');
+        empty.hidden = false;
+        return;
+      }
+      steam = steam || { games: [] };
+      conf = conf || {};
+
+      /* ---- Fusion Steam + hors Steam, exclusions ---- */
+      var masked = (conf.masques || []).map(function (m) {
+        return /^\d+$/.test(String(m)) ? 'id:' + m : norm(m);
+      });
+      function isMasked(g) {
+        return masked.indexOf('id:' + g.appid) !== -1 || masked.indexOf(norm(g.name)) !== -1;
+      }
+      var steamGames = (steam.games || []).filter(function (g) { return !isMasked(g); });
+      var others = (conf.hors_steam || []).map(function (g) {
+        return {
+          name: String(g.name),
+          minutes: Math.round(parseFloat(g.hours) * 60) || 0,
+          last: g.last_played ? Math.floor(Date.parse(g.last_played) / 1000) : null,
+          ach: null,
+          platform: g.platform || 'Hors Steam'
+        };
+      });
+      var byName = function (a, b) { return a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' }); };
+      var played = steamGames.filter(function (g) { return g.minutes > 0; }).concat(others)
+        .sort(function (a, b) { return b.minutes - a.minutes || byName(a, b); });
+      var unplayed = steamGames.filter(function (g) { return !g.minutes; }).sort(byName);
+      var finished = conf.termines || [];
+
+      /* ---- Statistiques ---- */
+      var totalMin = played.reduce(function (s, g) { return s + g.minutes; }, 0);
+      function setNum(id, fr, en) { bi(document.getElementById(id), fr, en); }
+      setNum('hdr-hours', int(totalMin / 60, 'fr'), int(totalMin / 60, 'en'));
+      setNum('hdr-played', String(played.length), String(played.length));
+      setNum('hdr-done', String(finished.length), String(finished.length));
+      setNum('st-played', String(played.length), String(played.length));
+      setNum('st-hours', int(totalMin / 60, 'fr') + ' h', int(totalMin / 60, 'en') + ' h');
+      setNum('st-total', String(steamGames.length + others.length), String(steamGames.length + others.length));
+      if (played.length) {
+        setNum('st-top', hours(played[0].minutes, 'fr'), hours(played[0].minutes, 'en'));
+        document.getElementById('st-top-name').textContent = played[0].name;
+      }
+
+      /* ---- Date de synchronisation ---- */
+      var note = document.getElementById('sync-note');
+      var when = (sync && sync.checked) || steam.updated;
+      if (steam.manuel) {
+        note.appendChild(bi(el('span'), 'Données saisies à la main, en attente de la première synchronisation avec Steam',
+                                        'Manually entered data, waiting for the first Steam sync'));
+        note.hidden = false;
+      } else if (when) {
+        var d = new Date(when);
+        var opts = { day: 'numeric', month: 'long', year: 'numeric' };
+        note.appendChild(el('i', 'fab fa-steam'));
+        note.appendChild(bi(el('span'), 'Synchronisée automatiquement avec Steam · mise à jour le ' + d.toLocaleDateString('fr-FR', opts),
+                                        'Automatically synced with Steam · updated ' + d.toLocaleDateString('en-GB', opts)));
+        note.hidden = false;
+      }
+
+      /* ---- Jeux terminés ---- */
+      var grid = document.getElementById('finished-grid');
+      var steamIndex = {}, steamById = {};
+      steamGames.forEach(function (g) {
+        steamIndex[norm(g.name)] = g;
+        if (g.appid) steamById[g.appid] = g;
+      });
+      finished.forEach(function (f) {
+        var g = (f.appid && steamById[f.appid]) || steamIndex[norm(f.steam || f.name)] || {};
+        var minutes = g.minutes || (f.hours ? Math.round(parseFloat(f.hours) * 60) : 0);
+        var card = el('div', 'game-card');
+        var top = el('div', 'game-card-top');
+        var done = el('span', 'badge-done');
+        done.appendChild(el('i', 'fas fa-check'));
+        done.appendChild(bi(el('span'), ' Terminé', ' Completed'));
+        top.appendChild(done);
+        if (f.genre) { var genre = el('span', 'badge-genre'); genre.textContent = f.genre; top.appendChild(genre); }
+        card.appendChild(top);
+        var title = el('p', 'game-title');
+        title.textContent = f.name;
+        card.appendChild(title);
+        var meta = el('div', 'game-meta');
+        if (minutes) {
+          var h = el('span', 'game-stat');
+          h.appendChild(el('i', 'fas fa-clock'));
+          h.appendChild(bi(el('span'), ' ' + hours(minutes, 'fr'), ' ' + hours(minutes, 'en')));
+          meta.appendChild(h);
+        }
+        if (g.ach) {
+          var t = el('span', 'game-stat');
+          t.appendChild(el('i', 'fas fa-trophy'));
+          t.appendChild(document.createTextNode(' ' + g.ach[0] + ' / ' + g.ach[1]));
+          meta.appendChild(t);
+        }
+        card.appendChild(meta);
+        if (g.ach) {
+          var pct = g.ach[1] ? g.ach[0] / g.ach[1] * 100 : 0;
+          var bar = el('div', 'achiev-bar');
+          var fill = el('div', 'achiev-fill');
+          fill.style.width = pct.toFixed(1) + '%';
+          bar.appendChild(fill);
+          card.appendChild(bar);
+          var lbl = el('div', 'achiev-label');
+          lbl.appendChild(bi(el('span'), 'Succès', 'Achievements'));
+          var p = el('span', 'pct' + (pct >= 100 ? ' perfect' : ''));
+          p.textContent = Math.round(pct) + (LANG === 'en' ? '%' : ' %');
+          p.setAttribute('data-fr', Math.round(pct) + ' %');
+          p.setAttribute('data-en', Math.round(pct) + '%');
+          lbl.appendChild(p);
+          card.appendChild(lbl);
+        }
+        grid.appendChild(card);
+      });
+
+      /* ---- Tableau des jeux joués ---- */
+      var body = document.getElementById('games-body');
+      played.forEach(function (g) {
+        var tr = el('tr');
+        var name = el('td', 'td-name');
+        name.textContent = g.name;
+        if (g.platform) { var plat = el('span', 'td-plat'); plat.textContent = g.platform; name.appendChild(plat); }
+        tr.appendChild(name);
+        tr.appendChild(bi(el('td', 'td-hours'), hours(g.minutes, 'fr'), hours(g.minutes, 'en')));
+        var ach = el('td', 'td-achiev' + (g.ach && g.ach[0] === g.ach[1] && g.ach[1] > 0 ? ' perfect' : ''));
+        ach.textContent = achText(g.ach);
+        tr.appendChild(ach);
+        tr.appendChild(bi(el('td', 'td-date'), lastPlayed(g.last, 'fr'), lastPlayed(g.last, 'en')));
+        body.appendChild(tr);
+      });
+      if (!played.length) {
+        bi(empty, 'Aucun jeu à afficher pour le moment.', 'No games to show yet.');
+        empty.hidden = false;
+      }
+
+      /* ---- Jeux non commencés ---- */
+      var ns = document.getElementById('unplayed-grid');
+      unplayed.forEach(function (g) {
+        var item = el('div', 'ns-item');
+        item.textContent = g.name;
+        ns.appendChild(item);
+      });
+      document.getElementById('unplayed-block').hidden = !unplayed.length;
+
+      /* ---- Apparition au défilement ---- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(function (r) { io.observe(r); });
+    })();
   </script>
 
 </body>

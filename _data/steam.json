@@ -1,0 +1,1012 @@
+{
+ "updated": "2026-10-04",
+ "games": [
+  {
+   "appid": 582010,
+   "name": "Monster Hunter: World",
+   "minutes": 19037,
+   "last": 1742147383,
+   "ach": [
+    71,
+    100
+   ]
+  },
+  {
+   "appid": 397540,
+   "name": "Borderlands 3",
+   "minutes": 13246,
+   "last": 1724785150,
+   "ach": [
+    58,
+    81
+   ]
+  },
+  {
+   "appid": 1407200,
+   "name": "World of Tanks",
+   "minutes": 12354,
+   "last": 1784284215,
+   "ach": [
+    56,
+    60
+   ]
+  },
+  {
+   "appid": 553850,
+   "name": "HELLDIVERS™ 2",
+   "minutes": 9372,
+   "last": 1774733621,
+   "ach": [
+    34,
+    38
+   ]
+  },
+  {
+   "appid": 275850,
+   "name": "No Man's Sky",
+   "minutes": 8102,
+   "last": 1785773206,
+   "ach": [
+    22,
+    27
+   ]
+  },
+  {
+   "appid": 292030,
+   "name": "The Witcher 3: Wild Hunt — Remastered",
+   "minutes": 7214,
+   "last": 1790709582,
+   "ach": [
+    34,
+    78
+   ]
+  },
+  {
+   "appid": 2246340,
+   "name": "Monster Hunter Wilds",
+   "minutes": 6682,
+   "last": 1766153809,
+   "ach": [
+    36,
+    50
+   ]
+  },
+  {
+   "appid": 730,
+   "name": "Counter-Strike 2",
+   "minutes": 6557,
+   "last": 1778441052,
+   "ach": [
+    1,
+    1
+   ]
+  },
+  {
+   "appid": 331360,
+   "name": "Heavy Metal Machines",
+   "minutes": 6340,
+   "last": 1654438934,
+   "ach": null
+  },
+  {
+   "appid": 1903340,
+   "name": "Clair Obscur: Expedition 33",
+   "minutes": 5006,
+   "last": 1765716453,
+   "ach": [
+    55,
+    55
+   ]
+  },
+  {
+   "appid": 1091500,
+   "name": "Cyberpunk 2077",
+   "minutes": 4850,
+   "last": 1766877063,
+   "ach": [
+    32,
+    57
+   ]
+  },
+  {
+   "appid": 1466860,
+   "name": "Age of Empires IV: Anniversary Edition",
+   "minutes": 4546,
+   "last": 1754857537,
+   "ach": [
+    31,
+    175
+   ]
+  },
+  {
+   "appid": 413150,
+   "name": "Stardew Valley",
+   "minutes": 3878,
+   "last": 1751495692,
+   "ach": [
+    16,
+    49
+   ]
+  },
+  {
+   "appid": 2904000,
+   "name": "The Spell Brigade",
+   "minutes": 3661,
+   "last": 1783683554,
+   "ach": [
+    85,
+    128
+   ]
+  },
+  {
+   "appid": 960090,
+   "name": "Bloons TD 6",
+   "minutes": 3588,
+   "last": 1778252613,
+   "ach": [
+    49,
+    156
+   ]
+  },
+  {
+   "appid": 526870,
+   "name": "Satisfactory",
+   "minutes": 3123,
+   "last": 1779035535,
+   "ach": [
+    21,
+    44
+   ]
+  },
+  {
+   "appid": 3405340,
+   "name": "Megabonk",
+   "minutes": 2279,
+   "last": 1771678318,
+   "ach": [
+    77,
+    139
+   ]
+  },
+  {
+   "appid": 761890,
+   "name": "Albion Online",
+   "minutes": 2163,
+   "last": 1779038372,
+   "ach": [
+    27,
+    154
+   ]
+  },
+  {
+   "appid": 2357570,
+   "name": "Overwatch®",
+   "minutes": 1943,
+   "last": 1777139225,
+   "ach": [
+    89,
+    164
+   ]
+  },
+  {
+   "appid": 1763250,
+   "name": "SWORN",
+   "minutes": 1921,
+   "last": 1783887280,
+   "ach": [
+    21,
+    31
+   ]
+  },
+  {
+   "appid": 1462040,
+   "name": "FINAL FANTASY VII REMAKE INTERGRADE",
+   "minutes": 1906,
+   "last": 1754835474,
+   "ach": [
+    36,
+    63
+   ]
+  },
+  {
+   "appid": 244210,
+   "name": "Assetto Corsa",
+   "minutes": 1348,
+   "last": 1752496926,
+   "ach": [
+    8,
+    709
+   ]
+  },
+  {
+   "appid": 271590,
+   "name": "Grand Theft Auto V Legacy",
+   "minutes": 1319,
+   "last": 1717274611,
+   "ach": [
+    12,
+    77
+   ]
+  },
+  {
+   "appid": 2592160,
+   "name": "Dispatch",
+   "minutes": 1265,
+   "last": 1783952338,
+   "ach": [
+    25,
+    36
+   ]
+  },
+  {
+   "appid": 2660460,
+   "name": "Aviassembly",
+   "minutes": 1106,
+   "last": 1777131076,
+   "ach": [
+    0,
+    11
+   ]
+  },
+  {
+   "appid": 236390,
+   "name": "War Thunder",
+   "minutes": 999,
+   "last": 1699052770,
+   "ach": [
+    11,
+    91
+   ]
+  },
+  {
+   "appid": 108600,
+   "name": "Project Zomboid",
+   "minutes": 971,
+   "last": 1767473089,
+   "ach": null
+  },
+  {
+   "appid": 444090,
+   "name": "Paladins",
+   "minutes": 941,
+   "last": 1667154295,
+   "ach": [
+    16,
+    58
+   ]
+  },
+  {
+   "appid": 782330,
+   "name": "DOOM Eternal",
+   "minutes": 940,
+   "last": 1749373859,
+   "ach": [
+    16,
+    50
+   ]
+  },
+  {
+   "appid": 4380490,
+   "name": "Cat Mail Co.",
+   "minutes": 927,
+   "last": 1784836040,
+   "ach": [
+    15,
+    17
+   ]
+  },
+  {
+   "appid": 1454400,
+   "name": "Cookie Clicker",
+   "minutes": 852,
+   "last": 1778096388,
+   "ach": [
+    60,
+    637
+   ]
+  },
+  {
+   "appid": 232910,
+   "name": "TrackMania² Stadium",
+   "minutes": 817,
+   "last": 1757947383,
+   "ach": null
+  },
+  {
+   "appid": 431960,
+   "name": "Wallpaper Engine",
+   "minutes": 758,
+   "last": 1758544353,
+   "ach": [
+    6,
+    17
+   ]
+  },
+  {
+   "appid": 1145360,
+   "name": "Hades",
+   "minutes": 713,
+   "last": 1783966639,
+   "ach": [
+    9,
+    49
+   ]
+  },
+  {
+   "appid": 1942280,
+   "name": "Brotato",
+   "minutes": 629,
+   "last": 1757585409,
+   "ach": [
+    35,
+    179
+   ]
+  },
+  {
+   "appid": 379720,
+   "name": "DOOM",
+   "minutes": 603,
+   "last": 1700323402,
+   "ach": [
+    18,
+    54
+   ]
+  },
+  {
+   "appid": 49520,
+   "name": "Borderlands 2",
+   "minutes": 566,
+   "last": 1723572033,
+   "ach": [
+    16,
+    75
+   ]
+  },
+  {
+   "appid": 414530,
+   "name": "Skyforge",
+   "minutes": 539,
+   "last": 1657802106,
+   "ach": [
+    9,
+    52
+   ]
+  },
+  {
+   "appid": 489830,
+   "name": "The Elder Scrolls V: Skyrim Special Edition",
+   "minutes": 507,
+   "last": 1728896101,
+   "ach": [
+    8,
+    75
+   ]
+  },
+  {
+   "appid": 2909400,
+   "name": "FINAL FANTASY VII REBIRTH",
+   "minutes": 463,
+   "last": 1763591123,
+   "ach": [
+    18,
+    61
+   ]
+  },
+  {
+   "appid": 1328670,
+   "name": "Mass Effect™ Legendary Edition",
+   "minutes": 459,
+   "last": 1786108515,
+   "ach": [
+    5,
+    127
+   ]
+  },
+  {
+   "appid": 361420,
+   "name": "ASTRONEER",
+   "minutes": 443,
+   "last": 1766962302,
+   "ach": [
+    15,
+    56
+   ]
+  },
+  {
+   "appid": 1703340,
+   "name": "The Stanley Parable: Ultra Deluxe",
+   "minutes": 441,
+   "last": 1758094160,
+   "ach": [
+    5,
+    11
+   ]
+  },
+  {
+   "appid": 2709570,
+   "name": "Supermarket Together",
+   "minutes": 379,
+   "last": 1772486435,
+   "ach": [
+    9,
+    54
+   ]
+  },
+  {
+   "appid": 4001890,
+   "name": "How to Fish",
+   "minutes": 373,
+   "last": 1789851010,
+   "ach": [
+    21,
+    31
+   ]
+  },
+  {
+   "appid": 648800,
+   "name": "Raft",
+   "minutes": 362,
+   "last": 1661614699,
+   "ach": [
+    12,
+    104
+   ]
+  },
+  {
+   "appid": 304050,
+   "name": "Trove",
+   "minutes": 331,
+   "last": 1753629927,
+   "ach": [
+    1,
+    19
+   ]
+  },
+  {
+   "appid": 230410,
+   "name": "Warframe",
+   "minutes": 314,
+   "last": 1588175630,
+   "ach": [
+    16,
+    193
+   ]
+  },
+  {
+   "appid": 394510,
+   "name": "HELLDIVERS™",
+   "minutes": 299,
+   "last": 1708375569,
+   "ach": [
+    17,
+    39
+   ]
+  },
+  {
+   "appid": 204360,
+   "name": "Castle Crashers",
+   "minutes": 297,
+   "last": 1754592382,
+   "ach": [
+    4,
+    12
+   ]
+  },
+  {
+   "appid": 753640,
+   "name": "Outer Wilds",
+   "minutes": 282,
+   "last": 1727039426,
+   "ach": [
+    4,
+    31
+   ]
+  },
+  {
+   "appid": 933110,
+   "name": "Age of Empires III: Definitive Edition",
+   "minutes": 272,
+   "last": 1754841984,
+   "ach": [
+    6,
+    121
+   ]
+  },
+  {
+   "appid": 1085660,
+   "name": "Destiny 2",
+   "minutes": 243,
+   "last": 1707676124,
+   "ach": [
+    3,
+    23
+   ]
+  },
+  {
+   "appid": 588430,
+   "name": "Fallout Shelter",
+   "minutes": 240,
+   "last": 1777110538,
+   "ach": [
+    7,
+    35
+   ]
+  },
+  {
+   "appid": 2291680,
+   "name": "The Arrogant Kaiju Princess and The Detective Servant",
+   "minutes": 237,
+   "last": 1744744538,
+   "ach": [
+    40,
+    41
+   ]
+  },
+  {
+   "appid": 109600,
+   "name": "Neverwinter",
+   "minutes": 212,
+   "last": 1643466673,
+   "ach": null
+  },
+  {
+   "appid": 11020,
+   "name": "TrackMania Nations Forever",
+   "minutes": 207,
+   "last": 1700573805,
+   "ach": null
+  },
+  {
+   "appid": 1989270,
+   "name": "Slay the Princess — The Pristine Cut",
+   "minutes": 205,
+   "last": 1780427677,
+   "ach": [
+    45,
+    131
+   ]
+  },
+  {
+   "appid": 3527290,
+   "name": "PEAK",
+   "minutes": 203,
+   "last": 1754943712,
+   "ach": [
+    6,
+    64
+   ]
+  },
+  {
+   "appid": 1531430,
+   "name": "Paragon: The Overprime",
+   "minutes": 202,
+   "last": 1703439127,
+   "ach": [
+    2,
+    28
+   ]
+  },
+  {
+   "appid": 1286680,
+   "name": "Tiny Tina's Wonderlands",
+   "minutes": 191,
+   "last": 1747741613,
+   "ach": [
+    5,
+    47
+   ]
+  },
+  {
+   "appid": 1172470,
+   "name": "Apex Legends",
+   "minutes": 183,
+   "last": 1717010767,
+   "ach": [
+    3,
+    12
+   ]
+  },
+  {
+   "appid": 212680,
+   "name": "FTL: Faster Than Light",
+   "minutes": 161,
+   "last": 1775489611,
+   "ach": [
+    2,
+    51
+   ]
+  },
+  {
+   "appid": 215080,
+   "name": "WAKFU",
+   "minutes": 161,
+   "last": 1569082810,
+   "ach": [
+    0,
+    34
+   ]
+  },
+  {
+   "appid": 3173560,
+   "name": "Anomalous Coffee Machine",
+   "minutes": 132,
+   "last": 1764764228,
+   "ach": null
+  },
+  {
+   "appid": 728880,
+   "name": "Overcooked! 2",
+   "minutes": 123,
+   "last": 1790712737,
+   "ach": [
+    5,
+    54
+   ]
+  },
+  {
+   "appid": 242550,
+   "name": "Rayman Legends",
+   "minutes": 121,
+   "last": 1767912531,
+   "ach": [
+    9,
+    42
+   ]
+  },
+  {
+   "appid": 729040,
+   "name": "Borderlands GOTY Enhanced",
+   "minutes": 113,
+   "last": 1723578829,
+   "ach": [
+    3,
+    80
+   ]
+  },
+  {
+   "appid": 367520,
+   "name": "Hollow Knight",
+   "minutes": 105,
+   "last": 1758096273,
+   "ach": [
+    3,
+    63
+   ]
+  },
+  {
+   "appid": 582660,
+   "name": "Black Desert",
+   "minutes": 102,
+   "last": 1700250634,
+   "ach": null
+  },
+  {
+   "appid": 1794680,
+   "name": "Vampire Survivors",
+   "minutes": 100,
+   "last": 1791133741,
+   "ach": [
+    29,
+    243
+   ]
+  },
+  {
+   "appid": 3058630,
+   "name": "Assetto Corsa EVO",
+   "minutes": 94,
+   "last": 1784034045,
+   "ach": null
+  },
+  {
+   "appid": 496300,
+   "name": "Kingdom: New Lands",
+   "minutes": 92,
+   "last": 1767907219,
+   "ach": [
+    5,
+    34
+   ]
+  },
+  {
+   "appid": 380600,
+   "name": "Fishing Planet",
+   "minutes": 91,
+   "last": 1649941435,
+   "ach": [
+    1,
+    17
+   ]
+  },
+  {
+   "appid": 460790,
+   "name": "Bayonetta",
+   "minutes": 85,
+   "last": 1750239593,
+   "ach": [
+    4,
+    50
+   ]
+  },
+  {
+   "appid": 386180,
+   "name": "Crossout",
+   "minutes": 85,
+   "last": 1676217100,
+   "ach": [
+    2,
+    193
+   ]
+  },
+  {
+   "appid": 582160,
+   "name": "Assassin's Creed Origins",
+   "minutes": 78,
+   "last": 1768737838,
+   "ach": [
+    0,
+    67
+   ]
+  },
+  {
+   "appid": 363970,
+   "name": "Clicker Heroes",
+   "minutes": 76,
+   "last": 1778103340,
+   "ach": [
+    18,
+    111
+   ]
+  },
+  {
+   "appid": 4513480,
+   "name": "Scarlet Skips",
+   "minutes": 71,
+   "last": 1790714415,
+   "ach": [
+    1,
+    1
+   ]
+  },
+  {
+   "appid": 844870,
+   "name": "KurtzPel",
+   "minutes": 67,
+   "last": 1643215164,
+   "ach": [
+    12,
+    85
+   ]
+  },
+  {
+   "appid": 2061440,
+   "name": "Oxygen: First Breath",
+   "minutes": 59,
+   "last": 1701027048,
+   "ach": [
+    1,
+    11
+   ]
+  },
+  {
+   "appid": 1172380,
+   "name": "STAR WARS Jedi: Fallen Order™ ",
+   "minutes": 53,
+   "last": 1711315065,
+   "ach": [
+    4,
+    39
+   ]
+  },
+  {
+   "appid": 20900,
+   "name": "The Witcher: Enhanced Edition",
+   "minutes": 44,
+   "last": 1694806073,
+   "ach": null
+  },
+  {
+   "appid": 8500,
+   "name": "EVE Online",
+   "minutes": 38,
+   "last": 1652017644,
+   "ach": null
+  },
+  {
+   "appid": 1840560,
+   "name": "Paragon: The Overprime Final Test",
+   "minutes": 37,
+   "last": 1669930277,
+   "ach": null
+  },
+  {
+   "appid": 220440,
+   "name": "DmC Devil May Cry",
+   "minutes": 35,
+   "last": 1719510046,
+   "ach": [
+    1,
+    58
+   ]
+  },
+  {
+   "appid": 518030,
+   "name": "Aim Hero",
+   "minutes": 23,
+   "last": 1655544714,
+   "ach": null
+  },
+  {
+   "appid": 961200,
+   "name": "Predecessor",
+   "minutes": 17,
+   "last": 1745666628,
+   "ach": null
+  },
+  {
+   "appid": 346110,
+   "name": "ARK: Survival Evolved",
+   "minutes": 16,
+   "last": 1758484966,
+   "ach": [
+    0,
+    32
+   ]
+  },
+  {
+   "appid": 631510,
+   "name": "Devil May Cry HD Collection",
+   "minutes": 13,
+   "last": 1719507850,
+   "ach": [
+    0,
+    99
+   ]
+  },
+  {
+   "appid": 743090,
+   "name": "Defiance 2050",
+   "minutes": 10,
+   "last": 1657133794,
+   "ach": [
+    0,
+    33
+   ]
+  },
+  {
+   "appid": 993090,
+   "name": "Lossless Scaling",
+   "minutes": 8,
+   "last": 1763505019,
+   "ach": null
+  },
+  {
+   "appid": 289650,
+   "name": "Assassin's Creed Unity",
+   "minutes": 5,
+   "last": 1766696875,
+   "ach": [
+    15,
+    57
+   ]
+  },
+  {
+   "appid": 502500,
+   "name": "ACE COMBAT™7: SKIES UNKNOWN",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 407530,
+   "name": "ARK: Survival Of The Fittest",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 35140,
+   "name": "Batman: Arkham Asylum GOTY Edition",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 200260,
+   "name": "Batman: Arkham City GOTY",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 208650,
+   "name": "Batman™: Arkham Knight",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 8980,
+   "name": "Borderlands GOTY",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 1222140,
+   "name": "Detroit: Become Human",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 329050,
+   "name": "Devil May Cry 4 Special Edition",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 601150,
+   "name": "Devil May Cry 5",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 2512920,
+   "name": "Garlic Builder",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 3240220,
+   "name": "Grand Theft Auto V Enhanced",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 683320,
+   "name": "GRIS",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 524220,
+   "name": "NieR:Automata™",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 1243830,
+   "name": "Overcooked! All You Can Eat",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 1661320,
+   "name": "Predecessor Playtest",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 391220,
+   "name": "Rise of the Tomb Raider",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  },
+  {
+   "appid": 20920,
+   "name": "The Witcher 2: Assassins of Kings Enhanced Edition",
+   "minutes": 0,
+   "last": null,
+   "ach": null
+  }
+ ]
+}

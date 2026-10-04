@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio de William Hertrich Projets, alternances et formation">
+  <meta name="description" content="Portfolio de William Hertrich · Projets, alternances et formation">
+  <link rel="canonical" href="https://thewilli67.github.io/portfolio.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Portfolio">
+  <meta property="og:description" content="Portfolio de William Hertrich · Projets, alternances et formation">
+  <meta property="og:url" content="https://thewilli67.github.io/portfolio.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
   <title>William Hertrich — Portfolio</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +39,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
     body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
     /* Nav */
@@ -45,7 +61,7 @@
     .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
     .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
     .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
-    .ph-sub { font-size: 1rem; color: #64748b; max-width: 600px; line-height: 1.7; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.7; }
 
     /* Sections */
     .section { padding: 5rem 5%; }
@@ -113,9 +129,9 @@
     .reveal.up { opacity: 1; transform: none; }
 
     /* Footer */
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
 
@@ -127,6 +143,7 @@
       .nav-links .show { display: block; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -266,11 +283,14 @@
           <div class="proj-card-body">
             <span class="proj-badge badge-alt" data-fr="<i class=&quot;fas fa-graduation-cap&quot;></i> Diplôme obtenu (2026)" data-en="<i class=&quot;fas fa-graduation-cap&quot;></i> Degree awarded (2026)" data-i18n-html><i class="fas fa-graduation-cap"></i> Diplôme obtenu (2026)</span>
             <h3 class="proj-title" data-fr="Master CDSI — Projets &amp; Compétences" data-en="CDSI Master's — Projects &amp; Skills">Master CDSI — Projets &amp; Compétences</h3>
-            <p class="proj-desc" data-fr="Formation validée en 2026 : cyberdéfense, sécurité des systèmes d'information, architecture réseaux avancée, cryptographie et gestion d'incidents. La documentation détaillée des projets du Master est en cours de rédaction." data-en="Degree completed in 2026: cyberdefense, information systems security, advanced network architecture, cryptography, and incident management. Detailed documentation of the Master's projects is being written.">Formation validée en 2026 : cyberdéfense, sécurité des systèmes d'information, architecture réseaux avancée, cryptographie et gestion d'incidents. La documentation détaillée des projets du Master est en cours de rédaction.</p>
+            <p class="proj-desc" data-fr="Diplômé en 2026, en alternance chez RESEAU-NET. Côté école, de la cryptographie aux systèmes industriels ; côté entreprise, de la hotline à la supervision réseau et à la gestion d'un EDR sur plus de 800 postes. Parcours, projets phares, labs et compétences sur la page dédiée." data-en="Graduated in 2026, as a work-study student at RESEAU-NET. At school, everything from cryptography to industrial systems; at work, from the helpdesk to network monitoring and running an EDR across more than 800 endpoints. Programme, key projects, labs and skills on the dedicated page.">Diplômé en 2026, en alternance chez RESEAU-NET. Côté école, de la cryptographie aux systèmes industriels ; côté entreprise, de la hotline à la supervision réseau et à la gestion d'un EDR sur plus de 800 postes. Parcours, projets phares, labs et compétences sur la page dédiée.</p>
             <div class="proj-tags">
-              <span class="ptag">Cyberdéfense</span><span class="ptag">SIEM</span><span class="ptag">Cryptographie</span><span class="ptag">Pentesting</span><span class="ptag">RGPD</span>
+              <span class="ptag">EBIOS RM</span><span class="ptag">IEC 62443</span><span class="ptag" data-fr="Cryptographie" data-en="Cryptography">Cryptographie</span><span class="ptag">EDR</span><span class="ptag" data-fr="Réponse à incident" data-en="Incident response">Réponse à incident</span>
             </div>
-            <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link no-script-execution" data-fr="Voir la formation INSA <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="View INSA programme <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>Voir la formation INSA <i class="fas fa-external-link-alt"></i></a>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:auto;padding-top:.75rem">
+              <a href="/master.html" class="proj-link" data-fr="Voir le détail du Master &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-en="See the Master's in detail &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-i18n-html>Voir le détail du Master <i class="fas fa-arrow-right"></i></a>
+              <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link no-script-execution" data-fr="Formation INSA <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="INSA programme <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>Formation INSA <i class="fas fa-external-link-alt"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -308,7 +328,7 @@
         <a href="/SAE23/SAE23_fr.html" class="proj-card reveal" style="transition-delay:.1s" data-href-fr="/SAE23/SAE23_fr.html" data-href-en="/SAE23/SAE23.html">
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1c1917,#292524);"><i class="fas fa-code" style="color:#fb923c"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj"><i class="fas fa-terminal"></i> SAE 2.3 S2</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-terminal"></i> SAE 2.3 · S2</span>
             <h3 class="proj-title" data-fr="SAE23 — Solution informatique pour l'entreprise" data-en="SAE23 — IT solution for business">SAE23 — Solution informatique pour l'entreprise</h3>
             <p class="proj-desc" data-fr="Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation." data-en="Setting up an application-based IT solution for a business context. System integration, development and documentation.">Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation.</p>
             <div class="proj-tags">
@@ -321,7 +341,7 @@
         <div class="proj-card reveal" style="transition-delay:.2s">
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#172028,#1a3040);"><i class="fas fa-network-wired" style="color:#38bdf8"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj"><i class="fas fa-diagram-project"></i> SAE 3.03 S3</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-diagram-project"></i> SAE 3.03 · S3</span>
             <h3 class="proj-title" data-fr="SAE303 — Réseau multi-site" data-en="SAE303 — Multi-site network">SAE303 — Réseau multi-site</h3>
             <p class="proj-desc" data-fr="Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI." data-en="Multi-site network architecture for two e-commerce companies (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, high availability with dual ISP.">Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI.</p>
             <div class="proj-tags">
@@ -338,7 +358,7 @@
         <div class="proj-card reveal" style="transition-delay:.3s">
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a1a2e,#2d1a3e);"><i class="fas fa-bug" style="color:#a78bfa"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj"><i class="fas fa-shield-halved"></i> SAE 3.04 S3</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-shield-halved"></i> SAE 3.04 · S3</span>
             <h3 class="proj-title" data-fr="SAE304 — Découverte du pentesting (Root-Me)" data-en="SAE304 — Introduction to pentesting (Root-Me)">SAE304 — Découverte du pentesting (Root-Me)</h3>
             <p class="proj-desc" data-fr="Résolution de ~40 défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils." data-en="Solving ~40 challenges on Root-Me covering cryptography, steganography, web vulnerabilities, and reverse engineering. Using Wireshark, Burp Suite, and other tools.">Résolution de ~40 défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils.</p>
             <div class="proj-tags">
@@ -351,7 +371,7 @@
         <div class="proj-card reveal" style="transition-delay:.15s">
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2018,#283a20);"><i class="fas fa-terminal" style="color:#86efac"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj"><i class="fas fa-code-branch"></i> SAE 3.02 S3</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-code-branch"></i> SAE 3.02 · S3</span>
             <h3 class="proj-title" data-fr="SAE302 — Interface de surveillance distante" data-en="SAE302 — Remote monitoring interface">SAE302 — Interface de surveillance distante</h3>
             <p class="proj-desc" data-fr="Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP." data-en="Client-server system for sending system commands remotely to monitor and diagnose machines, similar to the SNMP protocol.">Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP.</p>
             <div class="proj-tags">
@@ -364,7 +384,7 @@
         <div class="proj-card reveal" style="transition-delay:.25s">
           <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2028,#1a3028);"><i class="fas fa-list-check" style="color:#34d399"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj"><i class="fas fa-users-gear"></i> SAÉ 5.02 S5</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-users-gear"></i> SAÉ 5.02 · S5</span>
             <h3 class="proj-title" data-fr="SAE502 — Pilotage de projet (TODO-List)" data-en="SAE502 — Project management (TODO-List)">SAE502 — Pilotage de projet (TODO-List)</h3>
             <p class="proj-desc" data-fr="Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello." data-en="Team development (7-8 people, SCRUM methodology) of a Python TODO-List app using Docker, PyTest, Sphinx, GitHub, and Trello.">Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello.</p>
             <div class="proj-tags">
@@ -385,7 +405,7 @@
   <section class="section" id="lycee">
     <div class="inner">
       <div class="s-header">
-        <span class="s-tag" data-fr="Lycée Jean-Baptiste Schwillgué Terminale STI2D" data-en="Jean-Baptiste Schwillgué High School Final year">Lycée Jean-Baptiste Schwillgué Terminale STI2D</span>
+        <span class="s-tag" data-fr="Lycée Jean-Baptiste Schwillgué · Terminale STI2D" data-en="Jean-Baptiste Schwillgué High School · Final year">Lycée Jean-Baptiste Schwillgué · Terminale STI2D</span>
         <h2 class="s-title" data-fr="Projet de Terminale" data-en="High School Final-year Project">Projet de Terminale</h2>
         <p class="s-sub" data-fr="Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT." data-en="Multi-technology integrative project completed in the final year of high school (ITEC track), before starting the B.Tech.">Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT.</p>
       </div>
@@ -415,7 +435,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>

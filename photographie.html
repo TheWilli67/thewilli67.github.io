@@ -1,15 +1,33 @@
+---
+# Page traitée par Jekyll (GitHub Pages) : la galerie liste automatiquement
+# les photos du dossier /photo/ (titres facultatifs dans _data/photos.yml).
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="William Hertrich Galerie photo amateur, Canon EOS 600D">
-  <title>Photographie — William Hertrich</title>
+  <meta name="description" content="William Hertrich · Galerie photo amateur, Canon EOS 600D">
+  <link rel="canonical" href="https://thewilli67.github.io/photographie.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Photographie">
+  <meta property="og:description" content="William Hertrich · Galerie photo amateur, Canon EOS 600D">
+  <meta property="og:url" content="https://thewilli67.github.io/photographie.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — Photographie</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
   <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
@@ -46,6 +64,9 @@
     }
     body.fade-in  { opacity: 1; }
     body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a   { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
     ul  { list-style: none; }
@@ -114,8 +135,8 @@
       color: #f8fafc; line-height: 1.08;
       margin-bottom: .75rem; letter-spacing: -.02em;
     }
-    .hero-sub { font-size: 1rem; color: #64748b; margin-bottom: 1.75rem; max-width: 520px; line-height: 1.7; }
-    .hero-sub strong { color: #94a3b8; font-weight: 600; }
+    .hero-sub { font-size: 1rem; color: #94a3b8; margin-bottom: 1.75rem; max-width: 520px; line-height: 1.7; }
+    .hero-sub strong { color: #cbd5e1; font-weight: 600; }
     .hero-meta {
       display: flex; flex-wrap: wrap; gap: .75rem; align-items: center;
     }
@@ -234,7 +255,7 @@
       margin-top: 1.25rem; text-align: center;
     }
     .lightbox-caption h3 { font-size: 1rem; font-weight: 700; color: #f8fafc; }
-    .lightbox-caption p  { font-size: .82rem; color: #64748b; margin-top: .2rem; }
+    .lightbox-caption p  { font-size: .82rem; color: #94a3b8; margin-top: .2rem; }
     .lightbox-close {
       position: absolute; top: 1.25rem; right: 1.25rem;
       width: 42px; height: 42px;
@@ -260,7 +281,7 @@
     .lightbox-next { right: 1.25rem; }
     .lightbox-counter {
       position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
-      font-size: .75rem; color: #475569; letter-spacing: .08em;
+      font-size: .75rem; color: #94a3b8; letter-spacing: .08em;
     }
 
     /* ===== Reveal ===== */
@@ -268,11 +289,15 @@
     .reveal.up { opacity: 1; transform: none; }
 
     /* ===== Footer ===== */
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
+
+    [hidden] { display: none !important; }
+    .photo-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .gallery-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 0; }
 
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
@@ -288,6 +313,7 @@
       .lightbox-nav { display: none; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -295,27 +321,31 @@
   <nav class="nav">
     <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
     <ul class="nav-links">
-      <li><a href="/index.html" class="show">Accueil</a></li>
+      <li><a href="/index.html" class="show" data-fr="Accueil" data-en="Home">Accueil</a></li>
       <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/a_propos.html">À propos</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
       <li><a href="/photographie.html" class="active show">Photo</a></li>
       <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
     </ul>
   </nav>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
-      <span class="hero-eyebrow"><i class="fas fa-camera"></i> Photographie amateure</span>
-      <h1 class="hero-title">Ma galerie photo</h1>
-      <p class="hero-sub">
+      <span class="hero-eyebrow"><i class="fas fa-camera"></i> <span data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</span></span>
+      <h1 class="hero-title" data-fr="Ma galerie photo" data-en="My photo gallery">Ma galerie photo</h1>
+      <p class="hero-sub"
+         data-fr="Quelques clichés dont je suis fier, capturés avec mon &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Macro florale, faune, lumières nocturnes et compositions atmosphériques : autant de sujets qui m'apprennent à voir différemment."
+         data-en="A few shots I'm proud of, taken with my &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Floral macro, wildlife, night lights and atmospheric compositions: subjects that teach me to see differently."
+         data-i18n-html>
         Quelques clichés dont je suis fier, capturés avec mon <strong>Canon EOS 600D</strong>.
-        Macro florale, faune, lumières nocturnes et compositions atmosphériques autant de sujets
+        Macro florale, faune, lumières nocturnes et compositions atmosphériques : autant de sujets
         qui m'apprennent à voir différemment.
       </p>
       <div class="hero-meta">
         <span class="hero-chip"><i class="fas fa-camera-retro"></i> Canon EOS 600D</span>
-        <span class="hero-chip"><i class="fas fa-images"></i> 8 photos</span>
+        <span class="hero-chip" id="photo-count-chip" hidden><i class="fas fa-images"></i> <span id="photo-count"></span> photos</span>
         <a href="https://thewilli67.github.io/photographie-helper-Canon600D/" target="_blank" class="btn-cheatsheet no-script-execution">
           <i class="fas fa-book-open"></i> Cheat sheet Canon 600D
         </a>
@@ -327,110 +357,14 @@
   <section class="gallery-section">
     <div class="inner">
       <div class="s-header reveal">
-        <span class="s-tag">Galerie</span>
-        <h2 class="s-title">Mes meilleures prises</h2>
-        <p class="s-sub">Cliquez sur une photo pour l'agrandir</p>
+        <span class="s-tag" data-fr="Galerie" data-en="Gallery">Galerie</span>
+        <h2 class="s-title" data-fr="Mes meilleures prises" data-en="My best shots">Mes meilleures prises</h2>
+        <p class="s-sub" data-fr="Cliquez sur une photo pour l'agrandir" data-en="Click a photo to enlarge it">Cliquez sur une photo pour l'agrandir</p>
       </div>
 
-      <div class="photo-grid">
-
-        <div class="photo-item reveal"
-             data-src="/photo/IMG_6466.JPG"
-             data-title="Roses en fleur"
-             data-desc="Bouquet de roses rouges mise au point sélective, bokeh naturel">
-          <img src="/photo/IMG_6466.JPG" alt="Roses rouges en fleur avec bokeh" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Roses en fleur</p>
-            <p class="photo-desc">Bokeh · Macro florale</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.08s"
-             data-src="/photo/IMG_6191.JPG"
-             data-title="Mésange perchée"
-             data-desc="Mésange charbonnière dans un saule pleureur observation nature">
-          <img src="/photo/IMG_6191.JPG" alt="Mésange charbonnière dans les branches" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Mésange perchée</p>
-            <p class="photo-desc">Faune · Nature</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.16s"
-             data-src="/photo/IMG_6455.JPG"
-             data-title="Clématite violette"
-             data-desc="Clématite en pleine floraison prise de vue macro en lumière naturelle">
-          <img src="/photo/IMG_6455.JPG" alt="Fleur de clématite violette en gros plan" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Clématite violette</p>
-            <p class="photo-desc">Macro · Floral</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.24s"
-             data-src="/photo/IMG_6043.JPG"
-             data-title="Réverbère et cumulus"
-             data-desc="Lampadaire rouge face à un cumulonimbus composition graphique ciel d'orage">
-          <img src="/photo/IMG_6043.JPG" alt="Réverbère rouge devant un nuage orageux" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Réverbère et cumulus</p>
-            <p class="photo-desc">Ciel · Urbain</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.32s"
-             data-src="/photo/IMG_5505.JPG"
-             data-title="Lanterne dans la nuit"
-             data-desc="Lanterne éclairée sur fond noir photographie nocturne, exposition manuelle">
-          <img src="/photo/IMG_5505.JPG" alt="Lanterne de nuit sur fond sombre" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Lanterne dans la nuit</p>
-            <p class="photo-desc">Nuit · Lumière</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.4s"
-             data-src="/photo/IMG_5713.JPG"
-             data-title="Cygne solitaire"
-             data-desc="Cygne tuberculé sur une rivière faune aquatique par temps couvert">
-          <img src="/photo/IMG_5713.JPG" alt="Cygne blanc sur l'eau par temps gris" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Cygne solitaire</p>
-            <p class="photo-desc">Faune · Eau</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.48s"
-             data-src="/photo/IMG_6024.JPG"
-             data-title="Grange alsacienne"
-             data-desc="Vieille grange en bois dans une prairie de pissenlits paysage rural printanier">
-          <img src="/photo/IMG_6024.JPG" alt="Grange en bois dans une prairie fleurie" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Grange alsacienne</p>
-            <p class="photo-desc">Paysage · Rural</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-        <div class="photo-item reveal" style="transition-delay:.56s"
-             data-src="/photo/IMG_6373.JPG"
-             data-title="Cigogne en marche"
-             data-desc="Cigogne blanche traversant un pré emblème de l'Alsace en liberté">
-          <img src="/photo/IMG_6373.JPG" alt="Cigogne blanche marchant dans un pré" loading="lazy">
-          <div class="photo-overlay">
-            <p class="photo-title">Cigogne en marche</p>
-            <p class="photo-desc">Faune · Alsace</p>
-          </div>
-          <div class="photo-zoom-icon"><i class="fas fa-expand"></i></div>
-        </div>
-
-      </div>
+      <!-- Rempli automatiquement à partir du dossier /photo/ (voir _data/photos.yml) -->
+      <div class="photo-grid" id="photo-grid"></div>
+      <p class="gallery-empty" id="gallery-empty" hidden></p>
     </div>
   </section>
 
@@ -452,70 +386,185 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-links">
-      <a href="/index.html">Accueil</a>
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="/portfolio.html">Portfolio</a>
       <a href="/contact.html">Contact</a>
       <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
-      <a href="/mentions_legales.html">Mentions légales</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p>&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
+  <!--
+    Liste des photos générée par Jekyll (GitHub Pages) au moment de la publication :
+    tous les fichiers .jpg/.jpeg/.png/.webp du dossier /photo/, plus les titres de _data/photos.yml.
+    En local (sans Jekyll), ces blocs ne sont pas interprétés et la galerie affiche un message.
+  -->
+  <script id="photo-files" type="application/json">[{% for f in site.static_files %}{% if f.path contains '/photo/' %}{% assign ext = f.extname | downcase %}{% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}{{ f.path | jsonify }},{% endif %}{% endif %}{% endfor %}null]</script>
+  <script id="photo-meta" type="application/json">{{ site.data.photos | jsonify }}</script>
+
   <script>
-    /* Reveal on scroll */
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+    (function () {
+      'use strict';
+
+      function storedLang() {
+        try { return localStorage.getItem('lang') || 'fr'; } catch (e) { return 'fr'; }
+      }
+      function lang() { return window.i18n ? window.i18n.getLang() : storedLang(); }
+
+      /* Titre déduit du nom de fichier ; pas de titre pour les noms d'appareil (IMG_1234…) */
+      function titleFromName(name) {
+        var base = name.replace(/\.[^.]+$/, '');
+        if (/^(IMG|DSC|DSCN|DSCF|DCIM|_MG|PXL|DJI|P\d{3})[_ -]?\d+/i.test(base)) return '';
+        return base.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+
+      /* ---- Lecture des données générées par Jekyll ---- */
+      var grid = document.getElementById('photo-grid');
+      var empty = document.getElementById('gallery-empty');
+      var files, meta;
+      try {
+        files = JSON.parse(document.getElementById('photo-files').textContent).filter(Boolean);
+        meta = JSON.parse(document.getElementById('photo-meta').textContent) || {};
+      } catch (e) {
+        files = null;
+      }
+
+      function showEmpty(fr, en) {
+        empty.setAttribute('data-fr', fr);
+        empty.setAttribute('data-en', en);
+        empty.textContent = lang() === 'en' ? en : fr;
+        empty.hidden = false;
+      }
+
+      var photos = [];
+      if (files === null) {
+        showEmpty('La galerie est générée par GitHub Pages : elle s\'affiche sur le site en ligne.',
+                  'The gallery is generated by GitHub Pages: it shows up on the live site.');
+      } else {
+        var byName = {};
+        files.forEach(function (path) { byName[path.split('/').pop()] = path; });
+        var ordered = Object.keys(meta).filter(function (n) { return byName[n]; });
+        Object.keys(byName).sort(function (a, b) { return a.localeCompare(b, 'fr', { numeric: true }); })
+          .forEach(function (n) { if (ordered.indexOf(n) === -1) ordered.push(n); });
+
+        photos = ordered.map(function (name) {
+          var m = meta[name] || {};
+          var title = m.title || titleFromName(name);
+          return {
+            src: encodeURI(byName[name]),
+            title: { fr: title, en: m.title_en || title },
+            tags: { fr: m.tags || '', en: m.tags_en || m.tags || '' },
+            desc: { fr: m.desc || '', en: m.desc_en || m.desc || '' },
+            alt: { fr: m.alt || title || 'Photo', en: m.alt_en || m.alt || title || 'Photo' }
+          };
+        });
+        if (!photos.length) {
+          showEmpty('Aucune photo pour le moment.', 'No photos yet.');
+        }
+      }
+
+      /* ---- Construction de la grille ---- */
+      function el(tag, cls, fr, en) {
+        var node = document.createElement(tag);
+        if (cls) node.className = cls;
+        if (fr !== undefined) {
+          node.setAttribute('data-fr', fr);
+          node.setAttribute('data-en', en);
+          node.textContent = lang() === 'en' ? en : fr;
+        }
+        return node;
+      }
+
+      photos.forEach(function (p, i) {
+        var item = el('div', 'photo-item reveal');
+        item.style.transitionDelay = ((i % 3) * 0.08) + 's';
+        item.tabIndex = 0;
+        item.setAttribute('role', 'button');
+
+        var img = document.createElement('img');
+        img.src = p.src;
+        img.alt = p.alt[lang()] || p.alt.fr;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        item.appendChild(img);
+
+        if (p.title.fr || p.tags.fr) {
+          var overlay = el('div', 'photo-overlay');
+          if (p.title.fr) overlay.appendChild(el('p', 'photo-title', p.title.fr, p.title.en));
+          if (p.tags.fr) overlay.appendChild(el('p', 'photo-desc', p.tags.fr, p.tags.en));
+          item.appendChild(overlay);
+        }
+        var zoom = el('div', 'photo-zoom-icon');
+        zoom.innerHTML = '<i class="fas fa-expand"></i>';
+        item.appendChild(zoom);
+
+        item.addEventListener('click', function () { openLightbox(i); });
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+        });
+        grid.appendChild(item);
       });
-    }, { threshold: 0.08 });
-    reveals.forEach(r => io.observe(r));
 
-    /* Lightbox */
-    const items = Array.from(document.querySelectorAll('.photo-item'));
-    const lb     = document.getElementById('lightbox');
-    const lbImg  = document.getElementById('lb-img');
-    const lbTitle = document.getElementById('lb-title');
-    const lbDesc  = document.getElementById('lb-desc');
-    const lbCounter = document.getElementById('lb-counter');
-    let current = 0;
+      if (photos.length) {
+        document.getElementById('photo-count').textContent = photos.length;
+        document.getElementById('photo-count-chip').hidden = false;
+      }
 
-    function openLightbox(idx) {
-      current = idx;
-      const item = items[idx];
-      lbImg.src  = item.dataset.src;
-      lbImg.alt  = item.querySelector('img').alt;
-      lbTitle.textContent   = item.dataset.title;
-      lbDesc.textContent    = item.dataset.desc;
-      lbCounter.textContent = (idx + 1) + ' / ' + items.length;
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+      /* ---- Apparition au défilement ---- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (r) { io.observe(r); });
 
-    function closeLightbox() {
-      lb.classList.remove('open');
-      document.body.style.overflow = '';
-    }
+      /* ---- Visionneuse ---- */
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lb-img');
+      var lbTitle = document.getElementById('lb-title');
+      var lbDesc = document.getElementById('lb-desc');
+      var lbCounter = document.getElementById('lb-counter');
+      var current = 0;
+      var lastFocus = null;
 
-    function navigate(dir) {
-      current = (current + dir + items.length) % items.length;
-      openLightbox(current);
-    }
+      function openLightbox(idx) {
+        var p = photos[idx], l = lang();
+        if (!lb.classList.contains('open')) lastFocus = document.activeElement;
+        current = idx;
+        lbImg.src = p.src;
+        lbImg.alt = p.alt[l] || p.alt.fr;
+        lbTitle.textContent = p.title[l] || p.title.fr;
+        lbDesc.textContent = p.desc[l] || p.desc.fr;
+        lbCounter.textContent = (idx + 1) + ' / ' + photos.length;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('lb-close').focus();
+      }
 
-    items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
-    document.getElementById('lb-close').addEventListener('click', closeLightbox);
-    document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
-    document.getElementById('lb-next').addEventListener('click', () => navigate(1));
+      function closeLightbox() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      }
 
-    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+      function navigate(dir) {
+        openLightbox((current + dir + photos.length) % photos.length);
+      }
 
-    document.addEventListener('keydown', (e) => {
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape')     closeLightbox();
-      if (e.key === 'ArrowLeft')  navigate(-1);
-      if (e.key === 'ArrowRight') navigate(1);
-    });
+      document.getElementById('lb-close').addEventListener('click', closeLightbox);
+      document.getElementById('lb-prev').addEventListener('click', function () { navigate(-1); });
+      document.getElementById('lb-next').addEventListener('click', function () { navigate(1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+      });
+    })();
   </script>
 
 </body>

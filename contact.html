@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contacter William Hertrich Ingénieur Systèmes & Réseaux">
+  <meta name="description" content="Contacter William Hertrich · Ingénieur Systèmes & Réseaux">
+  <link rel="canonical" href="https://thewilli67.github.io/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Contact">
+  <meta property="og:description" content="Contacter William Hertrich · Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:url" content="https://thewilli67.github.io/contact.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
   <title>William Hertrich — Contact</title>
   <link rel="icon" href="/Images_photos/reprendre.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +39,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
     body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
     a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
     /* Nav */
@@ -45,7 +61,7 @@
     .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
     .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
     .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
-    .ph-sub { font-size: 1rem; color: #64748b; max-width: 600px; line-height: 1.7; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.7; }
 
     /* Sections */
     .section { padding: 5rem 5%; }
@@ -81,28 +97,6 @@
     .ccard-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; transition: var(--t); flex-shrink: 0; }
     .ccard:hover .ccard-arrow { color: var(--accent); transform: translateX(3px); }
 
-    .section-alt { background: var(--bg-alt); }
-    .s-sub { font-size: .95rem; color: var(--text-m); margin-top: .5rem; }
-
-    /* Form */
-    .form-wrapper {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); overflow: hidden;
-      box-shadow: var(--sh-sm); margin-bottom: 1.25rem;
-    }
-    .form-wrapper iframe { display: block; width: 100%; border: none; }
-    .form-privacy {
-      display: flex; align-items: flex-start; gap: .6rem;
-      background: var(--bg-alt); border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      padding: .9rem 1.1rem;
-      font-size: .8rem; color: var(--text-m); line-height: 1.65;
-    }
-    .form-privacy i { color: var(--accent); margin-top: .15rem; flex-shrink: 0; }
-    .form-privacy a { color: var(--accent); }
-    .form-privacy a:hover { text-decoration: underline; }
-
     /* Message box */
     .msg-box {
       background: var(--bg-card); border: 1px solid var(--border);
@@ -117,9 +111,9 @@
     .reveal.up { opacity: 1; transform: none; }
 
     /* Footer */
-    footer { background: var(--bg-dark); color: #475569; padding: 2rem 5%; text-align: center; }
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
     .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #64748b; font-size: .85rem; transition: var(--t); }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
     .footer-links a:hover { color: #60a5fa; }
     footer p { font-size: .8rem; }
 
@@ -132,6 +126,7 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -209,35 +204,6 @@
     </div>
   </section>
 
-  <!-- Formulaire de contact -->
-  <section class="section section-alt" id="formulaire">
-    <div class="inner">
-
-      <div class="s-header">
-        <span class="s-tag" data-fr="Formulaire de contact" data-en="Contact form">Formulaire de contact</span>
-        <h2 class="s-title" data-fr="Envoyer un message" data-en="Send a message">Envoyer un message</h2>
-        <p class="s-sub" data-fr="Remplissez le formulaire ci-dessous, je vous répondrai dans les meilleurs délais." data-en="Fill in the form below and I'll get back to you as soon as possible.">Remplissez le formulaire ci-dessous, je vous répondrai dans les meilleurs délais.</p>
-      </div>
-
-      <div class="form-wrapper reveal">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSeiwEalkJyMqfiKao8_2wHNXZsJvhy1OJ1YSw1k8sqStK8ahw/viewform?embedded=true"
-          width="100%"
-          height="1163"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Formulaire de contact William Hertrich">Chargement…</iframe>
-      </div>
-
-      <div class="form-privacy reveal">
-        <i class="fas fa-lock"></i>
-        <span data-fr="Votre adresse e-mail est utilisée <strong>exclusivement</strong> pour répondre à votre demande. Elle ne fait l'objet d'aucune revente ni exploitation commerciale. Suppression sur demande : <a href=&quot;mailto:william.hertrich@proton.me&quot;>william.hertrich@proton.me</a> <a href=&quot;/mentions_legales.html&quot;>Mentions légales</a>" data-en="Your email address is used <strong>exclusively</strong> to respond to your request. It is never sold or commercially exploited. Deletion on request: <a href=&quot;mailto:william.hertrich@proton.me&quot;>william.hertrich@proton.me</a> <a href=&quot;/mentions_legales.html&quot;>Legal notice</a>" data-i18n-html>Votre adresse e-mail est utilisée <strong>exclusivement</strong> pour répondre à votre demande. Elle ne fait l'objet d'aucune revente ni exploitation commerciale. Suppression sur demande : <a href="mailto:william.hertrich@proton.me">william.hertrich@proton.me</a> <a href="/mentions_legales.html">Mentions légales</a></span>
-      </div>
-
-    </div>
-  </section>
-
   <footer>
     <div class="footer-links">
       <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
@@ -247,7 +213,7 @@
       <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
       <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
     </div>
-    <p data-fr="© 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich Systems &amp; Network Engineer">&copy; 2026 William Hertrich Ingénieur Systèmes &amp; Réseaux</p>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
   </footer>
 
   <script>
