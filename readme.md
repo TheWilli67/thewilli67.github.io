@@ -178,7 +178,7 @@ python -m http.server 8000   # ou : npx serve .
 | `contact.html` | LinkedIn, GitHub, email, CV PDF |
 | `photographie.html` | Galerie photo (Canon EOS 600D) |
 | `jeux.html` | Ludothèque : bibliothèque Steam synchronisée et jeux hors Steam |
-| `experience/oci.html` | Poste actuel : DSI interne OCI, Aruba, VMware, Stormshield, supervision Zabbix/LibreNMS/NetBox… |
+| `experience/oci.html` | Poste actuel : DSI interne OCI, Aruba, VMware, WatchGuard, supervision Zabbix/LibreNMS/NetBox… |
 | `alternance/reseau-net.html` | MSP multi-clients, FortiGate, SentinelOne, VMware… |
 | `alternance/solinest.html` | Helpdesk, AD, Centreon, migration WS 2016… |
 | `projets_pro/refonte_glpi.html` | Refonte GLPI 9.x → 10.x chez SOLINEST : types de demandes, workflow d'attribution, SSO Google Workspace, base de connaissances |

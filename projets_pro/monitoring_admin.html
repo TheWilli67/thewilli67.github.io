@@ -446,7 +446,7 @@
             <p class="arch-layer-body" data-fr="Rendu des panneaux Grafana en PNG, embarqués en CID inline, envoyés en SMTP direct" data-en="Grafana panels rendered to PNG, embedded as inline CID, sent via direct SMTP">Rendu des panneaux Grafana en PNG, embarqués en CID inline, envoyés en SMTP direct</p>
           </div>
         </div>
-        <p class="arch-note" style="margin-top:1.5rem;text-align:center" data-fr="Un digest journalier planifié via systemd timer complète ce flux temps-réel avec un récap matinal." data-en="A daily digest scheduled via a systemd timer complements this real-time flow with a morning summary.">Un digest journalier planifié via systemd timer complète ce flux temps-réel avec un récap matinal.</p>
+        <p class="arch-note" style="margin-top:1.5rem;text-align:center" data-fr="Un digest journalier planifié complète ce flux temps réel avec un récap matinal." data-en="A scheduled daily digest complements this real-time flow with a morning summary.">Un digest journalier planifié complète ce flux temps réel avec un récap matinal.</p>
       </div>
     </div>
   </section>
@@ -530,7 +530,7 @@
         <div class="real-card reveal" style="transition-delay:.3s">
           <div class="real-icon ri-green"><i class="fas fa-clock"></i></div>
           <h3 class="real-title" data-fr="Digest journalier automatique" data-en="Automatic daily digest">Digest journalier automatique</h3>
-          <p class="real-desc" data-fr="Script Python déclenché par un systemd timer chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe." data-en="Python script triggered by a systemd timer each morning: queries Prometheus, aggregates DOWN links per client, and sends a summary email to the team.">Script Python déclenché par un systemd timer chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe.</p>
+          <p class="real-desc" data-fr="Script Python lancé automatiquement chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe." data-en="Python script run automatically each morning: queries Prometheus, aggregates DOWN links per client, and sends a summary email to the team.">Script Python lancé automatiquement chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe.</p>
           <ul class="real-list">
             <li data-fr="Requête PromQL sur probe_success == 0" data-en="PromQL query on probe_success == 0">Requête PromQL sur probe_success == 0</li>
             <li data-fr="Regroupement par client avec IP, description, opérateur" data-en="Grouping per client with IP, description, operator">Regroupement par client avec IP, description, opérateur</li>
@@ -545,7 +545,7 @@
           <ul class="real-list">
             <li data-fr="Basic Auth sur l'interface web (identifiants dédiés)" data-en="Basic Auth on the web UI (dedicated credentials)">Basic Auth sur l'interface web (identifiants dédiés)</li>
             <li data-fr="Endpoint webhook isolé, token en variable d'environnement" data-en="Isolated webhook endpoint, token stored in an environment variable">Endpoint webhook isolé, token en variable d'environnement</li>
-            <li data-fr="Service Uvicorn géré par systemd (auto-restart, logs journalctl)" data-en="Uvicorn service managed by systemd (auto-restart, journalctl logs)">Service Uvicorn géré par systemd (auto-restart, logs journalctl)</li>
+            <li data-fr="Tous les services tournent en conteneurs (Docker Compose)" data-en="All services run in containers (Docker Compose)">Tous les services tournent en conteneurs (Docker Compose)</li>
           </ul>
         </div>
 
@@ -690,7 +690,6 @@
           <div class="tool-tags">
             <span class="ttag">Docker Compose</span>
             <span class="ttag">Nginx</span>
-            <span class="ttag">systemd</span>
             <span class="ttag">Uvicorn</span>
             <span class="ttag">SMTP</span>
           </div>

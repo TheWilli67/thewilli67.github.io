@@ -308,6 +308,8 @@
       border: 1px solid var(--border); transition: var(--t);
     }
     .stag:hover { background: var(--accent-lt); color: var(--accent); border-color: rgba(37,99,235,.3); }
+    .skill-sub { font-size: .7rem; font-weight: 600; color: var(--text-m); text-transform: uppercase; letter-spacing: .06em; margin: .9rem 0 .45rem; }
+    .stag-course { background: transparent; border-style: dashed; }
 
     /* Certifications */
     .certs-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; justify-content: center; }
@@ -499,13 +501,13 @@
             <strong>OCI Informatique</strong>, au sein de la DSI interne : gestion de tickets, conduite
             de projets d'infrastructure et maintenance opérationnelle.
           </p>
-          <p data-fr="Mes deux ans d'alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance, m'ont permis d'intervenir quotidiennement sur des infrastructures multi-clients variées : virtualisation, firewalling, supervision, sauvegarde et support niveau 2/3." data-en="My two years of work-study at <strong>Réseau-Net</strong>, an MSP specializing in managed IT services, had me working daily on varied multi-client infrastructures: virtualization, firewalling, monitoring, backup, and level 2/3 support." data-i18n-html>
+          <p data-fr="Mes deux ans d'alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance, m'ont permis d'intervenir quotidiennement sur des infrastructures multi-clients variées : virtualisation, firewalling, supervision, sauvegarde et support (hotline, tickets et escalades)." data-en="My two years of work-study at <strong>Réseau-Net</strong>, an MSP specializing in managed IT services, had me working daily on varied multi-client infrastructures: virtualization, firewalling, monitoring, backup, and support (helpdesk, tickets and escalations)." data-i18n-html>
             Mes deux ans d'alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance,
             m'ont permis d'intervenir quotidiennement sur des infrastructures multi-clients variées :
-            virtualisation, firewalling, supervision, sauvegarde et support niveau 2/3.
+            virtualisation, firewalling, supervision, sauvegarde et support (hotline, tickets et escalades).
           </p>
-          <p data-fr="En dehors du technique, je suis passionné par la moto, la musique, la pêche, la <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>photographie amateure</a> et les jeux de stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité." data-en="Outside of work, I am passionate about motorcycles, music, fishing, <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>amateur photography</a>, and strategy &amp; co-op games, hobbies that reflect my discipline and curiosity." data-i18n-html>
-            En dehors du technique, je suis passionné par la moto, la musique, la pêche, la
+          <p data-fr="En dehors du technique, je suis passionné par la moto, la musique, la lecture, la pêche, la <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>photographie amateure</a> et les jeux de stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité." data-en="Outside of work, I am passionate about motorcycles, music, reading, fishing, <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>amateur photography</a>, and strategy &amp; co-op games, hobbies that reflect my discipline and curiosity." data-i18n-html>
+            En dehors du technique, je suis passionné par la moto, la musique, la lecture, la pêche, la
             <a href="/photographie.html" style="color:var(--accent)">photographie amateure</a> et les jeux de
             stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité.
           </p>
@@ -584,20 +586,23 @@
           <div class="skill-tags">
             <span class="stag">TCP/IP</span>
             <span class="stag">VLAN</span>
-            <span class="stag">OSPF</span>
-            <span class="stag">BGP</span>
-            <span class="stag">MSTP / STP</span>
             <span class="stag">LACP</span>
             <span class="stag">NAT / PAT</span>
             <span class="stag">QoS</span>
-            <span class="stag" data-fr="Routage dynamique" data-en="Dynamic routing">Routage dynamique</span>
             <span class="stag">Switching</span>
             <span class="stag">Cisco</span>
             <span class="stag">Fortinet</span>
             <span class="stag">Observium</span>
             <span class="stag">Centreon</span>
             <span class="stag">Aruba Instant</span>
-            <span class="stag">Wi-Fi</span>
+          </div>
+          <p class="skill-sub" data-fr="Vus en formation" data-en="Covered in training">Vus en formation</p>
+          <div class="skill-tags">
+            <span class="stag stag-course">OSPF</span>
+            <span class="stag stag-course">BGP</span>
+            <span class="stag stag-course" data-fr="Routage dynamique" data-en="Dynamic routing">Routage dynamique</span>
+            <span class="stag stag-course">MSTP / STP</span>
+            <span class="stag stag-course">Wi-Fi</span>
           </div>
         </div>
 
@@ -630,7 +635,7 @@
             <span class="stag">GLPI</span>
             <span class="stag">Office 365</span>
             <span class="stag">Google Workspace</span>
-            <span class="stag" data-fr="Helpdesk N2 / N3" data-en="Helpdesk L2 / L3">Helpdesk N2 / N3</span>
+            <span class="stag" data-fr="Helpdesk N1 à N3" data-en="Helpdesk L1 to L3">Helpdesk N1 à N3</span>
           </div>
         </div>
 
@@ -687,7 +692,6 @@
                   <span class="echip">Aruba ArubaOS-CX</span>
                   <span class="echip" data-fr="Stacking VSF" data-en="VSF stacking">Stacking VSF</span>
                   <span class="echip">VLAN / LAG / LACP</span>
-                  <span class="echip">MSTP</span>
                   <span class="echip">802.1X / RADIUS</span>
                 </div>
               </div>
@@ -703,7 +707,7 @@
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Sécurité" data-en="Security">Sécurité</span>
                 <div class="exp-chips">
-                  <span class="echip">Stormshield / WatchGuard</span>
+                  <span class="echip">WatchGuard</span>
                   <span class="echip">WithSecure EDR</span>
                   <span class="echip">OpenCVE</span>
                   <span class="echip">Keeper</span>
@@ -759,16 +763,16 @@
                   <span class="echip" data-fr="Règles firewall" data-en="Firewall rules">Règles firewall</span>
                   <span class="echip">VPN S2S &amp; C2S</span>
                   <span class="echip">SentinelOne EDR</span>
-                  <span class="echip">Stormshield CSNA</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Supervision" data-en="Monitoring">Supervision</span>
                 <div class="exp-chips">
                   <span class="echip">Observium</span>
+                  <span class="echip">Centreon</span>
                   <span class="echip">Veeam</span>
                   <span class="echip">Synology ActiveBackup</span>
-                  <span class="echip">GLPI N2 / N3</span>
+                  <span class="echip" data-fr="Hotline &amp; tickets GLPI" data-en="Helpdesk &amp; GLPI tickets">Hotline &amp; tickets GLPI</span>
                 </div>
               </div>
               <div class="exp-cat">
@@ -789,7 +793,7 @@
           <div class="exp-card">
             <div class="exp-head">
               <div>
-                <p class="exp-role" data-fr="Alternant Technicien Informatique" data-en="Work-study IT Technician">Alternant Technicien Informatique</p>
+                <p class="exp-role" data-fr="Alternant Technicien Systèmes &amp; Réseaux" data-en="Work-study Systems &amp; Network Technician">Alternant Technicien Systèmes &amp; Réseaux</p>
                 <p class="exp-company" data-fr="SOLINEST · Secteur agroalimentaire" data-en="SOLINEST · Food industry">SOLINEST · Secteur agroalimentaire</p>
                 <p class="exp-loc"><i class="fas fa-map-pin"></i>Brunstatt-Didenheim, Grand Est</p>
               </div>
