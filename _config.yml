@@ -3,3 +3,8 @@ exclude:
   - DESIGN.md
   - Observium
   - "skills-lock*.json"
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - readme.md
