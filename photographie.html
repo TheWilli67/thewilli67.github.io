@@ -97,6 +97,8 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       column-gap: 1.25rem;
     }
     .photo-item {
+      display: block; width: 100%; padding: 0; border: 0;   /* <button> : réinitialisation */
+      font: inherit; color: inherit; text-align: left;
       break-inside: avoid;
       margin-bottom: 1.25rem;
       position: relative;
@@ -107,7 +109,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       box-shadow: var(--sh-sm);
       transition: transform var(--t), box-shadow var(--t);
     }
-    .photo-item:hover {
+    .photo-item:hover, .photo-item:focus-visible {
       transform: translateY(-4px);
       box-shadow: var(--sh-lg);
     }
@@ -116,7 +118,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       display: block;
       transition: transform 0.4s ease, filter 0.3s ease;
     }
-    .photo-item:hover img {
+    .photo-item:hover img, .photo-item:focus-visible img {
       transform: scale(1.03);
       filter: brightness(0.85);
     }
@@ -127,7 +129,8 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 1.25rem 1.25rem 1rem;
     }
-    .photo-item:hover .photo-overlay { opacity: 1; }
+    .photo-item:hover .photo-overlay, .photo-item:focus-visible .photo-overlay { opacity: 1; }
+    .photo-title, .photo-desc { display: block; }
     .photo-title {
       font-size: .92rem; font-weight: 700; color: #f8fafc;
       margin-bottom: .2rem; line-height: 1.3;
@@ -141,18 +144,24 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       color: #f8fafc; font-size: .8rem;
       opacity: 0; transition: opacity 0.3s ease;
     }
-    .photo-item:hover .photo-zoom-icon { opacity: 1; }
+    .photo-item:hover .photo-zoom-icon, .photo-item:focus-visible .photo-zoom-icon { opacity: 1; }
 
     /* ===== Lightbox ===== */
+    /* <dialog> plein écran : il sert lui-même de fond, le ::backdrop reste transparent */
     .lightbox {
+      width: 100%; height: 100%; max-width: none; max-height: none;
+      margin: 0; padding: 0; border: 0; color: inherit; overscroll-behavior: contain;
       position: fixed; inset: 0; z-index: 9000;
       background: rgba(9,11,17,.96);
       backdrop-filter: blur(8px);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
     }
-    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox:not([open]) { display: none; }
+    .lightbox::backdrop { background: transparent; }
+    @media (prefers-reduced-motion: no-preference) {
+      .lightbox[open] { animation: lb-in .25s ease; }
+      @keyframes lb-in { from { opacity: 0; } }
+    }
     .lightbox-img-wrap {
       position: relative;
       max-width: 92vw; max-height: 82vh;
@@ -218,6 +227,8 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
   <!-- ===== NAVBAR ===== -->
   {% include nav.html active="apropos" %}
 
+  <main id="contenu" tabindex="-1">
+
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
@@ -257,19 +268,21 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
   </section>
 
   <!-- ===== LIGHTBOX ===== -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
-    <button class="lightbox-close" id="lb-close" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
-    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Photo précédente">{% include icon.html id="fas-chevron-left" %}</button>
-    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Photo suivante">{% include icon.html id="fas-chevron-right" %}</button>
+  <dialog class="lightbox" id="lightbox" aria-label="Visionneuse photo">
+    <button type="button" class="lightbox-close" id="lb-close" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Photo précédente">{% include icon.html id="fas-chevron-left" %}</button>
+    <button type="button" class="lightbox-nav lightbox-next" id="lb-next" aria-label="Photo suivante">{% include icon.html id="fas-chevron-right" %}</button>
     <div class="lightbox-img-wrap">
       <img id="lb-img" alt="">
     </div>
-    <div class="lightbox-caption">
+    <div class="lightbox-caption" aria-live="polite">
       <h3 id="lb-title"></h3>
       <p id="lb-desc"></p>
     </div>
     <p class="lightbox-counter" id="lb-counter"></p>
-  </div>
+  </dialog>
+
+  </main>
 
   <!-- ===== FOOTER ===== -->
   {% include footer.html %}
@@ -355,10 +368,9 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       }
 
       photos.forEach(function (p, i) {
-        var item = el('div', 'photo-item reveal');
+        var item = el('button', 'photo-item reveal');
+        item.type = 'button';
         item.style.transitionDelay = ((i % 3) * 0.08) + 's';
-        item.tabIndex = 0;
-        item.setAttribute('role', 'button');
 
         /* Grille : 3 colonnes (max. 384 px), 2 sous 900 px, 1 sous 600 px */
         var img = document.createElement('img');
@@ -373,19 +385,17 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         item.appendChild(img);
 
         if (p.title.fr || p.tags.fr) {
-          var overlay = el('div', 'photo-overlay');
-          if (p.title.fr) overlay.appendChild(el('p', 'photo-title', p.title.fr, p.title.en));
-          if (p.tags.fr) overlay.appendChild(el('p', 'photo-desc', p.tags.fr, p.tags.en));
+          var overlay = el('span', 'photo-overlay');
+          overlay.setAttribute('aria-hidden', 'true');  /* le bouton est nommé par le texte alternatif de la photo */
+          if (p.title.fr) overlay.appendChild(el('span', 'photo-title', p.title.fr, p.title.en));
+          if (p.tags.fr) overlay.appendChild(el('span', 'photo-desc', p.tags.fr, p.tags.en));
           item.appendChild(overlay);
         }
-        var zoom = el('div', 'photo-zoom-icon');
+        var zoom = el('span', 'photo-zoom-icon');
         zoom.innerHTML = "{% include icon.html id='fas-expand' %}";
         item.appendChild(zoom);
 
         item.addEventListener('click', function () { openLightbox(i); });
-        item.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
-        });
         grid.appendChild(item);
       });
 
@@ -403,38 +413,42 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       var current = 0;
       var lastFocus = null;
 
-      function openLightbox(idx) {
+      /* <dialog> modal : page derrière inerte, Échap ferme, focus rendu à la photo d'origine */
+      function show(idx) {
         var p = photos[idx], l = lang();
-        if (!lb.classList.contains('open')) lastFocus = document.activeElement;
         current = idx;
         lbImg.src = p.full.src;
         lbImg.alt = p.alt[l] || p.alt.fr;
         lbTitle.textContent = p.title[l] || p.title.fr;
         lbDesc.textContent = p.desc[l] || p.desc.fr;
         lbCounter.textContent = (idx + 1) + ' / ' + photos.length;
-        lb.classList.add('open');
-        document.body.style.overflow = 'hidden';
+      }
+
+      function openLightbox(idx) {
+        lastFocus = document.activeElement;
+        show(idx);
+        document.documentElement.classList.add('modal-open');
+        lb.showModal();
         document.getElementById('lb-close').focus();
       }
 
-      function closeLightbox() {
-        lb.classList.remove('open');
-        document.body.style.overflow = '';
-        if (lastFocus) lastFocus.focus();
-      }
-
       function navigate(dir) {
-        openLightbox((current + dir + photos.length) % photos.length);
+        show((current + dir + photos.length) % photos.length);
       }
 
+      function closeLightbox() {
+        if (lb.open) lb.close();
+        document.documentElement.classList.remove('modal-open');
+        if (lastFocus) { lastFocus.focus(); lastFocus = null; }
+      }
+
+      lb.addEventListener('cancel', function (e) { e.preventDefault(); closeLightbox(); });  /* Échap */
+      lb.addEventListener('close', function () { document.documentElement.classList.remove('modal-open'); });
       document.getElementById('lb-close').addEventListener('click', closeLightbox);
       document.getElementById('lb-prev').addEventListener('click', function () { navigate(-1); });
       document.getElementById('lb-next').addEventListener('click', function () { navigate(1); });
-      lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
-
-      document.addEventListener('keydown', function (e) {
-        if (!lb.classList.contains('open')) return;
-        if (e.key === 'Escape') closeLightbox();
+      lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });  /* clic sur le fond */
+      lb.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') navigate(-1);
         if (e.key === 'ArrowRight') navigate(1);
       });

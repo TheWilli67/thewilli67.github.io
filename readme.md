@@ -34,6 +34,7 @@ thewilli67.github.io/
 ├── jeux.html                   # Ludothèque, générée depuis Steam et _data/jeux.yml
 ├── projet_72h.html             # Projet hydrolienne, Terminale STI2D
 ├── mentions_legales.html       # Mentions légales (LCEN)
+├── Gemfile                     # Prévisualisation locale : même Jekyll que la publication (bundle exec jekyll serve)
 │
 ├── alternance/
 │   ├── reseau-net.html         # Détail alternance Réseau-Net (2024–2026)
@@ -120,6 +121,7 @@ Aucun framework CSS ni bundler, aucune ressource chargée depuis un autre domain
 - **Scroll reveal** : les éléments `.reveal` situés sous l'écran apparaissent au défilement (`reveal.js`) ; rien n'est masqué sans JavaScript ni avec `prefers-reduced-motion`
 - **Images légères** : WebP avec `width` / `height` (pas de décalage au chargement), `loading="lazy"` hors du premier écran, portrait prioritaire (`fetchpriority="high"`)
 - **Responsive** : breakpoints à 900 px et 600 px, menu burger sur mobile
+- **Accessibilité** : lien d'évitement et zone `<main>` sur chaque page, `aria-current` dans le menu, menu mobile utilisable au clavier (Échap pour fermer), fenêtres modales natives (`<dialog>` : langue, visionneuses), onglets du BUT au clavier (flèches, Début, Fin), focus toujours visible
 - **Partage sur les réseaux** : balises Open Graph / Twitter et image d'aperçu 1200×630 sur toutes les pages
 - **Galerie photo dynamique** : les photos déposées dans `_photos/` apparaissent seules (versions WebP 800 / 1200 px pour la grille, 2048 px pour la visionneuse `←` `→` `Esc`)
 - **Ludothèque synchronisée** : bibliothèque Steam mise à jour chaque jour, plus les jeux hors Steam saisis à la main
@@ -218,10 +220,13 @@ La clé reste dans les secrets GitHub : elle n'apparaît ni dans le code ni sur 
 
 Le site passe par Jekyll (morceaux communs `_includes/`, données `_data/`) : un simple serveur statique (`npx serve .`, `python -m http.server`) afficherait les balises `{% include %}` telles quelles, sans menu, galerie ni Ludothèque. La commande adaptée est `jekyll serve`, qui demande Ruby.
 
-Installation, une seule fois (Windows : [RubyInstaller](https://rubyinstaller.org/) avec Devkit) :
+Le [`Gemfile`](Gemfile) fixe la même version que l'Action de publication (gem `github-pages` 232, soit Jekyll 3.10.0) : l'aperçu local est construit comme le site en ligne.
+
+Installation, une seule fois (Windows : [RubyInstaller](https://rubyinstaller.org/), version « Ruby+Devkit ») :
 
 ```bash
-gem install jekyll webrick
+gem install bundler
+bundle install
 pip install -r .github/scripts/requirements.txt
 ```
 
@@ -229,10 +234,46 @@ Avant chaque push :
 
 ```bash
 python .github/scripts/photos.py   # seulement si des photos ont été ajoutées ou retirées
-jekyll serve                       # puis ouvrir http://localhost:4000
+bundle exec jekyll serve           # puis ouvrir http://localhost:4000
 ```
 
 Les données de l'Action (`_data/steam.json`, `_data/galerie.json`) sont commitées dans le dépôt : l'aperçu local utilise leur dernière version (faire un Pull pour récupérer la synchronisation Steam du jour).
+
+### À faire au merge de `redesign` sur `main` : purger les EXIF de l'historique
+
+Les photos sont nettoyées, mais d'anciennes versions avec leurs métadonnées (dont le numéro de série du boîtier) restent dans l'historique Git, donc publiques sur GitHub. Une fois `redesign` fusionnée dans `main`, réécrire l'historique pour les retirer.
+
+1. Installer l'outil, puis repartir d'un clone neuf (git filter-repo l'exige) :
+
+   ```bash
+   pip install git-filter-repo
+   git clone https://github.com/TheWilli67/thewilli67.github.io.git purge && cd purge
+   ```
+
+2. Retirer de tout l'historique les 5 originaux ajoutés le 4 octobre 2026, à leur ancien emplacement `photo/` (leurs versions nettoyées sont dans `_photos/`, qui n'est pas touché) :
+
+   ```bash
+   git filter-repo --invert-paths \
+     --path "photo/BMW_F900XR.JPG" --path "photo/Dinant_BEL.JPG" --path "photo/Lavande.JPG" \
+     --path "photo/Lézard_des_murailles .JPG" --path "photo/Pavillon_Frédéric_Salle.JPG"
+   ```
+
+   Variante complète : un contrôle de l'historique trouve 16 versions avec métadonnées. Ce sont les 13 photos de la galerie, puisque les 8 `IMG_*` ont aussi eu des versions non nettoyées avant le 4 octobre, l'ancien portrait et deux anciennes images supprimées. Pour toutes les retirer :
+
+   ```bash
+   git filter-repo --invert-paths --path photo/ \
+     --path Images_photos/photo_william.jpg \
+     --path Images_photos/IMG_20220203_174821.jpg --path Images_photos/IMG_20220307_192822.jpg
+   ```
+
+3. Republier (filter-repo retire le remote par sécurité) :
+
+   ```bash
+   git remote add origin https://github.com/TheWilli67/thewilli67.github.io.git
+   git push --force --all && git push --force --tags
+   ```
+
+4. Ensuite, recloner le dépôt dans GitHub Desktop : les anciens clones contiennent encore l'historique d'avant. Les anciens commits peuvent rester visibles par leur identifiant sur GitHub quelque temps ; le support GitHub peut les purger sur demande.
 
 > ⚠️ `_scripts/strip_emdash.py` supprime les tirets cadratins sans les remplacer par une ponctuation, ce qui casse les phrases. Ne pas le relancer tel quel sur des textes contenant des tirets.
 

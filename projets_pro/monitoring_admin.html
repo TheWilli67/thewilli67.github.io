@@ -103,6 +103,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 
     .shot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
     .shot-card {
+      position: relative;
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.08);
       border-radius: var(--r);
@@ -110,7 +111,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       cursor: pointer;
       transition: transform var(--t), border-color var(--t), box-shadow var(--t);
     }
-    .shot-card:hover {
+    .shot-card:hover, .shot-card:focus-within {
       transform: translateY(-4px);
       border-color: rgba(56,189,248,.4);
       box-shadow: 0 12px 32px rgba(0,0,0,.4);
@@ -126,7 +127,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       object-fit: cover; object-position: top;
       transition: transform .4s ease;
     }
-    .shot-card:hover .shot-img-wrap img { transform: scale(1.03); }
+    .shot-card:hover .shot-img-wrap img, .shot-card:focus-within .shot-img-wrap img { transform: scale(1.03); }
     .shot-badge {
       position: absolute; top: .75rem; left: .75rem;
       background: rgba(15,23,42,.85);
@@ -151,7 +152,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       transition: opacity .3s ease;
       backdrop-filter: blur(8px);
     }
-    .shot-card:hover .shot-zoom { opacity: 1; }
+    .shot-card:hover .shot-zoom, .shot-card:focus-within .shot-zoom { opacity: 1; }
+    /* Bouton qui couvre toute la carte : ouvre la capture (clic, Entrée, Espace) */
+    .shot-open { position: absolute; inset: 0; z-index: 2; width: 100%; padding: 0; border: 0; border-radius: inherit; background: none; cursor: pointer; }
+    .shot-open:focus-visible { outline-offset: -3px; }
     .shot-info { padding: 1rem 1.25rem 1.15rem; }
     .shot-title { font-size: .9rem; font-weight: 700; color: #f1f5f9; margin-bottom: .3rem; }
     .shot-desc { font-size: .8rem; color: #94a3b8; line-height: 1.55; }
@@ -174,7 +178,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       padding: 2rem;
       backdrop-filter: blur(6px);
     }
-    .lb-overlay.open { display: flex; }
+    /* <dialog> plein écran : il sert lui-même de fond, le ::backdrop reste transparent */
+    .lb-overlay[open] { display: flex; }
+    .lb-overlay { width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; border: 0; color: inherit; overscroll-behavior: contain; }
+    .lb-overlay::backdrop { background: transparent; }
     .lb-inner {
       position: relative;
       max-width: 92vw;
@@ -240,6 +247,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 <body>
 
   {% include nav.html active="portfolio" %}
+
+  <main id="contenu" tabindex="-1">
 
   <header class="pheader">
     <div class="ph-inner">
@@ -480,7 +489,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 
       <div class="shot-grid">
 
-        <div class="shot-card reveal" onclick="openLightbox(0)">
+        <div class="shot-card reveal">
           <div class="shot-img-wrap">
             <span class="shot-badge">01 · Accueil</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
@@ -490,9 +499,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="shot-title" data-fr="Page IPs · accueil" data-en="IPs page · home">Page IPs · accueil</p>
             <p class="shot-desc" data-fr="Tableau des liens supervisés avec filtres, édition inline et modal d'ajout d'un nouveau lien." data-en="Table of supervised links with filters, inline editing, and add-link modal.">Tableau des liens supervisés avec filtres, édition inline et modal d'ajout d'un nouveau lien.</p>
           </div>
+          <button type="button" class="shot-open" data-shot="0"><span class="sr-only" data-fr="Agrandir la capture : Page IPs · accueil" data-en="Enlarge screenshot: IPs page · home">Agrandir la capture : Page IPs · accueil</span></button>
         </div>
 
-        <div class="shot-card reveal" style="transition-delay:.05s" onclick="openLightbox(1)">
+        <div class="shot-card reveal" style="transition-delay:.05s">
           <div class="shot-img-wrap">
             <span class="shot-badge">02 · Clients</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
@@ -502,9 +512,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="shot-title" data-fr="Gestion des clients" data-en="Client management">Gestion des clients</p>
             <p class="shot-desc" data-fr="Chaque client porte son email de destination pour les alertes ; les fiches sont créées et éditées depuis l'interface." data-en="Each client carries its alert-destination email; records are created and edited from the UI.">Chaque client porte son email de destination pour les alertes ; les fiches sont créées et éditées depuis l'interface.</p>
           </div>
+          <button type="button" class="shot-open" data-shot="1"><span class="sr-only" data-fr="Agrandir la capture : Gestion des clients" data-en="Enlarge screenshot: Client management">Agrandir la capture : Gestion des clients</span></button>
         </div>
 
-        <div class="shot-card reveal" style="transition-delay:.1s" onclick="openLightbox(2)">
+        <div class="shot-card reveal" style="transition-delay:.1s">
           <div class="shot-img-wrap">
             <span class="shot-badge">03 · Équipe</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
@@ -514,9 +525,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="shot-title" data-fr="Groupe Réseau-Net" data-en="Réseau-Net team">Groupe Réseau-Net</p>
             <p class="shot-desc" data-fr="Liste des membres qui reçoivent toutes les alertes UP/DOWN et le digest journalier. Envoi d'un email de test intégré." data-en="Members receiving every UP/DOWN alert and the daily digest. Built-in test-email action.">Liste des membres qui reçoivent toutes les alertes UP/DOWN et le digest journalier. Envoi d'un email de test intégré.</p>
           </div>
+          <button type="button" class="shot-open" data-shot="2"><span class="sr-only" data-fr="Agrandir la capture : Groupe Réseau-Net" data-en="Enlarge screenshot: Réseau-Net team">Agrandir la capture : Groupe Réseau-Net</span></button>
         </div>
 
-        <div class="shot-card reveal" style="transition-delay:.15s" onclick="openLightbox(3)">
+        <div class="shot-card reveal" style="transition-delay:.15s">
           <div class="shot-img-wrap">
             <span class="shot-badge">04 · Opérateurs</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
@@ -526,9 +538,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="shot-title" data-fr="Référentiel opérateurs" data-en="Operator reference">Référentiel opérateurs</p>
             <p class="shot-desc" data-fr="Table des opérateurs internet, référencés indépendamment des IPs pour être sélectionnables dès leur création." data-en="Internet operator reference, decoupled from IPs so they're selectable from the moment they're created.">Table des opérateurs internet, référencés indépendamment des IPs pour être sélectionnables dès leur création.</p>
           </div>
+          <button type="button" class="shot-open" data-shot="3"><span class="sr-only" data-fr="Agrandir la capture : Référentiel opérateurs" data-en="Enlarge screenshot: Operator reference">Agrandir la capture : Référentiel opérateurs</span></button>
         </div>
 
-        <div class="shot-card reveal" style="transition-delay:.2s" onclick="openLightbox(4)">
+        <div class="shot-card reveal" style="transition-delay:.2s">
           <div class="shot-img-wrap">
             <span class="shot-badge">05 · Audit</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
@@ -538,9 +551,10 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="shot-title" data-fr="Journal d'audit" data-en="Audit log">Journal d'audit</p>
             <p class="shot-desc" data-fr="Trace horodatée de chaque ajout, modification ou suppression sur la plateforme, filtrable par action et par entité." data-en="Time-stamped trace of every add, modify, or delete, filterable by action and entity.">Trace horodatée de chaque ajout, modification ou suppression sur la plateforme, filtrable par action et par entité.</p>
           </div>
+          <button type="button" class="shot-open" data-shot="4"><span class="sr-only" data-fr="Agrandir la capture : Journal d'audit" data-en="Enlarge screenshot: Audit log">Agrandir la capture : Journal d'audit</span></button>
         </div>
 
-        <div class="shot-card reveal" style="transition-delay:.25s" onclick="openLightbox(5)">
+        <div class="shot-card reveal" style="transition-delay:.25s">
           <div class="shot-img-wrap">
             <span class="shot-badge">06 · Wiki</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
@@ -550,6 +564,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="shot-title" data-fr="Documentation intégrée" data-en="Built-in documentation">Documentation intégrée</p>
             <p class="shot-desc" data-fr="Wiki maison qui explique les procédures internes du portail et de la supervision, directement dans l'outil." data-en="In-house wiki explaining the portal's and supervision's internal procedures, right inside the tool.">Wiki maison qui explique les procédures internes du portail et de la supervision, directement dans l'outil.</p>
           </div>
+          <button type="button" class="shot-open" data-shot="5"><span class="sr-only" data-fr="Agrandir la capture : Documentation intégrée" data-en="Enlarge screenshot: Built-in documentation">Agrandir la capture : Documentation intégrée</span></button>
         </div>
 
       </div>
@@ -719,18 +734,20 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     </div>
   </section>
 
+  </main>
+
   {% include footer.html extra_url="/alternance/reseau-net.html" extra_label="Réseau-Net" %}
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lb-overlay" onclick="closeLightbox(event)">
-    <button class="lb-nav lb-prev" onclick="prevShot(event)" aria-label="Précédent">{% include icon.html id="fas-chevron-left" %}</button>
-    <div class="lb-inner" onclick="event.stopPropagation()">
-      <button class="lb-close" onclick="closeLightbox()" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
+  <dialog id="lightbox" class="lb-overlay" aria-label="Captures du portail Monitoring Admin">
+    <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Capture précédente">{% include icon.html id="fas-chevron-left" %}</button>
+    <div class="lb-inner">
+      <button type="button" class="lb-close" id="lb-close" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
       <img id="lb-img" class="lb-img" alt="">
-      <p class="lb-caption"><strong id="lb-title"></strong> <span id="lb-desc"></span><span id="lb-count" class="lb-caption-count"></span></p>
+      <p class="lb-caption" aria-live="polite"><strong id="lb-title"></strong> <span id="lb-desc"></span><span id="lb-count" class="lb-caption-count"></span></p>
     </div>
-    <button class="lb-nav lb-next" onclick="nextShot(event)" aria-label="Suivant">{% include icon.html id="fas-chevron-right" %}</button>
-  </div>
+    <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Capture suivante">{% include icon.html id="fas-chevron-right" %}</button>
+  </dialog>
 
   <script>
     /* Lightbox gallery */
@@ -742,36 +759,48 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       { src: '/projets_pro/screenshots/monitoring-admin-interface-audit.webp',      title: '05 · Journal d\'audit',    desc: "Trace horodatée de chaque action sur la plateforme." },
       { src: '/projets_pro/screenshots/monitoring-admin-interface-wiki.webp',       title: '06 · Documentation',       desc: "Wiki intégré au portail procédures internes accessibles en un clic." }
     ];
+    /* Visionneuse : <dialog> modal (page derrière inerte, Échap ferme, focus rendu à la carte) */
     let lbIndex = 0;
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     const lbTitle = document.getElementById('lb-title');
     const lbDesc = document.getElementById('lb-desc');
     const lbCount = document.getElementById('lb-count');
+    let opener = null;
 
-    function openLightbox(i) {
-      lbIndex = i;
-      const s = SHOTS[i];
-      lbImg.src = s.src;
-      lbImg.alt = s.title;
-      lbTitle.textContent = s.title;
-      lbDesc.textContent = s.desc;
-      lbCount.textContent = (i + 1) + ' / ' + SHOTS.length;
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    function show(i) {
+      lbIndex = (i + SHOTS.length) % SHOTS.length;
+      const shot = SHOTS[lbIndex];
+      lbImg.src = shot.src;
+      lbImg.alt = shot.title;
+      lbTitle.textContent = shot.title;
+      lbDesc.textContent = shot.desc;
+      lbCount.textContent = (lbIndex + 1) + ' / ' + SHOTS.length;
     }
-    function closeLightbox(e) {
-      if (e && e.target !== lb && !e.target.closest('.lb-close')) return;
-      lb.classList.remove('open');
-      document.body.style.overflow = '';
+    function openLightbox(i, from) {
+      show(i);
+      opener = from || null;
+      document.documentElement.classList.add('modal-open');
+      lb.showModal();
+      document.getElementById('lb-close').focus();
     }
-    function nextShot(e) { if (e) e.stopPropagation(); openLightbox((lbIndex + 1) % SHOTS.length); }
-    function prevShot(e) { if (e) e.stopPropagation(); openLightbox((lbIndex - 1 + SHOTS.length) % SHOTS.length); }
-    document.addEventListener('keydown', (e) => {
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      else if (e.key === 'ArrowRight') nextShot();
-      else if (e.key === 'ArrowLeft') prevShot();
+    function closeLightbox() {
+      if (lb.open) lb.close();
+      document.documentElement.classList.remove('modal-open');
+      if (opener) { opener.focus(); opener = null; }
+    }
+    lb.addEventListener('cancel', e => { e.preventDefault(); closeLightbox(); });   /* Échap */
+    lb.addEventListener('close', () => document.documentElement.classList.remove('modal-open'));
+    document.querySelectorAll('.shot-open').forEach(btn => {
+      btn.addEventListener('click', () => openLightbox(Number(btn.dataset.shot), btn));
+    });
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', () => show(lbIndex - 1));
+    document.getElementById('lb-next').addEventListener('click', () => show(lbIndex + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });   /* clic sur le fond */
+    lb.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') show(lbIndex + 1);
+      else if (e.key === 'ArrowLeft') show(lbIndex - 1);
     });
   </script>
 

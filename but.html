@@ -72,7 +72,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
     /* Accordion body */
     .acc-body { padding: 1.5rem; }
     .acc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .acc-block h4 { font-size: .78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem; }
+    .acc-block h3 { font-size: .78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem; }
     .acc-block ul { display: flex; flex-direction: column; gap: .35rem; }
     .acc-block li { font-size: .84rem; color: var(--text-m); line-height: 1.5; padding-left: 1rem; position: relative; }
     .acc-block li::before { content: ''; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
@@ -114,6 +114,8 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
 
   {% include nav.html active="portfolio" %}
 
+  <main id="contenu" tabindex="-1">
+
   <header class="pheader">
     <div class="ph-inner">
       <span class="ph-eyebrow" data-fr="Formation universitaire" data-en="University degree">Formation universitaire</span>
@@ -132,27 +134,27 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
     <div class="inner">
 
       <div class="tabs-wrapper reveal">
-        <div class="tabs-nav" role="tablist">
-          <button class="tab-btn active" role="tab" data-tab="but1">
+        <div class="tabs-nav" role="tablist" aria-label="Années du BUT">
+          <button type="button" class="tab-btn active" role="tab" id="tab-but1" data-tab="but1" aria-controls="but1" aria-selected="true">
             <span class="tab-label" data-fr="BUT 1 · S1/S2" data-en="Year 1 · S1/S2">BUT 1 · S1/S2</span>
             <span data-fr="Assister · Connecter · S'intégrer" data-en="Assist · Connect · Integrate">Assister · Connecter · S'intégrer</span>
           </button>
-          <button class="tab-btn" role="tab" data-tab="but2">
+          <button type="button" class="tab-btn" role="tab" id="tab-but2" data-tab="but2" aria-controls="but2" aria-selected="false" tabindex="-1">
             <span class="tab-label" data-fr="BUT 2 · S3/S4" data-en="Year 2 · S3/S4">BUT 2 · S3/S4</span>
             <span data-fr="Administrer · Développer · Sécuriser" data-en="Administer · Develop · Secure">Administrer · Développer · Sécuriser</span>
           </button>
-          <button class="tab-btn" role="tab" data-tab="but3">
+          <button type="button" class="tab-btn" role="tab" id="tab-but3" data-tab="but3" aria-controls="but3" aria-selected="false" tabindex="-1">
             <span class="tab-label" data-fr="BUT 3 · S5/S6" data-en="Year 3 · S5/S6">BUT 3 · S5/S6</span>
             <span data-fr="Concevoir · Déployer · Surveiller" data-en="Design · Deploy · Monitor">Concevoir · Déployer · Surveiller</span>
           </button>
         </div>
 
         <!-- ===== BUT 1 ===== -->
-        <div class="tab-panel active" id="but1">
+        <div class="tab-panel active" id="but1" role="tabpanel" aria-labelledby="tab-but1" tabindex="0">
           <div class="year-intro">
             <div class="year-badge y1">B1</div>
             <div>
-              <p class="year-intro-title" data-fr="BUT 1 · Première année (2021–2022)" data-en="Year 1 · First year (2021–2022)">BUT 1 · Première année (2021–2022)</p>
+              <h2 class="year-intro-title" data-fr="BUT 1 · Première année (2021–2022)" data-en="Year 1 · First year (2021–2022)">BUT 1 · Première année (2021–2022)</h2>
               <p class="year-intro-sub" data-fr="3 compétences · Initiation aux réseaux, transmissions et outils informatiques" data-en="3 skills · Introduction to networking, transmissions and IT tools">3 compétences · Initiation aux réseaux, transmissions et outils informatiques</p>
             </div>
           </div>
@@ -173,7 +175,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC11.01 · Maîtriser les lois fondamentales de l'électricité" data-en="AC11.01 · Master the fundamental laws of electricity">AC11.01 · Maîtriser les lois fondamentales de l'électricité</li>
                       <li data-fr="AC11.02 · Comprendre l'architecture des systèmes numériques et de l'Internet" data-en="AC11.02 · Understand the architecture of digital systems and the Internet">AC11.02 · Comprendre l'architecture des systèmes numériques et de l'Internet</li>
@@ -184,7 +186,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE1.01 · Choisir les solutions et technologies réseaux adaptées" data-en="CE1.01 · Choose appropriate network solutions and technologies">CE1.01 · Choisir les solutions et technologies réseaux adaptées</li>
                       <li data-fr="CE1.02 · Respecter les principes fondamentaux de la sécurité" data-en="CE1.02 · Follow fundamental security principles">CE1.02 · Respecter les principes fondamentaux de la sécurité</li>
@@ -231,7 +233,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC12.01 · Mesurer, analyser et commenter les signaux" data-en="AC12.01 · Measure, analyse and interpret signals">AC12.01 · Mesurer, analyser et commenter les signaux</li>
                       <li data-fr="AC12.02 · Caractériser des systèmes de transmissions élémentaires" data-en="AC12.02 · Characterise basic transmission systems">AC12.02 · Caractériser des systèmes de transmissions élémentaires</li>
@@ -241,7 +243,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE2.01 · Communiquer avec le client, parfois en anglais" data-en="CE2.01 · Communicate with the client, sometimes in English">CE2.01 · Communiquer avec le client, parfois en anglais</li>
                       <li data-fr="CE2.02 · Faire preuve d'une démarche scientifique" data-en="CE2.02 · Demonstrate a scientific approach">CE2.02 · Faire preuve d'une démarche scientifique</li>
@@ -280,7 +282,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC13.01 · Utiliser un système informatique et ses outils" data-en="AC13.01 · Use a computer system and its tools">AC13.01 · Utiliser un système informatique et ses outils</li>
                       <li data-fr="AC13.02 · Lire, exécuter, corriger et modifier un programme" data-en="AC13.02 · Read, execute, debug and modify a program">AC13.02 · Lire, exécuter, corriger et modifier un programme</li>
@@ -291,7 +293,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE3.01 · Être à l'écoute des besoins du client" data-en="CE3.01 · Listen to and understand client needs">CE3.01 · Être à l'écoute des besoins du client</li>
                       <li data-fr="CE3.02 · Documenter le travail réalisé" data-en="CE3.02 · Document the work done">CE3.02 · Documenter le travail réalisé</li>
@@ -323,11 +325,11 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
         </div><!-- /but1 -->
 
         <!-- ===== BUT 2 ===== -->
-        <div class="tab-panel" id="but2">
+        <div class="tab-panel" id="but2" role="tabpanel" aria-labelledby="tab-but2" tabindex="0">
           <div class="year-intro">
             <div class="year-badge y2">B2</div>
             <div>
-              <p class="year-intro-title" data-fr="BUT 2 · Deuxième année (2022–2023)" data-en="Year 2 · Second year (2022–2023)">BUT 2 · Deuxième année (2022–2023)</p>
+              <h2 class="year-intro-title" data-fr="BUT 2 · Deuxième année (2022–2023)" data-en="Year 2 · Second year (2022–2023)">BUT 2 · Deuxième année (2022–2023)</h2>
               <p class="year-intro-sub" data-fr="5 compétences · Approfondissement réseau, développement et initiation à la cybersécurité" data-en="5 skills · Advanced networking, development and introduction to cybersecurity">5 compétences · Approfondissement réseau, développement et initiation à la cybersécurité</p>
             </div>
           </div>
@@ -348,7 +350,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC21.01 · Configurer et dépanner le routage dynamique" data-en="AC21.01 · Configure and troubleshoot dynamic routing">AC21.01 · Configurer et dépanner le routage dynamique</li>
                       <li data-fr="AC21.02 · Configurer une politique de QoS et sécurité de base" data-en="AC21.02 · Configure a basic QoS and security policy">AC21.02 · Configurer une politique de QoS et sécurité de base</li>
@@ -359,7 +361,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE1.01 · Choisir les solutions et technologies réseaux adaptées" data-en="CE1.01 · Choose appropriate network solutions and technologies">CE1.01 · Choisir les solutions et technologies réseaux adaptées</li>
                       <li data-fr="CE1.02 · Respecter les principes fondamentaux de la sécurité" data-en="CE1.02 · Follow fundamental security principles">CE1.02 · Respecter les principes fondamentaux de la sécurité</li>
@@ -404,7 +406,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC22.01 · Déployer et caractériser des systèmes de transmissions complexes" data-en="AC22.01 · Deploy and characterise complex transmission systems">AC22.01 · Déployer et caractériser des systèmes de transmissions complexes</li>
                       <li data-fr="AC22.02 · Mettre en place un accès distant sécurisé" data-en="AC22.02 · Set up a secure remote access solution">AC22.02 · Mettre en place un accès distant sécurisé</li>
@@ -414,7 +416,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE2.01 · Communiquer avec le client, parfois en anglais" data-en="CE2.01 · Communicate with the client, sometimes in English">CE2.01 · Communiquer avec le client, parfois en anglais</li>
                       <li data-fr="CE2.02 · Faire preuve d'une démarche scientifique" data-en="CE2.02 · Demonstrate a scientific approach">CE2.02 · Faire preuve d'une démarche scientifique</li>
@@ -452,7 +454,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC23.01 · Automatiser l'administration système avec des scripts" data-en="AC23.01 · Automate system administration with scripts">AC23.01 · Automatiser l'administration système avec des scripts</li>
                       <li data-fr="AC23.02 · Développer une application à partir d'un cahier des charges" data-en="AC23.02 · Develop an application from a specification document">AC23.02 · Développer une application à partir d'un cahier des charges</li>
@@ -462,7 +464,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE3.01 · Être à l'écoute des besoins du client" data-en="CE3.01 · Listen to and understand client needs">CE3.01 · Être à l'écoute des besoins du client</li>
                       <li data-fr="CE3.02 · Documenter le travail réalisé" data-en="CE3.02 · Document the work done">CE3.02 · Documenter le travail réalisé</li>
@@ -506,7 +508,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC24.01 · Bonnes pratiques et recommandations cybersécurité" data-en="AC24.01 · Cybersecurity best practices and recommendations">AC24.01 · Bonnes pratiques et recommandations cybersécurité</li>
                       <li data-fr="AC24.02 · Mettre en œuvre les outils fondamentaux de sécurisation" data-en="AC24.02 · Implement fundamental security tools">AC24.02 · Mettre en œuvre les outils fondamentaux de sécurisation</li>
@@ -517,7 +519,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE4.01 · Juste compromis sécurité / contraintes d'utilisation" data-en="CE4.01 · Strike the right balance between security and usability">CE4.01 · Juste compromis sécurité / contraintes d'utilisation</li>
                       <li data-fr="CE4.02 · Respecter les normes et le cadre juridique" data-en="CE4.02 · Comply with standards and legal requirements">CE4.02 · Respecter les normes et le cadre juridique</li>
@@ -556,14 +558,14 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC25.01 · Administrer les protections contre les logiciels malveillants" data-en="AC25.01 · Administer malware protection">AC25.01 · Administrer les protections contre les logiciels malveillants</li>
                       <li data-fr="AC25.02 · Prendre en main des outils de test de pénétration réseau/système" data-en="AC25.02 · Learn to use network/system penetration testing tools">AC25.02 · Prendre en main des outils de test de pénétration réseau/système</li>
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE5.01 · Assurer une veille permanente" data-en="CE5.01 · Maintain continuous technology watch">CE5.01 · Assurer une veille permanente</li>
                       <li data-fr="CE5.02 · Réaliser les mises à jour critiques" data-en="CE5.02 · Apply critical updates">CE5.02 · Réaliser les mises à jour critiques</li>
@@ -591,11 +593,11 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
         </div><!-- /but2 -->
 
         <!-- ===== BUT 3 ===== -->
-        <div class="tab-panel" id="but3">
+        <div class="tab-panel" id="but3" role="tabpanel" aria-labelledby="tab-but3" tabindex="0">
           <div class="year-intro">
             <div class="year-badge y3">B3</div>
             <div>
-              <p class="year-intro-title" data-fr="BUT 3 · Troisième année (2023–2024)" data-en="Year 3 · Third year (2023–2024)">BUT 3 · Troisième année (2023–2024)</p>
+              <h2 class="year-intro-title" data-fr="BUT 3 · Troisième année (2023–2024)" data-en="Year 3 · Third year (2023–2024)">BUT 3 · Troisième année (2023–2024)</h2>
               <p class="year-intro-sub" data-fr="5 compétences · Conception avancée, cybersécurité appliquée et pilotage de projet" data-en="5 skills · Advanced design, applied cybersecurity and project management">5 compétences · Conception avancée, cybersécurité appliquée et pilotage de projet</p>
             </div>
           </div>
@@ -616,7 +618,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC31.01 · Concevoir un projet réseau (HA, QoS, sécurité, supervision)" data-en="AC31.01 · Design a network project (HA, QoS, security, monitoring)">AC31.01 · Concevoir un projet réseau (HA, QoS, sécurité, supervision)</li>
                       <li data-fr="AC31.02 · Réaliser la documentation technique du projet" data-en="AC31.02 · Produce the project's technical documentation">AC31.02 · Réaliser la documentation technique du projet</li>
@@ -627,7 +629,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE1.01 · Choisir les solutions et technologies réseaux adaptées" data-en="CE1.01 · Choose appropriate network solutions and technologies">CE1.01 · Choisir les solutions et technologies réseaux adaptées</li>
                       <li data-fr="CE1.02 · Respecter les principes fondamentaux de la sécurité" data-en="CE1.02 · Follow fundamental security principles">CE1.02 · Respecter les principes fondamentaux de la sécurité</li>
@@ -671,7 +673,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC32.01 · Déployer un système de communication pour l'entreprise" data-en="AC32.01 · Deploy a communication system for the organisation">AC32.01 · Déployer un système de communication pour l'entreprise</li>
                       <li data-fr="AC32.02 · Déployer un réseau sans fil avec enjeux de sécurité" data-en="AC32.02 · Deploy a wireless network with security considerations">AC32.02 · Déployer un réseau sans fil avec enjeux de sécurité</li>
@@ -681,7 +683,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE2.01 · Communiquer avec le client, parfois en anglais" data-en="CE2.01 · Communicate with the client, sometimes in English">CE2.01 · Communiquer avec le client, parfois en anglais</li>
                       <li data-fr="CE2.02 · Faire preuve d'une démarche scientifique" data-en="CE2.02 · Demonstrate a scientific approach">CE2.02 · Faire preuve d'une démarche scientifique</li>
@@ -711,7 +713,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC33.01 · Élaborer les spécifications techniques et le cahier des charges" data-en="AC33.01 · Draw up technical specifications and requirements documentation">AC33.01 · Élaborer les spécifications techniques et le cahier des charges</li>
                       <li data-fr="AC33.02 · Mettre en place un environnement de travail collaboratif" data-en="AC33.02 · Set up a collaborative working environment">AC33.02 · Mettre en place un environnement de travail collaboratif</li>
@@ -722,7 +724,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE3.01 · Être à l'écoute des besoins du client" data-en="CE3.01 · Listen to and understand client needs">CE3.01 · Être à l'écoute des besoins du client</li>
                       <li data-fr="CE3.02 · Documenter le travail réalisé" data-en="CE3.02 · Document the work done">CE3.02 · Documenter le travail réalisé</li>
@@ -761,7 +763,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC34.01 · Analyse de risque et politique de sécurité" data-en="AC34.01 · Risk analysis and security policy">AC34.01 · Analyse de risque et politique de sécurité</li>
                       <li data-fr="AC34.02 · Mettre en œuvre des outils avancés de sécurisation réseau" data-en="AC34.02 · Implement advanced network security tools">AC34.02 · Mettre en œuvre des outils avancés de sécurisation réseau</li>
@@ -770,7 +772,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE4.01 · Juste compromis sécurité / contraintes d'utilisation" data-en="CE4.01 · Strike the right balance between security and usability">CE4.01 · Juste compromis sécurité / contraintes d'utilisation</li>
                       <li data-fr="CE4.02 · Respecter les normes et le cadre juridique" data-en="CE4.02 · Comply with standards and legal requirements">CE4.02 · Respecter les normes et le cadre juridique</li>
@@ -801,7 +803,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
               <div class="acc-body">
                 <div class="acc-cols">
                   <div class="acc-block">
-                    <h4 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h4>
+                    <h3 data-fr="Apprentissages Critiques" data-en="Learning outcomes">Apprentissages Critiques</h3>
                     <ul>
                       <li data-fr="AC35.01 · Surveiller l'activité du système d'information" data-en="AC35.01 · Monitor information system activity">AC35.01 · Surveiller l'activité du système d'information</li>
                       <li data-fr="AC35.02 · Appliquer une méthodologie de tests de pénétration" data-en="AC35.02 · Apply a penetration testing methodology">AC35.02 · Appliquer une méthodologie de tests de pénétration</li>
@@ -810,7 +812,7 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
                     </ul>
                   </div>
                   <div class="acc-block">
-                    <h4 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h4>
+                    <h3 data-fr="Composantes Essentielles" data-en="Assessment criteria">Composantes Essentielles</h3>
                     <ul>
                       <li data-fr="CE5.01 · Assurer une veille permanente" data-en="CE5.01 · Maintain continuous technology watch">CE5.01 · Assurer une veille permanente</li>
                       <li data-fr="CE5.02 · Réaliser les mises à jour critiques" data-en="CE5.02 · Apply critical updates">CE5.02 · Réaliser les mises à jour critiques</li>
@@ -841,17 +843,31 @@ description: "BUT Réseaux & Télécommunications · Compétences et SAE de Will
     </div>
   </section>
 
+  </main>
+
   {% include footer.html %}
 
   <script>
-    // Tabs
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.tab;
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(id).classList.add('active');
+    /* Onglets (motif ARIA « tabs ») : clic, ou flèches / Début / Fin quand un onglet a le focus.
+       Seul l'onglet actif est dans l'ordre de tabulation ; Tab mène ensuite au panneau. */
+    const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+    function selectTab(btn, focus) {
+      tabs.forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', String(on));
+        b.tabIndex = on ? 0 : -1;
+        document.getElementById(b.dataset.tab).classList.toggle('active', on);
+      });
+      if (focus) btn.focus();
+    }
+    tabs.forEach((btn, i) => {
+      btn.addEventListener('click', () => selectTab(btn, false));
+      btn.addEventListener('keydown', e => {
+        const next = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+        if (next === undefined) return;
+        e.preventDefault();
+        selectTab(tabs[(next + tabs.length) % tabs.length], true);
       });
     });
   </script>

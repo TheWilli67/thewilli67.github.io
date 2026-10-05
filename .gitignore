@@ -7,3 +7,9 @@ _site/
 
 # Cache Python (tests locaux des scripts)
 __pycache__/
+
+# Prévisualisation locale (bundle exec jekyll serve)
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
