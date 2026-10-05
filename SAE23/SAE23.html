@@ -38,7 +38,7 @@ lang: en
     .schema-list h4 { font-size: .8rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
     .schema-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .875rem; color: var(--text-m); padding: .4rem 0; border-bottom: 1px solid var(--border); }
     .schema-list li:last-child { border-bottom: none; }
-    .schema-list li i { color: var(--accent); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
+    .schema-list li .icon { color: var(--accent); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
 
     /* Screenshot */
     .screenshot-card { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh); }
@@ -83,17 +83,17 @@ lang: en
   <header class="pheader">
     <div class="ph-inner">
       <div class="ph-top">
-        <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
-        <a href="/SAE23/SAE23_fr.html" class="lang-toggle"><i class="fas fa-language"></i> Français</a>
+        <a href="/portfolio.html" class="ph-back">{% include icon.html id="fas-arrow-left" %} Back to portfolio</a>
+        <a href="/SAE23/SAE23_fr.html" class="lang-toggle">{% include icon.html id="fas-language" %} Français</a>
       </div>
       <span class="ph-eyebrow">SAE · BUT1 Academic project</span>
       <h1 class="ph-title">SAE 2.3 — <span>Game Library</span></h1>
       <p class="ph-sub">Implementing a business IT solution: a full-stack web application for managing a game library, with user accounts, CRUD operations, and review system.</p>
       <div class="ph-chips">
-        <span class="chip chip-year"><i class="fas fa-calendar"></i> BUT1 · 2022/2023</span>
-        <span class="chip chip-team"><i class="fas fa-users"></i> Binôme (group of 2)</span>
-        <span class="chip chip-tech"><i class="fab fa-python"></i> Django / Python</span>
-        <span class="chip chip-loc"><i class="fas fa-database"></i> MySQL</span>
+        <span class="chip chip-year">{% include icon.html id="fas-calendar" %} BUT1 · 2022/2023</span>
+        <span class="chip chip-team">{% include icon.html id="fas-users" %} Binôme (group of 2)</span>
+        <span class="chip chip-tech">{% include icon.html id="fab-python" %} Django / Python</span>
+        <span class="chip chip-loc">{% include icon.html id="fas-database" %} MySQL</span>
       </div>
     </div>
   </header>
@@ -119,12 +119,12 @@ lang: en
             <h2 class="s-title" style="font-size:1.3rem;">Database entities</h2>
           </div>
           <ul class="schema-list">
-            <li><i class="fas fa-tag"></i> <span><strong>Categories</strong>: id, name, description</span></li>
-            <li><i class="fas fa-gamepad"></i> <span><strong>Games</strong>: id, title, release year, cover, publisher, author, category</span></li>
-            <li><i class="fas fa-pen"></i> <span><strong>Authors</strong>: id, name, first name, age, photo</span></li>
-            <li><i class="fas fa-user"></i> <span><strong>Players</strong>: id, name, email, password, type (pro / private)</span></li>
-            <li><i class="fas fa-comment"></i> <span><strong>Reviews</strong>: game, player, score, comment, date</span></li>
-            <li><i class="fas fa-list"></i> <span><strong>User game list</strong>: personal list per player</span></li>
+            <li>{% include icon.html id="fas-tag" %} <span><strong>Categories</strong>: id, name, description</span></li>
+            <li>{% include icon.html id="fas-gamepad" %} <span><strong>Games</strong>: id, title, release year, cover, publisher, author, category</span></li>
+            <li>{% include icon.html id="fas-pen" %} <span><strong>Authors</strong>: id, name, first name, age, photo</span></li>
+            <li>{% include icon.html id="fas-user" %} <span><strong>Players</strong>: id, name, email, password, type (pro / private)</span></li>
+            <li>{% include icon.html id="fas-comment" %} <span><strong>Reviews</strong>: game, player, score, comment, date</span></li>
+            <li>{% include icon.html id="fas-list" %} <span><strong>User game list</strong>: personal list per player</span></li>
           </ul>
         </div>
       </div>
@@ -139,8 +139,8 @@ lang: en
         <h2 class="s-title">Game Library — interface</h2>
       </div>
       <div class="screenshot-card reveal">
-        <img src="/SAE23/SAE23_Documents/game_library_appearance.png" alt="Game Library interface screenshot">
-        <p class="screenshot-cap"><i class="fas fa-desktop"></i> Final render of the game library web interface</p>
+        <img src="/SAE23/SAE23_Documents/game-library-appearance.webp" alt="Game Library interface screenshot" width="1279" height="719" loading="lazy" decoding="async">
+        <p class="screenshot-cap">{% include icon.html id="fas-desktop" %} Final render of the game library web interface</p>
       </div>
     </div>
   </section>
@@ -154,32 +154,32 @@ lang: en
       </div>
       <div class="stack-grid">
         <div class="stack-item reveal">
-          <div class="stack-icon" style="color:#3776ab;"><i class="fab fa-python"></i></div>
+          <div class="stack-icon" style="color:#3776ab;">{% include icon.html id="fab-python" %}</div>
           <p class="stack-name">Python</p>
           <p class="stack-desc">Backend logic</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.05s">
-          <div class="stack-icon" style="color:#092e20;"><i class="fas fa-leaf"></i></div>
+          <div class="stack-icon" style="color:#092e20;">{% include icon.html id="fas-leaf" %}</div>
           <p class="stack-name">Django</p>
           <p class="stack-desc">Web framework</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.1s">
-          <div class="stack-icon" style="color:#e44d26;"><i class="fab fa-html5"></i></div>
+          <div class="stack-icon" style="color:#e44d26;">{% include icon.html id="fab-html5" %}</div>
           <p class="stack-name">HTML5</p>
           <p class="stack-desc">Markup &amp; templates</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.15s">
-          <div class="stack-icon" style="color:#1572b6;"><i class="fab fa-css3-alt"></i></div>
+          <div class="stack-icon" style="color:#1572b6;">{% include icon.html id="fab-css3-alt" %}</div>
           <p class="stack-name">CSS</p>
           <p class="stack-desc">Styling &amp; layout</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.2s">
-          <div class="stack-icon" style="color:#4479a1;"><i class="fas fa-database"></i></div>
+          <div class="stack-icon" style="color:#4479a1;">{% include icon.html id="fas-database" %}</div>
           <p class="stack-name">MySQL</p>
           <p class="stack-desc">Relational database</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.25s">
-          <div class="stack-icon" style="color:#183a61;"><i class="fas fa-server"></i></div>
+          <div class="stack-icon" style="color:#183a61;">{% include icon.html id="fas-server" %}</div>
           <p class="stack-name">VirtualBox</p>
           <p class="stack-desc">VM deployment</p>
         </div>
@@ -197,8 +197,8 @@ lang: en
             <h2 class="s-title">Task distribution</h2>
           </div>
           <div class="img-card reveal">
-            <img src="/SAE23/SAE23_Documents/distribution_des_tâches.png" alt="Distribution of tasks">
-            <p class="img-card-cap"><i class="fas fa-tasks"></i> Task breakdown between the two contributors</p>
+            <img src="/SAE23/SAE23_Documents/distribution-des-taches.webp" alt="Distribution of tasks" width="681" height="375" loading="lazy" decoding="async">
+            <p class="img-card-cap">{% include icon.html id="fas-tasks" %} Task breakdown between the two contributors</p>
           </div>
         </div>
         <div>
@@ -207,29 +207,29 @@ lang: en
             <h2 class="s-title">GitHub repositories</h2>
           </div>
           <div class="gh-list">
-            <a href="https://github.com/ZitoouN/SAE23test" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.15s">
-              <div class="gh-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/ZitoouN/SAE23test" target="_blank" class="gh-link reveal" style="transition-delay:.15s">
+              <div class="gh-icon">{% include icon.html id="fab-github" %}</div>
               <div>
                 <p class="gh-name">SAE23test</p>
                 <p class="gh-handle">github.com/ZitoouN/SAE23test · project repository</p>
               </div>
-              <i class="fas fa-external-link-alt gh-arrow"></i>
+              {% include icon.html id="fas-external-link-alt" class="gh-arrow" %}
             </a>
-            <a href="https://github.com/TheWilli67" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.2s">
-              <div class="gh-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/TheWilli67" target="_blank" class="gh-link reveal" style="transition-delay:.2s">
+              <div class="gh-icon">{% include icon.html id="fab-github" %}</div>
               <div>
                 <p class="gh-name">TheWilli67</p>
                 <p class="gh-handle">github.com/TheWilli67 · my GitHub profile</p>
               </div>
-              <i class="fas fa-external-link-alt gh-arrow"></i>
+              {% include icon.html id="fas-external-link-alt" class="gh-arrow" %}
             </a>
-            <a href="https://github.com/ZitoouN" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.25s">
-              <div class="gh-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/ZitoouN" target="_blank" class="gh-link reveal" style="transition-delay:.25s">
+              <div class="gh-icon">{% include icon.html id="fab-github" %}</div>
               <div>
                 <p class="gh-name">ZitoouN</p>
                 <p class="gh-handle">github.com/ZitoouN · colleague's GitHub profile</p>
               </div>
-              <i class="fas fa-external-link-alt gh-arrow"></i>
+              {% include icon.html id="fas-external-link-alt" class="gh-arrow" %}
             </a>
           </div>
         </div>

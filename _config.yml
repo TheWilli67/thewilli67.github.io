@@ -1,3 +1,5 @@
 exclude:
   - CLAUDE.md
   - DESIGN.md
+  - Observium
+  - "skills-lock*.json"

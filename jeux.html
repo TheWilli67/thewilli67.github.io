@@ -43,7 +43,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     .game-title { font-size: .92rem; font-weight: 700; color: var(--text); line-height: 1.3; }
     .game-meta { display: flex; gap: 1rem; }
     .game-stat { display: flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--text-m); }
-    .game-stat i { font-size: .72rem; opacity: .7; }
+    .game-stat .icon { font-size: .72rem; opacity: .7; }
     .achiev-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
     .achiev-fill { height: 100%; background: var(--indigo); border-radius: 2px; }
     .achiev-label { display: flex; justify-content: space-between; font-size: .7rem; color: var(--text-lt); }
@@ -76,7 +76,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     .ns-item { padding: .55rem .9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: .78rem; color: var(--text-m); transition: var(--t); }
     .ns-item:hover { border-color: rgba(99,102,241,.3); color: var(--text); }
     .sync-note { display: inline-flex; align-items: center; gap: .4rem; }
-    .sync-note i { color: var(--indigo); font-size: .8rem; }
+    .sync-note .icon { color: var(--indigo); font-size: .8rem; }
     .td-plat { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; font-size: .66rem; font-weight: 700; color: var(--indigo); background: rgba(99,102,241,.1); border-radius: 100px; vertical-align: middle; white-space: nowrap; }
     .steam-stat-lbl.top-name { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--text); }
     .games-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 1rem; }
@@ -214,6 +214,12 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         node.textContent = LANG === 'en' ? en : fr;
         return node;
       }
+      /* Icône du sprite (SVG produit par Jekyll via _includes/icon.html) */
+      function icon(svg) {
+        var t = document.createElement('template');
+        t.innerHTML = svg;
+        return t.content.firstChild;
+      }
       function el(tag, cls) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;
@@ -307,7 +313,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       } else if (when) {
         var d = new Date(when);
         var opts = { day: 'numeric', month: 'long', year: 'numeric' };
-        note.appendChild(el('i', 'fab fa-steam'));
+        note.appendChild(icon("{% include icon.html id='fab-steam' %}"));
         note.appendChild(bi(el('span'), 'Synchronisée automatiquement avec Steam · mise à jour le ' + d.toLocaleDateString('fr-FR', opts),
                                         'Automatically synced with Steam · updated ' + d.toLocaleDateString('en-GB', opts)));
         note.hidden = false;
@@ -326,7 +332,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         var card = el('div', 'game-card');
         var top = el('div', 'game-card-top');
         var done = el('span', 'badge-done');
-        done.appendChild(el('i', 'fas fa-check'));
+        done.appendChild(icon("{% include icon.html id='fas-check' %}"));
         done.appendChild(bi(el('span'), ' Terminé', ' Completed'));
         top.appendChild(done);
         if (f.genre) { var genre = el('span', 'badge-genre'); genre.textContent = f.genre; top.appendChild(genre); }
@@ -337,13 +343,13 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         var meta = el('div', 'game-meta');
         if (minutes) {
           var h = el('span', 'game-stat');
-          h.appendChild(el('i', 'fas fa-clock'));
+          h.appendChild(icon("{% include icon.html id='fas-clock' %}"));
           h.appendChild(bi(el('span'), ' ' + hours(minutes, 'fr'), ' ' + hours(minutes, 'en')));
           meta.appendChild(h);
         }
         if (g.ach) {
           var t = el('span', 'game-stat');
-          t.appendChild(el('i', 'fas fa-trophy'));
+          t.appendChild(icon("{% include icon.html id='fas-trophy' %}"));
           t.appendChild(document.createTextNode(' ' + g.ach[0] + ' / ' + g.ach[1]));
           meta.appendChild(t);
         }

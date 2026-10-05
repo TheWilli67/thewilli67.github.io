@@ -4,6 +4,15 @@
  * balise <style>, chargée après ce fichier et donc prioritaire : une page n'y redéfinit
  * que ce qui la distingue (couleur d'accent, largeur, marges…).
  */
+
+/* Polices auto-hébergées (/assets/fonts, licence SIL OFL 1.1) : Geist pour le texte,
+   Geist Mono pour le code et les libellés techniques, 2 graisses chacune. Geist Regular
+   est préchargée dans _includes/head.html. */
+@font-face { font-family: 'Geist'; src: url('/assets/fonts/Geist-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist'; src: url('/assets/fonts/Geist-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Mono'; src: url('/assets/fonts/GeistMono-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Mono'; src: url('/assets/fonts/GeistMono-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+
 :root {
   --bg: #f8fafc;
   --bg-alt: #f1f5f9;
@@ -20,24 +29,34 @@
   --sh-sm: 0 1px 3px rgba(0,0,0,.06);
   --sh: 0 4px 16px rgba(0,0,0,.08);
   --r: 12px;
-  --font: 'Inter', system-ui, sans-serif;
+  --font: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --t: .25s ease;
 }
 
 /* Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
 body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
-body.fade-in { opacity: 1; }
-body.fade-out { opacity: 0; }
 a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }  /* height: auto : garde les proportions avec les attributs width/height */
 ul { list-style: none; }
 [hidden] { display: none !important; }
 
+/* Icônes : sprite SVG /assets/icons.svg via _includes/icon.html. Même géométrie que les
+   icônes Font Awesome en SVG : hauteur 1em, largeur déduite du viewBox, couleur du texte. */
+.icon { display: inline-block; height: 1em; width: auto; overflow: visible; vertical-align: -.125em; fill: currentColor; flex-shrink: 0; }
+
+/* Transition entre les pages : fondu natif du navigateur (View Transitions), en simple
+   amélioration (ignoré par les navigateurs qui ne le gèrent pas) et désactivé si
+   l'utilisateur demande moins d'animations. Le menu, identique partout, ne bouge pas. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
 /* Menu */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+.nav { view-transition-name: site-nav; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
 .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
 .nav-brand span { color: #60a5fa; }
 .nav-links { display: flex; align-items: center; gap: .25rem; }
@@ -79,9 +98,11 @@ footer { margin-top: auto; }
 .footer-links a:hover { color: #60a5fa; }
 footer p { font-size: .8rem; }
 
-/* Apparition au défilement (script /scripts/reveal.js) */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.up { opacity: 1; transform: none; }
+/* Apparition au défilement (script /scripts/reveal.js) : seuls les éléments situés sous
+   l'écran au chargement sont masqués (classe .reveal-pending), puis révélés quand ils
+   arrivent à l'écran. Sans JavaScript ou avec prefers-reduced-motion, rien n'est masqué. */
+.reveal { transition: opacity .6s ease, transform .6s ease; }
+.reveal-pending { opacity: 0; transform: translateY(22px); }
 
 @media (max-width: 600px) {
   .nav { padding: 0 1.25rem; }

@@ -33,7 +33,7 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
     .schema-list h4 { font-size: .8rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
     .schema-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .875rem; color: var(--text-m); padding: .4rem 0; border-bottom: 1px solid var(--border); }
     .schema-list li:last-child { border-bottom: none; }
-    .schema-list li i { color: var(--accent); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
+    .schema-list li .icon { color: var(--accent); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
 
     /* Screenshot */
     .screenshot-card { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh); }
@@ -78,17 +78,17 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
   <header class="pheader">
     <div class="ph-inner">
       <div class="ph-top">
-        <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
-        <a href="/SAE23/SAE23.html" class="lang-toggle"><i class="fas fa-language"></i> English</a>
+        <a href="/portfolio.html" class="ph-back">{% include icon.html id="fas-arrow-left" %} Retour au portfolio</a>
+        <a href="/SAE23/SAE23.html" class="lang-toggle">{% include icon.html id="fas-language" %} English</a>
       </div>
       <span class="ph-eyebrow">SAE · Projet académique BUT1</span>
       <h1 class="ph-title">SAE 2.3 — <span>Bibliothèque de jeux</span></h1>
       <p class="ph-sub">Mettre en place une solution informatique pour l'entreprise : application web full-stack de gestion de bibliothèque de jeux, avec gestion des utilisateurs, opérations CRUD et système de commentaires/notes.</p>
       <div class="ph-chips">
-        <span class="chip chip-year"><i class="fas fa-calendar"></i> BUT1 · 2022/2023</span>
-        <span class="chip chip-team"><i class="fas fa-users"></i> Binôme</span>
-        <span class="chip chip-tech"><i class="fab fa-python"></i> Django / Python</span>
-        <span class="chip chip-loc"><i class="fas fa-database"></i> MySQL</span>
+        <span class="chip chip-year">{% include icon.html id="fas-calendar" %} BUT1 · 2022/2023</span>
+        <span class="chip chip-team">{% include icon.html id="fas-users" %} Binôme</span>
+        <span class="chip chip-tech">{% include icon.html id="fab-python" %} Django / Python</span>
+        <span class="chip chip-loc">{% include icon.html id="fas-database" %} MySQL</span>
       </div>
     </div>
   </header>
@@ -114,12 +114,12 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
             <h2 class="s-title" style="font-size:1.3rem;">Entités de la base</h2>
           </div>
           <ul class="schema-list">
-            <li><i class="fas fa-tag"></i> <span><strong>Catégories</strong> : id, nom, description</span></li>
-            <li><i class="fas fa-gamepad"></i> <span><strong>Jeux</strong> : id, titre, année, couverture, éditeur, auteur, catégorie</span></li>
-            <li><i class="fas fa-pen"></i> <span><strong>Auteurs</strong> : id, nom, prénom, âge, photo</span></li>
-            <li><i class="fas fa-user"></i> <span><strong>Joueurs</strong> : id, nom, email, mot de passe, type (pro / particulier)</span></li>
-            <li><i class="fas fa-comment"></i> <span><strong>Commentaires</strong> : jeu, joueur, note, commentaire, date</span></li>
-            <li><i class="fas fa-list"></i> <span><strong>Liste de jeux</strong> : liste personnelle par joueur</span></li>
+            <li>{% include icon.html id="fas-tag" %} <span><strong>Catégories</strong> : id, nom, description</span></li>
+            <li>{% include icon.html id="fas-gamepad" %} <span><strong>Jeux</strong> : id, titre, année, couverture, éditeur, auteur, catégorie</span></li>
+            <li>{% include icon.html id="fas-pen" %} <span><strong>Auteurs</strong> : id, nom, prénom, âge, photo</span></li>
+            <li>{% include icon.html id="fas-user" %} <span><strong>Joueurs</strong> : id, nom, email, mot de passe, type (pro / particulier)</span></li>
+            <li>{% include icon.html id="fas-comment" %} <span><strong>Commentaires</strong> : jeu, joueur, note, commentaire, date</span></li>
+            <li>{% include icon.html id="fas-list" %} <span><strong>Liste de jeux</strong> : liste personnelle par joueur</span></li>
           </ul>
         </div>
       </div>
@@ -134,8 +134,8 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
         <h2 class="s-title">Bibliothèque de jeux — interface</h2>
       </div>
       <div class="screenshot-card reveal">
-        <img src="/SAE23/SAE23_Documents/game_library_appearance.png" alt="Capture d'écran de l'interface">
-        <p class="screenshot-cap"><i class="fas fa-desktop"></i> Rendu final de l'interface web de la bibliothèque de jeux</p>
+        <img src="/SAE23/SAE23_Documents/game-library-appearance.webp" alt="Capture d'écran de l'interface" width="1279" height="719" loading="lazy" decoding="async">
+        <p class="screenshot-cap">{% include icon.html id="fas-desktop" %} Rendu final de l'interface web de la bibliothèque de jeux</p>
       </div>
     </div>
   </section>
@@ -149,32 +149,32 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
       </div>
       <div class="stack-grid">
         <div class="stack-item reveal">
-          <div class="stack-icon" style="color:#3776ab;"><i class="fab fa-python"></i></div>
+          <div class="stack-icon" style="color:#3776ab;">{% include icon.html id="fab-python" %}</div>
           <p class="stack-name">Python</p>
           <p class="stack-desc">Logique backend</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.05s">
-          <div class="stack-icon" style="color:#092e20;"><i class="fas fa-leaf"></i></div>
+          <div class="stack-icon" style="color:#092e20;">{% include icon.html id="fas-leaf" %}</div>
           <p class="stack-name">Django</p>
           <p class="stack-desc">Framework web</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.1s">
-          <div class="stack-icon" style="color:#e44d26;"><i class="fab fa-html5"></i></div>
+          <div class="stack-icon" style="color:#e44d26;">{% include icon.html id="fab-html5" %}</div>
           <p class="stack-name">HTML5</p>
           <p class="stack-desc">Balisage &amp; templates</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.15s">
-          <div class="stack-icon" style="color:#1572b6;"><i class="fab fa-css3-alt"></i></div>
+          <div class="stack-icon" style="color:#1572b6;">{% include icon.html id="fab-css3-alt" %}</div>
           <p class="stack-name">CSS</p>
           <p class="stack-desc">Mise en forme</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.2s">
-          <div class="stack-icon" style="color:#4479a1;"><i class="fas fa-database"></i></div>
+          <div class="stack-icon" style="color:#4479a1;">{% include icon.html id="fas-database" %}</div>
           <p class="stack-name">MySQL</p>
           <p class="stack-desc">Base de données relationnelle</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.25s">
-          <div class="stack-icon" style="color:#183a61;"><i class="fas fa-server"></i></div>
+          <div class="stack-icon" style="color:#183a61;">{% include icon.html id="fas-server" %}</div>
           <p class="stack-name">VirtualBox</p>
           <p class="stack-desc">Déploiement VM</p>
         </div>
@@ -192,8 +192,8 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
             <h2 class="s-title">Répartition des tâches</h2>
           </div>
           <div class="img-card reveal">
-            <img src="/SAE23/SAE23_Documents/distribution_des_tâches.png" alt="Répartition des tâches">
-            <p class="img-card-cap"><i class="fas fa-tasks"></i> Distribution des tâches entre les deux contributeurs</p>
+            <img src="/SAE23/SAE23_Documents/distribution-des-taches.webp" alt="Répartition des tâches" width="681" height="375" loading="lazy" decoding="async">
+            <p class="img-card-cap">{% include icon.html id="fas-tasks" %} Distribution des tâches entre les deux contributeurs</p>
           </div>
         </div>
         <div>
@@ -202,29 +202,29 @@ description: "SAE 2.3 · Bibliothèque de jeux · William Hertrich, projet Djang
             <h2 class="s-title">Dépôts GitHub</h2>
           </div>
           <div class="gh-list">
-            <a href="https://github.com/ZitoouN/SAE23test" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.15s">
-              <div class="gh-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/ZitoouN/SAE23test" target="_blank" class="gh-link reveal" style="transition-delay:.15s">
+              <div class="gh-icon">{% include icon.html id="fab-github" %}</div>
               <div>
                 <p class="gh-name">SAE23test</p>
                 <p class="gh-handle">github.com/ZitoouN/SAE23test · dépôt du projet</p>
               </div>
-              <i class="fas fa-external-link-alt gh-arrow"></i>
+              {% include icon.html id="fas-external-link-alt" class="gh-arrow" %}
             </a>
-            <a href="https://github.com/TheWilli67" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.2s">
-              <div class="gh-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/TheWilli67" target="_blank" class="gh-link reveal" style="transition-delay:.2s">
+              <div class="gh-icon">{% include icon.html id="fab-github" %}</div>
               <div>
                 <p class="gh-name">TheWilli67</p>
                 <p class="gh-handle">github.com/TheWilli67 · mon profil GitHub</p>
               </div>
-              <i class="fas fa-external-link-alt gh-arrow"></i>
+              {% include icon.html id="fas-external-link-alt" class="gh-arrow" %}
             </a>
-            <a href="https://github.com/ZitoouN" target="_blank" class="gh-link reveal no-script-execution" style="transition-delay:.25s">
-              <div class="gh-icon"><i class="fab fa-github"></i></div>
+            <a href="https://github.com/ZitoouN" target="_blank" class="gh-link reveal" style="transition-delay:.25s">
+              <div class="gh-icon">{% include icon.html id="fab-github" %}</div>
               <div>
                 <p class="gh-name">ZitoouN</p>
                 <p class="gh-handle">github.com/ZitoouN · GitHub de mon collègue</p>
               </div>
-              <i class="fas fa-external-link-alt gh-arrow"></i>
+              {% include icon.html id="fas-external-link-alt" class="gh-arrow" %}
             </a>
           </div>
         </div>

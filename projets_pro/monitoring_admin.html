@@ -162,7 +162,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       font-size: .78rem; color: #94a3b8;
       justify-content: center;
     }
-    .gallery-note i { color: #38bdf8; }
+    .gallery-note .icon { color: #38bdf8; }
 
     /* Lightbox */
     .lb-overlay {
@@ -243,15 +243,15 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 
   <header class="pheader">
     <div class="ph-inner">
-      <a href="/alternance/reseau-net.html" class="ph-back" data-fr="&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt; Retour à Réseau-Net" data-en="&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt; Back to Réseau-Net" data-i18n-html><i class="fas fa-arrow-left"></i> Retour à Réseau-Net</a>
+      <a href="/alternance/reseau-net.html" class="ph-back" data-fr="{% include icon.html id='fas-arrow-left' %} Retour à Réseau-Net" data-en="{% include icon.html id='fas-arrow-left' %} Back to Réseau-Net" data-i18n-html>{% include icon.html id="fas-arrow-left" %} Retour à Réseau-Net</a>
       <span class="ph-eyebrow" data-fr="Projet professionnel" data-en="Professional project">Projet professionnel</span>
       <h1 class="ph-title" data-fr="Portail d'administration de la <span>supervision</span>" data-en="<span>Monitoring</span> admin portal" data-i18n-html>Portail d'administration de la <span>supervision</span></h1>
       <p class="ph-sub" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : une base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier." data-en="In-house web interface driving a multi-client Prometheus / Grafana / Blackbox Exporter stack: a SQLite database as the source of truth, automatic config regeneration, HTML email alerts with embedded graphs, and a daily digest.">Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : une base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier.</p>
       <div class="ph-chips">
-        <span class="chip chip-comp" data-fr="&lt;i class=&quot;fas fa-building&quot;&gt;&lt;/i&gt; Réseau-Net" data-en="&lt;i class=&quot;fas fa-building&quot;&gt;&lt;/i&gt; Réseau-Net" data-i18n-html><i class="fas fa-building"></i> Réseau-Net</span>
-        <span class="chip chip-period" data-fr="&lt;i class=&quot;fas fa-bolt&quot;&gt;&lt;/i&gt; Sprint de 2 semaines" data-en="&lt;i class=&quot;fas fa-bolt&quot;&gt;&lt;/i&gt; 2-week sprint" data-i18n-html><i class="fas fa-bolt"></i> Sprint de 2 semaines</span>
-        <span class="chip chip-role" data-fr="&lt;i class=&quot;fas fa-code&quot;&gt;&lt;/i&gt; Solo &middot; pair avec Claude Code" data-en="&lt;i class=&quot;fas fa-code&quot;&gt;&lt;/i&gt; Solo &middot; paired with Claude Code" data-i18n-html><i class="fas fa-code"></i> Solo &middot; pair avec Claude Code</span>
-        <span class="chip chip-status" data-fr="&lt;i class=&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt; En production" data-en="&lt;i class=&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt; In production" data-i18n-html><i class="fas fa-check-circle"></i> En production</span>
+        <span class="chip chip-comp" data-fr="{% include icon.html id='fas-building' %} Réseau-Net" data-en="{% include icon.html id='fas-building' %} Réseau-Net" data-i18n-html>{% include icon.html id="fas-building" %} Réseau-Net</span>
+        <span class="chip chip-period" data-fr="{% include icon.html id='fas-bolt' %} Sprint de 2 semaines" data-en="{% include icon.html id='fas-bolt' %} 2-week sprint" data-i18n-html>{% include icon.html id="fas-bolt" %} Sprint de 2 semaines</span>
+        <span class="chip chip-role" data-fr="{% include icon.html id='fas-code' %} Solo &middot; pair avec Claude Code" data-en="{% include icon.html id='fas-code' %} Solo &middot; paired with Claude Code" data-i18n-html>{% include icon.html id="fas-code" %} Solo &middot; pair avec Claude Code</span>
+        <span class="chip chip-status" data-fr="{% include icon.html id='fas-check-circle' %} En production" data-en="{% include icon.html id='fas-check-circle' %} In production" data-i18n-html>{% include icon.html id="fas-check-circle" %} En production</span>
       </div>
     </div>
   </header>
@@ -260,7 +260,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
   <section class="section" style="padding-bottom: 0;">
     <div class="inner">
       <div class="conf-banner reveal">
-        <div class="conf-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="conf-icon">{% include icon.html id="fas-shield-halved" %}</div>
         <div class="conf-text" data-fr="<strong>Note de confidentialité :</strong> Cette page reste volontairement au niveau conceptuel : architecture, stack et choix d'ingénierie. Aucune information technique sensible (IPs, hostnames, chemins internes, secrets, identifiants ou configurations spécifiques à l'infrastructure Réseau-Net) n'est publiée." data-en="<strong>Confidentiality note:</strong> This page stays deliberately at the conceptual level: architecture, stack, and engineering choices. No sensitive technical information (IPs, hostnames, internal paths, secrets, credentials, or Réseau-Net-specific infrastructure details) is published." data-i18n-html><strong>Note de confidentialité :</strong> Cette page reste volontairement au niveau conceptuel : architecture, stack et choix d'ingénierie. Aucune information technique sensible (IPs, hostnames, chemins internes, secrets, identifiants ou configurations spécifiques à l'infrastructure Réseau-Net) n'est publiée.</div>
       </div>
     </div>
@@ -336,27 +336,27 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
             <p class="arch-layer-title" data-fr="1. Interface web (source de vérité)" data-en="1. Web interface (source of truth)">1. Interface web (source de vérité)</p>
             <p class="arch-layer-body" data-fr="FastAPI + HTMX : l'équipe ajoute/modifie/supprime un lien" data-en="FastAPI + HTMX: the team adds/modifies/removes a link">FastAPI + HTMX : l'équipe ajoute/modifie/supprime un lien</p>
           </div>
-          <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="2. Base SQLite" data-en="2. SQLite database">2. Base SQLite</p>
             <p class="arch-layer-body" data-fr="Clients, liens, opérateurs, liste de diffusion, audit log" data-en="Clients, links, operators, alert distribution, audit log">Clients, liens, opérateurs, liste de diffusion, audit log</p>
           </div>
-          <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="3. Régénération des configs" data-en="3. Config regeneration">3. Régénération des configs</p>
             <p class="arch-layer-body" data-fr="Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l'API" data-en="Prometheus (target JSON) + Grafana (contact points, policies, alert rules), then reload via the API">Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l'API</p>
           </div>
-          <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="4. Sonde Blackbox + Prometheus" data-en="4. Blackbox probe + Prometheus">4. Sonde Blackbox + Prometheus</p>
             <p class="arch-layer-body" data-fr="Probe ICMP vers chaque lien, métriques stockées, règles d'alerte évaluées" data-en="ICMP probe on each link, metrics stored, alert rules evaluated">Probe ICMP vers chaque lien, métriques stockées, règles d'alerte évaluées</p>
           </div>
-          <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="5. Alerte déclenchée" data-en="5. Alert fired">5. Alerte déclenchée</p>
             <p class="arch-layer-body" data-fr="Grafana Alertmanager → webhook FastAPI + webhook Teams" data-en="Grafana Alertmanager → FastAPI webhook + Teams webhook">Grafana Alertmanager → webhook FastAPI + webhook Teams</p>
           </div>
-          <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer primary">
             <p class="arch-layer-title" data-fr="6. Email HTML avec graphes" data-en="6. HTML email with graphs">6. Email HTML avec graphes</p>
             <p class="arch-layer-body" data-fr="Rendu des panneaux Grafana en PNG, embarqués en CID inline, envoyés en SMTP direct" data-en="Grafana panels rendered to PNG, embedded as inline CID, sent via direct SMTP">Rendu des panneaux Grafana en PNG, embarqués en CID inline, envoyés en SMTP direct</p>
@@ -378,7 +378,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="real-grid">
 
         <div class="real-card reveal">
-          <div class="real-icon ri-sky"><i class="fas fa-server"></i></div>
+          <div class="real-icon ri-sky">{% include icon.html id="fas-server" %}</div>
           <h3 class="real-title" data-fr="Backend FastAPI + SQLite" data-en="FastAPI + SQLite backend">Backend FastAPI + SQLite</h3>
           <p class="real-desc" data-fr="Application FastAPI servie par Uvicorn, avec SQLite comme source de vérité pour les liens, clients, opérateurs, liste de diffusion et journal d'audit." data-en="FastAPI application served by Uvicorn, with SQLite as the source of truth for links, clients, operators, alert distribution, and audit log.">Application FastAPI servie par Uvicorn, avec SQLite comme source de vérité pour les liens, clients, opérateurs, liste de diffusion et journal d'audit.</p>
           <ul class="real-list">
@@ -389,7 +389,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.05s">
-          <div class="real-icon ri-blue"><i class="fas fa-bolt"></i></div>
+          <div class="real-icon ri-blue">{% include icon.html id="fas-bolt" %}</div>
           <h3 class="real-title" data-fr="Frontend HTMX + Bootstrap" data-en="HTMX + Bootstrap frontend">Frontend HTMX + Bootstrap</h3>
           <p class="real-desc" data-fr="Interface réactive sans framework JS lourd : HTMX pour les mises à jour partielles (édition inline, filtres, modales), Bootstrap 5 pour la structure et l'accessibilité." data-en="Reactive UI with no heavy JS framework: HTMX for partial updates (inline edit, filters, modals), Bootstrap 5 for structure and accessibility.">Interface réactive sans framework JS lourd : HTMX pour les mises à jour partielles (édition inline, filtres, modales), Bootstrap 5 pour la structure et l'accessibilité.</p>
           <ul class="real-list">
@@ -400,7 +400,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.1s">
-          <div class="real-icon ri-green"><i class="fas fa-file-code"></i></div>
+          <div class="real-icon ri-green">{% include icon.html id="fas-file-code" %}</div>
           <h3 class="real-title" data-fr="Régénération Prometheus" data-en="Prometheus regeneration">Régénération Prometheus</h3>
           <p class="real-desc" data-fr="À chaque modification, les fichiers targets JSON sont réécrits (un par client) et Prometheus est rechargé via son API admin, sans redémarrage du container." data-en="On every change, target JSON files are rewritten (one per client) and Prometheus is reloaded via its admin API, with no container restart.">À chaque modification, les fichiers targets JSON sont réécrits (un par client) et Prometheus est rechargé via son API admin, sans redémarrage du container.</p>
           <ul class="real-list">
@@ -411,7 +411,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.15s">
-          <div class="real-icon ri-purple"><i class="fas fa-sliders"></i></div>
+          <div class="real-icon ri-purple">{% include icon.html id="fas-sliders" %}</div>
           <h3 class="real-title" data-fr="Provisioning Grafana" data-en="Grafana provisioning">Provisioning Grafana</h3>
           <p class="real-desc" data-fr="Écriture des fichiers YAML de provisioning Grafana (contact points, policies, alert rules) directement depuis la base SQLite, puis reload via l'API." data-en="Grafana provisioning YAML files (contact points, policies, alert rules) written directly from the SQLite database, then reloaded via the API.">Écriture des fichiers YAML de provisioning Grafana (contact points, policies, alert rules) directement depuis la base SQLite, puis reload via l'API.</p>
           <ul class="real-list">
@@ -422,7 +422,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.2s">
-          <div class="real-icon ri-amber"><i class="fas fa-envelope-open-text"></i></div>
+          <div class="real-icon ri-amber">{% include icon.html id="fas-envelope-open-text" %}</div>
           <h3 class="real-title" data-fr="Webhook custom &amp; email HTML" data-en="Custom webhook &amp; HTML email">Webhook custom &amp; email HTML</h3>
           <p class="real-desc" data-fr="Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct : Grafana échappe le HTML du message natif, ce contournement était donc nécessaire." data-en="Grafana alerts intercepted by a FastAPI webhook that produces a rich HTML email and sends it via direct SMTP: Grafana HTML-escapes the native message, so this workaround was needed.">Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct : Grafana échappe le HTML du message natif, ce contournement était donc nécessaire.</p>
           <ul class="real-list">
@@ -434,7 +434,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.25s">
-          <div class="real-icon ri-sky"><i class="fas fa-comments"></i></div>
+          <div class="real-icon ri-sky">{% include icon.html id="fas-comments" %}</div>
           <h3 class="real-title" data-fr="Notifications Teams" data-en="Teams notifications">Notifications Teams</h3>
           <p class="real-desc" data-fr="Second canal de notification : webhook Teams via Power Automate, avec templates Go côté Grafana pour construire un message lisible directement dans le chat de l'équipe." data-en="Second notification channel: Teams webhook via Power Automate, with Go templates on the Grafana side to build a message that reads well directly in the team chat.">Second canal de notification : webhook Teams via Power Automate, avec templates Go côté Grafana pour construire un message lisible directement dans le chat de l'équipe.</p>
           <ul class="real-list">
@@ -444,7 +444,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.3s">
-          <div class="real-icon ri-green"><i class="fas fa-clock"></i></div>
+          <div class="real-icon ri-green">{% include icon.html id="fas-clock" %}</div>
           <h3 class="real-title" data-fr="Digest journalier automatique" data-en="Automatic daily digest">Digest journalier automatique</h3>
           <p class="real-desc" data-fr="Script Python lancé automatiquement chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe." data-en="Python script run automatically each morning: queries Prometheus, aggregates DOWN links per client, and sends a summary email to the team.">Script Python lancé automatiquement chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe.</p>
           <ul class="real-list">
@@ -455,7 +455,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="real-card reveal" style="transition-delay:.35s">
-          <div class="real-icon ri-purple"><i class="fas fa-shield-halved"></i></div>
+          <div class="real-icon ri-purple">{% include icon.html id="fas-shield-halved" %}</div>
           <h3 class="real-title" data-fr="Reverse proxy &amp; sécurité" data-en="Reverse proxy &amp; security">Reverse proxy &amp; sécurité</h3>
           <p class="real-desc" data-fr="Nginx en reverse proxy avec Basic Auth pour l'interface humaine, endpoint webhook séparé (sans Basic Auth mais protégé par token) pour que Grafana puisse appeler sans credentials." data-en="Nginx reverse proxy with Basic Auth for the human UI, separate webhook endpoint (no Basic Auth but token-protected) so Grafana can call without credentials.">Nginx en reverse proxy avec Basic Auth pour l'interface humaine, endpoint webhook séparé (sans Basic Auth mais protégé par token) pour que Grafana puisse appeler sans credentials.</p>
           <ul class="real-list">
@@ -483,8 +483,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="shot-card reveal" onclick="openLightbox(0)">
           <div class="shot-img-wrap">
             <span class="shot-badge">01 · Accueil</span>
-            <span class="shot-zoom"><i class="fas fa-expand"></i></span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-accueil.png" alt="Page d'accueil du portail Monitoring Admin" loading="lazy">
+            <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-accueil-vignette.webp" alt="Page d'accueil du portail Monitoring Admin" width="916" height="458" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Page IPs · accueil" data-en="IPs page · home">Page IPs · accueil</p>
@@ -495,8 +495,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="shot-card reveal" style="transition-delay:.05s" onclick="openLightbox(1)">
           <div class="shot-img-wrap">
             <span class="shot-badge">02 · Clients</span>
-            <span class="shot-zoom"><i class="fas fa-expand"></i></span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-clients.png" alt="Liste des clients" loading="lazy">
+            <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-clients-vignette.webp" alt="Liste des clients" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Gestion des clients" data-en="Client management">Gestion des clients</p>
@@ -507,8 +507,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="shot-card reveal" style="transition-delay:.1s" onclick="openLightbox(2)">
           <div class="shot-img-wrap">
             <span class="shot-badge">03 · Équipe</span>
-            <span class="shot-zoom"><i class="fas fa-expand"></i></span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-equipe.png" alt="Groupe Réseau-Net" loading="lazy">
+            <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-equipe-vignette.webp" alt="Groupe Réseau-Net" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Groupe Réseau-Net" data-en="Réseau-Net team">Groupe Réseau-Net</p>
@@ -519,8 +519,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="shot-card reveal" style="transition-delay:.15s" onclick="openLightbox(3)">
           <div class="shot-img-wrap">
             <span class="shot-badge">04 · Opérateurs</span>
-            <span class="shot-zoom"><i class="fas fa-expand"></i></span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-operateurs.png" alt="Liste des opérateurs" loading="lazy">
+            <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-operateurs-vignette.webp" alt="Liste des opérateurs" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Référentiel opérateurs" data-en="Operator reference">Référentiel opérateurs</p>
@@ -531,8 +531,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="shot-card reveal" style="transition-delay:.2s" onclick="openLightbox(4)">
           <div class="shot-img-wrap">
             <span class="shot-badge">05 · Audit</span>
-            <span class="shot-zoom"><i class="fas fa-expand"></i></span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-audit.png" alt="Journal d'audit" loading="lazy">
+            <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-audit-vignette.webp" alt="Journal d'audit" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Journal d'audit" data-en="Audit log">Journal d'audit</p>
@@ -543,8 +543,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="shot-card reveal" style="transition-delay:.25s" onclick="openLightbox(5)">
           <div class="shot-img-wrap">
             <span class="shot-badge">06 · Wiki</span>
-            <span class="shot-zoom"><i class="fas fa-expand"></i></span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-wiki.png" alt="Documentation intégrée" loading="lazy">
+            <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-wiki-vignette.webp" alt="Documentation intégrée" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Documentation intégrée" data-en="Built-in documentation">Documentation intégrée</p>
@@ -554,7 +554,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 
       </div>
 
-      <p class="gallery-note reveal"><i class="fas fa-shield-halved"></i> <span data-fr="Toutes les informations sensibles (IPs, hostnames, données clients) ont été floutées avant publication." data-en="All sensitive information (IPs, hostnames, client data) has been blurred before publication.">Toutes les informations sensibles (IPs, hostnames, données clients) ont été floutées avant publication.</span></p>
+      <p class="gallery-note reveal">{% include icon.html id="fas-shield-halved" %} <span data-fr="Toutes les informations sensibles (IPs, hostnames, données clients) ont été floutées avant publication." data-en="All sensitive information (IPs, hostnames, client data) has been blurred before publication.">Toutes les informations sensibles (IPs, hostnames, données clients) ont été floutées avant publication.</span></p>
     </div>
   </section>
 
@@ -569,7 +569,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="tools-grid">
 
         <div class="tool-cat reveal">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-code&quot;&gt;&lt;/i&gt; &amp;nbsp;Backend" data-en="&lt;i class=&quot;fas fa-code&quot;&gt;&lt;/i&gt; &amp;nbsp;Backend" data-i18n-html><i class="fas fa-code"></i> &nbsp;Backend</p>
+          <p class="tool-cat-title" data-fr="{% include icon.html id='fas-code' %} &amp;nbsp;Backend" data-en="{% include icon.html id='fas-code' %} &amp;nbsp;Backend" data-i18n-html>{% include icon.html id="fas-code" %} &nbsp;Backend</p>
           <div class="tool-tags">
             <span class="ttag">Python 3</span>
             <span class="ttag">FastAPI</span>
@@ -581,7 +581,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.05s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-desktop&quot;&gt;&lt;/i&gt; &amp;nbsp;Frontend" data-en="&lt;i class=&quot;fas fa-desktop&quot;&gt;&lt;/i&gt; &amp;nbsp;Frontend" data-i18n-html><i class="fas fa-desktop"></i> &nbsp;Frontend</p>
+          <p class="tool-cat-title" data-fr="{% include icon.html id='fas-desktop' %} &amp;nbsp;Frontend" data-en="{% include icon.html id='fas-desktop' %} &amp;nbsp;Frontend" data-i18n-html>{% include icon.html id="fas-desktop" %} &nbsp;Frontend</p>
           <div class="tool-tags">
             <span class="ttag">HTMX 1.9</span>
             <span class="ttag">Bootstrap 5.3</span>
@@ -591,7 +591,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.1s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-chart-line&quot;&gt;&lt;/i&gt; &amp;nbsp;Monitoring" data-en="&lt;i class=&quot;fas fa-chart-line&quot;&gt;&lt;/i&gt; &amp;nbsp;Monitoring" data-i18n-html><i class="fas fa-chart-line"></i> &nbsp;Monitoring</p>
+          <p class="tool-cat-title" data-fr="{% include icon.html id='fas-chart-line' %} &amp;nbsp;Monitoring" data-en="{% include icon.html id='fas-chart-line' %} &amp;nbsp;Monitoring" data-i18n-html>{% include icon.html id="fas-chart-line" %} &nbsp;Monitoring</p>
           <div class="tool-tags">
             <span class="ttag">Prometheus</span>
             <span class="ttag">Blackbox Exporter</span>
@@ -602,7 +602,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.15s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-cogs&quot;&gt;&lt;/i&gt; &amp;nbsp;Infra &amp; ops" data-en="&lt;i class=&quot;fas fa-cogs&quot;&gt;&lt;/i&gt; &amp;nbsp;Infra &amp; ops" data-i18n-html><i class="fas fa-cogs"></i> &nbsp;Infra &amp; ops</p>
+          <p class="tool-cat-title" data-fr="{% include icon.html id='fas-cogs' %} &amp;nbsp;Infra &amp; ops" data-en="{% include icon.html id='fas-cogs' %} &amp;nbsp;Infra &amp; ops" data-i18n-html>{% include icon.html id="fas-cogs" %} &nbsp;Infra &amp; ops</p>
           <div class="tool-tags">
             <span class="ttag">Docker Compose</span>
             <span class="ttag">Nginx</span>
@@ -612,7 +612,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.2s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt; &amp;nbsp;Intégrations" data-en="&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt; &amp;nbsp;Integrations" data-i18n-html><i class="fas fa-link"></i> &nbsp;Intégrations</p>
+          <p class="tool-cat-title" data-fr="{% include icon.html id='fas-link' %} &amp;nbsp;Intégrations" data-en="{% include icon.html id='fas-link' %} &amp;nbsp;Integrations" data-i18n-html>{% include icon.html id="fas-link" %} &nbsp;Intégrations</p>
           <div class="tool-tags">
             <span class="ttag">Microsoft Teams</span>
             <span class="ttag">Power Automate</span>
@@ -622,7 +622,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.25s">
-          <p class="tool-cat-title" data-fr="&lt;i class=&quot;fas fa-tools&quot;&gt;&lt;/i&gt; &amp;nbsp;Patterns" data-en="&lt;i class=&quot;fas fa-tools&quot;&gt;&lt;/i&gt; &amp;nbsp;Patterns" data-i18n-html><i class="fas fa-tools"></i> &nbsp;Patterns</p>
+          <p class="tool-cat-title" data-fr="{% include icon.html id='fas-tools' %} &amp;nbsp;Patterns" data-en="{% include icon.html id='fas-tools' %} &amp;nbsp;Patterns" data-i18n-html>{% include icon.html id="fas-tools" %} &nbsp;Patterns</p>
           <div class="tool-tags">
             <span class="ttag" data-fr="Source de vérité SQLite" data-en="SQLite source of truth">Source de vérité SQLite</span>
             <span class="ttag" data-fr="Config as data" data-en="Config as data">Config as data</span>
@@ -646,7 +646,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="sec-grid">
 
         <div class="sec-card reveal">
-          <div class="sec-icon"><i class="fas fa-network-wired"></i></div>
+          <div class="sec-icon">{% include icon.html id="fas-network-wired" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="Segmentation réseau" data-en="Network segmentation">Segmentation réseau</p>
             <p class="sec-desc" data-fr="Le portail tourne sur une VM dédiée, isolée dans son propre segment réseau, séparée du reste de l'infrastructure et des réseaux clients." data-en="The portal runs on a dedicated VM, isolated in its own network segment, separated from the rest of the infrastructure and from client networks.">Le portail tourne sur une VM dédiée, isolée dans son propre segment réseau, séparée du reste de l'infrastructure et des réseaux clients.</p>
@@ -654,7 +654,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="sec-card reveal" style="transition-delay:.05s">
-          <div class="sec-icon"><i class="fas fa-lock"></i></div>
+          <div class="sec-icon">{% include icon.html id="fas-lock" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="HTTPS sur le LAN uniquement" data-en="HTTPS on the LAN only">HTTPS sur le LAN uniquement</p>
             <p class="sec-desc" data-fr="L'interface web est servie en HTTPS et n'est joignable que depuis le réseau local interne. Aucune exposition Internet, aucun accès distant public." data-en="The web UI is served over HTTPS and is reachable only from the internal LAN. No Internet exposure, no public remote access.">L'interface web est servie en HTTPS et n'est joignable que depuis le réseau local interne. Aucune exposition Internet, aucun accès distant public.</p>
@@ -662,7 +662,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="sec-card reveal" style="transition-delay:.1s">
-          <div class="sec-icon"><i class="fas fa-arrows-left-right"></i></div>
+          <div class="sec-icon">{% include icon.html id="fas-arrows-left-right" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="Flux sortants restreints à l'ICMP" data-en="Outbound traffic restricted to ICMP">Flux sortants restreints à l'ICMP</p>
             <p class="sec-desc" data-fr="La VM ne parle aux réseaux clients qu'en ICMP (sondes de disponibilité Blackbox). Aucun autre protocole n'est autorisé en sortie vers les clients." data-en="The VM only talks to client networks over ICMP (Blackbox availability probes). No other outbound protocol is allowed toward clients.">La VM ne parle aux réseaux clients qu'en ICMP (sondes de disponibilité Blackbox). Aucun autre protocole n'est autorisé en sortie vers les clients.</p>
@@ -670,7 +670,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         </div>
 
         <div class="sec-card reveal" style="transition-delay:.15s">
-          <div class="sec-icon"><i class="fas fa-key"></i></div>
+          <div class="sec-icon">{% include icon.html id="fas-key" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="Authentification &amp; secrets" data-en="Authentication &amp; secrets">Authentification &amp; secrets</p>
             <p class="sec-desc" data-fr="Basic Auth sur l'interface humaine, endpoint webhook isolé et protégé par un token stocké en variable d'environnement, hors dépôt Git." data-en="Basic Auth on the human UI, isolated webhook endpoint protected by a token stored in an environment variable, never in Git.">Basic Auth sur l'interface humaine, endpoint webhook isolé et protégé par un token stocké en variable d'environnement, hors dépôt Git.</p>
@@ -691,27 +691,27 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       </div>
       <div class="res-grid">
         <div class="res-card reveal">
-          <div class="res-icon"><i class="fas fa-users-gear"></i></div>
+          <div class="res-icon">{% include icon.html id="fas-users-gear" %}</div>
           <h3 class="res-title" data-fr="Équipe autonome" data-en="Autonomous team">Équipe autonome</h3>
           <p class="res-desc" data-fr="N'importe quel membre de l'équipe peut désormais gérer la supervision, sans risquer de casser la config en éditant un YAML à la main." data-en="Any team member can now manage supervision without the risk of breaking the config by editing a YAML by hand.">N'importe quel membre de l'équipe peut désormais gérer la supervision, sans risquer de casser la config en éditant un YAML à la main.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.05s">
-          <div class="res-icon"><i class="fas fa-check-double"></i></div>
+          <div class="res-icon">{% include icon.html id="fas-check-double" %}</div>
           <h3 class="res-title" data-fr="Configs toujours cohérentes" data-en="Consistent configs">Configs toujours cohérentes</h3>
           <p class="res-desc" data-fr="Prometheus, Grafana alerting et liste de diffusion sont dérivés de la même base : impossible d'avoir un désalignement entre l'inventaire et les alertes." data-en="Prometheus, Grafana alerting, and the alert distribution list are all derived from the same source: no mismatch between inventory and alerts.">Prometheus, Grafana alerting et liste de diffusion sont dérivés de la même base : impossible d'avoir un désalignement entre l'inventaire et les alertes.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.1s">
-          <div class="res-icon"><i class="fas fa-envelope-circle-check"></i></div>
+          <div class="res-icon">{% include icon.html id="fas-envelope-circle-check" %}</div>
           <h3 class="res-title" data-fr="Alertes actionnables" data-en="Actionable alerts">Alertes actionnables</h3>
           <p class="res-desc" data-fr="Chaque alerte contient les infos utiles + un graphe inline pour comprendre l'incident sans même ouvrir Grafana. Client mis en copie automatiquement." data-en="Every alert carries the useful info + an inline graph to understand the incident without even opening Grafana. Client automatically in CC.">Chaque alerte contient les infos utiles + un graphe inline pour comprendre l'incident sans même ouvrir Grafana. Client mis en copie automatiquement.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.15s">
-          <div class="res-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="res-icon">{% include icon.html id="fas-magnifying-glass-chart" %}</div>
           <h3 class="res-title" data-fr="Traçabilité complète" data-en="Full traceability">Traçabilité complète</h3>
           <p class="res-desc" data-fr="Le journal d'audit garde une trace horodatée de chaque ajout, modification ou suppression : qui a fait quoi, quand, sur quel lien." data-en="The audit log keeps a time-stamped trace of every add, modify, or delete: who did what, when, on which link.">Le journal d'audit garde une trace horodatée de chaque ajout, modification ou suppression : qui a fait quoi, quand, sur quel lien.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.2s">
-          <div class="res-icon"><i class="fas fa-bolt"></i></div>
+          <div class="res-icon">{% include icon.html id="fas-bolt" %}</div>
           <h3 class="res-title" data-fr="Livraison en 2 semaines" data-en="Shipped in 2 weeks">Livraison en 2 semaines</h3>
           <p class="res-desc" data-fr="Sprint de conception + développement + mise en production en ≈ 2 semaines en pair avec Claude Code, sans compromis sur les fondamentaux de sécurité (isolation, HTTPS local, ICMP-only)." data-en="Design + development + production rollout in ≈ 2 weeks paired with Claude Code, with no compromise on security fundamentals (isolation, local-only HTTPS, ICMP-only).">Sprint de conception + développement + mise en production en ≈ 2 semaines en pair avec Claude Code, sans compromis sur les fondamentaux de sécurité (isolation, HTTPS local, ICMP-only).</p>
         </div>
@@ -723,24 +723,24 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 
   <!-- Lightbox -->
   <div id="lightbox" class="lb-overlay" onclick="closeLightbox(event)">
-    <button class="lb-nav lb-prev" onclick="prevShot(event)" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
+    <button class="lb-nav lb-prev" onclick="prevShot(event)" aria-label="Précédent">{% include icon.html id="fas-chevron-left" %}</button>
     <div class="lb-inner" onclick="event.stopPropagation()">
-      <button class="lb-close" onclick="closeLightbox()" aria-label="Fermer"><i class="fas fa-times"></i></button>
-      <img id="lb-img" class="lb-img" src="" alt="">
+      <button class="lb-close" onclick="closeLightbox()" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
+      <img id="lb-img" class="lb-img" alt="">
       <p class="lb-caption"><strong id="lb-title"></strong> <span id="lb-desc"></span><span id="lb-count" class="lb-caption-count"></span></p>
     </div>
-    <button class="lb-nav lb-next" onclick="nextShot(event)" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
+    <button class="lb-nav lb-next" onclick="nextShot(event)" aria-label="Suivant">{% include icon.html id="fas-chevron-right" %}</button>
   </div>
 
   <script>
     /* Lightbox gallery */
     const SHOTS = [
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-accueil.png',    title: '01 · Page IPs',            desc: "Accueil : tableau des liens supervisés, filtres et édition inline." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-clients.png',    title: '02 · Gestion des clients', desc: "Chaque client porte son email d'alerte et ses liens rattachés." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-equipe.png',     title: '03 · Groupe Réseau-Net',   desc: "Membres qui reçoivent toutes les alertes et le digest journalier." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-operateurs.png', title: '04 · Référentiel opérateurs', desc: "Table des opérateurs internet, indépendante des IPs." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-audit.png',      title: '05 · Journal d\'audit',    desc: "Trace horodatée de chaque action sur la plateforme." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-wiki.png',       title: '06 · Documentation',       desc: "Wiki intégré au portail procédures internes accessibles en un clic." }
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-accueil.webp',    title: '01 · Page IPs',            desc: "Accueil : tableau des liens supervisés, filtres et édition inline." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-clients.webp',    title: '02 · Gestion des clients', desc: "Chaque client porte son email d'alerte et ses liens rattachés." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-equipe.webp',     title: '03 · Groupe Réseau-Net',   desc: "Membres qui reçoivent toutes les alertes et le digest journalier." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-operateurs.webp', title: '04 · Référentiel opérateurs', desc: "Table des opérateurs internet, indépendante des IPs." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-audit.webp',      title: '05 · Journal d\'audit',    desc: "Trace horodatée de chaque action sur la plateforme." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-wiki.webp',       title: '06 · Documentation',       desc: "Wiki intégré au portail procédures internes accessibles en un clic." }
     ];
     let lbIndex = 0;
     const lb = document.getElementById('lightbox');

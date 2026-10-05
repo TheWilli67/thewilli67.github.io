@@ -1,6 +1,7 @@
 ---
-# Page traitée par Jekyll (GitHub Pages) : la galerie liste automatiquement
-# les photos du dossier /photo/ (titres facultatifs dans _data/photos.yml).
+# Page traitée par Jekyll (GitHub Pages) : la galerie est construite à partir de
+# _data/galerie.json (versions WebP créées par .github/scripts/photos.py à partir des
+# originaux du dossier _photos/) et des titres facultatifs de _data/photos.yml.
 title: "Photographie"
 description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
 ---
@@ -220,7 +221,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
-      <span class="hero-eyebrow"><i class="fas fa-camera"></i> <span data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</span></span>
+      <span class="hero-eyebrow">{% include icon.html id="fas-camera" %} <span data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</span></span>
       <h1 class="hero-title" data-fr="Ma galerie photo" data-en="My photo gallery">Ma galerie photo</h1>
       <p class="hero-sub"
          data-fr="Quelques clichés dont je suis fier, capturés avec mon &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Macro florale, faune, lumières nocturnes et compositions atmosphériques : autant de sujets qui m'apprennent à voir différemment."
@@ -231,10 +232,10 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         qui m'apprennent à voir différemment.
       </p>
       <div class="hero-meta">
-        <span class="hero-chip"><i class="fas fa-camera-retro"></i> Canon EOS 600D</span>
-        <span class="hero-chip" id="photo-count-chip" hidden><i class="fas fa-images"></i> <span id="photo-count"></span> photos</span>
-        <a href="https://thewilli67.github.io/photographie-helper-Canon600D/" target="_blank" class="btn-cheatsheet no-script-execution">
-          <i class="fas fa-book-open"></i> Cheat sheet Canon 600D
+        <span class="hero-chip">{% include icon.html id="fas-camera-retro" %} Canon EOS 600D</span>
+        <span class="hero-chip" id="photo-count-chip" hidden>{% include icon.html id="fas-images" %} <span id="photo-count"></span> photos</span>
+        <a href="https://thewilli67.github.io/photographie-helper-Canon600D/" target="_blank" class="btn-cheatsheet">
+          {% include icon.html id="fas-book-open" %} Cheat sheet Canon 600D
         </a>
       </div>
     </div>
@@ -249,7 +250,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         <p class="s-sub" data-fr="Cliquez sur une photo pour l'agrandir" data-en="Click a photo to enlarge it">Cliquez sur une photo pour l'agrandir</p>
       </div>
 
-      <!-- Rempli automatiquement à partir du dossier /photo/ (voir _data/photos.yml) -->
+      <!-- Rempli automatiquement à partir de _data/galerie.json (voir _data/photos.yml) -->
       <div class="photo-grid" id="photo-grid"></div>
       <p class="gallery-empty" id="gallery-empty" hidden></p>
     </div>
@@ -257,11 +258,11 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
 
   <!-- ===== LIGHTBOX ===== -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
-    <button class="lightbox-close" id="lb-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
-    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Photo précédente"><i class="fas fa-chevron-left"></i></button>
-    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Photo suivante"><i class="fas fa-chevron-right"></i></button>
+    <button class="lightbox-close" id="lb-close" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Photo précédente">{% include icon.html id="fas-chevron-left" %}</button>
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Photo suivante">{% include icon.html id="fas-chevron-right" %}</button>
     <div class="lightbox-img-wrap">
-      <img id="lb-img" src="" alt="">
+      <img id="lb-img" alt="">
     </div>
     <div class="lightbox-caption">
       <h3 id="lb-title"></h3>
@@ -274,11 +275,11 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
   {% include footer.html %}
 
   <!--
-    Liste des photos générée par Jekyll (GitHub Pages) au moment de la publication :
-    tous les fichiers .jpg/.jpeg/.png/.webp du dossier /photo/, plus les titres de _data/photos.yml.
-    En local (sans Jekyll), ces blocs ne sont pas interprétés et la galerie affiche un message.
+    Données injectées par Jekyll : versions WebP de chaque photo (_data/galerie.json, écrit
+    par .github/scripts/photos.py) et titres (_data/photos.yml). Sans Jekyll (simple serveur
+    statique), ces blocs ne sont pas interprétés et la galerie affiche un message.
   -->
-  <script id="photo-files" type="application/json">[{% for f in site.static_files %}{% if f.path contains '/photo/' %}{% assign ext = f.extname | downcase %}{% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}{{ f.path | jsonify }},{% endif %}{% endif %}{% endfor %}null]</script>
+  <script id="photo-data" type="application/json">{{ site.data.galerie | jsonify }}</script>
   <script id="photo-meta" type="application/json">{{ site.data.photos | jsonify }}</script>
 
   <script>
@@ -302,7 +303,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       var empty = document.getElementById('gallery-empty');
       var files, meta;
       try {
-        files = JSON.parse(document.getElementById('photo-files').textContent).filter(Boolean);
+        files = JSON.parse(document.getElementById('photo-data').textContent) || {};
         meta = JSON.parse(document.getElementById('photo-meta').textContent) || {};
       } catch (e) {
         files = null;
@@ -320,17 +321,16 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         showEmpty('La galerie est générée par GitHub Pages : elle s\'affiche sur le site en ligne.',
                   'The gallery is generated by GitHub Pages: it shows up on the live site.');
       } else {
-        var byName = {};
-        files.forEach(function (path) { byName[path.split('/').pop()] = path; });
-        var ordered = Object.keys(meta).filter(function (n) { return byName[n]; });
-        Object.keys(byName).sort(function (a, b) { return a.localeCompare(b, 'fr', { numeric: true }); })
+        var ordered = Object.keys(meta).filter(function (n) { return files[n]; });
+        Object.keys(files).sort(function (a, b) { return a.localeCompare(b, 'fr', { numeric: true }); })
           .forEach(function (n) { if (ordered.indexOf(n) === -1) ordered.push(n); });
 
         photos = ordered.map(function (name) {
-          var m = meta[name] || {};
+          var m = meta[name] || {}, f = files[name];
           var title = m.title || titleFromName(name);
           return {
-            src: encodeURI(byName[name]),
+            grid: [f['800'], f['1200']],   /* versions de la grille : {src, w, h} */
+            full: f['2048'],               /* version de la visionneuse */
             title: { fr: title, en: m.title_en || title },
             tags: { fr: m.tags || '', en: m.tags_en || m.tags || '' },
             desc: { fr: m.desc || '', en: m.desc_en || m.desc || '' },
@@ -360,10 +360,15 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         item.tabIndex = 0;
         item.setAttribute('role', 'button');
 
+        /* Grille : 3 colonnes (max. 384 px), 2 sous 900 px, 1 sous 600 px */
         var img = document.createElement('img');
-        img.src = p.src;
+        img.src = p.grid[0].src;
+        img.srcset = p.grid.map(function (v) { return v.src + ' ' + v.w + 'w'; }).join(', ');
+        img.sizes = '(max-width: 600px) calc(100vw - 2.5rem), (max-width: 900px) calc(50vw - 2rem), 384px';
+        img.width = p.grid[0].w;
+        img.height = p.grid[0].h;
         img.alt = p.alt[lang()] || p.alt.fr;
-        img.loading = 'lazy';
+        if (i >= 3) img.loading = 'lazy';  /* la première rangée est visible dès l'arrivée */
         img.decoding = 'async';
         item.appendChild(img);
 
@@ -374,7 +379,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
           item.appendChild(overlay);
         }
         var zoom = el('div', 'photo-zoom-icon');
-        zoom.innerHTML = '<i class="fas fa-expand"></i>';
+        zoom.innerHTML = "{% include icon.html id='fas-expand' %}";
         item.appendChild(zoom);
 
         item.addEventListener('click', function () { openLightbox(i); });
@@ -402,7 +407,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         var p = photos[idx], l = lang();
         if (!lb.classList.contains('open')) lastFocus = document.activeElement;
         current = idx;
-        lbImg.src = p.src;
+        lbImg.src = p.full.src;
         lbImg.alt = p.alt[l] || p.alt.fr;
         lbTitle.textContent = p.title[l] || p.title.fr;
         lbDesc.textContent = p.desc[l] || p.desc.fr;

@@ -30,7 +30,7 @@ thewilli67.github.io/
 ├── contact.html                # Coordonnées (LinkedIn, CV, e-mail, GitHub)
 ├── alternance.html             # Hub alternances
 ├── but.html                    # BUT R&T complet (BUT1 + BUT2 + BUT3)
-├── photographie.html           # Galerie photo, générée à partir du dossier /photo/
+├── photographie.html           # Galerie photo, générée à partir de _data/galerie.json
 ├── jeux.html                   # Ludothèque, générée depuis Steam et _data/jeux.yml
 ├── projet_72h.html             # Projet hydrolienne, Terminale STI2D
 ├── mentions_legales.html       # Mentions légales (LCEN)
@@ -45,40 +45,51 @@ thewilli67.github.io/
 ├── projets_pro/
 │   ├── refonte_glpi.html       # Projet phare SOLINEST, refonte GLPI 9.x → 10.x
 │   ├── monitoring_admin.html   # Projet phare Réseau-Net, portail Prometheus/Grafana
-│   └── screenshots/            # Captures floutées du portail Monitoring Admin
+│   └── screenshots/            # Captures floutées du portail Monitoring Admin (WebP + vignettes)
 │
 ├── SAE23/
 │   ├── SAE23.html              # SAE23, Game Library (EN)
 │   ├── SAE23_fr.html           # SAE23, Bibliothèque de jeux (FR)
-│   └── SAE23_Documents/        # Captures de la SAE23
+│   └── SAE23_Documents/        # Captures de la SAE23 (WebP)
 │
-├── photo/                      # Photos de la galerie (ajout automatique, voir plus bas)
+├── _photos/                    # Originaux de la galerie (déposer les photos ici ; exclu du site)
+├── _sources/                   # Originaux des autres images (PNG / JPG avant conversion ; exclu du site)
 ├── _includes/                  # Morceaux de page communs, insérés par Jekyll (voir « Modifier le site »)
-│   ├── head.html               # <head> : méta-données, Open Graph, polices, CSS et scripts communs
+│   ├── head.html               # <head> : méta-données, Open Graph, préchargement de police, CSS et scripts
 │   ├── nav.html                # Menu
-│   └── footer.html             # Pied de page
-├── assets/css/site.css         # Styles communs : variables, menu, en-tête de page, sections, pied de page
+│   ├── footer.html             # Pied de page
+│   └── icon.html               # Icône du sprite SVG
+├── assets/
+│   ├── css/site.css            # Styles communs : polices, variables, icônes, menu, en-tête, sections, pied de page
+│   ├── fonts/                  # Geist et Geist Mono en woff2 (Regular / Medium) + licence OFL
+│   ├── icons.svg               # Sprite des icônes utilisées (Font Awesome Free, CC BY 4.0)
+│   ├── flags/                  # Drapeaux FR / GB du bouton de langue (flag-icons, MIT)
+│   └── photos/                 # Versions WebP de la galerie (générées, ne pas modifier)
 ├── _data/
+│   ├── galerie.json            # Versions WebP et dimensions de chaque photo (généré par photos.py)
+│   ├── icons.yml               # Largeur de chaque icône du sprite (généré par _scripts/icones.py)
 │   ├── photos.yml              # Titres et descriptions facultatifs des photos (FR / EN)
 │   ├── jeux.yml                # Ludothèque : jeux terminés, jeux hors Steam, jeux masqués (à la main)
 │   └── steam.json              # Bibliothèque Steam, réécrite automatiquement (ne pas modifier)
 │
 ├── scripts/
-│   ├── animation_page.js       # Transitions fondu entrant / sortant entre pages
 │   ├── i18n.js                 # Bilinguisme FR / EN, popup de langue, menu mobile
 │   └── reveal.js               # Apparition des éléments .reveal au défilement
 │
 ├── .github/
-│   ├── workflows/pages.yml       # Action « Publication du site » : EXIF, synchro Steam, build Jekyll, déploiement
+│   ├── workflows/pages.yml       # Action « Publication du site » : photos, synchro Steam, build Jekyll, déploiement
+│   ├── scripts/photos.py         # Galerie : EXIF retirés, versions WebP, _data/galerie.json (local ou Action)
+│   ├── scripts/requirements.txt  # Dépendance de photos.py (Pillow)
 │   ├── scripts/strip_exif.py     # Nettoyage EXIF sans recompression (utilisable en local)
 │   └── scripts/steam_sync.py     # Synchronisation de la bibliothèque Steam (Web API)
 │
 ├── _scripts/                   # Utilitaires de maintenance (non servis par GitHub Pages)
+│   ├── icones.py               # Reconstruit le sprite d'icônes à partir des icônes utilisées
 │   ├── strip_emdash.py         # Retire les tirets cadratins hors titres (voir avertissement)
 │   ├── reindent_html.py        # Ré-indentation HTML par profondeur de tag
 │   └── reindent_style_js.py    # Ré-indentation CSS/JS dans les blocs <style>/<script>
 │
-├── Images_photos/              # Photo de profil, image de partage (og-image.jpg), illustrations
+├── Images_photos/              # Portrait (WebP), image de partage (og-image.jpg), illustrations (WebP)
 └── documents/                  # CV, certifications et livrables (SAE302, SAE303, SAE502…)
 ```
 
@@ -90,14 +101,14 @@ thewilli67.github.io/
 |---|---|
 | **HTML5** | Structure sémantique de toutes les pages |
 | **CSS3** | Feuille commune `assets/css/site.css` + styles propres à chaque page : variables CSS, Grid, Flexbox, animations |
-| **JavaScript vanilla** | Transitions, bilinguisme, apparition au défilement, galerie, filtres |
-| **Jekyll (GitHub Pages)** | En-tête, menu et pied de page communs (`_includes/`), galerie (liste du dossier `/photo/`) et Ludothèque (données `_data/`) |
-| **GitHub Actions** | Publication du site, synchronisation Steam quotidienne, nettoyage EXIF des photos |
+| **JavaScript vanilla** | Bilinguisme, apparition au défilement, galerie, filtres |
+| **Jekyll (GitHub Pages)** | En-tête, menu et pied de page communs (`_includes/`), galerie et Ludothèque (données `_data/`) |
+| **GitHub Actions** | Publication du site, photos de la galerie (WebP), synchronisation Steam quotidienne |
 | **Steam Web API** | Jeux, temps de jeu, succès et dernier lancement de la Ludothèque |
-| **Font Awesome 6.5** | Icônes (CDN) |
-| **Inter (Google Fonts)** | Police principale |
+| **Font Awesome Free 6.5** | Icônes, copiées dans un sprite SVG local (`assets/icons.svg`, CC BY 4.0) |
+| **Geist / Geist Mono** | Polices auto-hébergées (`assets/fonts`, SIL OFL 1.1) |
 
-Aucun framework CSS ni bundler, zéro dépendance de build.
+Aucun framework CSS ni bundler, aucune ressource chargée depuis un autre domaine.
 
 ---
 
@@ -105,11 +116,12 @@ Aucun framework CSS ni bundler, zéro dépendance de build.
 
 - **Design system cohérent** : variables CSS (`--accent`, `--bg-dark`, `--text-m`…) et composants communs (menu, en-tête de page, sections, pied de page) définis une seule fois dans `assets/css/site.css`, contrastes conformes WCAG AA sur les fonds sombres
 - **Bilinguisme FR / EN** : attributs `data-fr` / `data-en` traduits par `i18n.js` ; au premier passage, une popup propose la langue (affichée en même temps que la page, sans flash), puis le choix est mémorisé dans le navigateur
-- **Transitions de page** : fondu entrant/sortant via `animation_page.js`, sans bloquer Ctrl/Cmd+clic, les liens externes ou le retour arrière ; site lisible même sans JavaScript (`<noscript>`)
-- **Scroll reveal** : apparition progressive des éléments `.reveal` au défilement (`reveal.js`, IntersectionObserver)
+- **Transitions de page** : fondu natif du navigateur (View Transitions, en CSS), en simple amélioration et désactivé si le système demande moins d'animations
+- **Scroll reveal** : les éléments `.reveal` situés sous l'écran apparaissent au défilement (`reveal.js`) ; rien n'est masqué sans JavaScript ni avec `prefers-reduced-motion`
+- **Images légères** : WebP avec `width` / `height` (pas de décalage au chargement), `loading="lazy"` hors du premier écran, portrait prioritaire (`fetchpriority="high"`)
 - **Responsive** : breakpoints à 900 px et 600 px, menu burger sur mobile
 - **Partage sur les réseaux** : balises Open Graph / Twitter et image d'aperçu 1200×630 sur toutes les pages
-- **Galerie photo dynamique** : les photos déposées dans `/photo/` apparaissent seules, avec visionneuse (`←` `→` `Esc`)
+- **Galerie photo dynamique** : les photos déposées dans `_photos/` apparaissent seules (versions WebP 800 / 1200 px pour la grille, 2048 px pour la visionneuse `←` `→` `Esc`)
 - **Ludothèque synchronisée** : bibliothèque Steam mise à jour chaque jour, plus les jeux hors Steam saisis à la main
 - **Page Master** : frise S7→S10 dépliable, schéma d'architecture en SVG, labs filtrables par semestre
 - **Galerie lightbox custom** sur `projets_pro/monitoring_admin.html` (captures floutées)
@@ -145,7 +157,8 @@ description: "Contacter William…"  # moteurs de recherche et aperçu de partag
 |---|---|
 | Le menu (liens, ordre) | `_includes/nav.html` |
 | Le pied de page | `_includes/footer.html` (lien en plus : `{% include footer.html extra_url="…" extra_label="…" %}`) |
-| Les polices, l'image de partage, les scripts communs | `_includes/head.html` |
+| Les polices, l'image de partage, les scripts communs | `_includes/head.html` et `assets/css/site.css` (`@font-face`) |
+| Une icône | `{% include icon.html id='fas-nom' %}` (nom du site fontawesome.com) ; nouvelle icône : `python _scripts/icones.py` |
 | Une couleur, l'en-tête de page, les titres de section | `assets/css/site.css` (une page peut redéfinir une règle dans sa propre balise `<style>`, chargée après) |
 
 Une page rédigée en anglais ajoute `lang: en` à son front matter (voir `SAE23/SAE23.html`). L'année du pied de page se met à jour seule à chaque publication.
@@ -154,19 +167,25 @@ Une page rédigée en anglais ajoute `lang: en` à son front matter (voir `SAE23
 
 ## Ajouter une photo à la galerie
 
-1. Déposer la photo (`.jpg`, `.jpeg`, `.png` ou `.webp`) dans le dossier `photo/`.
-2. Commit + push. La photo apparaît dans la galerie à la prochaine publication GitHub Pages.
-3. L'Action **« Publication du site »** retire les EXIF (numéro de série du boîtier, date, réglages…) sans recompresser l'image avant de publier, puis commite les photos nettoyées : faire un **Pull** dans GitHub Desktop avant de pousser à nouveau.
+1. Déposer l'original (`.jpg`, `.jpeg`, `.png` ou `.webp`) dans le dossier `_photos/`.
+2. Lancer, depuis la racine du dépôt :
 
-Sans autre action, le titre est déduit du nom du fichier (`Coucher de soleil.jpg` → « Coucher de soleil » ; les noms d'appareil comme `IMG_1234.JPG` n'affichent pas de titre). Pour un titre, une description ou une traduction anglaise, ajouter une entrée dans [`_data/photos.yml`](_data/photos.yml) : l'ordre de ce fichier est l'ordre d'affichage.
+   ```bash
+   python .github/scripts/photos.py
+   ```
 
-Nettoyage manuel possible en local : `python .github/scripts/strip_exif.py photo`.
+   Le script retire les métadonnées de l'original (numéro de série du boîtier, date, réglages…, sans recompression), crée les versions WebP dans `assets/photos/` (800 et 1200 px de large pour la grille, 2048 px pour la visionneuse) et écrit leurs dimensions dans `_data/galerie.json`. Une photo déjà traitée n'est pas recalculée ; les versions d'une photo retirée de `_photos/` sont effacées.
+3. Commit + push des trois emplacements (`_photos/`, `assets/photos/`, `_data/galerie.json`).
+
+Si l'étape 2 est oubliée, l'Action **« Publication du site »** lance le même script et commite le résultat : faire alors un **Pull** dans GitHub Desktop avant de pousser à nouveau. Première utilisation en local : `pip install -r .github/scripts/requirements.txt` (Pillow).
+
+Sans autre action, le titre est déduit du nom du fichier (`Coucher de soleil.jpg` → « Coucher de soleil » ; les noms d'appareil comme `IMG_1234.JPG` n'affichent pas de titre). Pour un titre, une description ou une traduction anglaise, ajouter une entrée dans [`_data/photos.yml`](_data/photos.yml), avec le nom exact de l'original : l'ordre de ce fichier est l'ordre d'affichage.
 
 ---
 
 ## Publication et Ludothèque Steam
 
-Le site est publié par l'Action **« Publication du site »** ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) à chaque push, tous les jours vers 6 h (heure de Paris) et à la demande (onglet *Actions* → *Publication du site* → *Run workflow*). Elle nettoie les photos, synchronise Steam, construit le site avec Jekyll et le déploie.
+Le site est publié par l'Action **« Publication du site »** ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) à chaque push, tous les jours vers 6 h (heure de Paris) et à la demande (onglet *Actions* → *Publication du site* → *Run workflow*). Elle prépare les photos (`photos.py`), synchronise Steam, construit le site avec Jekyll et le déploie.
 
 > Les commits faits par une Action ne redéclenchent pas la publication « depuis une branche » de GitHub Pages : c'est pour cela que l'Action publie elle-même le site.
 
@@ -195,18 +214,25 @@ La clé reste dans les secrets GitHub : elle n'apparaît ni dans le code ni sur 
 
 ---
 
-## Déploiement local
+## Prévisualisation locale
 
-Toutes les pages passent par Jekyll (en-tête, menu et pied de page communs) : pour un aperçu local, il faut Jekyll, qui demande Ruby.
+Le site passe par Jekyll (morceaux communs `_includes/`, données `_data/`) : un simple serveur statique (`npx serve .`, `python -m http.server`) afficherait les balises `{% include %}` telles quelles, sans menu, galerie ni Ludothèque. La commande adaptée est `jekyll serve`, qui demande Ruby.
+
+Installation, une seule fois (Windows : [RubyInstaller](https://rubyinstaller.org/) avec Devkit) :
 
 ```bash
-git clone https://github.com/TheWilli67/thewilli67.github.io.git
-cd thewilli67.github.io
-gem install jekyll   # une seule fois, après avoir installé Ruby
-jekyll serve         # puis ouvrir http://localhost:4000
+gem install jekyll webrick
+pip install -r .github/scripts/requirements.txt
 ```
 
-> Un simple serveur statique (`python -m http.server`) ne suffit plus : les balises `{% include … %}` s'afficheraient telles quelles à la place du menu et du pied de page. Sans Jekyll en local, il suffit de pousser : la publication GitHub Pages construit le site.
+Avant chaque push :
+
+```bash
+python .github/scripts/photos.py   # seulement si des photos ont été ajoutées ou retirées
+jekyll serve                       # puis ouvrir http://localhost:4000
+```
+
+Les données de l'Action (`_data/steam.json`, `_data/galerie.json`) sont commitées dans le dépôt : l'aperçu local utilise leur dernière version (faire un Pull pour récupérer la synchronisation Steam du jour).
 
 > ⚠️ `_scripts/strip_emdash.py` supprime les tirets cadratins sans les remplacer par une ponctuation, ce qui casse les phrases. Ne pas le relancer tel quel sur des textes contenant des tirets.
 

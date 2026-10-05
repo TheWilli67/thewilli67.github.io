@@ -3,7 +3,10 @@
 # Déclenchement : à chaque push sur main, tous les jours vers 6 h (heure de Paris) et à la
 # demande (onglet Actions > « Publication du site » > Run workflow).
 #
-#   1. Retire les métadonnées EXIF des photos (sans recompression, orientation conservée).
+#   1. Prépare les photos de la galerie avec le même script qu'en local
+#      (python .github/scripts/photos.py) : métadonnées retirées des originaux de _photos/,
+#      versions WebP dans assets/photos/, dimensions dans _data/galerie.json. Retire aussi les
+#      métadonnées des autres images (Images_photos/, _sources/).
 #   2. Synchronise la bibliothèque Steam dans _data/steam.json
 #      (secrets STEAM_API_KEY et STEAM_ID ; sans eux, les données existantes sont gardées).
 #   3. Commite ces changements dans le dépôt : penser à faire un « Pull » (Fetch origin)
@@ -37,8 +40,15 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Retirer les métadonnées des photos
-        run: python3 .github/scripts/strip_exif.py photo Images_photos
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Préparer les photos (métadonnées retirées, versions WebP)
+        run: |
+          pip install -r .github/scripts/requirements.txt
+          python .github/scripts/photos.py
+          python .github/scripts/strip_exif.py Images_photos _sources
 
       - name: Synchroniser la bibliothèque Steam
         continue-on-error: true
@@ -46,19 +56,19 @@ jobs:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_ID: ${{ secrets.STEAM_ID }}
           STEAM_MASQUES: ${{ secrets.STEAM_MASQUES }}
-        run: python3 .github/scripts/steam_sync.py
+        run: python .github/scripts/steam_sync.py
 
       - name: Commiter les changements
         continue-on-error: true
         run: |
-          git add photo Images_photos _data/steam.json
+          git add _photos assets/photos _data/galerie.json Images_photos _sources _data/steam.json
           if git diff --cached --quiet; then
             echo "Rien à commiter."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Mise à jour automatique (photos nettoyées / données Steam)"
+          git commit -m "Mise à jour automatique (photos / données Steam)"
           git pull --rebase origin main
           git push
 

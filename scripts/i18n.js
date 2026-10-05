@@ -47,13 +47,18 @@
   }
 
   /* ─── Toggle buttons ─── */
+  /* Drapeaux SVG locaux (/assets/flags, d'après flag-icons, licence MIT) */
+  function flag(code, cls) {
+    return '<img class="' + cls + '" src="/assets/flags/' + code + '.svg" alt="" width="20" height="20">';
+  }
+
   function updateToggles(lang) {
     document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
       if (lang === 'en') {
-        btn.innerHTML = '<span class="fi fis fi-gb"></span>';
+        btn.innerHTML = flag('gb', 'flag');
         btn.title = 'Passer en français';
       } else {
-        btn.innerHTML = '<span class="fi fis fi-fr"></span>';
+        btn.innerHTML = flag('fr', 'flag');
         btn.title = 'Switch to English';
       }
     });
@@ -162,20 +167,20 @@
       'background:conic-gradient(from 180deg,#2563eb,#6366f1,#2563eb);' +
       'display:flex;align-items:center;justify-content:center;' +
       'font-size:1.45rem;font-weight:800;color:#fff;margin:0 auto 1.1rem;' +
-      'font-family:Inter,sans-serif;box-shadow:0 0 28px rgba(37,99,235,.35);}' +
+      'font-family:inherit;box-shadow:0 0 28px rgba(37,99,235,.35);}' +
       '.lm-name{font-size:1.2rem;font-weight:800;color:#f8fafc;' +
-      'margin-bottom:.3rem;font-family:Inter,sans-serif;letter-spacing:-.01em;}' +
+      'margin-bottom:.3rem;font-family:inherit;letter-spacing:-.01em;}' +
       '.lm-hint{font-size:.82rem;color:#94a3b8;margin-bottom:1.75rem;' +
-      'font-family:Inter,sans-serif;line-height:1.55;}' +
+      'font-family:inherit;line-height:1.55;}' +
       '.lm-btns{display:flex;gap:.75rem;}' +
       '.lm-btn{flex:1;padding:.8rem .9rem;border-radius:11px;' +
       'border:1.5px solid rgba(255,255,255,.1);' +
       'background:rgba(255,255,255,.05);color:#f1f5f9;' +
       'font-size:.9rem;font-weight:600;cursor:pointer;' +
       'display:flex;align-items:center;justify-content:center;gap:.45rem;' +
-      'transition:all .2s ease;font-family:Inter,sans-serif;}' +
+      'transition:all .2s ease;font-family:inherit;}' +
       '.lm-btn:hover{background:rgba(37,99,235,.2);border-color:rgba(37,99,235,.5);transform:translateY(-2px);}' +
-      '.lm-flag{font-size:1.2rem;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.4);}' +
+      '.lm-flag{width:1.2rem;height:1.2rem;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.4);}' +
       /* ── Navbar lang toggle ── */
       '.lang-toggle-btn{display:inline-flex;align-items:center;justify-content:center;' +
       'padding:.2rem .4rem;height:30px;min-width:36px;' +
@@ -183,7 +188,7 @@
       'border-radius:6px;border:1px solid rgba(37,99,235,.3);' +
       'cursor:pointer;transition:all .25s ease;flex-shrink:0;}' +
       '.lang-toggle-btn:hover{background:rgba(37,99,235,.25);border-color:#60a5fa;}' +
-      '.lang-toggle-btn .fi{border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.3);}' +
+      '.lang-toggle-btn .flag{width:1em;height:1em;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.3);}' +
       /* ── Hamburger ── */
       '.nav-burger{display:none;flex-direction:column;align-items:center;justify-content:center;' +
       'gap:5px;width:38px;height:38px;background:transparent;border:none;cursor:pointer;' +
@@ -228,8 +233,8 @@
         '<p class="lm-name" id="lm-name">William Hertrich</p>' +
         '<p class="lm-hint">Choisissez votre langue<br>Choose your language</p>' +
         '<div class="lm-btns">' +
-          '<button class="lm-btn" id="lm-btn-fr"><span class="fi fis fi-fr lm-flag"></span> Fran&#231;ais</button>' +
-          '<button class="lm-btn" id="lm-btn-en"><span class="fi fis fi-gb lm-flag"></span> English</button>' +
+          '<button class="lm-btn" id="lm-btn-fr">' + flag('fr', 'lm-flag') + ' Fran&#231;ais</button>' +
+          '<button class="lm-btn" id="lm-btn-en">' + flag('gb', 'lm-flag') + ' English</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(modal);
@@ -241,19 +246,8 @@
     });
   }
 
-  /* ─── Inject flag-icons CSS (renders real flag images on all OS/browsers) ─── */
-  function injectFlagIcons() {
-    if (document.getElementById('flag-icons-css')) return;
-    var link = document.createElement('link');
-    link.id = 'flag-icons-css';
-    link.rel = 'stylesheet';
-    link.href = 'https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css';
-    document.head.appendChild(link);
-  }
-
   /* ─── Init ─── */
   document.addEventListener('DOMContentLoaded', function () {
-    injectFlagIcons();
     injectStyles();
     injectMobileNav();
     var stored = readStored();
@@ -265,8 +259,7 @@
       /* default: French (site content already in French) */
       applyLang(DEFAULT);
       updateToggles(DEFAULT);
-      /* La popup est ajoutée avant le fondu entrant du body (animation_page.js) :
-         elle apparaît en même temps que la page, sans flash du contenu avant. */
+      /* Première visite : la popup propose la langue (le choix est ensuite mémorisé). */
       showModal();
     }
     /* delegate toggle clicks */

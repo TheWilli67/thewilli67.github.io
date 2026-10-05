@@ -18,7 +18,7 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     .ph-photo { flex-shrink: 0; }
     .ph-ring { width: 220px; height: 279px; border-radius: 18px; padding: 3px; background: conic-gradient(from 180deg, #2563eb, #6366f1, #2563eb); box-shadow: 0 0 60px rgba(37,99,235,.2); }
     .ph-img-clip { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; border: 4px solid #0f172a; }
-    .ph-img { width: 100%; height: 100%; background-image: url('/Images_photos/photo_william.jpg'); background-repeat: no-repeat; background-size: 102%; background-position: 50% 0%; }
+    .ph-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 
     /* Sections */
     .s-header { text-align: center; margin-bottom: 3rem; }
@@ -112,7 +112,7 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       <div class="ph-photo">
         <div class="ph-ring">
           <div class="ph-img-clip">
-            <div class="ph-img" role="img" aria-label="Photo de William Hertrich"></div>
+            <img class="ph-img" src="/Images_photos/portrait-640.webp" srcset="/Images_photos/portrait-320.webp 320w, /Images_photos/portrait-640.webp 640w, /Images_photos/portrait-960.webp 960w" sizes="206px" width="320" height="418" alt="Photo de William Hertrich" fetchpriority="high" decoding="async">
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       </div>
       <div class="interests-grid reveal">
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(99,102,241,.1);color:#6366f1"><i class="fas fa-gamepad"></i></div>
+          <div class="interest-icon" style="background:rgba(99,102,241,.1);color:#6366f1">{% include icon.html id="fas-gamepad" %}</div>
           <div style="flex:1">
             <p class="interest-title" data-fr="Jeux vidéos" data-en="Video games">Jeux vidéos</p>
             <p class="interest-desc" data-fr="Stratégie et coopération : j'aime les jeux qui demandent réflexion, planification et travail d'équipe." data-en="Strategy and co-op: I enjoy games that require thinking, planning, and teamwork.">Stratégie et coopération : j'aime les jeux qui demandent réflexion, planification et travail d'équipe.</p>
@@ -206,21 +206,21 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(239,68,68,.1);color:#dc2626"><i class="fas fa-motorcycle"></i></div>
+          <div class="interest-icon" style="background:rgba(239,68,68,.1);color:#dc2626">{% include icon.html id="fas-motorcycle" %}</div>
           <div>
             <p class="interest-title" data-fr="Moto" data-en="Motorcycles">Moto</p>
             <p class="interest-desc" data-fr="Titulaire du permis A1-A2, j'aime la conduite sur route." data-en="A1-A2 licence holder, I enjoy road riding.">Titulaire du permis A1-A2, j'aime la conduite sur route.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(234,179,8,.1);color:#b45309"><i class="fas fa-music"></i></div>
+          <div class="interest-icon" style="background:rgba(234,179,8,.1);color:#b45309">{% include icon.html id="fas-music" %}</div>
           <div>
             <p class="interest-title" data-fr="Musique" data-en="Music">Musique</p>
             <p class="interest-desc" data-fr="Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code." data-en="A passionate listener across many genres, music accompanies my long work and coding sessions.">Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(168,85,247,.1);color:#9333ea"><i class="fas fa-camera"></i></div>
+          <div class="interest-icon" style="background:rgba(168,85,247,.1);color:#9333ea">{% include icon.html id="fas-camera" %}</div>
           <div style="flex:1">
             <p class="interest-title" data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</p>
             <p class="interest-desc" data-fr="Canon EOS 600D au poing : macro florale, faune, lumières nocturnes et compositions atmosphériques." data-en="Canon EOS 600D in hand: floral macro, wildlife, night lights, and atmospheric compositions.">Canon EOS 600D au poing : macro florale, faune, lumières nocturnes et compositions atmosphériques.</p>
@@ -228,14 +228,14 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(34,197,94,.1);color:#16a34a"><i class="fas fa-fish"></i></div>
+          <div class="interest-icon" style="background:rgba(34,197,94,.1);color:#16a34a">{% include icon.html id="fas-fish" %}</div>
           <div>
             <p class="interest-title" data-fr="Pêche" data-en="Fishing">Pêche</p>
             <p class="interest-desc" data-fr="Une activité qui demande patience et observation, deux qualités qui se retrouvent aussi dans le métier de sysadmin." data-en="An activity requiring patience and observation, two qualities that also come in handy as a sysadmin.">Une activité qui demande patience et observation, deux qualités qui se retrouvent aussi dans le métier de sysadmin.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(37,99,235,.1);color:var(--accent)"><i class="fas fa-shield-halved"></i></div>
+          <div class="interest-icon" style="background:rgba(37,99,235,.1);color:var(--accent)">{% include icon.html id="fas-shield-halved" %}</div>
           <div>
             <p class="interest-title">TryHackMe &amp; CTF</p>
             <p class="interest-desc" data-fr="Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives." data-en="Online cybersecurity challenges to maintain and develop my offensive and defensive skills.">Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives.</p>
@@ -292,8 +292,8 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
         <h3 data-fr="Envie d'échanger ?" data-en="Want to connect?">Envie d'échanger ?</h3>
         <p data-fr="N'hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux." data-en="Feel free to reach out about an opportunity, a project, or simply to discuss cybersecurity and networking.">N'hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux.</p>
         <div class="cta-btns">
-          <a href="/contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
-          <a href="/portfolio.html" class="btn btn-ghost"><i class="fas fa-folder-open"></i> <span data-fr="Voir mon portfolio" data-en="View my portfolio">Voir mon portfolio</span></a>
+          <a href="/contact.html" class="btn btn-primary">{% include icon.html id="fas-envelope" %} <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
+          <a href="/portfolio.html" class="btn btn-ghost">{% include icon.html id="fas-folder-open" %} <span data-fr="Voir mon portfolio" data-en="View my portfolio">Voir mon portfolio</span></a>
         </div>
       </div>
     </div>

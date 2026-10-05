@@ -46,8 +46,8 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
     .tl-theme { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.35; margin: .35rem 0 .9rem; }
     .tl-modules summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 600; color: var(--accent); user-select: none; }
     .tl-modules summary::-webkit-details-marker { display: none; }
-    .tl-modules summary i { font-size: .7rem; transition: transform var(--t); }
-    .tl-modules[open] summary i { transform: rotate(90deg); }
+    .tl-modules summary .icon { font-size: .7rem; transition: transform var(--t); }
+    .tl-modules[open] summary .icon { transform: rotate(90deg); }
     .tl-modules summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
     .tl-modules ul { margin-top: .8rem; display: flex; flex-direction: column; gap: .55rem; }
     .tl-modules li { font-size: .82rem; color: var(--text-m); line-height: 1.55; padding-left: 1rem; position: relative; }
@@ -68,12 +68,12 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
     .year-theme { font-size: .72rem; font-weight: 700; color: var(--cyan); background: var(--cyan-lt); padding: .2rem .6rem; border-radius: 100px; text-transform: uppercase; letter-spacing: .05em; }
     .year-list { display: flex; flex-direction: column; gap: .8rem; }
     .year-list li { display: flex; gap: .7rem; font-size: .88rem; color: var(--text-m); line-height: 1.65; }
-    .year-list li > i { color: var(--accent); font-size: .78rem; margin-top: .35rem; flex-shrink: 0; }
+    .year-list li > .icon { color: var(--accent); font-size: .78rem; margin-top: .35rem; flex-shrink: 0; }
     .year-list strong { color: var(--text); }
     .year-list a { color: var(--accent); }
     .year-list a:hover { text-decoration: underline; }
     .thesis { margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--r); padding: 1.25rem 1.5rem; box-shadow: var(--sh-sm); }
-    .thesis > i { font-size: 1.3rem; color: var(--accent); flex-shrink: 0; }
+    .thesis > .icon { font-size: 1.3rem; color: var(--accent); flex-shrink: 0; }
     .thesis p { font-size: .92rem; color: var(--text-m); line-height: 1.65; }
     .thesis strong { color: var(--text); }
     .thesis em { color: var(--text); font-style: italic; }
@@ -96,7 +96,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
     .ptags { display: flex; flex-wrap: wrap; gap: .4rem; }
     .ptag { display: inline-block; padding: .2rem .6rem; font-size: .72rem; font-weight: 600; border-radius: 5px; background: var(--bg-alt); color: var(--text-m); border: 1px solid var(--border); }
     .pnote { display: flex; gap: .6rem; font-size: .8rem; color: var(--text-m); line-height: 1.6; background: var(--bg-alt); border-radius: 8px; padding: .75rem .9rem; }
-    .pnote i { color: var(--accent); margin-top: .2rem; }
+    .pnote .icon { color: var(--accent); margin-top: .2rem; }
     .pcard-link { display: inline-flex; align-items: center; gap: .4rem; font-size: .84rem; font-weight: 600; color: var(--accent); transition: var(--t); align-self: flex-start; }
     .pcard-link:hover { color: var(--accent-h); gap: .6rem; }
     .featured-body { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2rem; }
@@ -105,7 +105,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
     /* Diagram */
     .diagram { min-width: 0; border: 1px solid var(--border); border-radius: var(--r); background: var(--bg); padding: 1.25rem 1rem 1rem; }
     .diagram-scroll { overflow-x: auto; }
-    .diagram svg { display: block; width: 100%; min-width: 760px; height: auto; font-family: var(--font); }
+    .diagram-scroll svg { display: block; width: 100%; min-width: 760px; height: auto; font-family: var(--font); }
     .dg-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; }
     .dg-box.primary { fill: #eff6ff; stroke: var(--accent); stroke-width: 1.6; }
     .dg-box.out { fill: #f0fdfa; stroke: #5eead4; }
@@ -142,7 +142,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
     .skill-group { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.4rem; box-shadow: var(--sh-sm); }
     .skill-group h3 { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .9rem; display: flex; align-items: center; gap: .6rem; }
-    .skill-group h3 i { width: 30px; height: 30px; border-radius: 8px; background: var(--accent-lt); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: .8rem; flex-shrink: 0; }
+    .skill-group h3 .icon { width: 30px; height: 30px; padding: calc((30px - .8rem) / 2); border-radius: 8px; background: var(--accent-lt); color: var(--accent); flex-shrink: 0; }
     .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
     .chip-s { display: inline-block; padding: .25rem .65rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 100px; font-size: .76rem; font-weight: 500; color: var(--text-m); }
 
@@ -193,14 +193,14 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
   <!-- ===== 1. En-tête ===== -->
   <header class="pheader" id="hero">
     <div class="ph-inner">
-      <a href="/portfolio.html" class="ph-back"><i class="fas fa-arrow-left"></i> <span data-fr="Retour au portfolio" data-en="Back to portfolio">Retour au portfolio</span></a>
+      <a href="/portfolio.html" class="ph-back">{% include icon.html id="fas-arrow-left" %} <span data-fr="Retour au portfolio" data-en="Back to portfolio">Retour au portfolio</span></a>
       <span class="ph-eyebrow" data-fr="Formation" data-en="Education">Formation</span>
       <h1 class="ph-title" data-fr="Master &lt;span&gt;Cyberdéfense&lt;/span&gt; et Sécurité de l'Information" data-en="Master's in &lt;span&gt;Cyber Defense&lt;/span&gt; and Information Security" data-i18n-html>Master <span>Cyberdéfense</span> et Sécurité de l'Information</h1>
       <p class="ph-sub" data-fr="Master Réseaux et Télécommunications, parcours CDSI · INSA Hauts-de-France · en alternance chez RESEAU-NET" data-en="Master's in Networks and Telecommunications, CDSI track · INSA Hauts-de-France · work-study at RESEAU-NET">Master Réseaux et Télécommunications, parcours CDSI · INSA Hauts-de-France · en alternance chez RESEAU-NET</p>
       <div class="ph-chips">
-        <span class="chip chip-period"><i class="fas fa-calendar"></i> 2024 – 2026</span>
-        <span class="chip chip-alt"><i class="fas fa-briefcase"></i> <span data-fr="Alternance" data-en="Work-study">Alternance</span></span>
-        <span class="chip chip-done"><i class="fas fa-graduation-cap"></i> <span data-fr="Diplômé 2026" data-en="Graduated 2026">Diplômé 2026</span></span>
+        <span class="chip chip-period">{% include icon.html id="fas-calendar" %} 2024 – 2026</span>
+        <span class="chip chip-alt">{% include icon.html id="fas-briefcase" %} <span data-fr="Alternance" data-en="Work-study">Alternance</span></span>
+        <span class="chip chip-done">{% include icon.html id="fas-graduation-cap" %} <span data-fr="Diplômé 2026" data-en="Graduated 2026">Diplômé 2026</span></span>
       </div>
       <p class="ph-lead" data-fr="Deux ans à mener de front un master en cybersécurité et un poste d'alternant ingénieur systèmes et réseaux chez un infogéreur alsacien. Côté école, de la cryptographie aux systèmes industriels. Côté entreprise, de la hotline à la supervision réseau et à la gestion d'un EDR sur plus de 800 postes." data-en="Two years running a cybersecurity master's in parallel with a job as an apprentice systems and network engineer at a managed service provider in Alsace. At school, everything from cryptography to industrial systems. At work, from the helpdesk to network monitoring and running an EDR across more than 800 endpoints.">Deux ans à mener de front un master en cybersécurité et un poste d'alternant ingénieur systèmes et réseaux chez un infogéreur alsacien. Côté école, de la cryptographie aux systèmes industriels. Côté entreprise, de la hotline à la supervision réseau et à la gestion d'un EDR sur plus de 800 postes.</p>
     </div>
@@ -253,7 +253,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             <p class="tl-period" data-fr="S7 · automne 2024" data-en="S7 · Fall 2024">S7 · automne 2024</p>
             <h3 class="tl-theme" data-fr="Les fondamentaux et l'offensif" data-en="Foundations and offensive security">Les fondamentaux et l'offensif</h3>
             <details class="tl-modules">
-              <summary><i class="fas fa-chevron-right"></i> <span data-fr="Voir les modules (6)" data-en="See the modules (6)">Voir les modules (6)</span></summary>
+              <summary>{% include icon.html id="fas-chevron-right" %} <span data-fr="Voir les modules (6)" data-en="See the modules (6)">Voir les modules (6)</span></summary>
               <ul>
                 <li data-fr="Remise à niveau en réseaux, télécommunications et mathématiques" data-en="Refresher courses in networking, telecommunications and mathematics">Remise à niveau en réseaux, télécommunications et mathématiques</li>
                 <li data-fr="Ethical hacking : techniques d'attaque et failles des systèmes, forensic mémoire, scripting Python pour la sécurité (Scapy, Nmap, Wireshark)" data-en="Ethical hacking: attack techniques and system vulnerabilities, memory forensics, Python scripting for security (Scapy, Nmap, Wireshark)">Ethical hacking : techniques d'attaque et failles des systèmes, forensic mémoire, scripting Python pour la sécurité (Scapy, Nmap, Wireshark)</li>
@@ -272,7 +272,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             <p class="tl-period" data-fr="S8 · printemps 2025" data-en="S8 · Spring 2025">S8 · printemps 2025</p>
             <h3 class="tl-theme" data-fr="Cryptographie, risques et embarqué" data-en="Cryptography, risk and embedded systems">Cryptographie, risques et embarqué</h3>
             <details class="tl-modules">
-              <summary><i class="fas fa-chevron-right"></i> <span data-fr="Voir les modules (5)" data-en="See the modules (5)">Voir les modules (5)</span></summary>
+              <summary>{% include icon.html id="fas-chevron-right" %} <span data-fr="Voir les modules (5)" data-en="See the modules (5)">Voir les modules (5)</span></summary>
               <ul>
                 <li data-fr="Outils mathématiques : algèbre et théorie des nombres pour la cryptographie, cryptographie avancée" data-en="Mathematical tools: algebra and number theory for cryptography, advanced cryptography">Outils mathématiques : algèbre et théorie des nombres pour la cryptographie, cryptographie avancée</li>
                 <li data-fr="Normes de sécurité et analyse de risques : EBIOS RM, guides ANSSI (hygiène informatique, cartographie du SI)" data-en="Security standards and risk analysis: EBIOS RM, ANSSI guidelines (IT hygiene, information system mapping)">Normes de sécurité et analyse de risques : EBIOS RM, guides ANSSI (hygiène informatique, cartographie du SI)</li>
@@ -290,7 +290,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             <p class="tl-period" data-fr="S9 · automne 2025" data-en="S9 · Fall 2025">S9 · automne 2025</p>
             <h3 class="tl-theme" data-fr="Accès distants, sans-fil et industriel" data-en="Remote access, wireless and industrial systems">Accès distants, sans-fil et industriel</h3>
             <details class="tl-modules">
-              <summary><i class="fas fa-chevron-right"></i> <span data-fr="Voir les modules (5)" data-en="See the modules (5)">Voir les modules (5)</span></summary>
+              <summary>{% include icon.html id="fas-chevron-right" %} <span data-fr="Voir les modules (5)" data-en="See the modules (5)">Voir les modules (5)</span></summary>
               <ul>
                 <li data-fr="Outils mathématiques pour la sécurité : PKI, attaques cryptographiques, codes correcteurs d'erreurs" data-en="Mathematical tools for security: PKI, cryptographic attacks, error-correcting codes">Outils mathématiques pour la sécurité : PKI, attaques cryptographiques, codes correcteurs d'erreurs</li>
                 <li data-fr="Sécurité des accès distants : reverse engineering d'applications Android, durcissement d'un serveur Linux" data-en="Remote access security: Android app reverse engineering, Linux server hardening">Sécurité des accès distants : reverse engineering d'applications Android, durcissement d'un serveur Linux</li>
@@ -308,7 +308,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             <p class="tl-period" data-fr="S10 · printemps 2026" data-en="S10 · Spring 2026">S10 · printemps 2026</p>
             <h3 class="tl-theme" data-fr="Gouvernance, résilience et synthèse" data-en="Governance, resilience and synthesis">Gouvernance, résilience et synthèse</h3>
             <details class="tl-modules">
-              <summary><i class="fas fa-chevron-right"></i> <span data-fr="Voir les modules (7)" data-en="See the modules (7)">Voir les modules (7)</span></summary>
+              <summary>{% include icon.html id="fas-chevron-right" %} <span data-fr="Voir les modules (7)" data-en="See the modules (7)">Voir les modules (7)</span></summary>
               <ul>
                 <li data-fr="Cybersécurité et réponse à incidents : cyber-résilience IT / OT / IIoT" data-en="Cybersecurity and incident response: IT / OT / IIoT cyber resilience">Cybersécurité et réponse à incidents : cyber-résilience IT / OT / IIoT</li>
                 <li data-fr="Gouvernance de la sécurité : PCA / PRA, bilan d'impact sur l'activité (BIA), exercice de crise cyber" data-en="Security governance: business continuity and disaster recovery plans, business impact analysis (BIA), cyber crisis exercise">Gouvernance de la sécurité : PCA / PRA, bilan d'impact sur l'activité (BIA), exercice de crise cyber</li>
@@ -335,7 +335,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
       </div>
 
       <div class="company reveal">
-        <div class="company-icon"><i class="fas fa-building-shield"></i></div>
+        <div class="company-icon">{% include icon.html id="fas-building-shield" %}</div>
         <div>
           <h3 data-fr="L'entreprise : RESEAU-NET" data-en="The company: RESEAU-NET">L'entreprise : RESEAU-NET</h3>
           <p data-fr="Infogéreur (MSP) alsacien fondé il y a plus de vingt ans à Oberhausbergen, près de Strasbourg. RESEAU-NET gère les systèmes d'information de plusieurs dizaines de clients (PME, ETI, collectivités) : infogérance et supervision, réseaux et sécurité périmétrique, sauvegarde et continuité, cybersécurité, cloud." data-en="A managed service provider (MSP) founded over twenty years ago in Oberhausbergen, near Strasbourg. RESEAU-NET runs the IT of several dozen clients (SMBs, mid-sized companies, local authorities): managed services and monitoring, networking and perimeter security, backup and continuity, cybersecurity, cloud.">Infogéreur (MSP) alsacien fondé il y a plus de vingt ans à Oberhausbergen, près de Strasbourg. RESEAU-NET gère les systèmes d'information de plusieurs dizaines de clients (PME, ETI, collectivités) : infogérance et supervision, réseaux et sécurité périmétrique, sauvegarde et continuité, cybersécurité, cloud.</p>
@@ -351,10 +351,10 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             <span class="year-theme" data-fr="Le socle" data-en="Building the foundations">Le socle</span>
           </div>
           <ul class="year-list">
-            <li><i class="fas fa-check"></i><span data-fr="Support technique multi-clients (hotline et ticketing) : comptes et messagerie Microsoft 365 / Exchange Online, Intune, diagnostic matériel et logiciel, pare-feux Fortinet, NAS Synology, machines virtuelles Windows et Linux. Surtout à distance, parfois sur site." data-en="Multi-client technical support (helpdesk and ticketing): Microsoft 365 / Exchange Online accounts and mailboxes, Intune, hardware and software troubleshooting, Fortinet firewalls, Synology NAS, Windows and Linux virtual machines. Mostly remote, sometimes on site.">Support technique multi-clients (hotline et ticketing) : comptes et messagerie Microsoft 365 / Exchange Online, Intune, diagnostic matériel et logiciel, pare-feux Fortinet, NAS Synology, machines virtuelles Windows et Linux. Surtout à distance, parfois sur site.</span></li>
-            <li><i class="fas fa-check"></i><span data-fr="Autonomie progressive : validation par les ingénieurs seniors avant toute action à impact, puis prise en charge d'interventions complètes." data-en="Growing autonomy: senior engineers validated any impactful action at first, then I handled complete interventions on my own.">Autonomie progressive : validation par les ingénieurs seniors avant toute action à impact, puis prise en charge d'interventions complètes.</span></li>
-            <li><i class="fas fa-check"></i><span data-fr="La sécurité au quotidien : accès distants protégés par MFA, gestion centralisée des mots de passe, partage chiffré des informations sensibles." data-en="Security as a daily practice: MFA-protected remote access, centralized password management, encrypted sharing of sensitive information.">La sécurité au quotidien : accès distants protégés par MFA, gestion centralisée des mots de passe, partage chiffré des informations sensibles.</span></li>
-            <li><i class="fas fa-check"></i><span data-fr="Deux études d'outils : &lt;strong&gt;ITFlow&lt;/strong&gt; (référentiel documentaire centralisé pour MSP, un client documenté de bout en bout) et &lt;strong&gt;HPE CloudPhysics&lt;/strong&gt; (audit d'environnements VMware : déploiement de l'appliance sur vCenter et analyse fonctionnelle)." data-en="Two tool assessments: &lt;strong&gt;ITFlow&lt;/strong&gt; (centralized documentation platform for MSPs, one client fully documented) and &lt;strong&gt;HPE CloudPhysics&lt;/strong&gt; (VMware environment auditing: appliance deployment on vCenter and functional analysis)." data-i18n-html>Deux études d'outils : <strong>ITFlow</strong> (référentiel documentaire centralisé pour MSP, un client documenté de bout en bout) et <strong>HPE CloudPhysics</strong> (audit d'environnements VMware : déploiement de l'appliance sur vCenter et analyse fonctionnelle).</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Support technique multi-clients (hotline et ticketing) : comptes et messagerie Microsoft 365 / Exchange Online, Intune, diagnostic matériel et logiciel, pare-feux Fortinet, NAS Synology, machines virtuelles Windows et Linux. Surtout à distance, parfois sur site." data-en="Multi-client technical support (helpdesk and ticketing): Microsoft 365 / Exchange Online accounts and mailboxes, Intune, hardware and software troubleshooting, Fortinet firewalls, Synology NAS, Windows and Linux virtual machines. Mostly remote, sometimes on site.">Support technique multi-clients (hotline et ticketing) : comptes et messagerie Microsoft 365 / Exchange Online, Intune, diagnostic matériel et logiciel, pare-feux Fortinet, NAS Synology, machines virtuelles Windows et Linux. Surtout à distance, parfois sur site.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Autonomie progressive : validation par les ingénieurs seniors avant toute action à impact, puis prise en charge d'interventions complètes." data-en="Growing autonomy: senior engineers validated any impactful action at first, then I handled complete interventions on my own.">Autonomie progressive : validation par les ingénieurs seniors avant toute action à impact, puis prise en charge d'interventions complètes.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="La sécurité au quotidien : accès distants protégés par MFA, gestion centralisée des mots de passe, partage chiffré des informations sensibles." data-en="Security as a daily practice: MFA-protected remote access, centralized password management, encrypted sharing of sensitive information.">La sécurité au quotidien : accès distants protégés par MFA, gestion centralisée des mots de passe, partage chiffré des informations sensibles.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Deux études d'outils : &lt;strong&gt;ITFlow&lt;/strong&gt; (référentiel documentaire centralisé pour MSP, un client documenté de bout en bout) et &lt;strong&gt;HPE CloudPhysics&lt;/strong&gt; (audit d'environnements VMware : déploiement de l'appliance sur vCenter et analyse fonctionnelle)." data-en="Two tool assessments: &lt;strong&gt;ITFlow&lt;/strong&gt; (centralized documentation platform for MSPs, one client fully documented) and &lt;strong&gt;HPE CloudPhysics&lt;/strong&gt; (VMware environment auditing: appliance deployment on vCenter and functional analysis)." data-i18n-html>Deux études d'outils : <strong>ITFlow</strong> (référentiel documentaire centralisé pour MSP, un client documenté de bout en bout) et <strong>HPE CloudPhysics</strong> (audit d'environnements VMware : déploiement de l'appliance sur vCenter et analyse fonctionnelle).</span></li>
           </ul>
         </div>
 
@@ -365,16 +365,16 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             <span class="year-theme" data-fr="La montée en responsabilité" data-en="Taking on responsibility">La montée en responsabilité</span>
           </div>
           <ul class="year-list">
-            <li><i class="fas fa-check"></i><span data-fr="Conception, développement et mise en production de la plateforme de supervision des liens clients &lt;a href=&quot;#project-monitoring&quot;&gt;&lt;em&gt;(voir Projets)&lt;/em&gt;&lt;/a&gt;." data-en="Designed, built and shipped the client link monitoring platform to production &lt;a href=&quot;#project-monitoring&quot;&gt;&lt;em&gt;(see Projects)&lt;/em&gt;&lt;/a&gt;." data-i18n-html>Conception, développement et mise en production de la plateforme de supervision des liens clients <a href="#project-monitoring"><em>(voir Projets)</em></a>.</span></li>
-            <li><i class="fas fa-check"></i><span data-fr="Gestion quasi autonome de l'EDR SentinelOne sur l'ensemble du parc clients &lt;a href=&quot;#project-edr&quot;&gt;&lt;em&gt;(voir Projets)&lt;/em&gt;&lt;/a&gt;." data-en="Ran the SentinelOne EDR across the whole client fleet with near-full autonomy &lt;a href=&quot;#project-edr&quot;&gt;&lt;em&gt;(see Projects)&lt;/em&gt;&lt;/a&gt;." data-i18n-html>Gestion quasi autonome de l'EDR SentinelOne sur l'ensemble du parc clients <a href="#project-edr"><em>(voir Projets)</em></a>.</span></li>
-            <li><i class="fas fa-check"></i><span data-fr="Interconnexion Zabbix → Grafana : un seul point de consultation de la supervision pour l'équipe." data-en="Connected Zabbix to Grafana so the team has a single place to check monitoring.">Interconnexion Zabbix → Grafana : un seul point de consultation de la supervision pour l'équipe.</span></li>
-            <li><i class="fas fa-check"></i><span data-fr="Support technique en continu." data-en="Ongoing technical support.">Support technique en continu.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Conception, développement et mise en production de la plateforme de supervision des liens clients &lt;a href=&quot;#project-monitoring&quot;&gt;&lt;em&gt;(voir Projets)&lt;/em&gt;&lt;/a&gt;." data-en="Designed, built and shipped the client link monitoring platform to production &lt;a href=&quot;#project-monitoring&quot;&gt;&lt;em&gt;(see Projects)&lt;/em&gt;&lt;/a&gt;." data-i18n-html>Conception, développement et mise en production de la plateforme de supervision des liens clients <a href="#project-monitoring"><em>(voir Projets)</em></a>.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Gestion quasi autonome de l'EDR SentinelOne sur l'ensemble du parc clients &lt;a href=&quot;#project-edr&quot;&gt;&lt;em&gt;(voir Projets)&lt;/em&gt;&lt;/a&gt;." data-en="Ran the SentinelOne EDR across the whole client fleet with near-full autonomy &lt;a href=&quot;#project-edr&quot;&gt;&lt;em&gt;(see Projects)&lt;/em&gt;&lt;/a&gt;." data-i18n-html>Gestion quasi autonome de l'EDR SentinelOne sur l'ensemble du parc clients <a href="#project-edr"><em>(voir Projets)</em></a>.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Interconnexion Zabbix → Grafana : un seul point de consultation de la supervision pour l'équipe." data-en="Connected Zabbix to Grafana so the team has a single place to check monitoring.">Interconnexion Zabbix → Grafana : un seul point de consultation de la supervision pour l'équipe.</span></li>
+            <li>{% include icon.html id="fas-check" %}<span data-fr="Support technique en continu." data-en="Ongoing technical support.">Support technique en continu.</span></li>
           </ul>
         </div>
       </div>
 
       <div class="thesis reveal">
-        <i class="fas fa-graduation-cap"></i>
+        {% include icon.html id="fas-graduation-cap" %}
         <p data-fr="&lt;strong&gt;Mémoire de fin d'alternance&lt;/strong&gt; : &lt;em&gt;Supervision et sécurité opérationnelle d'un parc informatique multi-clients en contexte MSP&lt;/em&gt;, soutenu en septembre 2026." data-en="&lt;strong&gt;Work-study thesis&lt;/strong&gt;: &lt;em&gt;Monitoring and operational security of a multi-client IT estate in an MSP context&lt;/em&gt;, defended in September 2026." data-i18n-html><strong>Mémoire de fin d'alternance</strong> : <em>Supervision et sécurité opérationnelle d'un parc informatique multi-clients en contexte MSP</em>, soutenu en septembre 2026.</p>
       </div>
     </div>
@@ -392,7 +392,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <!-- Projet 1 (vedette) -->
         <article class="pcard featured reveal" id="project-monitoring">
           <div class="pcard-head">
-            <div class="pcard-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="pcard-icon">{% include icon.html id="fas-chart-line" %}</div>
             <div>
               <span class="pcard-ctx" data-fr="Alternance, 2e année" data-en="Work-study, year 2">Alternance, 2e année</span>
               <h3 class="pcard-title" data-fr="Plateforme de supervision des liens internet clients" data-en="Client internet link monitoring platform">Plateforme de supervision des liens internet clients</h3>
@@ -420,13 +420,13 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
                   <span class="ptag">Prometheus</span><span class="ptag">Blackbox Exporter</span><span class="ptag">Grafana</span><span class="ptag">Zabbix</span><span class="ptag">Python</span><span class="ptag">FastAPI</span><span class="ptag">SQLite</span><span class="ptag">HTMX</span><span class="ptag">Bootstrap</span><span class="ptag">Docker Compose</span><span class="ptag">Power Automate</span>
                 </div>
               </div>
-              <p class="pnote"><i class="fas fa-circle-info"></i><span data-fr="Développement assisté par IA générative (Claude). J'ai assuré l'analyse du besoin, l'architecture, l'intégration, les tests et la mise en production." data-en="Built with the help of generative AI (Claude). I handled requirements, architecture, integration, testing and production rollout.">Développement assisté par IA générative (Claude). J'ai assuré l'analyse du besoin, l'architecture, l'intégration, les tests et la mise en production.</span></p>
+              <p class="pnote">{% include icon.html id="fas-circle-info" %}<span data-fr="Développement assisté par IA générative (Claude). J'ai assuré l'analyse du besoin, l'architecture, l'intégration, les tests et la mise en production." data-en="Built with the help of generative AI (Claude). I handled requirements, architecture, integration, testing and production rollout.">Développement assisté par IA générative (Claude). J'ai assuré l'analyse du besoin, l'architecture, l'intégration, les tests et la mise en production.</span></p>
             </div>
           </div>
 
           <!-- Schéma d'architecture (dessiné, aucune capture des mémoires) -->
           <figure class="diagram">
-            <p class="diagram-hint"><i class="fas fa-arrows-left-right"></i> <span data-fr="Faites glisser pour voir tout le schéma" data-en="Swipe to see the whole diagram">Faites glisser pour voir tout le schéma</span></p>
+            <p class="diagram-hint">{% include icon.html id="fas-arrows-left-right" %} <span data-fr="Faites glisser pour voir tout le schéma" data-en="Swipe to see the whole diagram">Faites glisser pour voir tout le schéma</span></p>
             <div class="diagram-scroll">
               <svg viewBox="0 0 1000 420" role="img" aria-labelledby="dg-title">
                 <title id="dg-title" data-fr="Architecture de la plateforme de supervision des liens clients" data-en="Architecture of the client link monitoring platform">Architecture de la plateforme de supervision des liens clients</title>
@@ -508,13 +508,13 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
             </figcaption>
           </figure>
 
-          <a href="/projets_pro/monitoring_admin.html" class="pcard-link" data-fr="Voir la page détaillée du projet &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-en="See the detailed project page &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-i18n-html>Voir la page détaillée du projet <i class="fas fa-arrow-right"></i></a>
+          <a href="/projets_pro/monitoring_admin.html" class="pcard-link" data-fr="Voir la page détaillée du projet {% include icon.html id='fas-arrow-right' %}" data-en="See the detailed project page {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir la page détaillée du projet {% include icon.html id="fas-arrow-right" %}</a>
         </article>
 
         <!-- Projet 2 -->
         <article class="pcard reveal" id="project-edr">
           <div class="pcard-head">
-            <div class="pcard-icon"><i class="fas fa-shield-virus"></i></div>
+            <div class="pcard-icon">{% include icon.html id="fas-shield-virus" %}</div>
             <div>
               <span class="pcard-ctx" data-fr="Alternance, 2e année" data-en="Work-study, year 2">Alternance, 2e année</span>
               <h3 class="pcard-title" data-fr="Gestion de l'EDR SentinelOne sur un parc multi-clients" data-en="Managing the SentinelOne EDR across a multi-client fleet">Gestion de l'EDR SentinelOne sur un parc multi-clients</h3>
@@ -537,7 +537,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <!-- Projet 3 -->
         <article class="pcard reveal" style="transition-delay:.08s">
           <div class="pcard-head">
-            <div class="pcard-icon"><i class="fas fa-bug"></i></div>
+            <div class="pcard-icon">{% include icon.html id="fas-bug" %}</div>
             <div>
               <span class="pcard-ctx" data-fr="Projet M1, équipe de 4, S7" data-en="First-year master's project, team of 4, S7">Projet M1, équipe de 4, S7</span>
               <h3 class="pcard-title" data-fr="Plateforme d'analyse de logiciels malveillants" data-en="Malware analysis platform">Plateforme d'analyse de logiciels malveillants</h3>
@@ -556,7 +556,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <!-- Projet 4 -->
         <article class="pcard reveal">
           <div class="pcard-head">
-            <div class="pcard-icon"><i class="fas fa-life-ring"></i></div>
+            <div class="pcard-icon">{% include icon.html id="fas-life-ring" %}</div>
             <div>
               <span class="pcard-ctx" data-fr="Projet M2, S10" data-en="Second-year master's project, S10">Projet M2, S10</span>
               <h3 class="pcard-title" data-fr="Cadre de gouvernance de la continuité de service (ITSC)" data-en="IT service continuity (ITSC) governance framework">Cadre de gouvernance de la continuité de service (ITSC)</h3>
@@ -575,7 +575,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <!-- Projet 5 -->
         <article class="pcard reveal" style="transition-delay:.08s">
           <div class="pcard-head">
-            <div class="pcard-icon"><i class="fas fa-city"></i></div>
+            <div class="pcard-icon">{% include icon.html id="fas-city" %}</div>
             <div>
               <span class="pcard-ctx" data-fr="Projet individuel, S10" data-en="Individual project, S10">Projet individuel, S10</span>
               <h3 class="pcard-title" data-fr="Smart City : architecture de sécurité et réponse à incidents" data-en="Smart City: security architecture and incident response">Smart City : architecture de sécurité et réponse à incidents</h3>
@@ -594,7 +594,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <!-- Projet 6 -->
         <article class="pcard reveal">
           <div class="pcard-head">
-            <div class="pcard-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="pcard-icon">{% include icon.html id="fas-network-wired" %}</div>
             <div>
               <span class="pcard-ctx" data-fr="Projet en binôme, S10" data-en="Pair project, S10">Projet en binôme, S10</span>
               <h3 class="pcard-title" data-fr="Détection d'attaques dans un réseau SDN" data-en="Attack detection in an SDN network">Détection d'attaques dans un réseau SDN</h3>
@@ -632,7 +632,7 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <div class="lab" data-sem="S7"><span class="lab-sem">S7</span><p class="lab-title" data-fr="Forensic mémoire" data-en="Memory forensics">Forensic mémoire</p><p class="lab-desc" data-fr="Récupération d'indices dans un dump RAM Windows : processus, historique de commandes, fichiers et images extraits de la mémoire" data-en="Recovering evidence from a Windows RAM dump: processes, command history, files and images extracted from memory">Récupération d'indices dans un dump RAM Windows : processus, historique de commandes, fichiers et images extraits de la mémoire</p></div>
         <div class="lab" data-sem="S7"><span class="lab-sem">S7</span><p class="lab-title" data-fr="Sécurité réseau en Python" data-en="Network security in Python">Sécurité réseau en Python</p><p class="lab-desc" data-fr="Scapy, Nmap, Wireshark, VPN IPsec, chiffrement et signature" data-en="Scapy, Nmap, Wireshark, IPsec VPN, encryption and signatures">Scapy, Nmap, Wireshark, VPN IPsec, chiffrement et signature</p></div>
         <!-- Lien vérifié le 4 octobre 2026 (TODO-lien-blockchain levé) -->
-        <div class="lab" data-sem="S7"><span class="lab-sem">S7</span><p class="lab-title" data-fr="Smart contract Solidity" data-en="Solidity smart contract">Smart contract Solidity</p><p class="lab-desc" data-fr="Enchère caritative sur Ethereum (Remix), avec une documentation Sphinx publiée en ligne" data-en="Charity auction on Ethereum (Remix), with Sphinx documentation published online">Enchère caritative sur Ethereum (Remix), avec une documentation Sphinx publiée en ligne</p><a class="lab-link" href="https://thewilli67.github.io/doc-blockchain/docs/_build/html/index.html" target="_blank" rel="noopener">Documentation <i class="fas fa-external-link-alt"></i></a></div>
+        <div class="lab" data-sem="S7"><span class="lab-sem">S7</span><p class="lab-title" data-fr="Smart contract Solidity" data-en="Solidity smart contract">Smart contract Solidity</p><p class="lab-desc" data-fr="Enchère caritative sur Ethereum (Remix), avec une documentation Sphinx publiée en ligne" data-en="Charity auction on Ethereum (Remix), with Sphinx documentation published online">Enchère caritative sur Ethereum (Remix), avec une documentation Sphinx publiée en ligne</p><a class="lab-link" href="https://thewilli67.github.io/doc-blockchain/docs/_build/html/index.html" target="_blank" rel="noopener">Documentation {% include icon.html id="fas-external-link-alt" %}</a></div>
         <div class="lab" data-sem="S8"><span class="lab-sem">S8</span><p class="lab-title" data-fr="Cryptographie avec OpenSSL" data-en="Cryptography with OpenSSL">Cryptographie avec OpenSSL</p><p class="lab-desc" data-fr="3DES-CBC, génération de clés RSA, AES-CTR, enveloppe digitale, signature SHA-256" data-en="3DES-CBC, RSA key generation, AES-CTR, digital envelope, SHA-256 signature">3DES-CBC, génération de clés RSA, AES-CTR, enveloppe digitale, signature SHA-256</p></div>
         <div class="lab" data-sem="S8"><span class="lab-sem">S8</span><p class="lab-title" data-fr="Réseaux de capteurs sans fil" data-en="Wireless sensor networks">Réseaux de capteurs sans fil</p><p class="lab-desc" data-fr="ZigBee, Arduino, chiffrement AES des trames, attaques par brouillage" data-en="ZigBee, Arduino, AES-encrypted frames, jamming attacks">ZigBee, Arduino, chiffrement AES des trames, attaques par brouillage</p></div>
         <div class="lab" data-sem="S8"><span class="lab-sem">S8</span><p class="lab-title" data-fr="Sécurité matérielle" data-en="Hardware security">Sécurité matérielle</p><p class="lab-desc" data-fr="TrustZone, hyperviseurs, AES sur FPGA (Quartus II)" data-en="TrustZone, hypervisors, AES on FPGA (Quartus II)">TrustZone, hyperviseurs, AES sur FPGA (Quartus II)</p></div>
@@ -661,39 +661,39 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
       </div>
       <div class="skills-grid">
         <div class="skill-group reveal">
-          <h3><i class="fas fa-shield-halved"></i><span data-fr="Sécurité opérationnelle" data-en="Security operations">Sécurité opérationnelle</span></h3>
+          <h3>{% include icon.html id="fas-shield-halved" %}<span data-fr="Sécurité opérationnelle" data-en="Security operations">Sécurité opérationnelle</span></h3>
           <div class="chips"><span class="chip-s">EDR (SentinelOne)</span><span class="chip-s" data-fr="Triage d'alertes" data-en="Alert triage">Triage d'alertes</span><span class="chip-s" data-fr="Réponse à incident" data-en="Incident response">Réponse à incident</span><span class="chip-s" data-fr="Isolation" data-en="Host isolation">Isolation</span><span class="chip-s" data-fr="Forensic mémoire" data-en="Memory forensics">Forensic mémoire</span><span class="chip-s" data-fr="Analyse de malwares en sandbox" data-en="Sandbox malware analysis">Analyse de malwares en sandbox</span></div>
         </div>
         <div class="skill-group reveal" style="transition-delay:.05s">
-          <h3><i class="fas fa-chart-line"></i><span data-fr="Supervision et observabilité" data-en="Monitoring and observability">Supervision et observabilité</span></h3>
+          <h3>{% include icon.html id="fas-chart-line" %}<span data-fr="Supervision et observabilité" data-en="Monitoring and observability">Supervision et observabilité</span></h3>
           <div class="chips"><span class="chip-s">Prometheus</span><span class="chip-s">Blackbox Exporter</span><span class="chip-s" data-fr="Grafana (provisioning de l'alerting)" data-en="Grafana (alerting provisioning)">Grafana (provisioning de l'alerting)</span><span class="chip-s">Zabbix</span><span class="chip-s">Observium</span><span class="chip-s">PromQL</span></div>
         </div>
         <div class="skill-group reveal" style="transition-delay:.1s">
-          <h3><i class="fas fa-server"></i><span data-fr="Systèmes et réseaux" data-en="Systems and networking">Systèmes et réseaux</span></h3>
+          <h3>{% include icon.html id="fas-server" %}<span data-fr="Systèmes et réseaux" data-en="Systems and networking">Systèmes et réseaux</span></h3>
           <div class="chips"><span class="chip-s">Fortinet</span><span class="chip-s" data-fr="VLAN" data-en="VLANs">VLAN</span><span class="chip-s" data-fr="VPN IPsec" data-en="IPsec VPN">VPN IPsec</span><span class="chip-s">Active Directory / GPO</span><span class="chip-s">Microsoft 365</span><span class="chip-s">Exchange Online</span><span class="chip-s">Intune</span><span class="chip-s">VMware vSphere</span><span class="chip-s">Synology</span><span class="chip-s">Veeam</span><span class="chip-s">Linux</span><span class="chip-s">Docker</span></div>
         </div>
         <div class="skill-group reveal">
-          <h3><i class="fas fa-user-secret"></i><span data-fr="Offensif" data-en="Offensive">Offensif</span></h3>
+          <h3>{% include icon.html id="fas-user-secret" %}<span data-fr="Offensif" data-en="Offensive">Offensif</span></h3>
           <div class="chips"><span class="chip-s">Nmap</span><span class="chip-s">Wireshark</span><span class="chip-s">Scapy</span><span class="chip-s">Kali</span><span class="chip-s">ARP spoofing</span><span class="chip-s">SYN flood</span><span class="chip-s" data-fr="Reverse engineering Android" data-en="Android reverse engineering">Reverse engineering Android</span><span class="chip-s" data-fr="Injection Modbus" data-en="Modbus injection">Injection Modbus</span><span class="chip-s" data-fr="Hacking IoT matériel" data-en="IoT hardware hacking">Hacking IoT matériel</span></div>
         </div>
         <div class="skill-group reveal" style="transition-delay:.05s">
-          <h3><i class="fas fa-key"></i><span data-fr="Cryptographie" data-en="Cryptography">Cryptographie</span></h3>
+          <h3>{% include icon.html id="fas-key" %}<span data-fr="Cryptographie" data-en="Cryptography">Cryptographie</span></h3>
           <div class="chips"><span class="chip-s">OpenSSL</span><span class="chip-s">RSA</span><span class="chip-s">AES</span><span class="chip-s">PKI</span><span class="chip-s" data-fr="Signatures" data-en="Signatures">Signatures</span><span class="chip-s" data-fr="Cryptanalyse classique" data-en="Classical cryptanalysis">Cryptanalyse classique</span><span class="chip-s" data-fr="Codes correcteurs" data-en="Error-correcting codes">Codes correcteurs</span></div>
         </div>
         <div class="skill-group reveal" style="transition-delay:.1s">
-          <h3><i class="fas fa-industry"></i><span data-fr="OT, IoT et transports" data-en="OT, IoT and transport">OT, IoT et transports</span></h3>
+          <h3>{% include icon.html id="fas-industry" %}<span data-fr="OT, IoT et transports" data-en="OT, IoT and transport">OT, IoT et transports</span></h3>
           <div class="chips"><span class="chip-s">IEC 62443</span><span class="chip-s">Modbus TCP</span><span class="chip-s" data-fr="Automates Schneider" data-en="Schneider PLCs">Automates Schneider</span><span class="chip-s">ZigBee</span><span class="chip-s">C-ITS</span><span class="chip-s" data-fr="Radio intelligente" data-en="Cognitive radio">Radio intelligente</span></div>
         </div>
         <div class="skill-group reveal">
-          <h3><i class="fas fa-code"></i><span data-fr="Développement" data-en="Development">Développement</span></h3>
+          <h3>{% include icon.html id="fas-code" %}<span data-fr="Développement" data-en="Development">Développement</span></h3>
           <div class="chips"><span class="chip-s">Python (FastAPI, Scapy, scikit-learn)</span><span class="chip-s">SQL</span><span class="chip-s">Solidity</span><span class="chip-s">MATLAB</span><span class="chip-s">HTMX</span><span class="chip-s">Git</span></div>
         </div>
         <div class="skill-group reveal" style="transition-delay:.05s">
-          <h3><i class="fas fa-scale-balanced"></i><span data-fr="Gouvernance et risques" data-en="Governance and risk">Gouvernance et risques</span></h3>
+          <h3>{% include icon.html id="fas-scale-balanced" %}<span data-fr="Gouvernance et risques" data-en="Governance and risk">Gouvernance et risques</span></h3>
           <div class="chips"><span class="chip-s">EBIOS RM</span><span class="chip-s" data-fr="Analyse de risques" data-en="Risk analysis">Analyse de risques</span><span class="chip-s" data-fr="PCA / PRA" data-en="Business continuity and disaster recovery">PCA / PRA</span><span class="chip-s">BIA</span><span class="chip-s" data-fr="Gestion de crise" data-en="Crisis management">Gestion de crise</span><span class="chip-s" data-fr="RGPD" data-en="GDPR">RGPD</span><span class="chip-s">NIS2</span></div>
         </div>
         <div class="skill-group reveal" style="transition-delay:.1s">
-          <h3><i class="fas fa-people-group"></i><span data-fr="Transverses" data-en="Soft skills">Transverses</span></h3>
+          <h3>{% include icon.html id="fas-people-group" %}<span data-fr="Transverses" data-en="Soft skills">Transverses</span></h3>
           <div class="chips"><span class="chip-s" data-fr="Vulgarisation auprès de non-techniciens" data-en="Explaining technical topics to non-specialists">Vulgarisation auprès de non-techniciens</span><span class="chip-s" data-fr="Rédaction de rapports" data-en="Report writing">Rédaction de rapports</span><span class="chip-s" data-fr="Présentation à une direction" data-en="Presenting to executives">Présentation à une direction</span><span class="chip-s" data-fr="Travail en équipe" data-en="Teamwork">Travail en équipe</span><span class="chip-s" data-fr="Anglais professionnel" data-en="Professional English">Anglais professionnel</span></div>
         </div>
       </div>
@@ -742,8 +742,8 @@ description: "Master Cyberdéfense et Sécurité de l'Information (CDSI) de Will
         <!-- TODO-statut levé : statut validé par William (octobre 2026) -->
         <p data-fr="Depuis septembre 2026, je suis Ingénieur Systèmes &amp; Réseaux en CDI chez OCI Informatique." data-en="Since September 2026, I have been a permanent Systems &amp; Network Engineer at OCI Informatique.">Depuis septembre 2026, je suis Ingénieur Systèmes &amp; Réseaux en CDI chez OCI Informatique.</p>
         <div class="next-actions">
-          <a href="/contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
-          <a href="/documents/CV_HERTRICH_William.pdf" target="_blank" class="btn btn-ghost no-script-execution"><i class="fas fa-file-pdf"></i> <span data-fr="Voir mon CV" data-en="See my CV">Voir mon CV</span></a>
+          <a href="/contact.html" class="btn btn-primary">{% include icon.html id="fas-envelope" %} <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
+          <a href="/documents/CV_HERTRICH_William.pdf" target="_blank" class="btn btn-ghost">{% include icon.html id="fas-file-pdf" %} <span data-fr="Voir mon CV" data-en="See my CV">Voir mon CV</span></a>
         </div>
       </div>
     </div>
