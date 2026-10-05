@@ -1,0 +1,14 @@
+{%- comment -%}
+  Menu commun à toutes les pages. Paramètre : active = accueil | portfolio | apropos | contact.
+  Sur mobile, seul le lien actif reste affiché (classe .show) ; sans page active, c'est « Accueil ».
+{%- endcomment -%}
+<nav class="nav">
+  <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html"{% if include.active == "accueil" %} class="active show"{% elsif include.active == nil %} class="show"{% endif %} data-fr="Accueil" data-en="Home">Accueil</a></li>
+    <li><a href="/portfolio.html"{% if include.active == "portfolio" %} class="active show"{% endif %}>Portfolio</a></li>
+    <li><a href="/a_propos.html"{% if include.active == "apropos" %} class="active show"{% endif %} data-fr="À propos" data-en="About">À propos</a></li>
+    <li><a href="/contact.html"{% if include.active == "contact" %} class="active show"{% endif %}>Contact</a></li>
+    <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+  </ul>
+</nav>

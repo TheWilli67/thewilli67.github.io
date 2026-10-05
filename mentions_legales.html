@@ -1,71 +1,22 @@
+---
+# Page traitée par Jekyll : en-tête, menu et pied de page communs (_includes/).
+title: "Mentions légales"
+description: "Mentions légales · William Hertrich"
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mentions légales · William Hertrich">
-  <link rel="canonical" href="https://thewilli67.github.io/mentions_legales.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="William Hertrich">
-  <meta property="og:title" content="William Hertrich · Mentions légales">
-  <meta property="og:description" content="Mentions légales · William Hertrich">
-  <meta property="og:url" content="https://thewilli67.github.io/mentions_legales.html">
-  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:locale:alternate" content="en_GB">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>William Hertrich — Mentions légales</title>
-  <link rel="icon" href="/Images_photos/reprendre.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="/scripts/i18n.js" defer></script>
-  <script src="/scripts/animation_page.js" defer></script>
+  {% include head.html %}
   <style>
-    :root {
-      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
-      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
-      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
-      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
-      --border: #e2e8f0;
-      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
-      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
-    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
-    /* Footer toujours en bas de l'écran, même quand la page est courte */
-    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
-    footer { margin-top: auto; }
-    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
-
-    /* Nav */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
-    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
-    .nav-brand span { color: #60a5fa; }
-    .nav-links { display: flex; align-items: center; gap: .25rem; }
-    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
-    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
-    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
-
     /* Page header */
-    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
-    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.08) 0%, transparent 60%); pointer-events: none; }
-    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
-    .ph-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
-    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
-    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
-    .ph-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
-    .ph-sub { font-size: .95rem; color: #94a3b8; line-height: 1.7; }
+    .pheader::before { background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.08) 0%, transparent 60%); }
+    .ph-inner { max-width: 860px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3rem); }
+    .ph-sub { font-size: .95rem; max-width: none; }
 
     /* Content */
     .section { padding: 4rem 5% 5rem; }
-    .inner { max-width: 860px; margin: 0 auto; }
+    .inner { max-width: 860px; }
 
     .ml-block {
       background: var(--bg-card); border: 1px solid var(--border);
@@ -100,41 +51,16 @@
 
     .ml-update { text-align: center; font-size: .8rem; color: var(--text-lt); margin-top: 2.5rem; }
 
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.up { opacity: 1; transform: none; }
-
-    /* Footer */
-    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
-    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
-    .footer-links a:hover { color: #60a5fa; }
-    footer p { font-size: .8rem; }
-
     @media (max-width: 600px) {
       .section { padding: 3rem 1.25rem 4rem; }
-      .pheader { padding: 6rem 1.25rem 3rem; }
-      .nav { padding: 0 1.25rem; }
-      .nav-links a { display: none; }
-      .nav-links .show { display: block; }
       .ml-row { flex-direction: column; gap: .15rem; }
       .ml-label { min-width: unset; }
     }
   </style>
-  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-  <nav class="nav">
-    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
-    <ul class="nav-links">
-      <li><a href="/index.html" class="show" data-fr="Accueil" data-en="Home">Accueil</a></li>
-      <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
-    </ul>
-  </nav>
+  {% include nav.html %}
 
   <header class="pheader">
     <div class="ph-inner">
@@ -200,25 +126,7 @@
     </div>
   </section>
 
-  <footer>
-    <div class="footer-links">
-      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-      <a href="/portfolio.html">Portfolio</a>
-      <a href="/contact.html">Contact</a>
-      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
-      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
-      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
-    </div>
-    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
-  </footer>
-
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => io.observe(r));
-  </script>
+  {% include footer.html %}
 
 </body>
 </html>

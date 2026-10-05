@@ -53,6 +53,11 @@ thewilli67.github.io/
 │   └── SAE23_Documents/        # Captures de la SAE23
 │
 ├── photo/                      # Photos de la galerie (ajout automatique, voir plus bas)
+├── _includes/                  # Morceaux de page communs, insérés par Jekyll (voir « Modifier le site »)
+│   ├── head.html               # <head> : méta-données, Open Graph, polices, CSS et scripts communs
+│   ├── nav.html                # Menu
+│   └── footer.html             # Pied de page
+├── assets/css/site.css         # Styles communs : variables, menu, en-tête de page, sections, pied de page
 ├── _data/
 │   ├── photos.yml              # Titres et descriptions facultatifs des photos (FR / EN)
 │   ├── jeux.yml                # Ludothèque : jeux terminés, jeux hors Steam, jeux masqués (à la main)
@@ -60,7 +65,8 @@ thewilli67.github.io/
 │
 ├── scripts/
 │   ├── animation_page.js       # Transitions fondu entrant / sortant entre pages
-│   └── i18n.js                 # Bilinguisme FR / EN, popup de langue, menu mobile
+│   ├── i18n.js                 # Bilinguisme FR / EN, popup de langue, menu mobile
+│   └── reveal.js               # Apparition des éléments .reveal au défilement
 │
 ├── .github/
 │   ├── workflows/pages.yml       # Action « Publication du site » : EXIF, synchro Steam, build Jekyll, déploiement
@@ -83,9 +89,9 @@ thewilli67.github.io/
 | Technologie | Usage |
 |---|---|
 | **HTML5** | Structure sémantique de toutes les pages |
-| **CSS3** | Styles embarqués par page : variables CSS, Grid, Flexbox, animations |
-| **JavaScript vanilla** | Transitions, bilinguisme, galerie, filtres |
-| **Jekyll (GitHub Pages)** | Galerie (liste du dossier `/photo/`) et Ludothèque (données `_data/`) |
+| **CSS3** | Feuille commune `assets/css/site.css` + styles propres à chaque page : variables CSS, Grid, Flexbox, animations |
+| **JavaScript vanilla** | Transitions, bilinguisme, apparition au défilement, galerie, filtres |
+| **Jekyll (GitHub Pages)** | En-tête, menu et pied de page communs (`_includes/`), galerie (liste du dossier `/photo/`) et Ludothèque (données `_data/`) |
 | **GitHub Actions** | Publication du site, synchronisation Steam quotidienne, nettoyage EXIF des photos |
 | **Steam Web API** | Jeux, temps de jeu, succès et dernier lancement de la Ludothèque |
 | **Font Awesome 6.5** | Icônes (CDN) |
@@ -97,16 +103,52 @@ Aucun framework CSS ni bundler, zéro dépendance de build.
 
 ## Fonctionnalités
 
-- **Design system cohérent** : variables CSS partagées (`--accent`, `--bg-dark`, `--text-m`…) reproduites sur chaque page, contrastes conformes WCAG AA sur les fonds sombres
+- **Design system cohérent** : variables CSS (`--accent`, `--bg-dark`, `--text-m`…) et composants communs (menu, en-tête de page, sections, pied de page) définis une seule fois dans `assets/css/site.css`, contrastes conformes WCAG AA sur les fonds sombres
 - **Bilinguisme FR / EN** : attributs `data-fr` / `data-en` traduits par `i18n.js` ; au premier passage, une popup propose la langue (affichée en même temps que la page, sans flash), puis le choix est mémorisé dans le navigateur
 - **Transitions de page** : fondu entrant/sortant via `animation_page.js`, sans bloquer Ctrl/Cmd+clic, les liens externes ou le retour arrière ; site lisible même sans JavaScript (`<noscript>`)
-- **Scroll reveal** : apparition progressive des éléments au défilement (IntersectionObserver)
+- **Scroll reveal** : apparition progressive des éléments `.reveal` au défilement (`reveal.js`, IntersectionObserver)
 - **Responsive** : breakpoints à 900 px et 600 px, menu burger sur mobile
 - **Partage sur les réseaux** : balises Open Graph / Twitter et image d'aperçu 1200×630 sur toutes les pages
 - **Galerie photo dynamique** : les photos déposées dans `/photo/` apparaissent seules, avec visionneuse (`←` `→` `Esc`)
 - **Ludothèque synchronisée** : bibliothèque Steam mise à jour chaque jour, plus les jeux hors Steam saisis à la main
 - **Page Master** : frise S7→S10 dépliable, schéma d'architecture en SVG, labs filtrables par semestre
 - **Galerie lightbox custom** sur `projets_pro/monitoring_admin.html` (captures floutées)
+
+---
+
+## Modifier le site
+
+Chaque page commence par un *front matter* lu par Jekyll, puis insère les morceaux communs :
+
+```html
+---
+title: "Contact"                 # onglet : « William Hertrich — Contact », partage : « William Hertrich · Contact »
+description: "Contacter William…"  # moteurs de recherche et aperçu de partage
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  {% include head.html %}
+  <style>
+    /* uniquement ce qui est propre à la page */
+  </style>
+</head>
+<body>
+  {% include nav.html active="contact" %}   <!-- accueil | portfolio | apropos | contact -->
+  …
+  {% include footer.html %}
+</body>
+</html>
+```
+
+| Pour changer… | Modifier |
+|---|---|
+| Le menu (liens, ordre) | `_includes/nav.html` |
+| Le pied de page | `_includes/footer.html` (lien en plus : `{% include footer.html extra_url="…" extra_label="…" %}`) |
+| Les polices, l'image de partage, les scripts communs | `_includes/head.html` |
+| Une couleur, l'en-tête de page, les titres de section | `assets/css/site.css` (une page peut redéfinir une règle dans sa propre balise `<style>`, chargée après) |
+
+Une page rédigée en anglais ajoute `lang: en` à son front matter (voir `SAE23/SAE23.html`). L'année du pied de page se met à jour seule à chaque publication.
 
 ---
 
@@ -155,13 +197,16 @@ La clé reste dans les secrets GitHub : elle n'apparaît ni dans le code ni sur 
 
 ## Déploiement local
 
+Toutes les pages passent par Jekyll (en-tête, menu et pied de page communs) : pour un aperçu local, il faut Jekyll, qui demande Ruby.
+
 ```bash
 git clone https://github.com/TheWilli67/thewilli67.github.io.git
 cd thewilli67.github.io
-python -m http.server 8000   # ou : npx serve .
+gem install jekyll   # une seule fois, après avoir installé Ruby
+jekyll serve         # puis ouvrir http://localhost:4000
 ```
 
-> Les chemins absolus (`/Images_photos/…`, `/scripts/…`) nécessitent un mini-serveur local. La galerie de `photographie.html` et la Ludothèque `jeux.html` sont générées par Jekyll au moment de la publication : en local sans Jekyll, elles affichent un message à la place du contenu.
+> Un simple serveur statique (`python -m http.server`) ne suffit plus : les balises `{% include … %}` s'afficheraient telles quelles à la place du menu et du pied de page. Sans Jekyll en local, il suffit de pousser : la publication GitHub Pages construit le site.
 
 > ⚠️ `_scripts/strip_emdash.py` supprime les tirets cadratins sans les remplacer par une ponctuation, ce qui casse les phrases. Ne pas le relancer tel quel sur des textes contenant des tirets.
 
