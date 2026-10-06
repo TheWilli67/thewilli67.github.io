@@ -76,6 +76,7 @@ fas-folder-open: 576
 fas-gamepad: 640
 fas-gauge-high: 512
 fas-graduation-cap: 640
+fas-handshake: 640
 fas-headset: 512
 fas-image: 512
 fas-images: 576
@@ -86,6 +87,7 @@ fas-laptop: 640
 fas-layer-group: 576
 fas-leaf: 512
 fas-life-ring: 512
+fas-lightbulb: 384
 fas-link: 640
 fas-list: 512
 fas-list-check: 512
@@ -102,6 +104,7 @@ fas-people-group: 640
 fas-phone-alt: 512
 fas-project-diagram: 576
 fas-puzzle-piece: 512
+fas-rocket: 512
 fas-ruler-combined: 512
 fas-scale-balanced: 640
 fas-school: 640

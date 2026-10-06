@@ -13,3 +13,9 @@ __pycache__/
 .sass-cache/
 .bundle/
 vendor/
+
+# Verrou Bundler local : la publication utilise actions/jekyll-build-pages (sans Bundler)
+Gemfile.lock
+
+# Pages de démonstration locales (exclues du site par le « _ »)
+_demo/

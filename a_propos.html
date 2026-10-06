@@ -43,7 +43,7 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       border-radius: var(--r); padding: 1.5rem; transition: var(--tr); text-align: center;
     }
     .value-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
-    .value-icon { font-size: 1.75rem; margin-bottom: .75rem; }
+    .value-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin: 0 auto .75rem; border: 1px solid var(--hairline); border-radius: 4px; background: var(--tint); color: var(--body-strong); font-size: 1rem; }
     .value-title { font-size: .92rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
     .value-desc { font-size: .83rem; color: var(--text-m); line-height: 1.6; }
 
@@ -156,32 +156,32 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       </div>
       <div class="values-grid">
         <div class="value-card reveal">
-          <div class="value-icon">🎯</div>
+          <div class="value-icon">{% include icon.html id="fas-bullseye" %}</div>
           <p class="value-title" data-fr="Rigueur" data-en="Rigour">Rigueur</p>
           <p class="value-desc" data-fr="En sécurité comme en réseau, les détails comptent. Je documente, je teste et je valide chaque étape avant de passer à la suivante." data-en="In security as in networking, details matter. I document, test and validate every step before moving on.">En sécurité comme en réseau, les détails comptent. Je documente, je teste et je valide chaque étape avant de passer à la suivante.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.1s">
-          <div class="value-icon">🚀</div>
+          <div class="value-icon">{% include icon.html id="fas-rocket" %}</div>
           <p class="value-title" data-fr="Autonomie" data-en="Autonomy">Autonomie</p>
           <p class="value-desc" data-fr="Capable de prendre en charge un problème de bout en bout, de la collecte d'informations à la résolution, sans avoir besoin d'être guidé à chaque étape." data-en="Able to own a problem end-to-end, from information gathering to resolution, without needing to be guided at every step.">Capable de prendre en charge un problème de bout en bout, de la collecte d'informations à la résolution, sans avoir besoin d'être guidé à chaque étape.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.2s">
-          <div class="value-icon">💡</div>
+          <div class="value-icon">{% include icon.html id="fas-lightbulb" %}</div>
           <p class="value-title" data-fr="Curiosité" data-en="Curiosity">Curiosité</p>
           <p class="value-desc" data-fr="Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité : j'aime apprendre en dehors du cadre scolaire." data-en="I constantly keep up with technology. TryHackMe, vendor documentation, security articles: I love learning outside the classroom.">Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité : j'aime apprendre en dehors du cadre scolaire.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.3s">
-          <div class="value-icon">🤝</div>
+          <div class="value-icon">{% include icon.html id="fas-handshake" %}</div>
           <p class="value-title" data-fr="Bon relationnel" data-en="People skills">Bon relationnel</p>
           <p class="value-desc" data-fr="Capable de vulgariser des sujets techniques pour des utilisateurs non-avertis, et de collaborer efficacement avec différents prestataires et métiers." data-en="Able to explain technical topics to non-technical users, and to collaborate effectively with different service providers and business teams.">Capable de vulgariser des sujets techniques pour des utilisateurs non-avertis, et de collaborer efficacement avec différents prestataires et métiers.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.1s">
-          <div class="value-icon">⚡</div>
+          <div class="value-icon">{% include icon.html id="fas-bolt" %}</div>
           <p class="value-title" data-fr="Réactivité" data-en="Responsiveness">Réactivité</p>
           <p class="value-desc" data-fr="En infogérance, la rapidité de réponse est critique. J'ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d'incident." data-en="In managed services, response speed is critical. I have learned to prioritise, diagnose quickly and communicate clearly during incidents.">En infogérance, la rapidité de réponse est critique. J'ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d'incident.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.2s">
-          <div class="value-icon">📋</div>
+          <div class="value-icon">{% include icon.html id="fas-clipboard-list" %}</div>
           <p class="value-title" data-fr="Force de proposition" data-en="Proactivity">Force de proposition</p>
           <p class="value-desc" data-fr="Je ne me contente pas d'exécuter : je propose des améliorations, j'identifie les risques en amont et je cherche à optimiser les processus existants." data-en="I don't just execute: I suggest improvements, identify risks early, and look for ways to optimise existing processes.">Je ne me contente pas d'exécuter : je propose des améliorations, j'identifie les risques en amont et je cherche à optimiser les processus existants.</p>
         </div>
