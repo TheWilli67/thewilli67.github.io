@@ -247,41 +247,7 @@ bundle exec jekyll serve           # puis ouvrir http://localhost:4000
 
 Les données de l'Action (`_data/steam.json`, `_data/galerie.json`) sont commitées dans le dépôt : l'aperçu local utilise leur dernière version (faire un Pull pour récupérer la synchronisation Steam du jour).
 
-### À faire au merge de `redesign` sur `main` : purger les EXIF de l'historique
-
-Les photos sont nettoyées, mais d'anciennes versions avec leurs métadonnées (dont le numéro de série du boîtier) restent dans l'historique Git, donc publiques sur GitHub. Une fois `redesign` fusionnée dans `main`, réécrire l'historique pour les retirer.
-
-1. Installer l'outil, puis repartir d'un clone neuf (git filter-repo l'exige) :
-
-   ```bash
-   pip install git-filter-repo
-   git clone https://github.com/TheWilli67/thewilli67.github.io.git purge && cd purge
-   ```
-
-2. Retirer de tout l'historique les 5 originaux ajoutés le 4 octobre 2026, à leur ancien emplacement `photo/` (leurs versions nettoyées sont dans `_photos/`, qui n'est pas touché) :
-
-   ```bash
-   git filter-repo --invert-paths \
-     --path "photo/BMW_F900XR.JPG" --path "photo/Dinant_BEL.JPG" --path "photo/Lavande.JPG" \
-     --path "photo/Lézard_des_murailles .JPG" --path "photo/Pavillon_Frédéric_Salle.JPG"
-   ```
-
-   Variante complète : un contrôle de l'historique trouve 16 versions avec métadonnées. Ce sont les 13 photos de la galerie, puisque les 8 `IMG_*` ont aussi eu des versions non nettoyées avant le 4 octobre, l'ancien portrait et deux anciennes images supprimées. Pour toutes les retirer :
-
-   ```bash
-   git filter-repo --invert-paths --path photo/ \
-     --path Images_photos/photo_william.jpg \
-     --path Images_photos/IMG_20220203_174821.jpg --path Images_photos/IMG_20220307_192822.jpg
-   ```
-
-3. Republier (filter-repo retire le remote par sécurité) :
-
-   ```bash
-   git remote add origin https://github.com/TheWilli67/thewilli67.github.io.git
-   git push --force --all && git push --force --tags
-   ```
-
-4. Ensuite, recloner le dépôt dans GitHub Desktop : les anciens clones contiennent encore l'historique d'avant. Les anciens commits peuvent rester visibles par leur identifiant sur GitHub quelque temps ; le support GitHub peut les purger sur demande.
+Journal : historique purgé des métadonnées EXIF le 06/10/2026.
 
 > ⚠️ `_scripts/strip_emdash.py` supprime les tirets cadratins sans les remplacer par une ponctuation, ce qui casse les phrases. Ne pas le relancer tel quel sur des textes contenant des tirets.
 

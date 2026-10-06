@@ -19,3 +19,6 @@ Gemfile.lock
 
 # Pages de démonstration locales (exclues du site par le « _ »)
 _demo/
+
+# Paramètres locaux de Claude Code (propres à chaque poste, à ne pas versionner)
+.claude/settings.local.json
