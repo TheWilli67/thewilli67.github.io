@@ -7,10 +7,12 @@
     <a href="{{ include.extra_url }}">{{ include.extra_label }}</a>
     {%- endif %}
     <a href="/contact.html">Contact</a>
-    <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank">LinkedIn</a>
-    <a href="https://github.com/thewilli67" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" aria-describedby="nouvel-onglet">LinkedIn</a>
+    <a href="https://github.com/thewilli67" target="_blank" aria-describedby="nouvel-onglet">GitHub</a>
     <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
   </div>
   {%- assign annee = site.time | date: "%Y" %}
   <p data-fr="© {{ annee }} William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© {{ annee }} William Hertrich · Systems &amp; Network Engineer">&copy; {{ annee }} William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  {%- comment -%} Description des liens target="_blank" (aria-describedby="nouvel-onglet") {%- endcomment %}
+  <span id="nouvel-onglet" hidden data-fr="(s’ouvre dans un nouvel onglet)" data-en="(opens in a new tab)">(s’ouvre dans un nouvel onglet)</span>
 </footer>

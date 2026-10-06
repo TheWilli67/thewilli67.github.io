@@ -20,7 +20,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     .ph-sub { line-height: 1.75; }
     .stats-banner { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
     .stat-item { display: flex; flex-direction: column; }
-    .stat-num { font-size: 1.75rem; font-weight: 500; color: var(--body-strong); line-height: 1; }
+    .stat-num { font-variant-numeric: tabular-nums; font-size: 1.75rem; font-weight: 500; color: var(--body-strong); line-height: 1; }
     .stat-label { font-size: .72rem; color: var(--body); margin-top: .3rem; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); }
 
     .s-header { text-align: center; margin-bottom: 3rem; }
@@ -41,18 +41,18 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     .badge-genre { font-size: .68rem; font-weight: 600; color: var(--body-strong); background: var(--tint); padding: .2rem .6rem; border-radius: 3px; }
     .game-title { font-size: .92rem; font-weight: 600; color: var(--text); line-height: 1.3; }
     .game-meta { display: flex; gap: 1rem; }
-    .game-stat { display: flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--text-m); }
+    .game-stat { font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--text-m); }
     .game-stat .icon { font-size: .72rem; opacity: .7; }
     .achiev-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
     .achiev-fill { height: 100%; background: var(--accent); border-radius: 2px; }
     .achiev-label { display: flex; justify-content: space-between; font-size: .7rem; color: var(--text-lt); }
-    .achiev-label .pct { color: var(--body-strong); font-weight: 600; }
+    .achiev-label .pct { font-variant-numeric: tabular-nums; color: var(--body-strong); font-weight: 600; }
     .achiev-label .pct.perfect { color: var(--body-strong); }
 
     /* Steam section */
     .steam-stats-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 2rem; }
     .steam-stat-cell { flex: 1; background: var(--bg-card); padding: 1.25rem 1rem; text-align: center; }
-    .steam-stat-num { font-size: 1.4rem; font-weight: 500; color: var(--body-strong); display: block; }
+    .steam-stat-num { font-variant-numeric: tabular-nums; font-size: 1.4rem; font-weight: 500; color: var(--body-strong); display: block; }
     .steam-stat-lbl { font-size: .7rem; color: var(--text-m); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-top: .2rem; display: block; }
 
     .games-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r); }
@@ -63,10 +63,10 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     .games-table tbody tr:last-child td { border-bottom: none; }
     .games-table tbody tr:hover td { background: var(--tint); }
     .td-name { font-weight: 600; color: var(--text); }
-    .td-hours { font-weight: 600; color: var(--text); white-space: nowrap; }
-    .td-achiev { font-size: .78rem; color: var(--text-m); white-space: nowrap; }
+    .td-hours { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); white-space: nowrap; }
+    .td-achiev { font-variant-numeric: tabular-nums; font-size: .78rem; color: var(--text-m); white-space: nowrap; }
     .td-achiev.perfect { color: var(--body-strong); font-weight: 600; }
-    .td-date { font-size: .76rem; color: var(--text-lt); white-space: nowrap; }
+    .td-date { font-variant-numeric: tabular-nums; font-size: .76rem; color: var(--text-lt); white-space: nowrap; }
 
     .ns-header { display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 1.25rem; }
     .ns-header span { font-size: .82rem; font-weight: 600; color: var(--text-m); white-space: nowrap; }
@@ -125,7 +125,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       <div class="s-header">
         <span class="s-tag indigo" data-fr="Campagne principale terminée" data-en="Main story completed">Campagne principale terminée</span>
         <h2 class="s-title" data-fr="Jeux terminés" data-en="Completed games">Jeux terminés</h2>
-        <p class="s-sub" data-fr="Les jeux dont j'ai terminé le scénario principal." data-en="Games where I completed the main story.">Les jeux dont j'ai terminé le scénario principal.</p>
+        <p class="s-sub" data-fr="Les jeux dont j’ai terminé le scénario principal." data-en="Games where I completed the main story.">Les jeux dont j’ai terminé le scénario principal.</p>
       </div>
       <!-- Cartes générées à partir de « termines » dans _data/jeux.yml -->
       <div class="finished-grid reveal" id="finished-grid"></div>
@@ -231,24 +231,29 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       function norm(s) {
         return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '');
       }
+      /* Nombres et dates via Intl (séparateurs, décimales et mois propres à chaque langue) */
+      var LOCALE = { fr: 'fr-FR', en: 'en-GB' };
       function hours(min, lang) {
-        var t = (min / 60).toFixed(1);
-        return (lang === 'en' ? t : t.replace('.', ',')) + ' h';
+        var n = new Intl.NumberFormat(LOCALE[lang], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(min / 60);
+        return n + (lang === 'en' ? ' h' : ' h');
       }
       function int(n, lang) {
-        return Math.round(n).toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR');
+        return new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 0 }).format(Math.round(n));
       }
-      var MONTHS = {
-        fr: ['Janv.', 'Févr.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-        en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      };
+      function percent(ratio, lang) {
+        return new Intl.NumberFormat(LOCALE[lang], { style: 'percent', maximumFractionDigits: 0 }).format(ratio);
+      }
+      function monthYear(d, lang) {
+        var s = new Intl.DateTimeFormat(LOCALE[lang], { month: 'short', year: 'numeric' }).format(d);
+        return s.charAt(0).toUpperCase() + s.slice(1);
+      }
       function lastPlayed(ts, lang) {
         if (!ts) return '–';
         var d = new Date(ts * 1000), now = new Date();
         var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-        if (d.getTime() >= today) return lang === 'en' ? 'Today' : "Aujourd'hui";
+        if (d.getTime() >= today) return lang === 'en' ? 'Today' : 'Aujourd’hui';
         if (d.getTime() >= today - 864e5) return lang === 'en' ? 'Yesterday' : 'Hier';
-        return MONTHS[lang][d.getMonth()] + ' ' + d.getFullYear();
+        return monthYear(d, lang);
       }
       function achText(a) {
         if (!a) return '–';
@@ -261,7 +266,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       var empty = document.getElementById('games-empty');
 
       if (steam === undefined || conf === undefined) {
-        bi(empty, 'La bibliothèque est générée par GitHub Pages : elle s\'affiche sur le site en ligne.',
+        bi(empty, 'La bibliothèque est générée par GitHub Pages : elle s’affiche sur le site en ligne.',
                   'The library is generated by GitHub Pages: it shows up on the live site.');
         empty.hidden = false;
         return;
@@ -299,7 +304,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       setNum('hdr-played', String(played.length), String(played.length));
       setNum('hdr-done', String(finished.length), String(finished.length));
       setNum('st-played', String(played.length), String(played.length));
-      setNum('st-hours', int(totalMin / 60, 'fr') + ' h', int(totalMin / 60, 'en') + ' h');
+      setNum('st-hours', int(totalMin / 60, 'fr') + ' h', int(totalMin / 60, 'en') + ' h');
       setNum('st-total', String(steamGames.length + others.length), String(steamGames.length + others.length));
       if (played.length) {
         setNum('st-top', hours(played[0].minutes, 'fr'), hours(played[0].minutes, 'en'));
@@ -367,9 +372,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
           var lbl = el('div', 'achiev-label');
           lbl.appendChild(bi(el('span'), 'Succès', 'Achievements'));
           var p = el('span', 'pct' + (pct >= 100 ? ' perfect' : ''));
-          p.textContent = Math.round(pct) + (LANG === 'en' ? '%' : ' %');
-          p.setAttribute('data-fr', Math.round(pct) + ' %');
-          p.setAttribute('data-en', Math.round(pct) + '%');
+          bi(p, percent(pct / 100, 'fr'), percent(pct / 100, 'en'));
           lbl.appendChild(p);
           card.appendChild(lbl);
         }

@@ -165,6 +165,14 @@ description: "Contacter William…"  # moteurs de recherche et aperçu de partag
 
 Une page rédigée en anglais ajoute `lang: en` à son front matter (voir `SAE23/SAE23.html`). L'année du pied de page se met à jour seule à chaque publication.
 
+### Textes et traductions
+
+- **Typographie française** (convention de l'Imprimerie nationale) : apostrophe `’`, `&nbsp;` avant « : » et à l'intérieur des guillemets `«&nbsp;…&nbsp;»`, espace fine insécable `&#8239;` avant ; ! ?, `n°&nbsp;`. En anglais : `’` et guillemets “ ”. Ne pas appliquer ces règles au code, aux sur-titres précédés du prompt `$` (`.ph-eyebrow`, `.hero-eyebrow`) ni aux libellés `//` (`.s-tag`).
+- **Attributs d'accessibilité** : la valeur française dans l'attribut, la valeur anglaise dans `data-en-alt`, `data-en-aria-label` ou `data-en-title` (ex. `aria-label="Fermer" data-en-aria-label="Close"`), basculées par `i18n.js`.
+- **Noms propres et techniques** : `translate="no"` (étiquettes de technologies, nom dans le menu) pour que les traducteurs automatiques ne les déforment pas.
+- **Lien vers un nouvel onglet** : `target="_blank" aria-describedby="nouvel-onglet"` ; le texte « (s’ouvre dans un nouvel onglet) » est dans le pied de page commun.
+- **Nombres et dates générés en JavaScript** : `Intl.NumberFormat` / `Intl.DateTimeFormat` (`fr-FR`, `en-GB`), chiffres en `font-variant-numeric: tabular-nums` dans les colonnes.
+
 ---
 
 ## Ajouter une photo à la galerie

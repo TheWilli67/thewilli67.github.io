@@ -8,7 +8,7 @@
 {%- assign here = page.url | replace: "/index.html", "/" -%}
 <a class="skip-link" href="#contenu" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
 <nav class="nav">
-  <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+  <a class="nav-brand" href="/index.html" translate="no">HERTRICH <span>William</span></a>
   <ul class="nav-links">
     <li><a href="/index.html"{% if include.active == "accueil" %} class="active show" aria-current="page"{% elsif include.active == nil %} class="show"{% endif %} data-fr="Accueil" data-en="Home">Accueil</a></li>
     <li><a href="/portfolio.html"{% if include.active == "portfolio" %} class="active show" aria-current="{% if here == '/portfolio.html' %}page{% else %}true{% endif %}"{% endif %}>Portfolio</a></li>

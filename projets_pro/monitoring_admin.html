@@ -254,8 +254,8 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     <div class="ph-inner">
       <a href="/alternance/reseau-net.html" class="ph-back" data-fr="{% include icon.html id='fas-arrow-left' %} Retour à Réseau-Net" data-en="{% include icon.html id='fas-arrow-left' %} Back to Réseau-Net" data-i18n-html>{% include icon.html id="fas-arrow-left" %} Retour à Réseau-Net</a>
       <span class="ph-eyebrow" data-fr="Projet professionnel" data-en="Professional project">Projet professionnel</span>
-      <h1 class="ph-title" data-fr="Portail d'administration de la <span>supervision</span>" data-en="<span>Monitoring</span> admin portal" data-i18n-html>Portail d'administration de la <span>supervision</span></h1>
-      <p class="ph-sub" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : une base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier." data-en="In-house web interface driving a multi-client Prometheus / Grafana / Blackbox Exporter stack: a SQLite database as the source of truth, automatic config regeneration, HTML email alerts with embedded graphs, and a daily digest.">Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : une base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier.</p>
+      <h1 class="ph-title" data-fr="Portail d’administration de la <span>supervision</span>" data-en="<span>Monitoring</span> admin portal" data-i18n-html>Portail d’administration de la <span>supervision</span></h1>
+      <p class="ph-sub" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients&nbsp;: une base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier." data-en="In-house web interface driving a multi-client Prometheus / Grafana / Blackbox Exporter stack: a SQLite database as the source of truth, automatic config regeneration, HTML email alerts with embedded graphs, and a daily digest.">Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients&nbsp;: une base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier.</p>
       <div class="ph-chips">
         <span class="chip chip-comp" data-fr="{% include icon.html id='fas-building' %} Réseau-Net" data-en="{% include icon.html id='fas-building' %} Réseau-Net" data-i18n-html>{% include icon.html id="fas-building" %} Réseau-Net</span>
         <span class="chip chip-period" data-fr="{% include icon.html id='fas-bolt' %} Sprint de 2 semaines" data-en="{% include icon.html id='fas-bolt' %} 2-week sprint" data-i18n-html>{% include icon.html id="fas-bolt" %} Sprint de 2 semaines</span>
@@ -270,7 +270,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     <div class="inner">
       <div class="conf-banner reveal">
         <div class="conf-icon">{% include icon.html id="fas-shield-halved" %}</div>
-        <div class="conf-text" data-fr="<strong>Note de confidentialité :</strong> Cette page reste volontairement au niveau conceptuel : architecture, stack et choix d'ingénierie. Aucune information technique sensible (IPs, hostnames, chemins internes, secrets, identifiants ou configurations spécifiques à l'infrastructure Réseau-Net) n'est publiée." data-en="<strong>Confidentiality note:</strong> This page stays deliberately at the conceptual level: architecture, stack, and engineering choices. No sensitive technical information (IPs, hostnames, internal paths, secrets, credentials, or Réseau-Net-specific infrastructure details) is published." data-i18n-html><strong>Note de confidentialité :</strong> Cette page reste volontairement au niveau conceptuel : architecture, stack et choix d'ingénierie. Aucune information technique sensible (IPs, hostnames, chemins internes, secrets, identifiants ou configurations spécifiques à l'infrastructure Réseau-Net) n'est publiée.</div>
+        <div class="conf-text" data-fr="<strong>Note de confidentialité&nbsp;:</strong> Cette page reste volontairement au niveau conceptuel&nbsp;: architecture, stack et choix d’ingénierie. Aucune information technique sensible (IPs, hostnames, chemins internes, secrets, identifiants ou configurations spécifiques à l’infrastructure Réseau-Net) n’est publiée." data-en="<strong>Confidentiality note:</strong> This page stays deliberately at the conceptual level: architecture, stack, and engineering choices. No sensitive technical information (IPs, hostnames, internal paths, secrets, credentials, or Réseau-Net-specific infrastructure details) is published." data-i18n-html><strong>Note de confidentialité&nbsp;:</strong> Cette page reste volontairement au niveau conceptuel&nbsp;: architecture, stack et choix d’ingénierie. Aucune information technique sensible (IPs, hostnames, chemins internes, secrets, identifiants ou configurations spécifiques à l’infrastructure Réseau-Net) n’est publiée.</div>
       </div>
     </div>
   </section>
@@ -280,19 +280,19 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Contexte" data-en="Context">Contexte</span>
-        <h2 class="s-title" data-fr="Pourquoi ce portail ?" data-en="Why this portal?">Pourquoi ce portail ?</h2>
-        <p class="s-sub" data-fr="Faire d'une stack Prometheus / Grafana un outil utilisable au quotidien par toute l'équipe" data-en="Turn a Prometheus / Grafana stack into a tool the whole team can operate daily">Faire d'une stack Prometheus / Grafana un outil utilisable au quotidien par toute l'équipe</p>
+        <h2 class="s-title" data-fr="Pourquoi ce portail&#8239;?" data-en="Why this portal?">Pourquoi ce portail&#8239;?</h2>
+        <p class="s-sub" data-fr="Faire d’une stack Prometheus / Grafana un outil utilisable au quotidien par toute l’équipe" data-en="Turn a Prometheus / Grafana stack into a tool the whole team can operate daily">Faire d’une stack Prometheus / Grafana un outil utilisable au quotidien par toute l’équipe</p>
       </div>
       <div class="ctx-grid">
         <div class="ctx-text reveal">
-          <p data-fr="Réseau-Net supervise, pour ses clients, un ensemble de liens (fibres et 4G/5G) via une stack <strong>Prometheus + Blackbox Exporter + Grafana</strong>. La configuration se pilotait via des fichiers YAML et JSON éditables à la main, avec un risque d'erreur élevé et une dépendance forte à celui qui connaissait l'outil." data-en="Réseau-Net supervises, for its clients, a set of links (fibre and 4G/5G) via a <strong>Prometheus + Blackbox Exporter + Grafana</strong> stack. The configuration was piloted through YAML and JSON files edited by hand, with a high risk of error and strong dependency on whoever knew the tooling." data-i18n-html>Réseau-Net supervise, pour ses clients, un ensemble de liens (fibres et 4G/5G) via une stack <strong>Prometheus + Blackbox Exporter + Grafana</strong>. La configuration se pilotait via des fichiers YAML et JSON éditables à la main, avec un risque d'erreur élevé et une dépendance forte à celui qui connaissait l'outil.</p>
-          <p data-fr="J'ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision : ajout/modification/suppression d'un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l'ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière." data-en="I proposed and developed an <strong>in-house web interface</strong> that becomes the source of truth for supervision: adding/modifying/removing a link, managing clients and the alert distribution list, all done in a simple tool, with Prometheus and Grafana configuration files <strong>regenerated automatically</strong> behind the scenes." data-i18n-html>J'ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision : ajout/modification/suppression d'un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l'ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière.</p>
-          <p data-fr="Le portail intègre aussi un <strong>webhook d'alerte custom</strong> pour envoyer des emails HTML riches (avec graphes intégrés) que Grafana ne sait pas produire nativement, ainsi qu'un <strong>digest journalier</strong> automatique récapitulant l'état des liens." data-en="The portal also includes a <strong>custom alert webhook</strong> to send rich HTML emails (with embedded graphs) that Grafana cannot produce natively, along with an automatic <strong>daily digest</strong> summarising link status." data-i18n-html>Le portail intègre aussi un <strong>webhook d'alerte custom</strong> pour envoyer des emails HTML riches (avec graphes intégrés) que Grafana ne sait pas produire nativement, ainsi qu'un <strong>digest journalier</strong> automatique récapitulant l'état des liens.</p>
+          <p data-fr="Réseau-Net supervise, pour ses clients, un ensemble de liens (fibres et 4G/5G) via une stack <strong>Prometheus + Blackbox Exporter + Grafana</strong>. La configuration se pilotait via des fichiers YAML et JSON éditables à la main, avec un risque d’erreur élevé et une dépendance forte à celui qui connaissait l’outil." data-en="Réseau-Net supervises, for its clients, a set of links (fibre and 4G/5G) via a <strong>Prometheus + Blackbox Exporter + Grafana</strong> stack. The configuration was piloted through YAML and JSON files edited by hand, with a high risk of error and strong dependency on whoever knew the tooling." data-i18n-html>Réseau-Net supervise, pour ses clients, un ensemble de liens (fibres et 4G/5G) via une stack <strong>Prometheus + Blackbox Exporter + Grafana</strong>. La configuration se pilotait via des fichiers YAML et JSON éditables à la main, avec un risque d’erreur élevé et une dépendance forte à celui qui connaissait l’outil.</p>
+          <p data-fr="J’ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision&nbsp;: ajout/modification/suppression d’un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l’ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière." data-en="I proposed and developed an <strong>in-house web interface</strong> that becomes the source of truth for supervision: adding/modifying/removing a link, managing clients and the alert distribution list, all done in a simple tool, with Prometheus and Grafana configuration files <strong>regenerated automatically</strong> behind the scenes." data-i18n-html>J’ai proposé et développé une <strong>interface web maison</strong> qui devient la source de vérité de la supervision&nbsp;: ajout/modification/suppression d’un lien, gestion des clients et de la liste de diffusion des alertes, tout se fait dans un outil simple, et l’ensemble des fichiers de configuration Prometheus et Grafana est <strong>régénéré automatiquement</strong> derrière.</p>
+          <p data-fr="Le portail intègre aussi un <strong>webhook d’alerte custom</strong> pour envoyer des emails HTML riches (avec graphes intégrés) que Grafana ne sait pas produire nativement, ainsi qu’un <strong>digest journalier</strong> automatique récapitulant l’état des liens." data-en="The portal also includes a <strong>custom alert webhook</strong> to send rich HTML emails (with embedded graphs) that Grafana cannot produce natively, along with an automatic <strong>daily digest</strong> summarising link status." data-i18n-html>Le portail intègre aussi un <strong>webhook d’alerte custom</strong> pour envoyer des emails HTML riches (avec graphes intégrés) que Grafana ne sait pas produire nativement, ainsi qu’un <strong>digest journalier</strong> automatique récapitulant l’état des liens.</p>
         </div>
         <div class="callout reveal" style="transition-delay:.1s">
-          <p data-fr="<strong>Un déclic technique important :</strong> Grafana n'est pas conçu pour être la source de vérité de l'alerting quand on gère plusieurs dizaines de liens multi-clients. Le vrai enjeu du projet n'était pas de « faire du Grafana », mais de <strong>rendre la stack pilotable</strong> par toute l'équipe sans risquer de casser la configuration à chaque modification." data-en="<strong>A key technical insight:</strong> Grafana isn't built to be the source of truth for alerting when you manage dozens of multi-client links. The real challenge wasn't &quot;doing Grafana&quot; but making the stack <strong>operable by the whole team</strong> without risking a broken configuration on every change." data-i18n-html><strong>Un déclic technique important :</strong> Grafana n'est pas conçu pour être la source de vérité de l'alerting quand on gère plusieurs dizaines de liens multi-clients. Le vrai enjeu du projet n'était pas de « faire du Grafana », mais de <strong>rendre la stack pilotable</strong> par toute l'équipe sans risquer de casser la configuration à chaque modification.</p>
-          <p data-fr="La règle d'or : <strong>Grafana sert uniquement à consulter les dashboards</strong>. Toutes les modifications passent par le portail ; les fichiers YAML sont regénérés à partir de la base SQLite, jamais édités à la main." data-en="The golden rule: <strong>Grafana is used only to view dashboards</strong>. All changes go through the portal; YAML files are regenerated from the SQLite database, never hand-edited." data-i18n-html>La règle d'or : <strong>Grafana sert uniquement à consulter les dashboards</strong>. Toutes les modifications passent par le portail ; les fichiers YAML sont regénérés à partir de la base SQLite, jamais édités à la main.</p>
-          <p data-fr="<strong>Développement en pair avec Claude Code :</strong> le projet a été conçu, prototypé et livré en <strong>≈ 2 semaines</strong> grâce à un flux de travail en pair-programming avec un LLM. La vitesse d'itération a été volontairement mise au service d'une <strong>posture de sécurité assumée</strong> : segmentation réseau, HTTPS sur le réseau local uniquement, aucune exposition Internet, flux sortants restreints à l'ICMP. Voir ci-dessous." data-en="<strong>Paired with Claude Code:</strong> the project was designed, prototyped, and shipped in <strong>≈ 2 weeks</strong> through a pair-programming workflow with an LLM. The iteration speed was deliberately put to work in service of a <strong>deliberate security posture</strong>: network segmentation, HTTPS on the local network only, no Internet exposure, outbound traffic restricted to ICMP. See below." data-i18n-html><strong>Développement en pair avec Claude Code :</strong> le projet a été conçu, prototypé et livré en <strong>≈ 2 semaines</strong> grâce à un flux de travail en pair-programming avec un LLM. La vitesse d'itération a été volontairement mise au service d'une <strong>posture de sécurité assumée</strong> : segmentation réseau, HTTPS sur le réseau local uniquement, aucune exposition Internet, flux sortants restreints à l'ICMP. Voir ci-dessous.</p>
+          <p data-fr="<strong>Un déclic technique important&nbsp;:</strong> Grafana n’est pas conçu pour être la source de vérité de l’alerting quand on gère plusieurs dizaines de liens multi-clients. Le vrai enjeu du projet n’était pas de «&nbsp;faire du Grafana&nbsp;», mais de <strong>rendre la stack pilotable</strong> par toute l’équipe sans risquer de casser la configuration à chaque modification." data-en="<strong>A key technical insight:</strong> Grafana isn’t built to be the source of truth for alerting when you manage dozens of multi-client links. The real challenge wasn’t &quot;doing Grafana&quot; but making the stack <strong>operable by the whole team</strong> without risking a broken configuration on every change." data-i18n-html><strong>Un déclic technique important&nbsp;:</strong> Grafana n’est pas conçu pour être la source de vérité de l’alerting quand on gère plusieurs dizaines de liens multi-clients. Le vrai enjeu du projet n’était pas de «&nbsp;faire du Grafana&nbsp;», mais de <strong>rendre la stack pilotable</strong> par toute l’équipe sans risquer de casser la configuration à chaque modification.</p>
+          <p data-fr="La règle d’or&nbsp;: <strong>Grafana sert uniquement à consulter les dashboards</strong>. Toutes les modifications passent par le portail&#8239;; les fichiers YAML sont regénérés à partir de la base SQLite, jamais édités à la main." data-en="The golden rule: <strong>Grafana is used only to view dashboards</strong>. All changes go through the portal; YAML files are regenerated from the SQLite database, never hand-edited." data-i18n-html>La règle d’or&nbsp;: <strong>Grafana sert uniquement à consulter les dashboards</strong>. Toutes les modifications passent par le portail&#8239;; les fichiers YAML sont regénérés à partir de la base SQLite, jamais édités à la main.</p>
+          <p data-fr="<strong>Développement en pair avec Claude Code&nbsp;:</strong> le projet a été conçu, prototypé et livré en <strong>≈ 2 semaines</strong> grâce à un flux de travail en pair-programming avec un LLM. La vitesse d’itération a été volontairement mise au service d’une <strong>posture de sécurité assumée</strong>&nbsp;: segmentation réseau, HTTPS sur le réseau local uniquement, aucune exposition Internet, flux sortants restreints à l’ICMP. Voir ci-dessous." data-en="<strong>Paired with Claude Code:</strong> the project was designed, prototyped, and shipped in <strong>≈ 2 weeks</strong> through a pair-programming workflow with an LLM. The iteration speed was deliberately put to work in service of a <strong>deliberate security posture</strong>: network segmentation, HTTPS on the local network only, no Internet exposure, outbound traffic restricted to ICMP. See below." data-i18n-html><strong>Développement en pair avec Claude Code&nbsp;:</strong> le projet a été conçu, prototypé et livré en <strong>≈ 2 semaines</strong> grâce à un flux de travail en pair-programming avec un LLM. La vitesse d’itération a été volontairement mise au service d’une <strong>posture de sécurité assumée</strong> : segmentation réseau, HTTPS sur le réseau local uniquement, aucune exposition Internet, flux sortants restreints à l’ICMP. Voir ci-dessous.</p>
         </div>
       </div>
     </div>
@@ -304,7 +304,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Objectifs" data-en="Objectives">Objectifs</span>
         <h2 class="s-title" data-fr="Ce que le portail devait apporter" data-en="What the portal had to deliver">Ce que le portail devait apporter</h2>
-        <p class="s-sub" data-fr="Quatre grands objectifs traduits en choix d'ingénierie concrets" data-en="Four main objectives translated into concrete engineering choices">Quatre grands objectifs traduits en choix d'ingénierie concrets</p>
+        <p class="s-sub" data-fr="Quatre grands objectifs traduits en choix d’ingénierie concrets" data-en="Four main objectives translated into concrete engineering choices">Quatre grands objectifs traduits en choix d’ingénierie concrets</p>
       </div>
       <div class="obj-grid">
         <div class="obj-card reveal">
@@ -315,17 +315,17 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="obj-card reveal" style="transition-delay:.05s">
           <div class="obj-num">02</div>
           <h3 class="obj-title" data-fr="Piloter sans toucher aux YAML" data-en="Operate without touching YAML">Piloter sans toucher aux YAML</h3>
-          <p class="obj-desc" data-fr="L'équipe peut ajouter/modifier/supprimer un lien via l'interface web. Les fichiers targets JSON et YAML d'alerting Grafana sont régénérés automatiquement." data-en="The team can add/modify/remove a link via the web UI. Target JSON files and Grafana alerting YAML are regenerated automatically.">L'équipe peut ajouter/modifier/supprimer un lien via l'interface web. Les fichiers targets JSON et YAML d'alerting Grafana sont régénérés automatiquement.</p>
+          <p class="obj-desc" data-fr="L’équipe peut ajouter/modifier/supprimer un lien via l’interface web. Les fichiers targets JSON et YAML d’alerting Grafana sont régénérés automatiquement." data-en="The team can add/modify/remove a link via the web UI. Target JSON files and Grafana alerting YAML are regenerated automatically.">L’équipe peut ajouter/modifier/supprimer un lien via l’interface web. Les fichiers targets JSON et YAML d’alerting Grafana sont régénérés automatiquement.</p>
         </div>
         <div class="obj-card reveal" style="transition-delay:.1s">
           <div class="obj-num">03</div>
           <h3 class="obj-title" data-fr="Alertes HTML avec graphes" data-en="HTML alerts with graphs">Alertes HTML avec graphes</h3>
-          <p class="obj-desc" data-fr="Contourner les limitations natives de Grafana en interceptant les alertes via un webhook custom, pour envoyer des emails HTML riches avec graphes intégrés." data-en="Work around Grafana's native limitations by intercepting alerts via a custom webhook, to send rich HTML emails with embedded graphs.">Contourner les limitations natives de Grafana en interceptant les alertes via un webhook custom, pour envoyer des emails HTML riches avec graphes intégrés.</p>
+          <p class="obj-desc" data-fr="Contourner les limitations natives de Grafana en interceptant les alertes via un webhook custom, pour envoyer des emails HTML riches avec graphes intégrés." data-en="Work around Grafana’s native limitations by intercepting alerts via a custom webhook, to send rich HTML emails with embedded graphs.">Contourner les limitations natives de Grafana en interceptant les alertes via un webhook custom, pour envoyer des emails HTML riches avec graphes intégrés.</p>
         </div>
         <div class="obj-card reveal" style="transition-delay:.15s">
           <div class="obj-num">04</div>
-          <h3 class="obj-title" data-fr="Vue d'ensemble quotidienne" data-en="Daily overview">Vue d'ensemble quotidienne</h3>
-          <p class="obj-desc" data-fr="Un digest journalier automatique récapitule l'état des liens (UP/DOWN par client) pour l'équipe, sans avoir à ouvrir Grafana chaque matin." data-en="An automatic daily digest summarises link status (UP/DOWN per client) for the team, with no need to open Grafana every morning.">Un digest journalier automatique récapitule l'état des liens (UP/DOWN par client) pour l'équipe, sans avoir à ouvrir Grafana chaque matin.</p>
+          <h3 class="obj-title" data-fr="Vue d’ensemble quotidienne" data-en="Daily overview">Vue d’ensemble quotidienne</h3>
+          <p class="obj-desc" data-fr="Un digest journalier automatique récapitule l’état des liens (UP/DOWN par client) pour l’équipe, sans avoir à ouvrir Grafana chaque matin." data-en="An automatic daily digest summarises link status (UP/DOWN per client) for the team, with no need to open Grafana every morning.">Un digest journalier automatique récapitule l’état des liens (UP/DOWN par client) pour l’équipe, sans avoir à ouvrir Grafana chaque matin.</p>
         </div>
       </div>
     </div>
@@ -337,13 +337,13 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Architecture" data-en="Architecture">Architecture</span>
         <h2 class="s-title" data-fr="Flux logique de bout en bout" data-en="End-to-end logical flow">Flux logique de bout en bout</h2>
-        <p class="s-sub" data-fr="Comment une action dans le portail se propage jusqu'aux alertes des clients" data-en="How an action in the portal propagates all the way to client alerts">Comment une action dans le portail se propage jusqu'aux alertes des clients</p>
+        <p class="s-sub" data-fr="Comment une action dans le portail se propage jusqu’aux alertes des clients" data-en="How an action in the portal propagates all the way to client alerts">Comment une action dans le portail se propage jusqu’aux alertes des clients</p>
       </div>
       <div class="arch-wrap reveal">
         <div class="arch-flow">
           <div class="arch-layer primary">
             <p class="arch-layer-title" data-fr="1. Interface web (source de vérité)" data-en="1. Web interface (source of truth)">1. Interface web (source de vérité)</p>
-            <p class="arch-layer-body" data-fr="FastAPI + HTMX : l'équipe ajoute/modifie/supprime un lien" data-en="FastAPI + HTMX: the team adds/modifies/removes a link">FastAPI + HTMX : l'équipe ajoute/modifie/supprime un lien</p>
+            <p class="arch-layer-body" data-fr="FastAPI + HTMX&nbsp;: l’équipe ajoute/modifie/supprime un lien" data-en="FastAPI + HTMX: the team adds/modifies/removes a link">FastAPI + HTMX&nbsp;: l’équipe ajoute/modifie/supprime un lien</p>
           </div>
           <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
@@ -353,12 +353,12 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
           <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="3. Régénération des configs" data-en="3. Config regeneration">3. Régénération des configs</p>
-            <p class="arch-layer-body" data-fr="Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l'API" data-en="Prometheus (target JSON) + Grafana (contact points, policies, alert rules), then reload via the API">Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l'API</p>
+            <p class="arch-layer-body" data-fr="Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l’API" data-en="Prometheus (target JSON) + Grafana (contact points, policies, alert rules), then reload via the API">Prometheus (targets JSON) + Grafana (contact points, policies, alert rules), puis rechargement via l’API</p>
           </div>
           <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
             <p class="arch-layer-title" data-fr="4. Sonde Blackbox + Prometheus" data-en="4. Blackbox probe + Prometheus">4. Sonde Blackbox + Prometheus</p>
-            <p class="arch-layer-body" data-fr="Probe ICMP vers chaque lien, métriques stockées, règles d'alerte évaluées" data-en="ICMP probe on each link, metrics stored, alert rules evaluated">Probe ICMP vers chaque lien, métriques stockées, règles d'alerte évaluées</p>
+            <p class="arch-layer-body" data-fr="Probe ICMP vers chaque lien, métriques stockées, règles d’alerte évaluées" data-en="ICMP probe on each link, metrics stored, alert rules evaluated">Probe ICMP vers chaque lien, métriques stockées, règles d’alerte évaluées</p>
           </div>
           <div class="arch-arrow">{% include icon.html id="fas-arrow-down" %}</div>
           <div class="arch-layer">
@@ -381,7 +381,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Réalisations" data-en="Deliverables">Réalisations</span>
-        <h2 class="s-title" data-fr="Ce que j'ai conçu et développé" data-en="What I designed and built">Ce que j'ai conçu et développé</h2>
+        <h2 class="s-title" data-fr="Ce que j’ai conçu et développé" data-en="What I designed and built">Ce que j’ai conçu et développé</h2>
         <p class="s-sub" data-fr="Huit blocs qui composent le portail, du backend au reverse proxy" data-en="Eight building blocks that make up the portal, from backend to reverse proxy">Huit blocs qui composent le portail, du backend au reverse proxy</p>
       </div>
       <div class="real-grid">
@@ -389,18 +389,18 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="real-card reveal">
           <div class="real-icon ri-sky">{% include icon.html id="fas-server" %}</div>
           <h3 class="real-title" data-fr="Backend FastAPI + SQLite" data-en="FastAPI + SQLite backend">Backend FastAPI + SQLite</h3>
-          <p class="real-desc" data-fr="Application FastAPI servie par Uvicorn, avec SQLite comme source de vérité pour les liens, clients, opérateurs, liste de diffusion et journal d'audit." data-en="FastAPI application served by Uvicorn, with SQLite as the source of truth for links, clients, operators, alert distribution, and audit log.">Application FastAPI servie par Uvicorn, avec SQLite comme source de vérité pour les liens, clients, opérateurs, liste de diffusion et journal d'audit.</p>
+          <p class="real-desc" data-fr="Application FastAPI servie par Uvicorn, avec SQLite comme source de vérité pour les liens, clients, opérateurs, liste de diffusion et journal d’audit." data-en="FastAPI application served by Uvicorn, with SQLite as the source of truth for links, clients, operators, alert distribution, and audit log.">Application FastAPI servie par Uvicorn, avec SQLite comme source de vérité pour les liens, clients, opérateurs, liste de diffusion et journal d’audit.</p>
           <ul class="real-list">
             <li data-fr="Routes CRUD complètes (liens, clients, opérateurs, membres)" data-en="Full CRUD routes (links, clients, operators, members)">Routes CRUD complètes (liens, clients, opérateurs, membres)</li>
-            <li data-fr="Schéma de tables pensé pour l'intégrité (clés uniques, cascades)" data-en="Table schema designed for integrity (unique keys, cascades)">Schéma de tables pensé pour l'intégrité (clés uniques, cascades)</li>
-            <li data-fr="Journal d'audit sur chaque action" data-en="Audit log on every action">Journal d'audit sur chaque action</li>
+            <li data-fr="Schéma de tables pensé pour l’intégrité (clés uniques, cascades)" data-en="Table schema designed for integrity (unique keys, cascades)">Schéma de tables pensé pour l’intégrité (clés uniques, cascades)</li>
+            <li data-fr="Journal d’audit sur chaque action" data-en="Audit log on every action">Journal d’audit sur chaque action</li>
           </ul>
         </div>
 
         <div class="real-card reveal" style="transition-delay:.05s">
           <div class="real-icon ri-blue">{% include icon.html id="fas-bolt" %}</div>
           <h3 class="real-title" data-fr="Frontend HTMX + Bootstrap" data-en="HTMX + Bootstrap frontend">Frontend HTMX + Bootstrap</h3>
-          <p class="real-desc" data-fr="Interface réactive sans framework JS lourd : HTMX pour les mises à jour partielles (édition inline, filtres, modales), Bootstrap 5 pour la structure et l'accessibilité." data-en="Reactive UI with no heavy JS framework: HTMX for partial updates (inline edit, filters, modals), Bootstrap 5 for structure and accessibility.">Interface réactive sans framework JS lourd : HTMX pour les mises à jour partielles (édition inline, filtres, modales), Bootstrap 5 pour la structure et l'accessibilité.</p>
+          <p class="real-desc" data-fr="Interface réactive sans framework JS lourd&nbsp;: HTMX pour les mises à jour partielles (édition inline, filtres, modales), Bootstrap 5 pour la structure et l’accessibilité." data-en="Reactive UI with no heavy JS framework: HTMX for partial updates (inline edit, filters, modals), Bootstrap 5 for structure and accessibility.">Interface réactive sans framework JS lourd&nbsp;: HTMX pour les mises à jour partielles (édition inline, filtres, modales), Bootstrap 5 pour la structure et l’accessibilité.</p>
           <ul class="real-list">
             <li data-fr="Édition inline dans les tableaux" data-en="Inline editing inside tables">Édition inline dans les tableaux</li>
             <li data-fr="Modales et filtres pilotés par HTMX" data-en="HTMX-driven modals and filters">Modales et filtres pilotés par HTMX</li>
@@ -414,15 +414,15 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
           <p class="real-desc" data-fr="À chaque modification, les fichiers targets JSON sont réécrits (un par client) et Prometheus est rechargé via son API admin, sans redémarrage du container." data-en="On every change, target JSON files are rewritten (one per client) and Prometheus is reloaded via its admin API, with no container restart.">À chaque modification, les fichiers targets JSON sont réécrits (un par client) et Prometheus est rechargé via son API admin, sans redémarrage du container.</p>
           <ul class="real-list">
             <li data-fr="file_sd_configs par client (un JSON par slug)" data-en="file_sd_configs per client (one JSON per slug)">file_sd_configs par client (un JSON par slug)</li>
-            <li data-fr="Purge des séries orphelines lors d'une suppression" data-en="Cleanup of orphan series on deletion">Purge des séries orphelines lors d'une suppression</li>
-            <li data-fr="Reload à chaud via l'API Prometheus" data-en="Hot reload via the Prometheus API">Reload à chaud via l'API Prometheus</li>
+            <li data-fr="Purge des séries orphelines lors d’une suppression" data-en="Cleanup of orphan series on deletion">Purge des séries orphelines lors d’une suppression</li>
+            <li data-fr="Reload à chaud via l’API Prometheus" data-en="Hot reload via the Prometheus API">Reload à chaud via l’API Prometheus</li>
           </ul>
         </div>
 
         <div class="real-card reveal" style="transition-delay:.15s">
           <div class="real-icon ri-purple">{% include icon.html id="fas-sliders" %}</div>
           <h3 class="real-title" data-fr="Provisioning Grafana" data-en="Grafana provisioning">Provisioning Grafana</h3>
-          <p class="real-desc" data-fr="Écriture des fichiers YAML de provisioning Grafana (contact points, policies, alert rules) directement depuis la base SQLite, puis reload via l'API." data-en="Grafana provisioning YAML files (contact points, policies, alert rules) written directly from the SQLite database, then reloaded via the API.">Écriture des fichiers YAML de provisioning Grafana (contact points, policies, alert rules) directement depuis la base SQLite, puis reload via l'API.</p>
+          <p class="real-desc" data-fr="Écriture des fichiers YAML de provisioning Grafana (contact points, policies, alert rules) directement depuis la base SQLite, puis reload via l’API." data-en="Grafana provisioning YAML files (contact points, policies, alert rules) written directly from the SQLite database, then reloaded via the API.">Écriture des fichiers YAML de provisioning Grafana (contact points, policies, alert rules) directement depuis la base SQLite, puis reload via l’API.</p>
           <ul class="real-list">
             <li data-fr="Contact points reconstruits à chaque changement" data-en="Contact points rebuilt on every change">Contact points reconstruits à chaque changement</li>
             <li data-fr="Politique de routage par lien (pas de bundle par client)" data-en="Per-link routing policy (no per-client bundling)">Politique de routage par lien (pas de bundle par client)</li>
@@ -433,9 +433,9 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="real-card reveal" style="transition-delay:.2s">
           <div class="real-icon ri-amber">{% include icon.html id="fas-envelope-open-text" %}</div>
           <h3 class="real-title" data-fr="Webhook custom &amp; email HTML" data-en="Custom webhook &amp; HTML email">Webhook custom &amp; email HTML</h3>
-          <p class="real-desc" data-fr="Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct : Grafana échappe le HTML du message natif, ce contournement était donc nécessaire." data-en="Grafana alerts intercepted by a FastAPI webhook that produces a rich HTML email and sends it via direct SMTP: Grafana HTML-escapes the native message, so this workaround was needed.">Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l'envoie en SMTP direct : Grafana échappe le HTML du message natif, ce contournement était donc nécessaire.</p>
+          <p class="real-desc" data-fr="Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l’envoie en SMTP direct&nbsp;: Grafana échappe le HTML du message natif, ce contournement était donc nécessaire." data-en="Grafana alerts intercepted by a FastAPI webhook that produces a rich HTML email and sends it via direct SMTP: Grafana HTML-escapes the native message, so this workaround was needed.">Interception des alertes Grafana par un webhook FastAPI, qui génère un email HTML riche et l’envoie en SMTP direct&nbsp;: Grafana échappe le HTML du message natif, ce contournement était donc nécessaire.</p>
           <ul class="real-list">
-            <li data-fr="Protection du webhook par token (dans l'URL)" data-en="Token-protected webhook (in the URL)">Protection du webhook par token (dans l'URL)</li>
+            <li data-fr="Protection du webhook par token (dans l’URL)" data-en="Token-protected webhook (in the URL)">Protection du webhook par token (dans l’URL)</li>
             <li data-fr="Rendu des panneaux Grafana via grafana-image-renderer" data-en="Grafana panels rendered via grafana-image-renderer">Rendu des panneaux Grafana via grafana-image-renderer</li>
             <li data-fr="Graphes embarqués en CID inline (compatibles Outlook)" data-en="Graphs embedded as inline CID (Outlook-compatible)">Graphes embarqués en CID inline (compatibles Outlook)</li>
             <li data-fr="Dégradation propre si le renderer est indisponible" data-en="Graceful degradation if the renderer is unavailable">Dégradation propre si le renderer est indisponible</li>
@@ -445,7 +445,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="real-card reveal" style="transition-delay:.25s">
           <div class="real-icon ri-sky">{% include icon.html id="fas-comments" %}</div>
           <h3 class="real-title" data-fr="Notifications Teams" data-en="Teams notifications">Notifications Teams</h3>
-          <p class="real-desc" data-fr="Second canal de notification : webhook Teams via Power Automate, avec templates Go côté Grafana pour construire un message lisible directement dans le chat de l'équipe." data-en="Second notification channel: Teams webhook via Power Automate, with Go templates on the Grafana side to build a message that reads well directly in the team chat.">Second canal de notification : webhook Teams via Power Automate, avec templates Go côté Grafana pour construire un message lisible directement dans le chat de l'équipe.</p>
+          <p class="real-desc" data-fr="Second canal de notification&nbsp;: webhook Teams via Power Automate, avec templates Go côté Grafana pour construire un message lisible directement dans le chat de l’équipe." data-en="Second notification channel: Teams webhook via Power Automate, with Go templates on the Grafana side to build a message that reads well directly in the team chat.">Second canal de notification&nbsp;: webhook Teams via Power Automate, avec templates Go côté Grafana pour construire un message lisible directement dans le chat de l’équipe.</p>
           <ul class="real-list">
             <li data-fr="Templates Go avec fallback sur labels multi-alertes" data-en="Go templates with fallback for multi-alert labels">Templates Go avec fallback sur labels multi-alertes</li>
             <li data-fr="Lien direct vers le dashboard concerné" data-en="Direct link to the relevant dashboard">Lien direct vers le dashboard concerné</li>
@@ -455,21 +455,21 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="real-card reveal" style="transition-delay:.3s">
           <div class="real-icon ri-green">{% include icon.html id="fas-clock" %}</div>
           <h3 class="real-title" data-fr="Digest journalier automatique" data-en="Automatic daily digest">Digest journalier automatique</h3>
-          <p class="real-desc" data-fr="Script Python lancé automatiquement chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe." data-en="Python script run automatically each morning: queries Prometheus, aggregates DOWN links per client, and sends a summary email to the team.">Script Python lancé automatiquement chaque matin : interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l'équipe.</p>
+          <p class="real-desc" data-fr="Script Python lancé automatiquement chaque matin&nbsp;: interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l’équipe." data-en="Python script run automatically each morning: queries Prometheus, aggregates DOWN links per client, and sends a summary email to the team.">Script Python lancé automatiquement chaque matin&nbsp;: interroge Prometheus, agrège les liens DOWN par client, et envoie un email récapitulatif à l’équipe.</p>
           <ul class="real-list">
             <li data-fr="Requête PromQL sur probe_success == 0" data-en="PromQL query on probe_success == 0">Requête PromQL sur probe_success == 0</li>
             <li data-fr="Regroupement par client avec IP, description, opérateur" data-en="Grouping per client with IP, description, operator">Regroupement par client avec IP, description, opérateur</li>
-            <li data-fr="Email « Tout est UP » si aucun incident en cours" data-en="&quot;All UP&quot; email if no ongoing incident">Email « Tout est UP » si aucun incident en cours</li>
+            <li data-fr="Email «&nbsp;Tout est UP&nbsp;» si aucun incident en cours" data-en="“All UP” email if no ongoing incident">Email «&nbsp;Tout est UP&nbsp;» si aucun incident en cours</li>
           </ul>
         </div>
 
         <div class="real-card reveal" style="transition-delay:.35s">
           <div class="real-icon ri-purple">{% include icon.html id="fas-shield-halved" %}</div>
           <h3 class="real-title" data-fr="Reverse proxy &amp; sécurité" data-en="Reverse proxy &amp; security">Reverse proxy &amp; sécurité</h3>
-          <p class="real-desc" data-fr="Nginx en reverse proxy avec Basic Auth pour l'interface humaine, endpoint webhook séparé (sans Basic Auth mais protégé par token) pour que Grafana puisse appeler sans credentials." data-en="Nginx reverse proxy with Basic Auth for the human UI, separate webhook endpoint (no Basic Auth but token-protected) so Grafana can call without credentials.">Nginx en reverse proxy avec Basic Auth pour l'interface humaine, endpoint webhook séparé (sans Basic Auth mais protégé par token) pour que Grafana puisse appeler sans credentials.</p>
+          <p class="real-desc" data-fr="Nginx en reverse proxy avec Basic Auth pour l’interface humaine, endpoint webhook séparé (sans Basic Auth mais protégé par token) pour que Grafana puisse appeler sans credentials." data-en="Nginx reverse proxy with Basic Auth for the human UI, separate webhook endpoint (no Basic Auth but token-protected) so Grafana can call without credentials.">Nginx en reverse proxy avec Basic Auth pour l’interface humaine, endpoint webhook séparé (sans Basic Auth mais protégé par token) pour que Grafana puisse appeler sans credentials.</p>
           <ul class="real-list">
-            <li data-fr="Basic Auth sur l'interface web (identifiants dédiés)" data-en="Basic Auth on the web UI (dedicated credentials)">Basic Auth sur l'interface web (identifiants dédiés)</li>
-            <li data-fr="Endpoint webhook isolé, token en variable d'environnement" data-en="Isolated webhook endpoint, token stored in an environment variable">Endpoint webhook isolé, token en variable d'environnement</li>
+            <li data-fr="Basic Auth sur l’interface web (identifiants dédiés)" data-en="Basic Auth on the web UI (dedicated credentials)">Basic Auth sur l’interface web (identifiants dédiés)</li>
+            <li data-fr="Endpoint webhook isolé, token en variable d’environnement" data-en="Isolated webhook endpoint, token stored in an environment variable">Endpoint webhook isolé, token en variable d’environnement</li>
             <li data-fr="Tous les services tournent en conteneurs (Docker Compose)" data-en="All services run in containers (Docker Compose)">Tous les services tournent en conteneurs (Docker Compose)</li>
           </ul>
         </div>
@@ -483,7 +483,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Aperçus" data-en="Previews">Aperçus</span>
-        <h2 class="s-title" data-fr="L'interface en action" data-en="The interface in action">L'interface en action</h2>
+        <h2 class="s-title" data-fr="L’interface en action" data-en="The interface in action">L’interface en action</h2>
         <p class="s-sub" data-fr="Six vues clés du portail (cliquez pour agrandir). Toutes les données sensibles ont été floutées." data-en="Six key views of the portal (click to enlarge). All sensitive data has been blurred.">Six vues clés du portail (cliquez pour agrandir). Toutes les données sensibles ont été floutées.</p>
       </div>
 
@@ -493,78 +493,78 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
           <div class="shot-img-wrap">
             <span class="shot-badge">01 · Accueil</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-accueil-vignette.webp" alt="Page d'accueil du portail Monitoring Admin" width="916" height="458" loading="lazy" decoding="async">
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-accueil-vignette.webp" alt="Page d’accueil du portail Monitoring Admin" data-en-alt="Monitoring Admin portal home page" width="916" height="458" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Page IPs · accueil" data-en="IPs page · home">Page IPs · accueil</p>
-            <p class="shot-desc" data-fr="Tableau des liens supervisés avec filtres, édition inline et modal d'ajout d'un nouveau lien." data-en="Table of supervised links with filters, inline editing, and add-link modal.">Tableau des liens supervisés avec filtres, édition inline et modal d'ajout d'un nouveau lien.</p>
+            <p class="shot-desc" data-fr="Tableau des liens supervisés avec filtres, édition inline et modal d’ajout d’un nouveau lien." data-en="Table of supervised links with filters, inline editing, and add-link modal.">Tableau des liens supervisés avec filtres, édition inline et modal d’ajout d’un nouveau lien.</p>
           </div>
-          <button type="button" class="shot-open" data-shot="0"><span class="sr-only" data-fr="Agrandir la capture : Page IPs · accueil" data-en="Enlarge screenshot: IPs page · home">Agrandir la capture : Page IPs · accueil</span></button>
+          <button type="button" class="shot-open" data-shot="0"><span class="sr-only" data-fr="Agrandir la capture&nbsp;: Page IPs · accueil" data-en="Enlarge screenshot: IPs page · home">Agrandir la capture&nbsp;: Page IPs · accueil</span></button>
         </div>
 
         <div class="shot-card reveal" style="transition-delay:.05s">
           <div class="shot-img-wrap">
             <span class="shot-badge">02 · Clients</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-clients-vignette.webp" alt="Liste des clients" width="916" height="454" loading="lazy" decoding="async">
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-clients-vignette.webp" alt="Liste des clients" data-en-alt="Client list" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Gestion des clients" data-en="Client management">Gestion des clients</p>
-            <p class="shot-desc" data-fr="Chaque client porte son email de destination pour les alertes ; les fiches sont créées et éditées depuis l'interface." data-en="Each client carries its alert-destination email; records are created and edited from the UI.">Chaque client porte son email de destination pour les alertes ; les fiches sont créées et éditées depuis l'interface.</p>
+            <p class="shot-desc" data-fr="Chaque client porte son email de destination pour les alertes&#8239;; les fiches sont créées et éditées depuis l’interface." data-en="Each client carries its alert-destination email; records are created and edited from the UI.">Chaque client porte son email de destination pour les alertes&#8239;; les fiches sont créées et éditées depuis l’interface.</p>
           </div>
-          <button type="button" class="shot-open" data-shot="1"><span class="sr-only" data-fr="Agrandir la capture : Gestion des clients" data-en="Enlarge screenshot: Client management">Agrandir la capture : Gestion des clients</span></button>
+          <button type="button" class="shot-open" data-shot="1"><span class="sr-only" data-fr="Agrandir la capture&nbsp;: Gestion des clients" data-en="Enlarge screenshot: Client management">Agrandir la capture&nbsp;: Gestion des clients</span></button>
         </div>
 
         <div class="shot-card reveal" style="transition-delay:.1s">
           <div class="shot-img-wrap">
             <span class="shot-badge">03 · Équipe</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-equipe-vignette.webp" alt="Groupe Réseau-Net" width="916" height="454" loading="lazy" decoding="async">
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-equipe-vignette.webp" alt="Groupe Réseau-Net" data-en-alt="Réseau-Net team" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Groupe Réseau-Net" data-en="Réseau-Net team">Groupe Réseau-Net</p>
-            <p class="shot-desc" data-fr="Liste des membres qui reçoivent toutes les alertes UP/DOWN et le digest journalier. Envoi d'un email de test intégré." data-en="Members receiving every UP/DOWN alert and the daily digest. Built-in test-email action.">Liste des membres qui reçoivent toutes les alertes UP/DOWN et le digest journalier. Envoi d'un email de test intégré.</p>
+            <p class="shot-desc" data-fr="Liste des membres qui reçoivent toutes les alertes UP/DOWN et le digest journalier. Envoi d’un email de test intégré." data-en="Members receiving every UP/DOWN alert and the daily digest. Built-in test-email action.">Liste des membres qui reçoivent toutes les alertes UP/DOWN et le digest journalier. Envoi d’un email de test intégré.</p>
           </div>
-          <button type="button" class="shot-open" data-shot="2"><span class="sr-only" data-fr="Agrandir la capture : Groupe Réseau-Net" data-en="Enlarge screenshot: Réseau-Net team">Agrandir la capture : Groupe Réseau-Net</span></button>
+          <button type="button" class="shot-open" data-shot="2"><span class="sr-only" data-fr="Agrandir la capture&nbsp;: Groupe Réseau-Net" data-en="Enlarge screenshot: Réseau-Net team">Agrandir la capture&nbsp;: Groupe Réseau-Net</span></button>
         </div>
 
         <div class="shot-card reveal" style="transition-delay:.15s">
           <div class="shot-img-wrap">
             <span class="shot-badge">04 · Opérateurs</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-operateurs-vignette.webp" alt="Liste des opérateurs" width="916" height="454" loading="lazy" decoding="async">
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-operateurs-vignette.webp" alt="Liste des opérateurs" data-en-alt="Operator list" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Référentiel opérateurs" data-en="Operator reference">Référentiel opérateurs</p>
-            <p class="shot-desc" data-fr="Table des opérateurs internet, référencés indépendamment des IPs pour être sélectionnables dès leur création." data-en="Internet operator reference, decoupled from IPs so they're selectable from the moment they're created.">Table des opérateurs internet, référencés indépendamment des IPs pour être sélectionnables dès leur création.</p>
+            <p class="shot-desc" data-fr="Table des opérateurs internet, référencés indépendamment des IPs pour être sélectionnables dès leur création." data-en="Internet operator reference, decoupled from IPs so they’re selectable from the moment they’re created.">Table des opérateurs internet, référencés indépendamment des IPs pour être sélectionnables dès leur création.</p>
           </div>
-          <button type="button" class="shot-open" data-shot="3"><span class="sr-only" data-fr="Agrandir la capture : Référentiel opérateurs" data-en="Enlarge screenshot: Operator reference">Agrandir la capture : Référentiel opérateurs</span></button>
+          <button type="button" class="shot-open" data-shot="3"><span class="sr-only" data-fr="Agrandir la capture&nbsp;: Référentiel opérateurs" data-en="Enlarge screenshot: Operator reference">Agrandir la capture&nbsp;: Référentiel opérateurs</span></button>
         </div>
 
         <div class="shot-card reveal" style="transition-delay:.2s">
           <div class="shot-img-wrap">
             <span class="shot-badge">05 · Audit</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-audit-vignette.webp" alt="Journal d'audit" width="916" height="454" loading="lazy" decoding="async">
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-audit-vignette.webp" alt="Journal d’audit" data-en-alt="Audit log" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
-            <p class="shot-title" data-fr="Journal d'audit" data-en="Audit log">Journal d'audit</p>
+            <p class="shot-title" data-fr="Journal d’audit" data-en="Audit log">Journal d’audit</p>
             <p class="shot-desc" data-fr="Trace horodatée de chaque ajout, modification ou suppression sur la plateforme, filtrable par action et par entité." data-en="Time-stamped trace of every add, modify, or delete, filterable by action and entity.">Trace horodatée de chaque ajout, modification ou suppression sur la plateforme, filtrable par action et par entité.</p>
           </div>
-          <button type="button" class="shot-open" data-shot="4"><span class="sr-only" data-fr="Agrandir la capture : Journal d'audit" data-en="Enlarge screenshot: Audit log">Agrandir la capture : Journal d'audit</span></button>
+          <button type="button" class="shot-open" data-shot="4"><span class="sr-only" data-fr="Agrandir la capture&nbsp;: Journal d’audit" data-en="Enlarge screenshot: Audit log">Agrandir la capture&nbsp;: Journal d’audit</span></button>
         </div>
 
         <div class="shot-card reveal" style="transition-delay:.25s">
           <div class="shot-img-wrap">
             <span class="shot-badge">06 · Wiki</span>
             <span class="shot-zoom">{% include icon.html id="fas-expand" %}</span>
-            <img src="/projets_pro/screenshots/monitoring-admin-interface-wiki-vignette.webp" alt="Documentation intégrée" width="916" height="454" loading="lazy" decoding="async">
+            <img src="/projets_pro/screenshots/monitoring-admin-interface-wiki-vignette.webp" alt="Documentation intégrée" data-en-alt="Built-in documentation" width="916" height="454" loading="lazy" decoding="async">
           </div>
           <div class="shot-info">
             <p class="shot-title" data-fr="Documentation intégrée" data-en="Built-in documentation">Documentation intégrée</p>
-            <p class="shot-desc" data-fr="Wiki maison qui explique les procédures internes du portail et de la supervision, directement dans l'outil." data-en="In-house wiki explaining the portal's and supervision's internal procedures, right inside the tool.">Wiki maison qui explique les procédures internes du portail et de la supervision, directement dans l'outil.</p>
+            <p class="shot-desc" data-fr="Wiki maison qui explique les procédures internes du portail et de la supervision, directement dans l’outil." data-en="In-house wiki explaining the portal’s and supervision’s internal procedures, right inside the tool.">Wiki maison qui explique les procédures internes du portail et de la supervision, directement dans l’outil.</p>
           </div>
-          <button type="button" class="shot-open" data-shot="5"><span class="sr-only" data-fr="Agrandir la capture : Documentation intégrée" data-en="Enlarge screenshot: Built-in documentation">Agrandir la capture : Documentation intégrée</span></button>
+          <button type="button" class="shot-open" data-shot="5"><span class="sr-only" data-fr="Agrandir la capture&nbsp;: Documentation intégrée" data-en="Enlarge screenshot: Built-in documentation">Agrandir la capture&nbsp;: Documentation intégrée</span></button>
         </div>
 
       </div>
@@ -586,21 +586,21 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="tool-cat reveal">
           <p class="tool-cat-title" data-fr="{% include icon.html id='fas-code' %} &amp;nbsp;Backend" data-en="{% include icon.html id='fas-code' %} &amp;nbsp;Backend" data-i18n-html>{% include icon.html id="fas-code" %} &nbsp;Backend</p>
           <div class="tool-tags">
-            <span class="ttag">Python 3</span>
-            <span class="ttag">FastAPI</span>
-            <span class="ttag">Starlette</span>
-            <span class="ttag">Jinja2</span>
-            <span class="ttag">SQLite</span>
-            <span class="ttag">requests</span>
+            <span class="ttag" translate="no">Python 3</span>
+            <span class="ttag" translate="no">FastAPI</span>
+            <span class="ttag" translate="no">Starlette</span>
+            <span class="ttag" translate="no">Jinja2</span>
+            <span class="ttag" translate="no">SQLite</span>
+            <span class="ttag" translate="no">requests</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.05s">
           <p class="tool-cat-title" data-fr="{% include icon.html id='fas-desktop' %} &amp;nbsp;Frontend" data-en="{% include icon.html id='fas-desktop' %} &amp;nbsp;Frontend" data-i18n-html>{% include icon.html id="fas-desktop" %} &nbsp;Frontend</p>
           <div class="tool-tags">
-            <span class="ttag">HTMX 1.9</span>
-            <span class="ttag">Bootstrap 5.3</span>
-            <span class="ttag">Bootstrap Icons</span>
+            <span class="ttag" translate="no">HTMX 1.9</span>
+            <span class="ttag" translate="no">Bootstrap 5.3</span>
+            <span class="ttag" translate="no">Bootstrap Icons</span>
             <span class="ttag" data-fr="HTML server-rendered" data-en="Server-rendered HTML">HTML server-rendered</span>
           </div>
         </div>
@@ -608,29 +608,29 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
         <div class="tool-cat reveal" style="transition-delay:.1s">
           <p class="tool-cat-title" data-fr="{% include icon.html id='fas-chart-line' %} &amp;nbsp;Monitoring" data-en="{% include icon.html id='fas-chart-line' %} &amp;nbsp;Monitoring" data-i18n-html>{% include icon.html id="fas-chart-line" %} &nbsp;Monitoring</p>
           <div class="tool-tags">
-            <span class="ttag">Prometheus</span>
-            <span class="ttag">Blackbox Exporter</span>
-            <span class="ttag">Grafana</span>
-            <span class="ttag">grafana-image-renderer</span>
-            <span class="ttag">PromQL</span>
+            <span class="ttag" translate="no">Prometheus</span>
+            <span class="ttag" translate="no">Blackbox Exporter</span>
+            <span class="ttag" translate="no">Grafana</span>
+            <span class="ttag" translate="no">grafana-image-renderer</span>
+            <span class="ttag" translate="no">PromQL</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.15s">
           <p class="tool-cat-title" data-fr="{% include icon.html id='fas-cogs' %} &amp;nbsp;Infra &amp; ops" data-en="{% include icon.html id='fas-cogs' %} &amp;nbsp;Infra &amp; ops" data-i18n-html>{% include icon.html id="fas-cogs" %} &nbsp;Infra &amp; ops</p>
           <div class="tool-tags">
-            <span class="ttag">Docker Compose</span>
-            <span class="ttag">Nginx</span>
-            <span class="ttag">Uvicorn</span>
-            <span class="ttag">SMTP</span>
+            <span class="ttag" translate="no">Docker Compose</span>
+            <span class="ttag" translate="no">Nginx</span>
+            <span class="ttag" translate="no">Uvicorn</span>
+            <span class="ttag" translate="no">SMTP</span>
           </div>
         </div>
 
         <div class="tool-cat reveal" style="transition-delay:.2s">
           <p class="tool-cat-title" data-fr="{% include icon.html id='fas-link' %} &amp;nbsp;Intégrations" data-en="{% include icon.html id='fas-link' %} &amp;nbsp;Integrations" data-i18n-html>{% include icon.html id="fas-link" %} &nbsp;Intégrations</p>
           <div class="tool-tags">
-            <span class="ttag">Microsoft Teams</span>
-            <span class="ttag">Power Automate</span>
+            <span class="ttag" translate="no">Microsoft Teams</span>
+            <span class="ttag" translate="no">Power Automate</span>
             <span class="ttag" data-fr="Templates Go" data-en="Go templates">Templates Go</span>
             <span class="ttag" data-fr="Webhooks" data-en="Webhooks">Webhooks</span>
           </div>
@@ -656,7 +656,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Sécurité &amp; isolation" data-en="Security &amp; isolation">Sécurité &amp; isolation</span>
         <h2 class="s-title" data-fr="Une posture sécurité assumée dès le départ" data-en="A deliberate security posture from day one">Une posture sécurité assumée dès le départ</h2>
-        <p class="s-sub" data-fr="La vitesse de développement en pair avec Claude Code n'a pas été un prétexte à négliger les fondamentaux" data-en="Fast development paired with Claude Code was never an excuse to skip the fundamentals">La vitesse de développement en pair avec Claude Code n'a pas été un prétexte à négliger les fondamentaux</p>
+        <p class="s-sub" data-fr="La vitesse de développement en pair avec Claude Code n’a pas été un prétexte à négliger les fondamentaux" data-en="Fast development paired with Claude Code was never an excuse to skip the fundamentals">La vitesse de développement en pair avec Claude Code n’a pas été un prétexte à négliger les fondamentaux</p>
       </div>
       <div class="sec-grid">
 
@@ -664,7 +664,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
           <div class="sec-icon">{% include icon.html id="fas-network-wired" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="Segmentation réseau" data-en="Network segmentation">Segmentation réseau</p>
-            <p class="sec-desc" data-fr="Le portail tourne sur une VM dédiée, isolée dans son propre segment réseau, séparée du reste de l'infrastructure et des réseaux clients." data-en="The portal runs on a dedicated VM, isolated in its own network segment, separated from the rest of the infrastructure and from client networks.">Le portail tourne sur une VM dédiée, isolée dans son propre segment réseau, séparée du reste de l'infrastructure et des réseaux clients.</p>
+            <p class="sec-desc" data-fr="Le portail tourne sur une VM dédiée, isolée dans son propre segment réseau, séparée du reste de l’infrastructure et des réseaux clients." data-en="The portal runs on a dedicated VM, isolated in its own network segment, separated from the rest of the infrastructure and from client networks.">Le portail tourne sur une VM dédiée, isolée dans son propre segment réseau, séparée du reste de l’infrastructure et des réseaux clients.</p>
           </div>
         </div>
 
@@ -672,15 +672,15 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
           <div class="sec-icon">{% include icon.html id="fas-lock" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="HTTPS sur le LAN uniquement" data-en="HTTPS on the LAN only">HTTPS sur le LAN uniquement</p>
-            <p class="sec-desc" data-fr="L'interface web est servie en HTTPS et n'est joignable que depuis le réseau local interne. Aucune exposition Internet, aucun accès distant public." data-en="The web UI is served over HTTPS and is reachable only from the internal LAN. No Internet exposure, no public remote access.">L'interface web est servie en HTTPS et n'est joignable que depuis le réseau local interne. Aucune exposition Internet, aucun accès distant public.</p>
+            <p class="sec-desc" data-fr="L’interface web est servie en HTTPS et n’est joignable que depuis le réseau local interne. Aucune exposition Internet, aucun accès distant public." data-en="The web UI is served over HTTPS and is reachable only from the internal LAN. No Internet exposure, no public remote access.">L’interface web est servie en HTTPS et n’est joignable que depuis le réseau local interne. Aucune exposition Internet, aucun accès distant public.</p>
           </div>
         </div>
 
         <div class="sec-card reveal" style="transition-delay:.1s">
           <div class="sec-icon">{% include icon.html id="fas-arrows-left-right" %}</div>
           <div class="sec-body">
-            <p class="sec-title" data-fr="Flux sortants restreints à l'ICMP" data-en="Outbound traffic restricted to ICMP">Flux sortants restreints à l'ICMP</p>
-            <p class="sec-desc" data-fr="La VM ne parle aux réseaux clients qu'en ICMP (sondes de disponibilité Blackbox). Aucun autre protocole n'est autorisé en sortie vers les clients." data-en="The VM only talks to client networks over ICMP (Blackbox availability probes). No other outbound protocol is allowed toward clients.">La VM ne parle aux réseaux clients qu'en ICMP (sondes de disponibilité Blackbox). Aucun autre protocole n'est autorisé en sortie vers les clients.</p>
+            <p class="sec-title" data-fr="Flux sortants restreints à l’ICMP" data-en="Outbound traffic restricted to ICMP">Flux sortants restreints à l’ICMP</p>
+            <p class="sec-desc" data-fr="La VM ne parle aux réseaux clients qu’en ICMP (sondes de disponibilité Blackbox). Aucun autre protocole n’est autorisé en sortie vers les clients." data-en="The VM only talks to client networks over ICMP (Blackbox availability probes). No other outbound protocol is allowed toward clients.">La VM ne parle aux réseaux clients qu’en ICMP (sondes de disponibilité Blackbox). Aucun autre protocole n’est autorisé en sortie vers les clients.</p>
           </div>
         </div>
 
@@ -688,7 +688,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
           <div class="sec-icon">{% include icon.html id="fas-key" %}</div>
           <div class="sec-body">
             <p class="sec-title" data-fr="Authentification &amp; secrets" data-en="Authentication &amp; secrets">Authentification &amp; secrets</p>
-            <p class="sec-desc" data-fr="Basic Auth sur l'interface humaine, endpoint webhook isolé et protégé par un token stocké en variable d'environnement, hors dépôt Git." data-en="Basic Auth on the human UI, isolated webhook endpoint protected by a token stored in an environment variable, never in Git.">Basic Auth sur l'interface humaine, endpoint webhook isolé et protégé par un token stocké en variable d'environnement, hors dépôt Git.</p>
+            <p class="sec-desc" data-fr="Basic Auth sur l’interface humaine, endpoint webhook isolé et protégé par un token stocké en variable d’environnement, hors dépôt Git." data-en="Basic Auth on the human UI, isolated webhook endpoint protected by a token stored in an environment variable, never in Git.">Basic Auth sur l’interface humaine, endpoint webhook isolé et protégé par un token stocké en variable d’environnement, hors dépôt Git.</p>
           </div>
         </div>
 
@@ -702,28 +702,28 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Résultats" data-en="Outcomes">Résultats</span>
         <h2 class="s-title" data-fr="Ce que le portail a apporté" data-en="What the portal delivered">Ce que le portail a apporté</h2>
-        <p class="s-sub" data-fr="Un impact concret sur l'autonomie de l'équipe et la fiabilité de la supervision" data-en="A concrete impact on team autonomy and supervision reliability">Un impact concret sur l'autonomie de l'équipe et la fiabilité de la supervision</p>
+        <p class="s-sub" data-fr="Un impact concret sur l’autonomie de l’équipe et la fiabilité de la supervision" data-en="A concrete impact on team autonomy and supervision reliability">Un impact concret sur l’autonomie de l’équipe et la fiabilité de la supervision</p>
       </div>
       <div class="res-grid">
         <div class="res-card reveal">
           <div class="res-icon">{% include icon.html id="fas-users-gear" %}</div>
           <h3 class="res-title" data-fr="Équipe autonome" data-en="Autonomous team">Équipe autonome</h3>
-          <p class="res-desc" data-fr="N'importe quel membre de l'équipe peut désormais gérer la supervision, sans risquer de casser la config en éditant un YAML à la main." data-en="Any team member can now manage supervision without the risk of breaking the config by editing a YAML by hand.">N'importe quel membre de l'équipe peut désormais gérer la supervision, sans risquer de casser la config en éditant un YAML à la main.</p>
+          <p class="res-desc" data-fr="N’importe quel membre de l’équipe peut désormais gérer la supervision, sans risquer de casser la config en éditant un YAML à la main." data-en="Any team member can now manage supervision without the risk of breaking the config by editing a YAML by hand.">N’importe quel membre de l’équipe peut désormais gérer la supervision, sans risquer de casser la config en éditant un YAML à la main.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.05s">
           <div class="res-icon">{% include icon.html id="fas-check-double" %}</div>
           <h3 class="res-title" data-fr="Configs toujours cohérentes" data-en="Consistent configs">Configs toujours cohérentes</h3>
-          <p class="res-desc" data-fr="Prometheus, Grafana alerting et liste de diffusion sont dérivés de la même base : impossible d'avoir un désalignement entre l'inventaire et les alertes." data-en="Prometheus, Grafana alerting, and the alert distribution list are all derived from the same source: no mismatch between inventory and alerts.">Prometheus, Grafana alerting et liste de diffusion sont dérivés de la même base : impossible d'avoir un désalignement entre l'inventaire et les alertes.</p>
+          <p class="res-desc" data-fr="Prometheus, Grafana alerting et liste de diffusion sont dérivés de la même base&nbsp;: impossible d’avoir un désalignement entre l’inventaire et les alertes." data-en="Prometheus, Grafana alerting, and the alert distribution list are all derived from the same source: no mismatch between inventory and alerts.">Prometheus, Grafana alerting et liste de diffusion sont dérivés de la même base&nbsp;: impossible d’avoir un désalignement entre l’inventaire et les alertes.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.1s">
           <div class="res-icon">{% include icon.html id="fas-envelope-circle-check" %}</div>
           <h3 class="res-title" data-fr="Alertes actionnables" data-en="Actionable alerts">Alertes actionnables</h3>
-          <p class="res-desc" data-fr="Chaque alerte contient les infos utiles + un graphe inline pour comprendre l'incident sans même ouvrir Grafana. Client mis en copie automatiquement." data-en="Every alert carries the useful info + an inline graph to understand the incident without even opening Grafana. Client automatically in CC.">Chaque alerte contient les infos utiles + un graphe inline pour comprendre l'incident sans même ouvrir Grafana. Client mis en copie automatiquement.</p>
+          <p class="res-desc" data-fr="Chaque alerte contient les infos utiles + un graphe inline pour comprendre l’incident sans même ouvrir Grafana. Client mis en copie automatiquement." data-en="Every alert carries the useful info + an inline graph to understand the incident without even opening Grafana. Client automatically in CC.">Chaque alerte contient les infos utiles + un graphe inline pour comprendre l’incident sans même ouvrir Grafana. Client mis en copie automatiquement.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.15s">
           <div class="res-icon">{% include icon.html id="fas-magnifying-glass-chart" %}</div>
           <h3 class="res-title" data-fr="Traçabilité complète" data-en="Full traceability">Traçabilité complète</h3>
-          <p class="res-desc" data-fr="Le journal d'audit garde une trace horodatée de chaque ajout, modification ou suppression : qui a fait quoi, quand, sur quel lien." data-en="The audit log keeps a time-stamped trace of every add, modify, or delete: who did what, when, on which link.">Le journal d'audit garde une trace horodatée de chaque ajout, modification ou suppression : qui a fait quoi, quand, sur quel lien.</p>
+          <p class="res-desc" data-fr="Le journal d’audit garde une trace horodatée de chaque ajout, modification ou suppression&nbsp;: qui a fait quoi, quand, sur quel lien." data-en="The audit log keeps a time-stamped trace of every add, modify, or delete: who did what, when, on which link.">Le journal d’audit garde une trace horodatée de chaque ajout, modification ou suppression&nbsp;: qui a fait quoi, quand, sur quel lien.</p>
         </div>
         <div class="res-card reveal" style="transition-delay:.2s">
           <div class="res-icon">{% include icon.html id="fas-bolt" %}</div>
@@ -739,24 +739,24 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
   {% include footer.html extra_url="/alternance/reseau-net.html" extra_label="Réseau-Net" %}
 
   <!-- Lightbox -->
-  <dialog id="lightbox" class="lb-overlay" aria-label="Captures du portail Monitoring Admin">
-    <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Capture précédente">{% include icon.html id="fas-chevron-left" %}</button>
+  <dialog id="lightbox" class="lb-overlay" aria-label="Captures du portail Monitoring Admin" data-en-aria-label="Monitoring Admin portal screenshots">
+    <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Capture précédente" data-en-aria-label="Previous screenshot">{% include icon.html id="fas-chevron-left" %}</button>
     <div class="lb-inner">
-      <button type="button" class="lb-close" id="lb-close" aria-label="Fermer">{% include icon.html id="fas-times" %}</button>
+      <button type="button" class="lb-close" id="lb-close" aria-label="Fermer" data-en-aria-label="Close">{% include icon.html id="fas-times" %}</button>
       <img id="lb-img" class="lb-img" alt="">
       <p class="lb-caption" aria-live="polite"><strong id="lb-title"></strong> <span id="lb-desc"></span><span id="lb-count" class="lb-caption-count"></span></p>
     </div>
-    <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Capture suivante">{% include icon.html id="fas-chevron-right" %}</button>
+    <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Capture suivante" data-en-aria-label="Next screenshot">{% include icon.html id="fas-chevron-right" %}</button>
   </dialog>
 
   <script>
     /* Lightbox gallery */
     const SHOTS = [
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-accueil.webp',    title: '01 · Page IPs',            desc: "Accueil : tableau des liens supervisés, filtres et édition inline." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-clients.webp',    title: '02 · Gestion des clients', desc: "Chaque client porte son email d'alerte et ses liens rattachés." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-accueil.webp',    title: '01 · Page IPs',            desc: "Accueil : tableau des liens supervisés, filtres et édition inline." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-clients.webp',    title: '02 · Gestion des clients', desc: "Chaque client porte son email d’alerte et ses liens rattachés." },
       { src: '/projets_pro/screenshots/monitoring-admin-interface-equipe.webp',     title: '03 · Groupe Réseau-Net',   desc: "Membres qui reçoivent toutes les alertes et le digest journalier." },
       { src: '/projets_pro/screenshots/monitoring-admin-interface-operateurs.webp', title: '04 · Référentiel opérateurs', desc: "Table des opérateurs internet, indépendante des IPs." },
-      { src: '/projets_pro/screenshots/monitoring-admin-interface-audit.webp',      title: '05 · Journal d\'audit',    desc: "Trace horodatée de chaque action sur la plateforme." },
+      { src: '/projets_pro/screenshots/monitoring-admin-interface-audit.webp',      title: '05 · Journal d’audit',    desc: "Trace horodatée de chaque action sur la plateforme." },
       { src: '/projets_pro/screenshots/monitoring-admin-interface-wiki.webp',       title: '06 · Documentation',       desc: "Wiki intégré au portail procédures internes accessibles en un clic." }
     ];
     /* Visionneuse : <dialog> modal (page derrière inerte, Échap ferme, focus rendu à la carte) */
@@ -772,9 +772,13 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       lbIndex = (i + SHOTS.length) % SHOTS.length;
       const shot = SHOTS[lbIndex];
       lbImg.src = shot.src;
-      lbImg.alt = shot.title;
-      lbTitle.textContent = shot.title;
-      lbDesc.textContent = shot.desc;
+      /* En anglais : titre et description repris de la carte correspondante (data-en) */
+      const en = window.i18n && window.i18n.getLang() === 'en';
+      const card = document.querySelectorAll('.shot-card')[lbIndex];
+      const title = en ? String(lbIndex + 1).padStart(2, '0') + ' · ' + card.querySelector('.shot-title').dataset.en : shot.title;
+      lbImg.alt = title;
+      lbTitle.textContent = title;
+      lbDesc.textContent = en ? card.querySelector('.shot-desc').dataset.en : shot.desc;
       lbCount.textContent = (lbIndex + 1) + ' / ' + SHOTS.length;
     }
     function openLightbox(i, from) {

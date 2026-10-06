@@ -2,6 +2,7 @@
  * Bilinguisme FR / EN, bouton de langue, menu mobile et fenêtre de choix de langue.
  *
  * - Textes : attributs data-fr / data-en (data-i18n-html pour un contenu HTML),
+ *   data-en-alt / data-en-aria-label / data-en-title pour les attributs d’accessibilité,
  *   data-href-fr / data-href-en, data-fr-placeholder / data-en-placeholder.
  * - Le choix de langue est mémorisé dans le navigateur (localStorage).
  * - Première visite : une fenêtre modale (<dialog>) propose la langue ; celle du
@@ -64,6 +65,14 @@
     /* translate href attributes (e.g. SAE23 link switches version) */
     document.querySelectorAll('[data-href-fr]').forEach(function (el) {
       el.href = lang === 'en' ? (el.dataset.hrefEn || el.dataset.hrefFr) : el.dataset.hrefFr;
+    });
+    /* translate accessibility attributes: data-en-alt, data-en-aria-label, data-en-title
+       (the French value written in the HTML is kept in data-fr-<attribut> on first use) */
+    ['alt', 'aria-label', 'title'].forEach(function (attr) {
+      document.querySelectorAll('[data-en-' + attr + ']').forEach(function (el) {
+        if (!el.hasAttribute('data-fr-' + attr)) el.setAttribute('data-fr-' + attr, el.getAttribute(attr) || '');
+        el.setAttribute(attr, el.getAttribute(lang === 'en' ? 'data-en-' + attr : 'data-fr-' + attr));
+      });
     });
     /* translate placeholder attributes */
     document.querySelectorAll('[data-fr-placeholder]').forEach(function (el) {
@@ -276,7 +285,7 @@
     modal.innerHTML =
       '<div class="lm-card">' +
         '<div class="lm-avatar" aria-hidden="true">WH</div>' +
-        '<p class="lm-name" id="lm-name">William Hertrich</p>' +
+        '<p class="lm-name" id="lm-name" translate="no">William Hertrich</p>' +
         '<p class="lm-hint" id="lm-hint"><span lang="fr">Choisissez votre langue</span><br><span lang="en">Choose your language</span></p>' +
         '<div class="lm-btns">' +
           '<button type="button" class="lm-btn" id="lm-btn-fr" lang="fr">' + flag('fr', 'lm-flag') + ' Fran&#231;ais</button>' +
