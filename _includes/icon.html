@@ -1,7 +1,0 @@
-{%- comment -%}
-  Icône du sprite /assets/icons.svg (Font Awesome Free, CC BY 4.0), décorative.
-  Paramètres : id = style-nom (ex. 'fas-check', 'fab-github') ; facultatifs : class, style.
-  Nouvelle icône : l'ajouter au sprite et à _data/icons.yml (voir _scripts/icones.py).
-  Attributs entre apostrophes : l'include peut servir dans un attribut data-fr / data-en.
-{%- endcomment -%}
-<svg class='icon{% if include.class %} {{ include.class }}{% endif %}'{% if include.style %} style='{{ include.style }}'{% endif %} viewBox='0 0 {{ site.data.icons[include.id] | default: 512 }} 512' aria-hidden='true'><use href='/assets/icons.svg#{{ include.id }}'></use></svg>

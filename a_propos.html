@@ -1,36 +1,88 @@
----
-# Page traitée par Jekyll : en-tête, menu et pied de page communs (_includes/).
-title: "À propos"
-description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, passionné de cybersécurité"
----
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  {% include head.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="À propos de William Hertrich · Ingénieur Systèmes & Réseaux, passionné de cybersécurité">
+  <link rel="canonical" href="https://thewilli67.github.io/a_propos.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · À propos">
+  <meta property="og:description" content="À propos de William Hertrich · Ingénieur Systèmes &amp; Réseaux, passionné de cybersécurité">
+  <meta property="og:url" content="https://thewilli67.github.io/a_propos.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — À propos</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
+  <script src="/scripts/animation_page.js" defer></script>
   <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
     /* Page header */
-    .pheader { padding: 7rem 5% 5rem; }
-    .pheader::before { background: none; }
-    .ph-inner { display: flex; align-items: center; gap: 4rem; }
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(37,99,235,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 15% 70%, rgba(99,102,241,.08) 0%, transparent 50%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: flex; align-items: center; gap: 4rem; }
     .ph-text { flex: 1; }
-    .ph-title { margin-bottom: .75rem; }
-    .ph-sub { max-width: 550px; line-height: 1.75; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .75rem; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 550px; line-height: 1.75; }
     .ph-photo { flex-shrink: 0; }
-    .ph-ring { width: 220px; height: 279px; border-radius: 4px; padding: 0; border: 1px solid var(--hairline); background: var(--canvas-soft); }
-    .ph-img-clip { width: 100%; height: 100%; border-radius: 4px; overflow: hidden; }
-    .ph-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+    .ph-ring { width: 220px; height: 279px; border-radius: 18px; padding: 3px; background: conic-gradient(from 180deg, #2563eb, #6366f1, #2563eb); box-shadow: 0 0 60px rgba(37,99,235,.2); }
+    .ph-img-clip { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; border: 4px solid #0f172a; }
+    .ph-img { width: 100%; height: 100%; background-image: url('/Images_photos/photo_william.jpg'); background-repeat: no-repeat; background-size: 102%; background-position: 50% 0%; }
 
     /* Sections */
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
     .s-header { text-align: center; margin-bottom: 3rem; }
-    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
 
     /* Story section */
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .story-block h3 { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
+    .story-block h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .75rem; }
     .story-block p { font-size: .93rem; color: var(--text-m); line-height: 1.8; margin-bottom: .85rem; }
     .story-block p:last-child { margin-bottom: 0; }
     .story-quote {
-      background: var(--tint); border-left: 3px solid var(--mute);
+      background: var(--accent-lt); border-left: 3px solid var(--accent);
       border-radius: 0 var(--r) var(--r) 0;
       padding: 1.25rem 1.5rem; margin: 1.5rem 0;
       font-style: italic; color: var(--text-m); font-size: .93rem; line-height: 1.75;
@@ -40,11 +92,12 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
     .value-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.5rem; transition: var(--tr); text-align: center;
+      border-radius: var(--r); padding: 1.5rem;
+      box-shadow: var(--sh-sm); transition: var(--t); text-align: center;
     }
-    .value-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
-    .value-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin: 0 auto .75rem; border: 1px solid var(--hairline); border-radius: 4px; background: var(--tint); color: var(--body-strong); font-size: 1rem; }
-    .value-title { font-size: .92rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
+    .value-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .value-icon { font-size: 1.75rem; margin-bottom: .75rem; }
+    .value-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
     .value-desc { font-size: .83rem; color: var(--text-m); line-height: 1.6; }
 
     /* Interests grid */
@@ -52,37 +105,49 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     .interest-card {
       display: flex; align-items: flex-start; gap: 1rem;
       padding: 1.25rem 1.5rem; background: var(--bg-card);
-      border: 1px solid var(--border); border-radius: var(--r); transition: var(--tr);
+      border: 1px solid var(--border); border-radius: var(--r);
+      box-shadow: var(--sh-sm); transition: var(--t);
     }
 
-    .interest-card:hover { transform: translateY(-2px); border-color: var(--hairline); }
+    .interest-card:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
     .interest-icon {
-      width: 44px; height: 44px; border-radius: 4px;
+      width: 44px; height: 44px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem;
     }
     .interest-title { font-size: .9rem; font-weight: 600; color: var(--text); }
     .interest-desc  { font-size: .82rem; color: var(--text-m); margin-top: .25rem; line-height: 1.55; }
-    .interest-link  { display: block; text-align: right; margin-top: .6rem; font-size: .76rem; font-weight: 600; color: var(--accent); transition: var(--tr); }
+    .interest-link  { display: block; text-align: right; margin-top: .6rem; font-size: .76rem; font-weight: 600; color: #6366f1; transition: var(--t); }
     .interest-link:hover { opacity: .7; }
 
     /* Goals timeline */
     .goals-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin: 0 auto; }
-    .goal-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); }
-    .goal-num { width: 36px; height: 36px; background: var(--tint); color: var(--body-strong); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: .85rem; flex-shrink: 0; }
-    .goal-title { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .2rem; }
+    .goal-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-sm); }
+    .goal-num { width: 36px; height: 36px; background: var(--accent-lt); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+    .goal-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
     .goal-desc  { font-size: .84rem; color: var(--text-m); line-height: 1.6; }
 
     /* CTA */
-    .cta-block { text-align: center; padding: 3.5rem 2rem; background: var(--bg-dark); border-radius: 3px; color: var(--ink); }
-    .cta-block h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: .75rem; letter-spacing: -.01em; }
-    .cta-block p { font-size: .95rem; color: var(--body); margin-bottom: 2rem; }
+    .cta-block { text-align: center; padding: 3.5rem 2rem; background: var(--bg-dark); border-radius: var(--r); color: #f8fafc; }
+    .cta-block h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: .75rem; letter-spacing: -.01em; }
+    .cta-block p { font-size: .95rem; color: #94a3b8; margin-bottom: 2rem; }
     .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.6rem; border-radius: 3px; font-weight: 600; font-size: .875rem; transition: var(--tr); }
-    .btn-primary { background: var(--accent); color: var(--on-primary); }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: var(--body-strong); border: 1.5px solid var(--hairline); }
-    .btn-ghost:hover { border-color: var(--mute); color: var(--accent-hover); transform: translateY(-2px); }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: .875rem; transition: var(--t); }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(37,99,235,.3); }
+    .btn-primary:hover { background: var(--accent-h); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: #cbd5e1; border: 1.5px solid #2d3f57; }
+    .btn-ghost:hover { border-color: #60a5fa; color: #93c5fd; transform: translateY(-2px); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
 
     @media (max-width: 900px) {
       .ph-inner { flex-direction: column-reverse; gap: 2rem; align-items: center; text-align: center; }
@@ -90,29 +155,41 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
     @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
       .pheader { padding: 6rem 1.25rem 3.5rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
       .interests-grid { grid-template-columns: 1fr; }
       .interest-card:last-child { width: 100%; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-  {% include nav.html active="apropos" %}
-
-  <main id="contenu" tabindex="-1">
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/a_propos.html" class="active show" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+    </ul>
+  </nav>
 
   <header class="pheader">
     <div class="ph-inner">
       <div class="ph-text">
         <span class="ph-eyebrow" data-fr="Qui suis-je vraiment ?" data-en="Who am I really?">Qui suis-je vraiment ?</span>
         <h1 class="ph-title" data-fr="À propos" data-en="About">À propos</h1>
-        <p class="ph-sub" data-fr="Au-delà du CV&nbsp;: ma passion pour l’informatique, mes valeurs, mes centres d’intérêt et mes ambitions pour l’avenir." data-en="Beyond the résumé: my passion for IT, my values, interests, and ambitions for the future.">Au-delà du CV&nbsp;: ma passion pour l’informatique, mes valeurs, mes centres d’intérêt et mes ambitions pour l’avenir.</p>
+        <p class="ph-sub" data-fr="Au-delà du CV : ma passion pour l'informatique, mes valeurs, mes centres d'intérêt et mes ambitions pour l'avenir." data-en="Beyond the résumé: my passion for IT, my values, interests, and ambitions for the future.">Au-delà du CV : ma passion pour l'informatique, mes valeurs, mes centres d'intérêt et mes ambitions pour l'avenir.</p>
       </div>
       <div class="ph-photo">
         <div class="ph-ring">
           <div class="ph-img-clip">
-            <img class="ph-img" src="/Images_photos/portrait-640.webp" srcset="/Images_photos/portrait-320.webp 320w, /Images_photos/portrait-640.webp 640w, /Images_photos/portrait-960.webp 960w" sizes="206px" width="320" height="418" alt="Photo de William Hertrich" data-en-alt="Photo of William Hertrich" fetchpriority="high" decoding="async">
+            <div class="ph-img" role="img" aria-label="Photo de William Hertrich"></div>
           </div>
         </div>
       </div>
@@ -124,24 +201,24 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     <div class="inner">
       <div class="s-header">
         <span class="s-tag" data-fr="Mon histoire" data-en="My story">Mon histoire</span>
-        <h2 class="s-title" data-fr="D’Alsace aux réseaux &amp; à la cyber" data-en="From Alsace to networks &amp; cybersecurity">D’Alsace aux réseaux &amp; à la cyber</h2>
+        <h2 class="s-title" data-fr="D'Alsace aux réseaux &amp; à la cyber" data-en="From Alsace to networks &amp; cybersecurity">D'Alsace aux réseaux &amp; à la cyber</h2>
       </div>
       <div class="story-grid">
         <div class="story-block reveal">
-          <h3 data-fr="Le début&nbsp;: une curiosité naturelle" data-en="The beginning: a natural curiosity">Le début&nbsp;: une curiosité naturelle</h3>
-          <p data-fr="Originaire du Bas-Rhin, en Alsace, j’ai grandi avec une curiosité naturelle pour la technologie, qui est devenue une véritable vocation." data-en="Originally from the Bas-Rhin region of Alsace, I grew up with a natural curiosity for technology, which became a true calling.">Originaire du Bas-Rhin, en Alsace, j’ai grandi avec une curiosité naturelle pour la technologie, qui est devenue une véritable vocation.</p>
-          <p data-fr="Après un Baccalauréat Technologique ITEC au Lycée Jean-Baptiste Schwillgué de Sélestat en 2021, j’ai choisi l’IUT de Colmar pour préparer un <strong>BUT Réseaux &amp; Télécommunications</strong>, option Cybersécurité, un programme alliant théorie solide et projets pratiques (SAE)." data-en="After a Technology Baccalaureate (ITEC) at Lycée Jean-Baptiste Schwillgué in Sélestat in 2021, I chose the IUT of Colmar to study for a <strong>B.Tech in Networks &amp; Telecommunications</strong>, Cybersecurity track, a programme combining solid theory with hands-on projects (SAE)." data-i18n-html>Après un Baccalauréat Technologique ITEC au Lycée Jean-Baptiste Schwillgué de Sélestat en 2021, j’ai choisi l’IUT de Colmar pour préparer un <strong>BUT Réseaux &amp; Télécommunications</strong>, option Cybersécurité, un programme alliant théorie solide et projets pratiques (SAE).</p>
-          <div class="story-quote" data-fr="«&nbsp;Ce qui me passionne, c’est de comprendre comment les systèmes fonctionnent, et surtout comment ils peuvent être sécurisés.&nbsp;»" data-en="“What drives me is understanding how systems work, and above all, how they can be secured.”">
-            «&nbsp;Ce qui me passionne, c’est de comprendre comment les systèmes fonctionnent, et surtout comment ils peuvent être sécurisés.&nbsp;»
+          <h3 data-fr="Le début : une curiosité naturelle" data-en="The beginning: a natural curiosity">Le début : une curiosité naturelle</h3>
+          <p data-fr="Originaire du Bas-Rhin, en Alsace, j'ai grandi avec une curiosité naturelle pour la technologie, qui est devenue une véritable vocation." data-en="Originally from the Bas-Rhin region of Alsace, I grew up with a natural curiosity for technology, which became a true calling.">Originaire du Bas-Rhin, en Alsace, j'ai grandi avec une curiosité naturelle pour la technologie, qui est devenue une véritable vocation.</p>
+          <p data-fr="Après un Baccalauréat Technologique ITEC au Lycée Jean-Baptiste Schwillgué de Sélestat en 2021, j'ai choisi l'IUT de Colmar pour préparer un <strong>BUT Réseaux &amp; Télécommunications</strong>, option Cybersécurité, un programme alliant théorie solide et projets pratiques (SAE)." data-en="After a Technology Baccalaureate (ITEC) at Lycée Jean-Baptiste Schwillgué in Sélestat in 2021, I chose the IUT of Colmar to study for a <strong>B.Tech in Networks &amp; Telecommunications</strong>, Cybersecurity track, a programme combining solid theory with hands-on projects (SAE)." data-i18n-html>Après un Baccalauréat Technologique ITEC au Lycée Jean-Baptiste Schwillgué de Sélestat en 2021, j'ai choisi l'IUT de Colmar pour préparer un <strong>BUT Réseaux &amp; Télécommunications</strong>, option Cybersécurité, un programme alliant théorie solide et projets pratiques (SAE).</p>
+          <div class="story-quote" data-fr="&quot;Ce qui me passionne, c'est de comprendre comment les systèmes fonctionnent, et surtout comment ils peuvent être sécurisés.&quot;" data-en="&quot;What drives me is understanding how systems work, and above all, how they can be secured.&quot;">
+            "Ce qui me passionne, c'est de comprendre comment les systèmes fonctionnent, et surtout comment ils peuvent être sécurisés."
           </div>
         </div>
         <div class="story-block reveal" style="transition-delay:.15s">
-          <h3 data-fr="L’alternance&nbsp;: l’école de la réalité" data-en="Work-study: school of reality">L’alternance&nbsp;: l’école de la réalité</h3>
-          <p data-fr="En parallèle de mes études, j’ai effectué deux alternances structurantes&nbsp;:" data-en="Alongside my studies, I completed two formative work-study experiences:">En parallèle de mes études, j’ai effectué deux alternances structurantes&nbsp;:</p>
-          <p data-fr="Chez <strong>SOLINEST</strong> (2022–2024), entreprise agroalimentaire multi-sites, j’ai découvert les enjeux du support IT en entreprise, la gestion de parc, les projets de migration et la sensibilisation cybersécurité des utilisateurs." data-en="At <strong>SOLINEST</strong> (2022–2024), a multi-site food company, I discovered the challenges of enterprise IT support, asset management, migration projects, and user cybersecurity awareness." data-i18n-html>Chez <strong>SOLINEST</strong> (2022–2024), entreprise agroalimentaire multi-sites, j’ai découvert les enjeux du support IT en entreprise, la gestion de parc, les projets de migration et la sensibilisation cybersécurité des utilisateurs.</p>
-          <p data-fr="Chez <strong>Réseau-Net</strong> (août 2024 – septembre 2026), ESN spécialisée en infogérance, je suis intervenu quotidiennement sur des infrastructures multi-clients&nbsp;: virtualisation VMware/Hyper-V, firewalling Fortinet, EDR SentinelOne, supervision Observium et Centreon, sauvegarde Veeam et automatisation en Python et Bash." data-en="At <strong>Réseau-Net</strong> (August 2024 – September 2026), an MSP specialising in managed IT services, I worked daily on multi-client infrastructures: VMware/Hyper-V virtualisation, Fortinet firewalling, SentinelOne EDR, Observium and Centreon monitoring, Veeam backup, and automation with Python and Bash." data-i18n-html>Chez <strong>Réseau-Net</strong> (août 2024 – septembre 2026), ESN spécialisée en infogérance, je suis intervenu quotidiennement sur des infrastructures multi-clients&nbsp;: virtualisation VMware/Hyper-V, firewalling Fortinet, EDR SentinelOne, supervision Observium et Centreon, sauvegarde Veeam et automatisation en Python et Bash.</p>
-          <p data-fr="En 2024, j’ai intégré le <strong>Master CDSI</strong> (Cyberdéfense et Sécurité de l’Information) à l’INSA Hauts-de-France pour approfondir ma spécialisation en sécurité des systèmes d’information&nbsp;: diplôme obtenu en 2026." data-en="In 2024, I joined the <strong>CDSI Master’s</strong> (Cyberdefense and Information Security) at INSA Hauts-de-France to deepen my specialism in information systems security, graduating in 2026." data-i18n-html>En 2024, j’ai intégré le <strong>Master CDSI</strong> (Cyberdéfense et Sécurité de l’Information) à l’INSA Hauts-de-France pour approfondir ma spécialisation en sécurité des systèmes d’information&nbsp;: diplôme obtenu en 2026.</p>
-          <p data-fr="Depuis septembre 2026, je mets ce parcours en pratique en tant qu’Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, au sein de la DSI interne&nbsp;: réseau Aruba, virtualisation VMware, sécurité WatchGuard et gestion de projets d’infrastructure." data-en="Since September 2026, I have been putting this training into practice as a permanent Systems &amp; Network Engineer at <strong>OCI Informatique</strong>, within the internal IT department: Aruba networking, VMware virtualisation, WatchGuard security, and infrastructure project management." data-i18n-html>Depuis septembre 2026, je mets ce parcours en pratique en tant qu’Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, au sein de la DSI interne&nbsp;: réseau Aruba, virtualisation VMware, sécurité WatchGuard et gestion de projets d’infrastructure.</p>
+          <h3 data-fr="L'alternance : l'école de la réalité" data-en="Work-study: school of reality">L'alternance : l'école de la réalité</h3>
+          <p data-fr="En parallèle de mes études, j'ai effectué deux alternances structurantes :" data-en="Alongside my studies, I completed two formative work-study experiences:">En parallèle de mes études, j'ai effectué deux alternances structurantes :</p>
+          <p data-fr="Chez <strong>SOLINEST</strong> (2022–2024), entreprise agroalimentaire multi-sites, j'ai découvert les enjeux du support IT en entreprise, la gestion de parc, les projets de migration et la sensibilisation cybersécurité des utilisateurs." data-en="At <strong>SOLINEST</strong> (2022–2024), a multi-site food company, I discovered the challenges of enterprise IT support, asset management, migration projects, and user cybersecurity awareness." data-i18n-html>Chez <strong>SOLINEST</strong> (2022–2024), entreprise agroalimentaire multi-sites, j'ai découvert les enjeux du support IT en entreprise, la gestion de parc, les projets de migration et la sensibilisation cybersécurité des utilisateurs.</p>
+          <p data-fr="Chez <strong>Réseau-Net</strong> (août 2024 – septembre 2026), ESN spécialisée en infogérance, je suis intervenu quotidiennement sur des infrastructures multi-clients : virtualisation VMware/Hyper-V, firewalling Fortinet, EDR SentinelOne, supervision Observium et Centreon, sauvegarde Veeam et automatisation en Python et Bash." data-en="At <strong>Réseau-Net</strong> (August 2024 – September 2026), an MSP specialising in managed IT services, I worked daily on multi-client infrastructures: VMware/Hyper-V virtualisation, Fortinet firewalling, SentinelOne EDR, Observium and Centreon monitoring, Veeam backup, and automation with Python and Bash." data-i18n-html>Chez <strong>Réseau-Net</strong> (août 2024 – septembre 2026), ESN spécialisée en infogérance, je suis intervenu quotidiennement sur des infrastructures multi-clients : virtualisation VMware/Hyper-V, firewalling Fortinet, EDR SentinelOne, supervision Observium et Centreon, sauvegarde Veeam et automatisation en Python et Bash.</p>
+          <p data-fr="En 2024, j'ai intégré le <strong>Master CDSI</strong> (Cyberdéfense et Sécurité de l'Information) à l'INSA Hauts-de-France pour approfondir ma spécialisation en sécurité des systèmes d'information : diplôme obtenu en 2026." data-en="In 2024, I joined the <strong>CDSI Master's</strong> (Cyberdefense and Information Security) at INSA Hauts-de-France to deepen my specialism in information systems security, graduating in 2026." data-i18n-html>En 2024, j'ai intégré le <strong>Master CDSI</strong> (Cyberdéfense et Sécurité de l'Information) à l'INSA Hauts-de-France pour approfondir ma spécialisation en sécurité des systèmes d'information : diplôme obtenu en 2026.</p>
+          <p data-fr="Depuis septembre 2026, je mets ce parcours en pratique en tant qu'Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, au sein de la DSI interne : réseau Aruba, virtualisation VMware, sécurité WatchGuard et gestion de projets d'infrastructure." data-en="Since September 2026, I have been putting this training into practice as a permanent Systems &amp; Network Engineer at <strong>OCI Informatique</strong>, within the internal IT department: Aruba networking, VMware virtualisation, WatchGuard security, and infrastructure project management." data-i18n-html>Depuis septembre 2026, je mets ce parcours en pratique en tant qu'Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, au sein de la DSI interne : réseau Aruba, virtualisation VMware, sécurité WatchGuard et gestion de projets d'infrastructure.</p>
         </div>
       </div>
     </div>
@@ -156,34 +233,34 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       </div>
       <div class="values-grid">
         <div class="value-card reveal">
-          <div class="value-icon">{% include icon.html id="fas-bullseye" %}</div>
+          <div class="value-icon">🎯</div>
           <p class="value-title" data-fr="Rigueur" data-en="Rigour">Rigueur</p>
           <p class="value-desc" data-fr="En sécurité comme en réseau, les détails comptent. Je documente, je teste et je valide chaque étape avant de passer à la suivante." data-en="In security as in networking, details matter. I document, test and validate every step before moving on.">En sécurité comme en réseau, les détails comptent. Je documente, je teste et je valide chaque étape avant de passer à la suivante.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.1s">
-          <div class="value-icon">{% include icon.html id="fas-rocket" %}</div>
+          <div class="value-icon">🚀</div>
           <p class="value-title" data-fr="Autonomie" data-en="Autonomy">Autonomie</p>
-          <p class="value-desc" data-fr="Capable de prendre en charge un problème de bout en bout, de la collecte d’informations à la résolution, sans avoir besoin d’être guidé à chaque étape." data-en="Able to own a problem end-to-end, from information gathering to resolution, without needing to be guided at every step.">Capable de prendre en charge un problème de bout en bout, de la collecte d’informations à la résolution, sans avoir besoin d’être guidé à chaque étape.</p>
+          <p class="value-desc" data-fr="Capable de prendre en charge un problème de bout en bout, de la collecte d'informations à la résolution, sans avoir besoin d'être guidé à chaque étape." data-en="Able to own a problem end-to-end, from information gathering to resolution, without needing to be guided at every step.">Capable de prendre en charge un problème de bout en bout, de la collecte d'informations à la résolution, sans avoir besoin d'être guidé à chaque étape.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.2s">
-          <div class="value-icon">{% include icon.html id="fas-lightbulb" %}</div>
+          <div class="value-icon">💡</div>
           <p class="value-title" data-fr="Curiosité" data-en="Curiosity">Curiosité</p>
-          <p class="value-desc" data-fr="Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité&nbsp;: j’aime apprendre en dehors du cadre scolaire." data-en="I constantly keep up with technology. TryHackMe, vendor documentation, security articles: I love learning outside the classroom.">Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité&nbsp;: j’aime apprendre en dehors du cadre scolaire.</p>
+          <p class="value-desc" data-fr="Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité : j'aime apprendre en dehors du cadre scolaire." data-en="I constantly keep up with technology. TryHackMe, vendor documentation, security articles: I love learning outside the classroom.">Je reste constamment en veille technologique. TryHackMe, documentation constructeur, articles de sécurité : j'aime apprendre en dehors du cadre scolaire.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.3s">
-          <div class="value-icon">{% include icon.html id="fas-handshake" %}</div>
+          <div class="value-icon">🤝</div>
           <p class="value-title" data-fr="Bon relationnel" data-en="People skills">Bon relationnel</p>
           <p class="value-desc" data-fr="Capable de vulgariser des sujets techniques pour des utilisateurs non-avertis, et de collaborer efficacement avec différents prestataires et métiers." data-en="Able to explain technical topics to non-technical users, and to collaborate effectively with different service providers and business teams.">Capable de vulgariser des sujets techniques pour des utilisateurs non-avertis, et de collaborer efficacement avec différents prestataires et métiers.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.1s">
-          <div class="value-icon">{% include icon.html id="fas-bolt" %}</div>
+          <div class="value-icon">⚡</div>
           <p class="value-title" data-fr="Réactivité" data-en="Responsiveness">Réactivité</p>
-          <p class="value-desc" data-fr="En infogérance, la rapidité de réponse est critique. J’ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d’incident." data-en="In managed services, response speed is critical. I have learned to prioritise, diagnose quickly and communicate clearly during incidents.">En infogérance, la rapidité de réponse est critique. J’ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d’incident.</p>
+          <p class="value-desc" data-fr="En infogérance, la rapidité de réponse est critique. J'ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d'incident." data-en="In managed services, response speed is critical. I have learned to prioritise, diagnose quickly and communicate clearly during incidents.">En infogérance, la rapidité de réponse est critique. J'ai appris à prioriser, diagnostiquer vite et communiquer clairement en situation d'incident.</p>
         </div>
         <div class="value-card reveal" style="transition-delay:.2s">
-          <div class="value-icon">{% include icon.html id="fas-clipboard-list" %}</div>
+          <div class="value-icon">📋</div>
           <p class="value-title" data-fr="Force de proposition" data-en="Proactivity">Force de proposition</p>
-          <p class="value-desc" data-fr="Je ne me contente pas d’exécuter&nbsp;: je propose des améliorations, j’identifie les risques en amont et je cherche à optimiser les processus existants." data-en="I don’t just execute: I suggest improvements, identify risks early, and look for ways to optimise existing processes.">Je ne me contente pas d’exécuter&nbsp;: je propose des améliorations, j’identifie les risques en amont et je cherche à optimiser les processus existants.</p>
+          <p class="value-desc" data-fr="Je ne me contente pas d'exécuter : je propose des améliorations, j'identifie les risques en amont et je cherche à optimiser les processus existants." data-en="I don't just execute: I suggest improvements, identify risks early, and look for ways to optimise existing processes.">Je ne me contente pas d'exécuter : je propose des améliorations, j'identifie les risques en amont et je cherche à optimiser les processus existants.</p>
         </div>
       </div>
     </div>
@@ -194,48 +271,48 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     <div class="inner">
       <div class="s-header">
         <span class="s-tag" data-fr="En dehors du bureau" data-en="Outside the office">En dehors du bureau</span>
-        <h2 class="s-title" data-fr="Mes centres d’intérêt" data-en="My interests">Mes centres d’intérêt</h2>
+        <h2 class="s-title" data-fr="Mes centres d'intérêt" data-en="My interests">Mes centres d'intérêt</h2>
       </div>
       <div class="interests-grid reveal">
         <div class="interest-card">
-          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-gamepad" %}</div>
+          <div class="interest-icon" style="background:rgba(99,102,241,.1);color:#6366f1"><i class="fas fa-gamepad"></i></div>
           <div style="flex:1">
             <p class="interest-title" data-fr="Jeux vidéos" data-en="Video games">Jeux vidéos</p>
-            <p class="interest-desc" data-fr="Stratégie et coopération&nbsp;: j’aime les jeux qui demandent réflexion, planification et travail d’équipe." data-en="Strategy and co-op: I enjoy games that require thinking, planning, and teamwork.">Stratégie et coopération&nbsp;: j’aime les jeux qui demandent réflexion, planification et travail d’équipe.</p>
+            <p class="interest-desc" data-fr="Stratégie et coopération : j'aime les jeux qui demandent réflexion, planification et travail d'équipe." data-en="Strategy and co-op: I enjoy games that require thinking, planning, and teamwork.">Stratégie et coopération : j'aime les jeux qui demandent réflexion, planification et travail d'équipe.</p>
             <a href="/jeux.html" class="interest-link" data-fr="Voir ma ludothèque →" data-en="See my game library →">Voir ma ludothèque →</a>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-motorcycle" %}</div>
+          <div class="interest-icon" style="background:rgba(239,68,68,.1);color:#dc2626"><i class="fas fa-motorcycle"></i></div>
           <div>
             <p class="interest-title" data-fr="Moto" data-en="Motorcycles">Moto</p>
-            <p class="interest-desc" data-fr="Titulaire du permis A1-A2, j’aime la conduite sur route." data-en="A1-A2 licence holder, I enjoy road riding.">Titulaire du permis A1-A2, j’aime la conduite sur route.</p>
+            <p class="interest-desc" data-fr="Titulaire du permis A1-A2, j'aime la conduite sur route." data-en="A1-A2 licence holder, I enjoy road riding.">Titulaire du permis A1-A2, j'aime la conduite sur route.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-music" %}</div>
+          <div class="interest-icon" style="background:rgba(234,179,8,.1);color:#b45309"><i class="fas fa-music"></i></div>
           <div>
             <p class="interest-title" data-fr="Musique" data-en="Music">Musique</p>
             <p class="interest-desc" data-fr="Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code." data-en="A passionate listener across many genres, music accompanies my long work and coding sessions.">Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-camera" %}</div>
+          <div class="interest-icon" style="background:rgba(168,85,247,.1);color:#9333ea"><i class="fas fa-camera"></i></div>
           <div style="flex:1">
             <p class="interest-title" data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</p>
-            <p class="interest-desc" data-fr="Canon EOS 600D au poing&nbsp;: macro florale, faune, lumières nocturnes et compositions atmosphériques." data-en="Canon EOS 600D in hand: floral macro, wildlife, night lights, and atmospheric compositions.">Canon EOS 600D au poing&nbsp;: macro florale, faune, lumières nocturnes et compositions atmosphériques.</p>
+            <p class="interest-desc" data-fr="Canon EOS 600D au poing : macro florale, faune, lumières nocturnes et compositions atmosphériques." data-en="Canon EOS 600D in hand: floral macro, wildlife, night lights, and atmospheric compositions.">Canon EOS 600D au poing : macro florale, faune, lumières nocturnes et compositions atmosphériques.</p>
             <a href="/photographie.html" class="interest-link" data-fr="Voir ma galerie →" data-en="See my gallery →">Voir ma galerie →</a>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-fish" %}</div>
+          <div class="interest-icon" style="background:rgba(34,197,94,.1);color:#16a34a"><i class="fas fa-fish"></i></div>
           <div>
             <p class="interest-title" data-fr="Pêche" data-en="Fishing">Pêche</p>
             <p class="interest-desc" data-fr="Une activité qui demande patience et observation, deux qualités qui se retrouvent aussi dans le métier de sysadmin." data-en="An activity requiring patience and observation, two qualities that also come in handy as a sysadmin.">Une activité qui demande patience et observation, deux qualités qui se retrouvent aussi dans le métier de sysadmin.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-shield-halved" %}</div>
+          <div class="interest-icon" style="background:rgba(37,99,235,.1);color:var(--accent)"><i class="fas fa-shield-halved"></i></div>
           <div>
             <p class="interest-title">TryHackMe &amp; CTF</p>
             <p class="interest-desc" data-fr="Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives." data-en="Online cybersecurity challenges to maintain and develop my offensive and defensive skills.">Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives.</p>
@@ -257,28 +334,28 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
           <div class="goal-num">1</div>
           <div>
             <p class="goal-title" data-fr="Réussir ma prise de poste chez OCI" data-en="Succeed in my new role at OCI">Réussir ma prise de poste chez OCI</p>
-            <p class="goal-desc" data-fr="Master CDSI obtenu en 2026 et deux ans d’alternance en infogérance derrière moi&nbsp;: mon objectif immédiat est de monter en autonomie et en périmètre sur mon poste d’Ingénieur Systèmes &amp; Réseaux en CDI chez OCI Informatique." data-en="With the CDSI Master’s earned in 2026 and two years of managed-services work-study behind me, my immediate goal is to grow in autonomy and scope in my permanent Systems &amp; Network Engineer role at OCI Informatique.">Master CDSI obtenu en 2026 et deux ans d’alternance en infogérance derrière moi&nbsp;: mon objectif immédiat est de monter en autonomie et en périmètre sur mon poste d’Ingénieur Systèmes &amp; Réseaux en CDI chez OCI Informatique.</p>
+            <p class="goal-desc" data-fr="Master CDSI obtenu en 2026 et deux ans d'alternance en infogérance derrière moi : mon objectif immédiat est de monter en autonomie et en périmètre sur mon poste d'Ingénieur Systèmes &amp; Réseaux en CDI chez OCI Informatique." data-en="With the CDSI Master's earned in 2026 and two years of managed-services work-study behind me, my immediate goal is to grow in autonomy and scope in my permanent Systems &amp; Network Engineer role at OCI Informatique.">Master CDSI obtenu en 2026 et deux ans d'alternance en infogérance derrière moi : mon objectif immédiat est de monter en autonomie et en périmètre sur mon poste d'Ingénieur Systèmes &amp; Réseaux en CDI chez OCI Informatique.</p>
           </div>
         </div>
         <div class="goal-item">
           <div class="goal-num">2</div>
           <div>
-            <p class="goal-title" data-fr="Évoluer vers l’ingénierie sécurité" data-en="Move into security engineering">Évoluer vers l’ingénierie sécurité</p>
-            <p class="goal-desc" data-fr="Consolider mon expertise en cybersécurité opérationnelle (architecture sécurisée, pentest, SIEM, gestion d’incidents) pour évoluer vers un poste d’Ingénieur Sécurité ou de Consultant en cybersécurité." data-en="Consolidate my operational cybersecurity expertise (secure architecture, pentesting, SIEM, incident management) to move into a Security Engineer or Cybersecurity Consultant role.">Consolider mon expertise en cybersécurité opérationnelle (architecture sécurisée, pentest, SIEM, gestion d’incidents) pour évoluer vers un poste d’Ingénieur Sécurité ou de Consultant en cybersécurité.</p>
+            <p class="goal-title" data-fr="Évoluer vers l'ingénierie sécurité" data-en="Move into security engineering">Évoluer vers l'ingénierie sécurité</p>
+            <p class="goal-desc" data-fr="Consolider mon expertise en cybersécurité opérationnelle (architecture sécurisée, pentest, SIEM, gestion d'incidents) pour évoluer vers un poste d'Ingénieur Sécurité ou de Consultant en cybersécurité." data-en="Consolidate my operational cybersecurity expertise (secure architecture, pentesting, SIEM, incident management) to move into a Security Engineer or Cybersecurity Consultant role.">Consolider mon expertise en cybersécurité opérationnelle (architecture sécurisée, pentest, SIEM, gestion d'incidents) pour évoluer vers un poste d'Ingénieur Sécurité ou de Consultant en cybersécurité.</p>
           </div>
         </div>
         <div class="goal-item">
           <div class="goal-num">3</div>
           <div>
             <p class="goal-title" data-fr="Viser le rôle de RSSI" data-en="Aim for a CISO role">Viser le rôle de RSSI</p>
-            <p class="goal-desc" data-fr="À moyen terme, contribuer à la stratégie de sécurité d’une organisation en tant que Responsable de la Sécurité des Systèmes d’Information, alliant expertise technique et vision globale des risques." data-en="In the medium term, contribute to an organisation’s security strategy as a Chief Information Security Officer, combining technical expertise with a holistic risk vision.">À moyen terme, contribuer à la stratégie de sécurité d’une organisation en tant que Responsable de la Sécurité des Systèmes d’Information, alliant expertise technique et vision globale des risques.</p>
+            <p class="goal-desc" data-fr="À moyen terme, contribuer à la stratégie de sécurité d'une organisation en tant que Responsable de la Sécurité des Systèmes d'Information, alliant expertise technique et vision globale des risques." data-en="In the medium term, contribute to an organisation's security strategy as a Chief Information Security Officer, combining technical expertise with a holistic risk vision.">À moyen terme, contribuer à la stratégie de sécurité d'une organisation en tant que Responsable de la Sécurité des Systèmes d'Information, alliant expertise technique et vision globale des risques.</p>
           </div>
         </div>
         <div class="goal-item">
           <div class="goal-num">4</div>
           <div>
             <p class="goal-title" data-fr="Certifications et montée en compétences" data-en="Certifications and skill development">Certifications et montée en compétences</p>
-            <p class="goal-desc" data-fr="Progresser dans les certifications sécurité&nbsp;: CSNA déjà obtenu, et à venir les certifications Fortinet NSE, CompTIA Security+ ou le parcours OSCP." data-en="Progress in security certifications: CSNA already obtained, with Fortinet NSE, CompTIA Security+, or the OSCP pathway still to come.">Progresser dans les certifications sécurité&nbsp;: CSNA déjà obtenu, et à venir les certifications Fortinet NSE, CompTIA Security+ ou le parcours OSCP.</p>
+            <p class="goal-desc" data-fr="Progresser dans les certifications sécurité : CSNA déjà obtenu, et à venir les certifications Fortinet NSE, CompTIA Security+ ou le parcours OSCP." data-en="Progress in security certifications: CSNA already obtained, with Fortinet NSE, CompTIA Security+, or the OSCP pathway still to come.">Progresser dans les certifications sécurité : CSNA déjà obtenu, et à venir les certifications Fortinet NSE, CompTIA Security+ ou le parcours OSCP.</p>
           </div>
         </div>
       </div>
@@ -289,19 +366,35 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
   <section class="section">
     <div class="inner">
       <div class="cta-block reveal">
-        <h3 data-fr="Envie d’échanger&#8239;?" data-en="Want to connect?">Envie d’échanger&#8239;?</h3>
-        <p data-fr="N’hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux." data-en="Feel free to reach out about an opportunity, a project, or simply to discuss cybersecurity and networking.">N’hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux.</p>
+        <h3 data-fr="Envie d'échanger ?" data-en="Want to connect?">Envie d'échanger ?</h3>
+        <p data-fr="N'hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux." data-en="Feel free to reach out about an opportunity, a project, or simply to discuss cybersecurity and networking.">N'hésitez pas à me contacter pour une opportunité, un projet ou simplement pour échanger sur la cybersécurité et les réseaux.</p>
         <div class="cta-btns">
-          <a href="/contact.html" class="btn btn-primary">{% include icon.html id="fas-envelope" %} <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
-          <a href="/portfolio.html" class="btn btn-ghost">{% include icon.html id="fas-folder-open" %} <span data-fr="Voir mon portfolio" data-en="View my portfolio">Voir mon portfolio</span></a>
+          <a href="/contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
+          <a href="/portfolio.html" class="btn btn-ghost"><i class="fas fa-folder-open"></i> <span data-fr="Voir mon portfolio" data-en="View my portfolio">Voir mon portfolio</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+    </div>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
 
-  {% include footer.html %}
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
 
 </body>
 </html>

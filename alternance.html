@@ -1,79 +1,161 @@
----
-# Page traitée par Jekyll : en-tête, menu et pied de page communs (_includes/).
-title: "Alternances"
-description: "Mes alternances · William Hertrich, SOLINEST 2022–2024 et Réseau-Net 2024–2026"
----
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  {% include head.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mes alternances · William Hertrich, SOLINEST 2022–2024 et Réseau-Net 2024–2026">
+  <link rel="canonical" href="https://thewilli67.github.io/alternance.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Alternances">
+  <meta property="og:description" content="Mes alternances · William Hertrich, SOLINEST 2022–2024 et Réseau-Net 2024–2026">
+  <meta property="og:url" content="https://thewilli67.github.io/alternance.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — Alternances</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
+  <script src="/scripts/animation_page.js" defer></script>
   <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
     /* Page header */
-    .pheader::before { background: none; }
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-back { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; color: #94a3b8; margin-bottom: 1.5rem; transition: var(--t); }
+    .ph-back:hover { color: #cbd5e1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.7; }
 
     /* Sections */
+    .section { padding: 5rem 5%; }
+    .inner { max-width: 1100px; margin: 0 auto; }
     .s-header { text-align: center; margin-bottom: 3rem; }
-    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
 
     /* Timeline */
     .timeline { position: relative; }
-    .timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: var(--hairline); }
+    .timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), #e2e8f0); }
 
     /* Alternance cards */
     .alt-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 2rem; }
     .alt-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 4px; overflow: hidden; transition: var(--tr);
+      border-radius: 16px; overflow: hidden;
+      box-shadow: var(--sh-sm); transition: var(--t);
       display: flex; flex-direction: column;
     }
-    .alt-card:hover { transform: translateY(-4px); }
+    .alt-card:hover { transform: translateY(-4px); box-shadow: var(--sh); }
     .alt-card-header {
       padding: 2rem 2rem 1.5rem;
       border-bottom: 1px solid var(--border);
       position: relative;
     }
-    .alt-card-header.sol { background: var(--canvas-soft); }
-    .alt-card-header.rn  { background: var(--canvas-soft); }
-    .alt-badge { display: inline-flex; align-items: center; gap: .4rem; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); padding: .25rem .7rem; border-radius: 3px; margin-bottom: 1rem; }
-    .badge-terminated { background: var(--tint); color: var(--body); }
-    .alt-company { font-size: 1.6rem; font-weight: 500; letter-spacing: -.02em; margin-bottom: .25rem; }
-    .alt-company.sol { color: var(--body-strong); }
-    .alt-company.rn  { color: var(--body-strong); }
+    .alt-card-header.sol { background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%); }
+    .alt-card-header.rn  { background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%); }
+    .alt-badge { display: inline-flex; align-items: center; gap: .4rem; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .25rem .7rem; border-radius: 100px; margin-bottom: 1rem; }
+    .badge-terminated { background: rgba(100,116,139,.15); color: #64748b; }
+    .alt-company { font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .25rem; }
+    .alt-company.sol { color: #92400e; }
+    .alt-company.rn  { color: #1e40af; }
     .alt-role { font-size: .9rem; color: var(--text-m); font-weight: 500; margin-bottom: 1rem; }
     .alt-meta { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .alt-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .25rem .65rem; border-radius: 3px; font-size: .72rem; font-weight: 600; background: var(--tint); color: var(--text-m); }
+    .alt-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .25rem .65rem; border-radius: 100px; font-size: .72rem; font-weight: 600; background: rgba(0,0,0,.06); color: var(--text-m); }
     .alt-card-body { padding: 1.75rem 2rem; flex: 1; }
     .alt-desc { font-size: .9rem; color: var(--text-m); line-height: 1.75; margin-bottom: 1.25rem; }
     .alt-tech { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; }
-    .tech-tag { display: inline-block; padding: .25rem .6rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; font-size: .73rem; font-weight: 500; color: var(--text-m); }
+    .tech-tag { display: inline-block; padding: .25rem .6rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 5px; font-size: .73rem; font-weight: 500; color: var(--text-m); }
     .alt-link {
       display: inline-flex; align-items: center; gap: .5rem;
-      padding: .65rem 1.25rem; border-radius: 4px;
+      padding: .65rem 1.25rem; border-radius: 8px;
       font-size: .85rem; font-weight: 600;
-      transition: var(--tr);
+      transition: var(--t);
     }
-    .alt-link.sol { background: var(--accent); color: var(--on-primary); }
-    .alt-link.sol:hover { background: var(--accent-hover); }
-    .alt-link.rn  { background: var(--accent); color: var(--on-primary); }
-    .alt-link.rn:hover  { background: var(--accent-hover); }
+    .alt-link.sol { background: #92400e; color: #fff; }
+    .alt-link.sol:hover { background: #78350f; }
+    .alt-link.rn  { background: var(--accent); color: #fff; }
+    .alt-link.rn:hover  { background: var(--accent-h); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
 
     @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
       .alt-cards { grid-template-columns: 1fr; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-  {% include nav.html active="portfolio" %}
-
-  <main id="contenu" tabindex="-1">
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+    </ul>
+  </nav>
 
   <header class="pheader">
     <div class="ph-inner">
-      <a href="/portfolio.html" class="ph-back" data-fr="{% include icon.html id='fas-arrow-left' %} Retour au portfolio" data-en="{% include icon.html id='fas-arrow-left' %} Back to portfolio" data-i18n-html>{% include icon.html id="fas-arrow-left" %} Retour au portfolio</a>
+      <a href="/portfolio.html" class="ph-back" data-fr="<i class=&quot;fas fa-arrow-left&quot;></i> Retour au portfolio" data-en="<i class=&quot;fas fa-arrow-left&quot;></i> Back to portfolio" data-i18n-html><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
       <span class="ph-eyebrow" data-fr="Expériences professionnelles" data-en="Professional experience">Expériences professionnelles</span>
       <h1 class="ph-title" data-fr="Mes alternances" data-en="My work-study experience">Mes alternances</h1>
-      <p class="ph-sub" data-fr="4 ans d’expérience terrain en entreprise, du support IT à l’ingénierie systèmes &amp; réseaux, en passant par la cybersécurité." data-en="4 years of hands-on enterprise experience, from IT support to systems &amp; network engineering, including cybersecurity.">4 ans d’expérience terrain en entreprise, du support IT à l’ingénierie systèmes &amp; réseaux, en passant par la cybersécurité.</p>
+      <p class="ph-sub" data-fr="4 ans d'expérience terrain en entreprise, du support IT à l'ingénierie systèmes &amp; réseaux, en passant par la cybersécurité." data-en="4 years of hands-on enterprise experience, from IT support to systems &amp; network engineering, including cybersecurity.">4 ans d'expérience terrain en entreprise, du support IT à l'ingénierie systèmes &amp; réseaux, en passant par la cybersécurité.</p>
     </div>
   </header>
 
@@ -81,7 +163,7 @@ description: "Mes alternances · William Hertrich, SOLINEST 2022–2024 et Rése
     <div class="inner">
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Parcours" data-en="Experience">Parcours</span>
-        <h2 class="s-title" data-fr="Deux entreprises, deux niveaux d’expertise" data-en="Two companies, two levels of expertise">Deux entreprises, deux niveaux d’expertise</h2>
+        <h2 class="s-title" data-fr="Deux entreprises, deux niveaux d'expertise" data-en="Two companies, two levels of expertise">Deux entreprises, deux niveaux d'expertise</h2>
       </div>
 
       <div class="alt-cards">
@@ -89,58 +171,58 @@ description: "Mes alternances · William Hertrich, SOLINEST 2022–2024 et Rése
         <!-- Réseau-Net -->
         <div class="alt-card reveal">
           <div class="alt-card-header rn">
-            <span class="alt-badge badge-terminated" data-fr="{% include icon.html id='fas-check-circle' %} Terminée" data-en="{% include icon.html id='fas-check-circle' %} Completed" data-i18n-html>{% include icon.html id="fas-check-circle" %} Terminée</span>
+            <span class="alt-badge badge-terminated" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminée" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed" data-i18n-html><i class="fas fa-check-circle"></i> Terminée</span>
             <h2 class="alt-company rn">Réseau-Net</h2>
-            <p class="alt-role" data-fr="Ingénieur Systèmes &amp; Réseaux · Master CDSI" data-en="Systems &amp; Network Engineer · CDSI Master’s">Ingénieur Systèmes &amp; Réseaux · Master CDSI</p>
+            <p class="alt-role" data-fr="Ingénieur Systèmes &amp; Réseaux · Master CDSI" data-en="Systems &amp; Network Engineer · CDSI Master's">Ingénieur Systèmes &amp; Réseaux · Master CDSI</p>
             <div class="alt-meta">
-              <span class="alt-chip" data-fr="{% include icon.html id='fas-calendar' %} Août 2024 → Sept. 2026" data-en="{% include icon.html id='fas-calendar' %} Aug 2024 → Sep 2026" data-i18n-html>{% include icon.html id="fas-calendar" %} Août 2024 → Sept. 2026</span>
-              <span class="alt-chip">{% include icon.html id="fas-map-marker-alt" %} Alsace</span>
-              <span class="alt-chip" data-fr="{% include icon.html id='fas-building' %} MSP multi-clients" data-en="{% include icon.html id='fas-building' %} Multi-client MSP" data-i18n-html>{% include icon.html id="fas-building" %} MSP multi-clients</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-calendar&quot;></i> Août 2024 → Sept. 2026" data-en="<i class=&quot;fas fa-calendar&quot;></i> Aug 2024 → Sep 2026" data-i18n-html><i class="fas fa-calendar"></i> Août 2024 → Sept. 2026</span>
+              <span class="alt-chip"><i class="fas fa-map-marker-alt"></i> Alsace</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-building&quot;></i> MSP multi-clients" data-en="<i class=&quot;fas fa-building&quot;></i> Multi-client MSP" data-i18n-html><i class="fas fa-building"></i> MSP multi-clients</span>
             </div>
           </div>
           <div class="alt-card-body">
-            <p class="alt-desc" data-fr="Ingénierie systèmes &amp; réseaux au sein d’un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python." data-en="Systems &amp; network engineering within an MSP. Multi-client infrastructure administration, FortiGate network security, SentinelOne EDR, VMware/Hyper-V virtualisation, Observium monitoring and Bash/Python scripting.">Ingénierie systèmes &amp; réseaux au sein d’un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python.</p>
+            <p class="alt-desc" data-fr="Ingénierie systèmes &amp; réseaux au sein d'un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python." data-en="Systems &amp; network engineering within an MSP. Multi-client infrastructure administration, FortiGate network security, SentinelOne EDR, VMware/Hyper-V virtualisation, Observium monitoring and Bash/Python scripting.">Ingénierie systèmes &amp; réseaux au sein d'un MSP. Administration infrastructure multi-clients, sécurité réseau FortiGate, EDR SentinelOne, virtualisation VMware/Hyper-V, monitoring Observium et scripting Bash/Python.</p>
             <div class="alt-tech">
-              <span class="tech-tag" translate="no">Windows Server 2025</span>
-              <span class="tech-tag" translate="no">Linux</span>
-              <span class="tech-tag" translate="no">VMware / Hyper-V</span>
-              <span class="tech-tag" translate="no">FortiGate</span>
-              <span class="tech-tag" translate="no">SentinelOne</span>
-              <span class="tech-tag" translate="no">Observium</span>
-              <span class="tech-tag" translate="no">Centreon</span>
-              <span class="tech-tag" translate="no">Veeam</span>
-              <span class="tech-tag" translate="no">GLPI</span>
-              <span class="tech-tag" translate="no">Bash / Python</span>
+              <span class="tech-tag">Windows Server 2025</span>
+              <span class="tech-tag">Linux</span>
+              <span class="tech-tag">VMware / Hyper-V</span>
+              <span class="tech-tag">FortiGate</span>
+              <span class="tech-tag">SentinelOne</span>
+              <span class="tech-tag">Observium</span>
+              <span class="tech-tag">Centreon</span>
+              <span class="tech-tag">Veeam</span>
+              <span class="tech-tag">GLPI</span>
+              <span class="tech-tag">Bash / Python</span>
             </div>
-            <a href="/alternance/reseau-net.html" class="alt-link rn" data-fr="Voir le détail {% include icon.html id='fas-arrow-right' %}" data-en="View details {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail {% include icon.html id="fas-arrow-right" %}</a>
+            <a href="/alternance/reseau-net.html" class="alt-link rn" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
         <!-- SOLINEST -->
         <div class="alt-card reveal" style="transition-delay:.1s">
           <div class="alt-card-header sol">
-            <span class="alt-badge badge-terminated" data-fr="{% include icon.html id='fas-check-circle' %} Terminée" data-en="{% include icon.html id='fas-check-circle' %} Completed" data-i18n-html>{% include icon.html id="fas-check-circle" %} Terminée</span>
+            <span class="alt-badge badge-terminated" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminée" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed" data-i18n-html><i class="fas fa-check-circle"></i> Terminée</span>
             <h2 class="alt-company sol">SOLINEST</h2>
             <p class="alt-role" data-fr="Technicien Systèmes &amp; Réseaux · BUT Réseaux &amp; Télécommunications" data-en="Systems &amp; Network Technician · B.Tech Networks &amp; Telecommunications">Technicien Systèmes &amp; Réseaux · BUT Réseaux &amp; Télécommunications</p>
             <div class="alt-meta">
-              <span class="alt-chip" data-fr="{% include icon.html id='fas-calendar' %} Sept. 2022 → Août 2024" data-en="{% include icon.html id='fas-calendar' %} Sep 2022 → Aug 2024" data-i18n-html>{% include icon.html id="fas-calendar" %} Sept. 2022 → Août 2024</span>
-              <span class="alt-chip">{% include icon.html id="fas-map-marker-alt" %} Brunstatt-Didenheim, Alsace</span>
-              <span class="alt-chip" data-fr="{% include icon.html id='fas-users' %} +500 collaborateurs" data-en="{% include icon.html id='fas-users' %} +500 employees" data-i18n-html>{% include icon.html id="fas-users" %} +500 collaborateurs</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-calendar&quot;></i> Sept. 2022 → Août 2024" data-en="<i class=&quot;fas fa-calendar&quot;></i> Sep 2022 → Aug 2024" data-i18n-html><i class="fas fa-calendar"></i> Sept. 2022 → Août 2024</span>
+              <span class="alt-chip"><i class="fas fa-map-marker-alt"></i> Brunstatt-Didenheim, Alsace</span>
+              <span class="alt-chip" data-fr="<i class=&quot;fas fa-users&quot;></i> +500 collaborateurs" data-en="<i class=&quot;fas fa-users&quot;></i> +500 employees" data-i18n-html><i class="fas fa-users"></i> +500 collaborateurs</span>
             </div>
           </div>
           <div class="alt-card-body">
-            <p class="alt-desc" data-fr="Helpdesk, administration systèmes et gestion d’infrastructure au sein du service IT d’un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon." data-en="Helpdesk, systems administration and infrastructure management within the IT department of a snack food distributor. User support, AD/Google Workspace administration, Windows server updates, Centreon monitoring.">Helpdesk, administration systèmes et gestion d’infrastructure au sein du service IT d’un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon.</p>
+            <p class="alt-desc" data-fr="Helpdesk, administration systèmes et gestion d'infrastructure au sein du service IT d'un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon." data-en="Helpdesk, systems administration and infrastructure management within the IT department of a snack food distributor. User support, AD/Google Workspace administration, Windows server updates, Centreon monitoring.">Helpdesk, administration systèmes et gestion d'infrastructure au sein du service IT d'un distributeur de produits de snacking. Support utilisateurs, gestion AD/Google Workspace, mises à jour serveurs Windows, monitoring Centreon.</p>
             <div class="alt-tech">
-              <span class="tech-tag" translate="no">Active Directory</span>
-              <span class="tech-tag" translate="no">Google Workspace</span>
-              <span class="tech-tag" translate="no">Windows Server</span>
-              <span class="tech-tag" translate="no">Centreon</span>
-              <span class="tech-tag" translate="no">GLPI</span>
-              <span class="tech-tag" translate="no">Aruba Central</span>
-              <span class="tech-tag" translate="no">Veeam</span>
-              <span class="tech-tag" translate="no">SAP GUI</span>
+              <span class="tech-tag">Active Directory</span>
+              <span class="tech-tag">Google Workspace</span>
+              <span class="tech-tag">Windows Server</span>
+              <span class="tech-tag">Centreon</span>
+              <span class="tech-tag">GLPI</span>
+              <span class="tech-tag">Aruba Central</span>
+              <span class="tech-tag">Veeam</span>
+              <span class="tech-tag">SAP GUI</span>
             </div>
-            <a href="/alternance/solinest.html" class="alt-link sol" data-fr="Voir le détail {% include icon.html id='fas-arrow-right' %}" data-en="View details {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail {% include icon.html id="fas-arrow-right" %}</a>
+            <a href="/alternance/solinest.html" class="alt-link sol" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -148,9 +230,25 @@ description: "Mes alternances · William Hertrich, SOLINEST 2022–2024 et Rése
     </div>
   </section>
 
-  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+    </div>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
 
-  {% include footer.html %}
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
 
 </body>
 </html>

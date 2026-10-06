@@ -8,17 +8,5 @@ _site/
 # Cache Python (tests locaux des scripts)
 __pycache__/
 
-# Prévisualisation locale (bundle exec jekyll serve)
-.jekyll-cache/
-.sass-cache/
-.bundle/
-vendor/
-
-# Verrou Bundler local : la publication utilise actions/jekyll-build-pages (sans Bundler)
-Gemfile.lock
-
-# Pages de démonstration locales (exclues du site par le « _ »)
-_demo/
-
 # Paramètres locaux de Claude Code (propres à chaque poste, à ne pas versionner)
 .claude/settings.local.json

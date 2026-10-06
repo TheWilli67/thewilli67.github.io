@@ -1,19 +1,76 @@
----
-# Page traitée par Jekyll : en-tête, menu et pied de page communs (_includes/).
-title: "Portfolio"
-description: "Portfolio de William Hertrich · Projets, alternances et formation"
----
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  {% include head.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de William Hertrich · Projets, alternances et formation">
+  <link rel="canonical" href="https://thewilli67.github.io/portfolio.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Portfolio">
+  <meta property="og:description" content="Portfolio de William Hertrich · Projets, alternances et formation">
+  <meta property="og:url" content="https://thewilli67.github.io/portfolio.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — Portfolio</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
+  <script src="/scripts/animation_page.js" defer></script>
   <style>
+    :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
     /* Page header */
-    .pheader::before { background: none; }
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 4.5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(99,102,241,.07) 0%, transparent 50%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #60a5fa; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #60a5fa; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .6rem; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.7; }
 
     /* Sections */
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
     .s-header { text-align: center; margin-bottom: 3rem; }
-    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .s-sub { font-size: .95rem; color: var(--text-m); margin-top: .5rem; }
 
     /* Project cards grid */
     .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
@@ -22,10 +79,11 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
 
     .proj-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); overflow: hidden; transition: var(--tr);
+      border-radius: var(--r); overflow: hidden;
+      box-shadow: var(--sh-sm); transition: var(--t);
       display: flex; flex-direction: column;
     }
-    .proj-card:hover { transform: translateY(-4px); border-color: var(--hairline); }
+    .proj-card:hover { transform: translateY(-4px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
     .proj-card-thumb {
       height: 160px; display: flex; align-items: center; justify-content: center;
       font-size: 3rem; position: relative; overflow: hidden;
@@ -33,52 +91,78 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
     .proj-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
     .proj-badge {
       display: inline-flex; align-items: center; gap: .35rem;
-      font-size: .7rem; font-weight: 600; text-transform: uppercase; font-family: var(--font-mono);
-      letter-spacing: .04em; padding: .2rem .6rem; border-radius: 3px;
+      font-size: .7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .07em; padding: .2rem .6rem; border-radius: 100px;
       margin-bottom: .75rem; width: fit-content;
     }
-    .badge-alt   { background: var(--tint);  color: var(--body-strong); }
-    .badge-form  { background: var(--tint); color: var(--body-strong); }
-    .badge-proj  { background: var(--tint);  color: var(--body-strong); }
-    .badge-pro   { background: var(--tint); color: var(--body-strong); }
-    .badge-wip   { background: var(--tint); color: var(--body); }
-    .badge-live  { background: var(--tint);  color: var(--body-strong); }
+    .badge-alt   { background: rgba(37,99,235,.1);  color: var(--accent); }
+    .badge-form  { background: rgba(99,102,241,.1); color: #6366f1; }
+    .badge-proj  { background: rgba(234,179,8,.1);  color: #b45309; }
+    .badge-pro   { background: rgba(249,115,22,.1); color: #ea580c; }
+    .badge-wip   { background: rgba(100,116,139,.1); color: #64748b; }
+    .badge-live  { background: rgba(34,197,94,.12);  color: #16a34a; }
 
     /* Sub-section headers (inside a combined section) */
     .sub-header { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.4rem; }
     .sub-header:not(:first-child) { margin-top: 3rem; }
-    .sub-title { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+    .sub-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
     .sub-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .proj-title  { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; line-height: 1.3; }
+    .proj-title  { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; line-height: 1.3; }
     .proj-desc   { font-size: .845rem; color: var(--text-m); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
     .proj-tags   { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
     .ptag        { padding: .18rem .55rem; background: var(--bg-alt); color: var(--text-m); border-radius: 4px; font-size: .73rem; font-weight: 500; border: 1px solid var(--border); }
-    .proj-link   { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: auto; transition: var(--tr); }
-    .proj-link:hover { color: var(--accent-hover); gap: .6rem; }
+    .proj-link   { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: auto; transition: var(--t); }
+    .proj-link:hover { color: var(--accent-h); gap: .6rem; }
     .proj-link.disabled { color: var(--text-lt); pointer-events: none; }
 
     /* Thumb backgrounds */
-    .thumb-alt  { background: var(--canvas); color: var(--body-strong); }
-    .thumb-but  { background: var(--tint); border: 1px solid var(--hairline); color: var(--ink); }
-    .thumb-proj { background: var(--canvas); color: var(--body-strong); }
-    .thumb-insa { background: var(--canvas); color: var(--body-strong); }
-    .thumb-pro  { background: var(--canvas); color: var(--body-strong); }
-    .thumb-mon  { background: var(--canvas); color: var(--body-strong); }
-    .thumb-wip  { background: var(--canvas-soft); color: var(--body); }
+    .thumb-alt  { background: linear-gradient(135deg, #0f172a, #1e293b); color: #60a5fa; }
+    .thumb-but  { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #a5b4fc; }
+    .thumb-proj { background: linear-gradient(135deg, #1c1917, #292524); color: #fbbf24; }
+    .thumb-insa { background: linear-gradient(135deg, #0c1832, #1e3a5f); color: #93c5fd; }
+    .thumb-pro  { background: linear-gradient(135deg, #2a1a0a, #3d2818); color: #fb923c; }
+    .thumb-mon  { background: linear-gradient(135deg, #0c1e2e, #14324a); color: #38bdf8; }
+    .thumb-wip  { background: linear-gradient(135deg, #1e293b, #334155); color: #64748b; }
 
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
+      .pheader { padding: 6rem 1.25rem 3rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
+    }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-  {% include nav.html active="portfolio" %}
-
-  <main id="contenu" tabindex="-1">
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html" class="active show">Portfolio</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+    </ul>
+  </nav>
 
   <header class="pheader">
     <div class="ph-inner">
       <span class="ph-eyebrow" data-fr="Mes travaux" data-en="My work">Mes travaux</span>
       <h1 class="ph-title">Portfolio</h1>
-      <p class="ph-sub" data-fr="Retrouvez ici mon expérience professionnelle chez OCI, mes deux alternances, ma formation Master INSA et BUT R&amp;T, ainsi que mes projets académiques." data-en="Browse my professional experience at OCI, my two work-study placements, my INSA Master’s and B.Tech (BUT R&amp;T) training, and my academic projects.">Retrouvez ici mon expérience professionnelle chez OCI, mes deux alternances, ma formation Master INSA et BUT R&amp;T, ainsi que mes projets académiques.</p>
+      <p class="ph-sub" data-fr="Retrouvez ici mon expérience professionnelle chez OCI, mes deux alternances, ma formation Master INSA et BUT R&amp;T, ainsi que mes projets académiques." data-en="Browse my professional experience at OCI, my two work-study placements, my INSA Master's and B.Tech (BUT R&amp;T) training, and my academic projects.">Retrouvez ici mon expérience professionnelle chez OCI, mes deux alternances, ma formation Master INSA et BUT R&amp;T, ainsi que mes projets académiques.</p>
     </div>
   </header>
 
@@ -93,15 +177,15 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
 
       <div class="proj-grid proj-center" style="margin-bottom:3rem;">
         <a href="/experience/oci.html" class="proj-card reveal">
-          <div class="proj-card-thumb thumb-alt">{% include icon.html id="fas-network-wired" %}</div>
+          <div class="proj-card-thumb thumb-alt"><i class="fas fa-network-wired"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-live" data-fr="{% include icon.html id='fas-circle' style='font-size:.5rem' %} En poste depuis Sept. 2026" data-en="{% include icon.html id='fas-circle' style='font-size:.5rem' %} In role since Sep 2026" data-i18n-html>{% include icon.html id="fas-circle" style="font-size:.5rem" %} En poste depuis Sept. 2026</span>
+            <span class="proj-badge badge-live" data-fr="<i class=&quot;fas fa-circle&quot; style=&quot;font-size:.5rem&quot;></i> En poste depuis Sept. 2026" data-en="<i class=&quot;fas fa-circle&quot; style=&quot;font-size:.5rem&quot;></i> In role since Sep 2026" data-i18n-html><i class="fas fa-circle" style="font-size:.5rem"></i> En poste depuis Sept. 2026</span>
             <h3 class="proj-title" data-fr="OCI Informatique — Ingénieur Systèmes &amp; Réseaux (CDI)" data-en="OCI Informatique — Systems &amp; Network Engineer (Permanent)">OCI Informatique — Ingénieur Systèmes &amp; Réseaux (CDI)</h3>
-            <p class="proj-desc" data-fr="Poste au sein de la DSI interne d’OCI&nbsp;: gestion de tickets, conduite de projets d’infrastructure et maintenance opérationnelle. Réseau Aruba (ArubaOS-CX, VSF, 802.1X/RADIUS), virtualisation VMware/Veeam, sécurité WatchGuard et WithSecure EDR." data-en="Role within OCI’s internal IT department: ticket management, infrastructure project delivery and operational maintenance. Aruba networking (ArubaOS-CX, VSF, 802.1X/RADIUS), VMware/Veeam virtualisation, WatchGuard security and WithSecure EDR.">Poste au sein de la DSI interne d’OCI&nbsp;: gestion de tickets, conduite de projets d’infrastructure et maintenance opérationnelle. Réseau Aruba (ArubaOS-CX, VSF, 802.1X/RADIUS), virtualisation VMware/Veeam, sécurité WatchGuard et WithSecure EDR.</p>
+            <p class="proj-desc" data-fr="Poste au sein de la DSI interne d'OCI : gestion de tickets, conduite de projets d'infrastructure et maintenance opérationnelle. Réseau Aruba (ArubaOS-CX, VSF, 802.1X/RADIUS), virtualisation VMware/Veeam, sécurité WatchGuard et WithSecure EDR." data-en="Role within OCI's internal IT department: ticket management, infrastructure project delivery and operational maintenance. Aruba networking (ArubaOS-CX, VSF, 802.1X/RADIUS), VMware/Veeam virtualisation, WatchGuard security and WithSecure EDR.">Poste au sein de la DSI interne d'OCI : gestion de tickets, conduite de projets d'infrastructure et maintenance opérationnelle. Réseau Aruba (ArubaOS-CX, VSF, 802.1X/RADIUS), virtualisation VMware/Veeam, sécurité WatchGuard et WithSecure EDR.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">Aruba ArubaOS-CX</span><span class="ptag" translate="no">802.1X / RADIUS</span><span class="ptag" translate="no">VMware</span><span class="ptag" translate="no">WatchGuard</span><span class="ptag" translate="no">3CX</span>
+              <span class="ptag">Aruba ArubaOS-CX</span><span class="ptag">802.1X / RADIUS</span><span class="ptag">VMware</span><span class="ptag">WatchGuard</span><span class="ptag">3CX</span>
             </div>
-            <span class="proj-link" data-fr="Voir le détail {% include icon.html id='fas-arrow-right' %}" data-en="View details {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
       </div>
@@ -112,28 +196,28 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
       <div class="proj-grid">
 
         <a href="/alternance/reseau-net.html" class="proj-card reveal">
-          <div class="proj-card-thumb thumb-alt">{% include icon.html id="fas-building-shield" %}</div>
+          <div class="proj-card-thumb thumb-alt"><i class="fas fa-building-shield"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt" data-fr="{% include icon.html id='fas-check-circle' %} Terminé (2026)" data-en="{% include icon.html id='fas-check-circle' %} Completed (2026)" data-i18n-html>{% include icon.html id="fas-check-circle" %} Terminé (2026)</span>
+            <span class="proj-badge badge-alt" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminé (2026)" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed (2026)" data-i18n-html><i class="fas fa-check-circle"></i> Terminé (2026)</span>
             <h3 class="proj-title" data-fr="Réseau-Net — Alternant Ingénieur Systèmes &amp; Réseaux" data-en="Réseau-Net — Work-study Systems &amp; Network Engineer">Réseau-Net — Alternant Ingénieur Systèmes &amp; Réseaux</h3>
-            <p class="proj-desc" data-fr="Administration d’infrastructures multi-clients&nbsp;: virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium et Centreon, sauvegarde Veeam, support utilisateurs (hotline, tickets et escalades)." data-en="Multi-client infrastructure administration: VMware/Hyper-V virtualization, Fortinet security, Observium and Centreon monitoring, Veeam backup, user support (helpdesk, tickets and escalations).">Administration d’infrastructures multi-clients&nbsp;: virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium et Centreon, sauvegarde Veeam, support utilisateurs (hotline, tickets et escalades).</p>
+            <p class="proj-desc" data-fr="Administration d'infrastructures multi-clients : virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium et Centreon, sauvegarde Veeam, support utilisateurs (hotline, tickets et escalades)." data-en="Multi-client infrastructure administration: VMware/Hyper-V virtualization, Fortinet security, Observium and Centreon monitoring, Veeam backup, user support (helpdesk, tickets and escalations).">Administration d'infrastructures multi-clients : virtualisation VMware/Hyper-V, sécurité Fortinet, supervision Observium et Centreon, sauvegarde Veeam, support utilisateurs (hotline, tickets et escalades).</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">FortiGate</span><span class="ptag" translate="no">VMware</span><span class="ptag" translate="no">SentinelOne</span><span class="ptag" translate="no">Veeam</span><span class="ptag" translate="no">Python/Bash</span>
+              <span class="ptag">FortiGate</span><span class="ptag">VMware</span><span class="ptag">SentinelOne</span><span class="ptag">Veeam</span><span class="ptag">Python/Bash</span>
             </div>
-            <span class="proj-link" data-fr="Voir le détail {% include icon.html id='fas-arrow-right' %}" data-en="View details {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
         <a href="/alternance/solinest.html" class="proj-card reveal" style="transition-delay:.1s">
-          <div class="proj-card-thumb thumb-alt" style="background: var(--canvas-soft);">{% include icon.html id="fas-industry" style="color: var(--body-strong)" %}</div>
+          <div class="proj-card-thumb thumb-alt" style="background:linear-gradient(135deg,#1a2e1a,#1e3a1e);"><i class="fas fa-industry" style="color:#4ade80"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt" style="background: var(--tint);color: var(--body-strong)" data-fr="{% include icon.html id='fas-check-circle' %} Terminé (2024)" data-en="{% include icon.html id='fas-check-circle' %} Completed (2024)" data-i18n-html>{% include icon.html id="fas-check-circle" %} Terminé (2024)</span>
+            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminé (2024)" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed (2024)" data-i18n-html><i class="fas fa-check-circle"></i> Terminé (2024)</span>
             <h3 class="proj-title" data-fr="SOLINEST — Alternant Technicien Systèmes &amp; Réseaux" data-en="SOLINEST — Work-study Systems &amp; Network Technician">SOLINEST — Alternant Technicien Systèmes &amp; Réseaux</h3>
             <p class="proj-desc" data-fr="Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité." data-en="L1/L2 helpdesk support, multi-site asset management, Windows Server 2008 R2 to 2016 migration, Centreon monitoring, cybersecurity awareness.">Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">GLPI</span><span class="ptag" translate="no">VMware</span><span class="ptag" translate="no">Veeam</span><span class="ptag" translate="no">Centreon</span><span class="ptag" translate="no">Google Workspace</span>
+              <span class="ptag">GLPI</span><span class="ptag">VMware</span><span class="ptag">Veeam</span><span class="ptag">Centreon</span><span class="ptag">Google Workspace</span>
             </div>
-            <span class="proj-link" data-fr="Voir le détail {% include icon.html id='fas-arrow-right' %}" data-en="View details {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le détail <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View details <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le détail <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
@@ -152,28 +236,28 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
       <div class="proj-grid proj-center">
 
         <a href="/projets_pro/refonte_glpi.html" class="proj-card reveal">
-          <div class="proj-card-thumb thumb-pro">{% include icon.html id="fas-ticket" %}</div>
+          <div class="proj-card-thumb thumb-pro"><i class="fas fa-ticket"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-pro" data-fr="{% include icon.html id='fas-industry' %} SOLINEST Projet phare" data-en="{% include icon.html id='fas-industry' %} SOLINEST Flagship project" data-i18n-html>{% include icon.html id="fas-industry" %} SOLINEST Projet phare</span>
+            <span class="proj-badge badge-pro" data-fr="<i class=&quot;fas fa-industry&quot;></i> SOLINEST Projet phare" data-en="<i class=&quot;fas fa-industry&quot;></i> SOLINEST Flagship project" data-i18n-html><i class="fas fa-industry"></i> SOLINEST Projet phare</span>
             <h3 class="proj-title" data-fr="Refonte de GLPI — Migration 9.x → 10.x" data-en="GLPI overhaul — Migration 9.x → 10.x">Refonte de GLPI — Migration 9.x → 10.x</h3>
-            <p class="proj-desc" data-fr="Migration technique et refonte fonctionnelle de l’outil de ticketing&nbsp;: types de demandes, workflow d’attribution, politique de notifications, formulaires Formcreator, SSO Google Workspace et base de connaissances, pour 500+ collaborateurs." data-en="Technical migration and functional overhaul of the ticketing tool: request types, assignment workflow, notification policy, Formcreator forms, Google Workspace SSO, and knowledge base, for 500+ employees.">Migration technique et refonte fonctionnelle de l’outil de ticketing&nbsp;: types de demandes, workflow d’attribution, politique de notifications, formulaires Formcreator, SSO Google Workspace et base de connaissances, pour 500+ collaborateurs.</p>
+            <p class="proj-desc" data-fr="Migration technique et refonte fonctionnelle de l'outil de ticketing : types de demandes, workflow d'attribution, politique de notifications, formulaires Formcreator, SSO Google Workspace et base de connaissances, pour 500+ collaborateurs." data-en="Technical migration and functional overhaul of the ticketing tool: request types, assignment workflow, notification policy, Formcreator forms, Google Workspace SSO, and knowledge base, for 500+ employees.">Migration technique et refonte fonctionnelle de l'outil de ticketing : types de demandes, workflow d'attribution, politique de notifications, formulaires Formcreator, SSO Google Workspace et base de connaissances, pour 500+ collaborateurs.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">GLPI 10</span><span class="ptag" translate="no">Formcreator</span><span class="ptag" translate="no">SSO Google Workspace</span><span class="ptag" data-fr="Workflow" data-en="Workflow">Workflow</span><span class="ptag" data-fr="Notifications" data-en="Notifications">Notifications</span>
+              <span class="ptag">GLPI 10</span><span class="ptag">Formcreator</span><span class="ptag">SSO Google Workspace</span><span class="ptag" data-fr="Workflow" data-en="Workflow">Workflow</span><span class="ptag" data-fr="Notifications" data-en="Notifications">Notifications</span>
             </div>
-            <span class="proj-link" data-fr="Voir le projet {% include icon.html id='fas-arrow-right' %}" data-en="View project {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le projet {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le projet <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View project <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
         <a href="/projets_pro/monitoring_admin.html" class="proj-card reveal" style="transition-delay:.1s">
-          <div class="proj-card-thumb thumb-mon">{% include icon.html id="fas-chart-line" %}</div>
+          <div class="proj-card-thumb thumb-mon"><i class="fas fa-chart-line"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-pro" style="background: var(--tint);color: var(--body-strong)" data-fr="{% include icon.html id='fas-building' %} Réseau-Net Projet phare" data-en="{% include icon.html id='fas-building' %} Réseau-Net Flagship project" data-i18n-html>{% include icon.html id="fas-building" %} Réseau-Net Projet phare</span>
-            <h3 class="proj-title" data-fr="Portail d’administration de la supervision" data-en="Monitoring admin portal">Portail d’administration de la supervision</h3>
-            <p class="proj-desc" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients&nbsp;: base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier. Livré en ≈ 2 semaines en pair avec Claude Code, isolé sur un segment réseau dédié." data-en="In-house web interface driving a multi-client Prometheus / Grafana / Blackbox Exporter stack: SQLite as source of truth, automatic config regeneration, HTML email alerts with embedded graphs, and daily digest. Shipped in ≈ 2 weeks paired with Claude Code, isolated on a dedicated network segment.">Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients&nbsp;: base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier. Livré en ≈ 2 semaines en pair avec Claude Code, isolé sur un segment réseau dédié.</p>
+            <span class="proj-badge badge-pro" style="background:rgba(14,165,233,.1);color:#0284c7" data-fr="<i class=&quot;fas fa-building&quot;></i> Réseau-Net Projet phare" data-en="<i class=&quot;fas fa-building&quot;></i> Réseau-Net Flagship project" data-i18n-html><i class="fas fa-building"></i> Réseau-Net Projet phare</span>
+            <h3 class="proj-title" data-fr="Portail d'administration de la supervision" data-en="Monitoring admin portal">Portail d'administration de la supervision</h3>
+            <p class="proj-desc" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier. Livré en ≈ 2 semaines en pair avec Claude Code, isolé sur un segment réseau dédié." data-en="In-house web interface driving a multi-client Prometheus / Grafana / Blackbox Exporter stack: SQLite as source of truth, automatic config regeneration, HTML email alerts with embedded graphs, and daily digest. Shipped in ≈ 2 weeks paired with Claude Code, isolated on a dedicated network segment.">Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier. Livré en ≈ 2 semaines en pair avec Claude Code, isolé sur un segment réseau dédié.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">FastAPI</span><span class="ptag" translate="no">HTMX</span><span class="ptag" translate="no">Prometheus</span><span class="ptag" translate="no">Grafana</span><span class="ptag" translate="no">Claude Code</span>
+              <span class="ptag">FastAPI</span><span class="ptag">HTMX</span><span class="ptag">Prometheus</span><span class="ptag">Grafana</span><span class="ptag">Claude Code</span>
             </div>
-            <span class="proj-link" data-fr="Voir le projet {% include icon.html id='fas-arrow-right' %}" data-en="View project {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le projet {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le projet <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View project <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
@@ -186,26 +270,26 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
     <div class="inner">
       <div class="s-header">
         <span class="s-tag" data-fr="Formation académique" data-en="Academic training">Formation académique</span>
-        <h2 class="s-title" data-fr="Master INSA &amp; BUT Réseaux &amp; Télécommunications" data-en="INSA Master’s &amp; B.Tech Networks &amp; Telecommunications">Master INSA &amp; BUT Réseaux &amp; Télécommunications</h2>
+        <h2 class="s-title" data-fr="Master INSA &amp; BUT Réseaux &amp; Télécommunications" data-en="INSA Master's &amp; B.Tech Networks &amp; Telecommunications">Master INSA &amp; BUT Réseaux &amp; Télécommunications</h2>
         <p class="s-sub" data-fr="INSA Hauts-de-France, Maubeuge (2024–2026) puis Université de Haute-Alsace, Colmar (2021–2024)." data-en="INSA Hauts-de-France, Maubeuge (2024–2026) then Université de Haute-Alsace, Colmar (2021–2024).">INSA Hauts-de-France, Maubeuge (2024–2026) puis Université de Haute-Alsace, Colmar (2021–2024).</p>
       </div>
 
       <div class="sub-header reveal">
-        <h3 class="sub-title" data-fr="Master Réseaux &amp; Télécommunications, option CDSI" data-en="Master’s in Networks &amp; Telecommunications, CDSI track">Master Réseaux &amp; Télécommunications, option CDSI</h3>
+        <h3 class="sub-title" data-fr="Master Réseaux &amp; Télécommunications, option CDSI" data-en="Master's in Networks &amp; Telecommunications, CDSI track">Master Réseaux &amp; Télécommunications, option CDSI</h3>
       </div>
       <div class="proj-grid proj-center" style="margin-bottom:3rem;">
         <div class="proj-card reveal">
-          <div class="proj-card-thumb thumb-insa">{% include icon.html id="fas-shield-halved" %}</div>
+          <div class="proj-card-thumb thumb-insa"><i class="fas fa-shield-halved"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt" data-fr="{% include icon.html id='fas-graduation-cap' %} Diplôme obtenu (2026)" data-en="{% include icon.html id='fas-graduation-cap' %} Degree awarded (2026)" data-i18n-html>{% include icon.html id="fas-graduation-cap" %} Diplôme obtenu (2026)</span>
-            <h3 class="proj-title" data-fr="Master CDSI — Projets &amp; Compétences" data-en="CDSI Master’s — Projects &amp; Skills">Master CDSI — Projets &amp; Compétences</h3>
-            <p class="proj-desc" data-fr="Diplômé en 2026, en alternance chez RESEAU-NET. Côté école, de la cryptographie aux systèmes industriels&#8239;; côté entreprise, de la hotline à la supervision réseau et à la gestion d’un EDR sur plus de 800 postes. Parcours, projets phares, labs et compétences sur la page dédiée." data-en="Graduated in 2026, as a work-study student at RESEAU-NET. At school, everything from cryptography to industrial systems; at work, from the helpdesk to network monitoring and running an EDR across more than 800 endpoints. Programme, key projects, labs and skills on the dedicated page.">Diplômé en 2026, en alternance chez RESEAU-NET. Côté école, de la cryptographie aux systèmes industriels&#8239;; côté entreprise, de la hotline à la supervision réseau et à la gestion d’un EDR sur plus de 800 postes. Parcours, projets phares, labs et compétences sur la page dédiée.</p>
+            <span class="proj-badge badge-alt" data-fr="<i class=&quot;fas fa-graduation-cap&quot;></i> Diplôme obtenu (2026)" data-en="<i class=&quot;fas fa-graduation-cap&quot;></i> Degree awarded (2026)" data-i18n-html><i class="fas fa-graduation-cap"></i> Diplôme obtenu (2026)</span>
+            <h3 class="proj-title" data-fr="Master CDSI — Projets &amp; Compétences" data-en="CDSI Master's — Projects &amp; Skills">Master CDSI — Projets &amp; Compétences</h3>
+            <p class="proj-desc" data-fr="Diplômé en 2026, en alternance chez RESEAU-NET. Côté école, de la cryptographie aux systèmes industriels ; côté entreprise, de la hotline à la supervision réseau et à la gestion d'un EDR sur plus de 800 postes. Parcours, projets phares, labs et compétences sur la page dédiée." data-en="Graduated in 2026, as a work-study student at RESEAU-NET. At school, everything from cryptography to industrial systems; at work, from the helpdesk to network monitoring and running an EDR across more than 800 endpoints. Programme, key projects, labs and skills on the dedicated page.">Diplômé en 2026, en alternance chez RESEAU-NET. Côté école, de la cryptographie aux systèmes industriels ; côté entreprise, de la hotline à la supervision réseau et à la gestion d'un EDR sur plus de 800 postes. Parcours, projets phares, labs et compétences sur la page dédiée.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">EBIOS RM</span><span class="ptag" translate="no">IEC 62443</span><span class="ptag" data-fr="Cryptographie" data-en="Cryptography">Cryptographie</span><span class="ptag" translate="no">EDR</span><span class="ptag" data-fr="Réponse à incident" data-en="Incident response">Réponse à incident</span>
+              <span class="ptag">EBIOS RM</span><span class="ptag">IEC 62443</span><span class="ptag" data-fr="Cryptographie" data-en="Cryptography">Cryptographie</span><span class="ptag">EDR</span><span class="ptag" data-fr="Réponse à incident" data-en="Incident response">Réponse à incident</span>
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:auto;padding-top:.75rem">
-              <a href="/master.html" class="proj-link" data-fr="Voir le détail du Master {% include icon.html id='fas-arrow-right' %}" data-en="See the Master’s in detail {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail du Master {% include icon.html id="fas-arrow-right" %}</a>
-              <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link" data-fr="Formation INSA {% include icon.html id='fas-external-link-alt' %}" data-en="INSA programme {% include icon.html id='fas-external-link-alt' %}" data-i18n-html aria-describedby="nouvel-onglet">Formation INSA {% include icon.html id="fas-external-link-alt" %}</a>
+              <a href="/master.html" class="proj-link" data-fr="Voir le détail du Master &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-en="See the Master's in detail &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-i18n-html>Voir le détail du Master <i class="fas fa-arrow-right"></i></a>
+              <a href="https://www.insa-hautsdefrance.fr/formation/masters" target="_blank" class="proj-link no-script-execution" data-fr="Formation INSA <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="INSA programme <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>Formation INSA <i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
@@ -216,15 +300,15 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
       </div>
       <div class="proj-grid proj-center">
         <a href="/but.html" class="proj-card reveal">
-          <div class="proj-card-thumb thumb-but">{% include icon.html id="fas-graduation-cap" %}</div>
+          <div class="proj-card-thumb thumb-but"><i class="fas fa-graduation-cap"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-form">{% include icon.html id="fas-layer-group" %} BUT 1 · 2 · 3</span>
+            <span class="proj-badge badge-form"><i class="fas fa-layer-group"></i> BUT 1 · 2 · 3</span>
             <h3 class="proj-title" data-fr="Compétences &amp; SAE — BUT complet (3 ans)" data-en="Skills &amp; Projects — Full B.Tech (3 years)">Compétences &amp; SAE — BUT complet (3 ans)</h3>
-            <p class="proj-desc" data-fr="Toutes mes compétences du BUT R&T regroupées en une seule page&nbsp;: apprentissages critiques, composantes essentielles et projets SAE par année et par domaine." data-en="All my BUT R&T skills on one page: critical learning outcomes, core components, and SAE projects by year and domain.">Toutes mes compétences du BUT R&T regroupées en une seule page&nbsp;: apprentissages critiques, composantes essentielles et projets SAE par année et par domaine.</p>
+            <p class="proj-desc" data-fr="Toutes mes compétences du BUT R&T regroupées en une seule page : apprentissages critiques, composantes essentielles et projets SAE par année et par domaine." data-en="All my BUT R&T skills on one page: critical learning outcomes, core components, and SAE projects by year and domain.">Toutes mes compétences du BUT R&T regroupées en une seule page : apprentissages critiques, composantes essentielles et projets SAE par année et par domaine.</p>
             <div class="proj-tags">
-              <span class="ptag" data-fr="Réseau" data-en="Network">Réseau</span><span class="ptag" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span><span class="ptag" translate="no">ToIP</span><span class="ptag" translate="no">Python</span><span class="ptag" translate="no">Pentesting</span>
+              <span class="ptag" data-fr="Réseau" data-en="Network">Réseau</span><span class="ptag" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span><span class="ptag">ToIP</span><span class="ptag">Python</span><span class="ptag">Pentesting</span>
             </div>
-            <span class="proj-link" data-fr="Voir toutes les compétences {% include icon.html id='fas-arrow-right' %}" data-en="View all skills {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir toutes les compétences {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir toutes les compétences <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View all skills <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir toutes les compétences <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
       </div>
@@ -237,78 +321,78 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
       <div class="s-header">
         <span class="s-tag" data-fr="Projets SAE" data-en="Academic projects">Projets SAE</span>
         <h2 class="s-title" data-fr="Projets académiques" data-en="Academic projects">Projets académiques</h2>
-        <p class="s-sub" data-fr="Situations d’apprentissage et d’évaluation réalisées durant le BUT R&T." data-en="Learning and assessment projects completed during the B.Tech (BUT R&T).">Situations d’apprentissage et d’évaluation réalisées durant le BUT R&T.</p>
+        <p class="s-sub" data-fr="Situations d'apprentissage et d'évaluation réalisées durant le BUT R&T." data-en="Learning and assessment projects completed during the B.Tech (BUT R&T).">Situations d'apprentissage et d'évaluation réalisées durant le BUT R&T.</p>
       </div>
       <div class="proj-grid">
 
         <a href="/SAE23/SAE23_fr.html" class="proj-card reveal" style="transition-delay:.1s" data-href-fr="/SAE23/SAE23_fr.html" data-href-en="/SAE23/SAE23.html">
-          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-code" style="color: var(--body-strong)" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1c1917,#292524);"><i class="fas fa-code" style="color:#fb923c"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj">{% include icon.html id="fas-terminal" %} SAE 2.3 · S2</span>
-            <h3 class="proj-title" data-fr="SAE23 — Solution informatique pour l’entreprise" data-en="SAE23 — IT solution for business">SAE23 — Solution informatique pour l’entreprise</h3>
-            <p class="proj-desc" data-fr="Mise en place d’une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation." data-en="Setting up an application-based IT solution for a business context. System integration, development and documentation.">Mise en place d’une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation.</p>
+            <span class="proj-badge badge-proj"><i class="fas fa-terminal"></i> SAE 2.3 · S2</span>
+            <h3 class="proj-title" data-fr="SAE23 — Solution informatique pour l'entreprise" data-en="SAE23 — IT solution for business">SAE23 — Solution informatique pour l'entreprise</h3>
+            <p class="proj-desc" data-fr="Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation." data-en="Setting up an application-based IT solution for a business context. System integration, development and documentation.">Mise en place d'une solution informatique applicative pour un contexte entreprise. Intégration système, développement et documentation.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">Python</span><span class="ptag" translate="no">Documentation</span><span class="ptag" data-fr="Entreprise" data-en="Business">Entreprise</span>
+              <span class="ptag">Python</span><span class="ptag">Documentation</span><span class="ptag" data-fr="Entreprise" data-en="Business">Entreprise</span>
             </div>
-            <span class="proj-link" data-fr="Voir le projet {% include icon.html id='fas-arrow-right' %}" data-en="View project {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le projet {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le projet <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View project <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
 
         <div class="proj-card reveal" style="transition-delay:.2s">
-          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-network-wired" style="color: var(--body-strong)" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#172028,#1a3040);"><i class="fas fa-network-wired" style="color:#38bdf8"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj">{% include icon.html id="fas-diagram-project" %} SAE 3.03 · S3</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-diagram-project"></i> SAE 3.03 · S3</span>
             <h3 class="proj-title" data-fr="SAE303 — Réseau multi-site" data-en="SAE303 — Multi-site network">SAE303 — Réseau multi-site</h3>
             <p class="proj-desc" data-fr="Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI." data-en="Multi-site network architecture for two e-commerce companies (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, high availability with dual ISP.">Architecture réseau multi-sites pour deux entreprises e-commerce (UC Exchange, ABC Conseil). MSTP, VRRP, NAT, haute disponibilité avec double FAI.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">MSTP</span><span class="ptag" translate="no">VRRP</span><span class="ptag" translate="no">NAT</span><span class="ptag" translate="no">DHCP</span><span class="ptag" translate="no">AD</span>
+              <span class="ptag">MSTP</span><span class="ptag">VRRP</span><span class="ptag">NAT</span><span class="ptag">DHCP</span><span class="ptag">AD</span>
             </div>
             <div style="display:flex;gap:.5rem;margin-top:auto;padding-top:.75rem">
-              <a href="/documents/SAE303/Partie-LAN.pdf" target="_blank" class="proj-link" style="font-size:.78rem" aria-describedby="nouvel-onglet">LAN {% include icon.html id="fas-external-link-alt" %}</a>
-              <a href="/documents/SAE303/Partie-service-reseaux.pdf" target="_blank" class="proj-link" style="font-size:.78rem" data-fr="Services {% include icon.html id='fas-external-link-alt' %}" data-en="Services {% include icon.html id='fas-external-link-alt' %}" data-i18n-html aria-describedby="nouvel-onglet">Services {% include icon.html id="fas-external-link-alt" %}</a>
-              <a href="/documents/SAE303/Compte_rendu_partie_FAI.pdf" target="_blank" class="proj-link" style="font-size:.78rem" data-fr="FAI {% include icon.html id='fas-external-link-alt' %}" data-en="ISP {% include icon.html id='fas-external-link-alt' %}" data-i18n-html aria-describedby="nouvel-onglet">FAI {% include icon.html id="fas-external-link-alt" %}</a>
+              <a href="/documents/SAE303/Partie-LAN.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">LAN <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE303/Partie-service-reseaux.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem" data-fr="Services <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="Services <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>Services <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE303/Compte_rendu_partie_FAI.pdf" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem" data-fr="FAI <i class=&quot;fas fa-external-link-alt&quot;></i>" data-en="ISP <i class=&quot;fas fa-external-link-alt&quot;></i>" data-i18n-html>FAI <i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
 
         <div class="proj-card reveal" style="transition-delay:.3s">
-          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-bug" style="color: var(--body-strong)" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a1a2e,#2d1a3e);"><i class="fas fa-bug" style="color:#a78bfa"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj">{% include icon.html id="fas-shield-halved" %} SAE 3.04 · S3</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-shield-halved"></i> SAE 3.04 · S3</span>
             <h3 class="proj-title" data-fr="SAE304 — Découverte du pentesting (Root-Me)" data-en="SAE304 — Introduction to pentesting (Root-Me)">SAE304 — Découverte du pentesting (Root-Me)</h3>
             <p class="proj-desc" data-fr="Résolution de défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils." data-en="Solving challenges on Root-Me covering cryptography, steganography, web vulnerabilities, and reverse engineering. Using Wireshark, Burp Suite, and other tools.">Résolution de défis sur Root-Me couvrant cryptographie, stéganographie, failles web, reverse engineering. Utilisation de Wireshark, Burp Suite et autres outils.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">Pentest</span><span class="ptag" translate="no">Wireshark</span><span class="ptag" translate="no">Burp Suite</span><span class="ptag" translate="no">Root-Me</span>
+              <span class="ptag">Pentest</span><span class="ptag">Wireshark</span><span class="ptag">Burp Suite</span><span class="ptag">Root-Me</span>
             </div>
-            <span class="proj-link disabled" data-fr="Rapport non public (Root-Me) {% include icon.html id='fas-lock' %}" data-en="Non-public report (Root-Me) {% include icon.html id='fas-lock' %}" data-i18n-html>Rapport non public (Root-Me) {% include icon.html id="fas-lock" %}</span>
+            <span class="proj-link disabled" data-fr="Rapport non public (Root-Me) <i class=&quot;fas fa-lock&quot;></i>" data-en="Non-public report (Root-Me) <i class=&quot;fas fa-lock&quot;></i>" data-i18n-html>Rapport non public (Root-Me) <i class="fas fa-lock"></i></span>
           </div>
         </div>
 
         <div class="proj-card reveal" style="transition-delay:.15s">
-          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-terminal" style="color: var(--body-strong)" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2018,#283a20);"><i class="fas fa-terminal" style="color:#86efac"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj">{% include icon.html id="fas-code-branch" %} SAE 3.02 · S3</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-code-branch"></i> SAE 3.02 · S3</span>
             <h3 class="proj-title" data-fr="SAE302 — Interface de surveillance distante" data-en="SAE302 — Remote monitoring interface">SAE302 — Interface de surveillance distante</h3>
-            <p class="proj-desc" data-fr="Système client-serveur permettant d’envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l’image du protocole SNMP." data-en="Client-server system for sending system commands remotely to monitor and diagnose machines, similar to the SNMP protocol.">Système client-serveur permettant d’envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l’image du protocole SNMP.</p>
+            <p class="proj-desc" data-fr="Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP." data-en="Client-server system for sending system commands remotely to monitor and diagnose machines, similar to the SNMP protocol.">Système client-serveur permettant d'envoyer des commandes systèmes à distance pour superviser et diagnostiquer des machines, à l'image du protocole SNMP.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">Python</span><span class="ptag" translate="no">Sockets</span><span class="ptag" translate="no">Client-Serveur</span><span class="ptag" translate="no">SSH</span>
+              <span class="ptag">Python</span><span class="ptag">Sockets</span><span class="ptag">Client-Serveur</span><span class="ptag">SSH</span>
             </div>
-            <a href="https://github.com/TheWilli67/SAE302" target="_blank" class="proj-link" aria-describedby="nouvel-onglet">GitHub {% include icon.html id="fas-external-link-alt" %}</a>
+            <a href="https://github.com/TheWilli67/SAE302" target="_blank" class="proj-link no-script-execution">GitHub <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
 
         <div class="proj-card reveal" style="transition-delay:.25s">
-          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-list-check" style="color: var(--body-strong)" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2028,#1a3028);"><i class="fas fa-list-check" style="color:#34d399"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj">{% include icon.html id="fas-users-gear" %} SAÉ 5.02 · S5</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-users-gear"></i> SAÉ 5.02 · S5</span>
             <h3 class="proj-title" data-fr="SAE502 — Pilotage de projet (TODO-List)" data-en="SAE502 — Project management (TODO-List)">SAE502 — Pilotage de projet (TODO-List)</h3>
-            <p class="proj-desc" data-fr="Développement en équipe (7-8 personnes, méthode SCRUM) d’une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello." data-en="Team development (7-8 people, SCRUM methodology) of a Python TODO-List app using Docker, PyTest, Sphinx, GitHub, and Trello.">Développement en équipe (7-8 personnes, méthode SCRUM) d’une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello.</p>
+            <p class="proj-desc" data-fr="Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello." data-en="Team development (7-8 people, SCRUM methodology) of a Python TODO-List app using Docker, PyTest, Sphinx, GitHub, and Trello.">Développement en équipe (7-8 personnes, méthode SCRUM) d'une application TODO-List en Python avec Docker, PyTest, Sphinx, GitHub et Trello.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">Python</span><span class="ptag" translate="no">SCRUM</span><span class="ptag" translate="no">Docker</span><span class="ptag" translate="no">PyTest</span><span class="ptag" translate="no">GitHub</span>
+              <span class="ptag">Python</span><span class="ptag">SCRUM</span><span class="ptag">Docker</span><span class="ptag">PyTest</span><span class="ptag">GitHub</span>
             </div>
             <div style="display:flex;gap:.5rem;margin-top:auto;padding-top:.75rem">
-              <a href="https://github.com/TheWilli67/YeGrec" target="_blank" class="proj-link" style="font-size:.78rem" aria-describedby="nouvel-onglet">GitHub {% include icon.html id="fas-external-link-alt" %}</a>
-              <a href="/documents/SAE502/Sphinx.docx" target="_blank" class="proj-link" style="font-size:.78rem" aria-describedby="nouvel-onglet">Sphinx.docx {% include icon.html id="fas-external-link-alt" %}</a>
+              <a href="https://github.com/TheWilli67/YeGrec" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">GitHub <i class="fas fa-external-link-alt"></i></a>
+              <a href="/documents/SAE502/Sphinx.docx" target="_blank" class="proj-link no-script-execution" style="font-size:.78rem">Sphinx.docx <i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </div>
@@ -323,28 +407,44 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
       <div class="s-header">
         <span class="s-tag" data-fr="Lycée Jean-Baptiste Schwillgué · Terminale STI2D" data-en="Jean-Baptiste Schwillgué High School · Final year">Lycée Jean-Baptiste Schwillgué · Terminale STI2D</span>
         <h2 class="s-title" data-fr="Projet de Terminale" data-en="High School Final-year Project">Projet de Terminale</h2>
-        <p class="s-sub" data-fr="Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l’entrée en BUT." data-en="Multi-technology integrative project completed in the final year of high school (ITEC track), before starting the B.Tech.">Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l’entrée en BUT.</p>
+        <p class="s-sub" data-fr="Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT." data-en="Multi-technology integrative project completed in the final year of high school (ITEC track), before starting the B.Tech.">Projet intégratif pluritechnologique réalisé en Terminale ITEC, avant l'entrée en BUT.</p>
       </div>
       <div class="proj-grid proj-center">
         <a href="/projet_72h.html" class="proj-card reveal">
-          <div class="proj-card-thumb thumb-proj">{% include icon.html id="fas-water" %}</div>
+          <div class="proj-card-thumb thumb-proj"><i class="fas fa-water"></i></div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-proj">{% include icon.html id="fas-clock" %} Projet 72h</span>
+            <span class="proj-badge badge-proj"><i class="fas fa-clock"></i> Projet 72h</span>
             <h3 class="proj-title" data-fr="Hydrolienne portable — Projet intégratif 72h" data-en="Portable water turbine — 72h integrative project">Hydrolienne portable — Projet intégratif 72h</h3>
-            <p class="proj-desc" data-fr="Conception et modélisation 3D d’une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge." data-en="Design and 3D modelling of a portable hydroelectric turbine in 72 hours. 3D printing, waterproofing, transmission chain and charging.">Conception et modélisation 3D d’une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge.</p>
+            <p class="proj-desc" data-fr="Conception et modélisation 3D d'une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge." data-en="Design and 3D modelling of a portable hydroelectric turbine in 72 hours. 3D printing, waterproofing, transmission chain and charging.">Conception et modélisation 3D d'une turbine hydroélectrique portable en 72 heures. Impression 3D, étanchéité, chaîne de transmission et recharge.</p>
             <div class="proj-tags">
-              <span class="ptag" translate="no">CAO 3D</span><span class="ptag" data-fr="Impression 3D" data-en="3D printing">Impression 3D</span><span class="ptag" data-fr="Mécanique" data-en="Mechanics">Mécanique</span><span class="ptag" data-fr="Énergie" data-en="Energy">Énergie</span>
+              <span class="ptag">CAO 3D</span><span class="ptag" data-fr="Impression 3D" data-en="3D printing">Impression 3D</span><span class="ptag" data-fr="Mécanique" data-en="Mechanics">Mécanique</span><span class="ptag" data-fr="Énergie" data-en="Energy">Énergie</span>
             </div>
-            <span class="proj-link" data-fr="Voir le projet {% include icon.html id='fas-arrow-right' %}" data-en="View project {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le projet {% include icon.html id="fas-arrow-right" %}</span>
+            <span class="proj-link" data-fr="Voir le projet <i class=&quot;fas fa-arrow-right&quot;></i>" data-en="View project <i class=&quot;fas fa-arrow-right&quot;></i>" data-i18n-html>Voir le projet <i class="fas fa-arrow-right"></i></span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+    </div>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
 
-  {% include footer.html %}
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
 
 </body>
 </html>

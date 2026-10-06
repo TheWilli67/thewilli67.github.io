@@ -1,101 +1,176 @@
 ---
 # Page traitée par Jekyll (GitHub Pages) : elle est générée à partir de _data/steam.json
 # (synchronisé avec Steam par l'Action « Publication du site ») et de _data/jeux.yml.
-title: "Ludothèque"
-description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William Hertrich"
 ---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  {% include head.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ma ludothèque · Jeux terminés et bibliothèque Steam de William Hertrich">
+  <link rel="canonical" href="https://thewilli67.github.io/jeux.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Ludothèque">
+  <meta property="og:description" content="Ma ludothèque · Jeux terminés et bibliothèque Steam de William Hertrich">
+  <meta property="og:url" content="https://thewilli67.github.io/jeux.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — Ludothèque</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
+  <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
+      --bg: #f8fafc; --bg-alt: #f1f5f9; --bg-card: #ffffff;
+      --bg-dark: #0f172a; --bg-dark-2: #1e293b;
+      --accent: #2563eb; --accent-h: #1d4ed8; --accent-lt: #dbeafe;
+      --text: #0f172a; --text-m: #64748b; --text-lt: #94a3b8;
+      --border: #e2e8f0;
+      --sh-sm: 0 1px 3px rgba(0,0,0,.06); --sh: 0 4px 16px rgba(0,0,0,.08);
+      --r: 12px; --font: 'Inter', system-ui, sans-serif; --t: .25s ease;
       --indigo: #6366f1;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); opacity: 0; transition: opacity .5s ease; line-height: 1.6; }
+    body.fade-in { opacity: 1; } body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
+    a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } ul { list-style: none; }
 
-    .pheader { padding: 7rem 5% 5rem; }
-    .pheader::before { background: none; }
-    .ph-eyebrow { color: var(--body-strong); }
-    .ph-title { margin-bottom: .75rem; }
-    .ph-sub { line-height: 1.75; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 64px; background: rgba(15,23,42,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a { display: block; padding: .45rem 1rem; color: #94a3b8; font-size: .82rem; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; border-radius: 6px; transition: var(--t); }
+    .nav-links a:hover { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
+
+    .pheader { background: var(--bg-dark); padding: 7rem 5% 5rem; position: relative; overflow: hidden; }
+    .pheader::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(99,102,241,.12) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 15% 70%, rgba(37,99,235,.08) 0%, transparent 50%); pointer-events: none; }
+    .pheader::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%); pointer-events: none; }
+    .ph-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .ph-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; color: #a5b4fc; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .ph-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: #a5b4fc; border-radius: 2px; }
+    .ph-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; color: #f8fafc; line-height: 1.1; letter-spacing: -.02em; margin-bottom: .75rem; }
+    .ph-sub { font-size: 1rem; color: #94a3b8; max-width: 600px; line-height: 1.75; }
     .stats-banner { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
     .stat-item { display: flex; flex-direction: column; }
-    .stat-num { font-variant-numeric: tabular-nums; font-size: 1.75rem; font-weight: 500; color: var(--body-strong); line-height: 1; }
-    .stat-label { font-size: .72rem; color: var(--body); margin-top: .3rem; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); }
+    .stat-num { font-size: 1.75rem; font-weight: 800; color: #a5b4fc; line-height: 1; }
+    .stat-label { font-size: .72rem; color: #94a3b8; margin-top: .3rem; letter-spacing: .06em; text-transform: uppercase; }
 
+    .section { padding: 5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner { max-width: 1100px; margin: 0 auto; }
     .s-header { text-align: center; margin-bottom: 3rem; }
-    .s-tag.indigo { color: var(--body-strong); background: var(--tint); }
-    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
-    .s-sub { font-size: .88rem; }
+    .s-tag { display: inline-block; margin-bottom: .75rem; font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px; }
+    .s-tag.indigo { color: var(--indigo); background: rgba(99,102,241,.1); }
+    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .s-sub { font-size: .88rem; color: var(--text-m); margin-top: .5rem; }
 
     /* Finished game cards */
     .finished-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .game-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.4rem; transition: var(--tr);
+      border-radius: var(--r); padding: 1.4rem;
+      box-shadow: var(--sh-sm); transition: var(--t);
       display: flex; flex-direction: column; gap: .6rem;
     }
-    .game-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
+    .game-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(99,102,241,.3); }
     .game-card-top { display: flex; justify-content: space-between; align-items: center; }
-    .badge-done { display: inline-flex; align-items: center; gap: .3rem; font-size: .68rem; font-weight: 600; color: var(--body-strong); background: var(--tint); padding: .2rem .6rem; border-radius: 3px; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); }
-    .badge-genre { font-size: .68rem; font-weight: 600; color: var(--body-strong); background: var(--tint); padding: .2rem .6rem; border-radius: 3px; }
-    .game-title { font-size: .92rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .badge-done { display: inline-flex; align-items: center; gap: .3rem; font-size: .68rem; font-weight: 700; color: #16a34a; background: rgba(34,197,94,.1); padding: .2rem .6rem; border-radius: 100px; letter-spacing: .04em; text-transform: uppercase; }
+    .badge-genre { font-size: .68rem; font-weight: 600; color: var(--indigo); background: rgba(99,102,241,.1); padding: .2rem .6rem; border-radius: 100px; }
+    .game-title { font-size: .92rem; font-weight: 700; color: var(--text); line-height: 1.3; }
     .game-meta { display: flex; gap: 1rem; }
-    .game-stat { font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--text-m); }
-    .game-stat .icon { font-size: .72rem; opacity: .7; }
+    .game-stat { display: flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--text-m); }
+    .game-stat i { font-size: .72rem; opacity: .7; }
     .achiev-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
-    .achiev-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+    .achiev-fill { height: 100%; background: var(--indigo); border-radius: 2px; }
     .achiev-label { display: flex; justify-content: space-between; font-size: .7rem; color: var(--text-lt); }
-    .achiev-label .pct { font-variant-numeric: tabular-nums; color: var(--body-strong); font-weight: 600; }
-    .achiev-label .pct.perfect { color: var(--body-strong); }
+    .achiev-label .pct { color: var(--indigo); font-weight: 600; }
+    .achiev-label .pct.perfect { color: #16a34a; }
 
     /* Steam section */
-    .steam-stats-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 2rem; }
+    .steam-stats-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm); margin-bottom: 2rem; }
     .steam-stat-cell { flex: 1; background: var(--bg-card); padding: 1.25rem 1rem; text-align: center; }
-    .steam-stat-num { font-variant-numeric: tabular-nums; font-size: 1.4rem; font-weight: 500; color: var(--body-strong); display: block; }
-    .steam-stat-lbl { font-size: .7rem; color: var(--text-m); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-top: .2rem; display: block; }
+    .steam-stat-num { font-size: 1.4rem; font-weight: 800; color: var(--indigo); display: block; }
+    .steam-stat-lbl { font-size: .7rem; color: var(--text-m); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; display: block; }
 
-    .games-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r); }
+    .games-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-sm); }
     .games-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
     .games-table thead { background: var(--bg-alt); }
-    .games-table th { text-align: left; padding: .75rem 1rem; font-size: .7rem; font-weight: 600; color: var(--text-m); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    .games-table th { text-align: left; padding: .75rem 1rem; font-size: .7rem; font-weight: 700; color: var(--text-m); text-transform: uppercase; letter-spacing: .08em; border-bottom: 1px solid var(--border); white-space: nowrap; }
     .games-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
     .games-table tbody tr:last-child td { border-bottom: none; }
-    .games-table tbody tr:hover td { background: var(--tint); }
+    .games-table tbody tr:hover td { background: rgba(99,102,241,.03); }
     .td-name { font-weight: 600; color: var(--text); }
-    .td-hours { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); white-space: nowrap; }
-    .td-achiev { font-variant-numeric: tabular-nums; font-size: .78rem; color: var(--text-m); white-space: nowrap; }
-    .td-achiev.perfect { color: var(--body-strong); font-weight: 600; }
-    .td-date { font-variant-numeric: tabular-nums; font-size: .76rem; color: var(--text-lt); white-space: nowrap; }
+    .td-hours { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .td-achiev { font-size: .78rem; color: var(--text-m); white-space: nowrap; }
+    .td-achiev.perfect { color: var(--indigo); font-weight: 700; }
+    .td-date { font-size: .76rem; color: var(--text-lt); white-space: nowrap; }
 
     .ns-header { display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 1.25rem; }
-    .ns-header span { font-size: .82rem; font-weight: 600; color: var(--text-m); white-space: nowrap; }
+    .ns-header span { font-size: .82rem; font-weight: 700; color: var(--text-m); white-space: nowrap; }
     .ns-header::before, .ns-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .ns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: .5rem; }
-    .ns-item { padding: .55rem .9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; font-size: .78rem; color: var(--text-m); transition: var(--tr); }
-    .ns-item:hover { border-color: var(--hairline); color: var(--text); }
+    .ns-item { padding: .55rem .9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: .78rem; color: var(--text-m); transition: var(--t); }
+    .ns-item:hover { border-color: rgba(99,102,241,.3); color: var(--text); }
+
+    [hidden] { display: none !important; }
     .sync-note { display: inline-flex; align-items: center; gap: .4rem; }
-    .sync-note .icon { color: var(--body-strong); font-size: .8rem; }
-    .td-plat { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; font-size: .66rem; font-weight: 600; color: var(--body-strong); background: var(--tint); border-radius: 3px; vertical-align: middle; white-space: nowrap; }
+    .sync-note i { color: var(--indigo); font-size: .8rem; }
+    .td-plat { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; font-size: .66rem; font-weight: 700; color: var(--indigo); background: rgba(99,102,241,.1); border-radius: 100px; vertical-align: middle; white-space: nowrap; }
     .steam-stat-lbl.top-name { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--text); }
     .games-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 1rem; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
 
     @media (max-width: 900px) {
       .finished-grid { grid-template-columns: repeat(2, 1fr); }
       .steam-stats-row { flex-wrap: wrap; }
     }
     @media (max-width: 600px) {
+      .section { padding: 4rem 1.25rem; }
       .pheader { padding: 6rem 1.25rem 3.5rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
       .finished-grid { grid-template-columns: 1fr; }
       .games-table th:nth-child(4), .games-table td:nth-child(4) { display: none; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-  {% include nav.html active="apropos" %}
-
-  <main id="contenu" tabindex="-1">
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/a_propos.html" class="active show" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+    </ul>
+  </nav>
 
   <header class="pheader">
     <div class="ph-inner">
@@ -125,7 +200,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       <div class="s-header">
         <span class="s-tag indigo" data-fr="Campagne principale terminée" data-en="Main story completed">Campagne principale terminée</span>
         <h2 class="s-title" data-fr="Jeux terminés" data-en="Completed games">Jeux terminés</h2>
-        <p class="s-sub" data-fr="Les jeux dont j’ai terminé le scénario principal." data-en="Games where I completed the main story.">Les jeux dont j’ai terminé le scénario principal.</p>
+        <p class="s-sub" data-fr="Les jeux dont j'ai terminé le scénario principal." data-en="Games where I completed the main story.">Les jeux dont j'ai terminé le scénario principal.</p>
       </div>
       <!-- Cartes générées à partir de « termines » dans _data/jeux.yml -->
       <div class="finished-grid reveal" id="finished-grid"></div>
@@ -186,9 +261,17 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     </div>
   </section>
 
-  </main>
-
-  {% include footer.html %}
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+    </div>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
 
   <!--
     Données injectées par Jekyll au moment de la publication. En local (sans Jekyll),
@@ -217,12 +300,6 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         node.textContent = LANG === 'en' ? en : fr;
         return node;
       }
-      /* Icône du sprite (SVG produit par Jekyll via _includes/icon.html) */
-      function icon(svg) {
-        var t = document.createElement('template');
-        t.innerHTML = svg;
-        return t.content.firstChild;
-      }
       function el(tag, cls) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;
@@ -231,29 +308,24 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       function norm(s) {
         return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '');
       }
-      /* Nombres et dates via Intl (séparateurs, décimales et mois propres à chaque langue) */
-      var LOCALE = { fr: 'fr-FR', en: 'en-GB' };
       function hours(min, lang) {
-        var n = new Intl.NumberFormat(LOCALE[lang], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(min / 60);
-        return n + (lang === 'en' ? ' h' : ' h');
+        var t = (min / 60).toFixed(1);
+        return (lang === 'en' ? t : t.replace('.', ',')) + ' h';
       }
       function int(n, lang) {
-        return new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 0 }).format(Math.round(n));
+        return Math.round(n).toLocaleString(lang === 'en' ? 'en-GB' : 'fr-FR');
       }
-      function percent(ratio, lang) {
-        return new Intl.NumberFormat(LOCALE[lang], { style: 'percent', maximumFractionDigits: 0 }).format(ratio);
-      }
-      function monthYear(d, lang) {
-        var s = new Intl.DateTimeFormat(LOCALE[lang], { month: 'short', year: 'numeric' }).format(d);
-        return s.charAt(0).toUpperCase() + s.slice(1);
-      }
+      var MONTHS = {
+        fr: ['Janv.', 'Févr.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      };
       function lastPlayed(ts, lang) {
         if (!ts) return '–';
         var d = new Date(ts * 1000), now = new Date();
         var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-        if (d.getTime() >= today) return lang === 'en' ? 'Today' : 'Aujourd’hui';
+        if (d.getTime() >= today) return lang === 'en' ? 'Today' : "Aujourd'hui";
         if (d.getTime() >= today - 864e5) return lang === 'en' ? 'Yesterday' : 'Hier';
-        return monthYear(d, lang);
+        return MONTHS[lang][d.getMonth()] + ' ' + d.getFullYear();
       }
       function achText(a) {
         if (!a) return '–';
@@ -266,7 +338,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       var empty = document.getElementById('games-empty');
 
       if (steam === undefined || conf === undefined) {
-        bi(empty, 'La bibliothèque est générée par GitHub Pages : elle s’affiche sur le site en ligne.',
+        bi(empty, 'La bibliothèque est générée par GitHub Pages : elle s\'affiche sur le site en ligne.',
                   'The library is generated by GitHub Pages: it shows up on the live site.');
         empty.hidden = false;
         return;
@@ -304,7 +376,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       setNum('hdr-played', String(played.length), String(played.length));
       setNum('hdr-done', String(finished.length), String(finished.length));
       setNum('st-played', String(played.length), String(played.length));
-      setNum('st-hours', int(totalMin / 60, 'fr') + ' h', int(totalMin / 60, 'en') + ' h');
+      setNum('st-hours', int(totalMin / 60, 'fr') + ' h', int(totalMin / 60, 'en') + ' h');
       setNum('st-total', String(steamGames.length + others.length), String(steamGames.length + others.length));
       if (played.length) {
         setNum('st-top', hours(played[0].minutes, 'fr'), hours(played[0].minutes, 'en'));
@@ -321,7 +393,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
       } else if (when) {
         var d = new Date(when);
         var opts = { day: 'numeric', month: 'long', year: 'numeric' };
-        note.appendChild(icon("{% include icon.html id='fab-steam' %}"));
+        note.appendChild(el('i', 'fab fa-steam'));
         note.appendChild(bi(el('span'), 'Synchronisée automatiquement avec Steam · mise à jour le ' + d.toLocaleDateString('fr-FR', opts),
                                         'Automatically synced with Steam · updated ' + d.toLocaleDateString('en-GB', opts)));
         note.hidden = false;
@@ -340,7 +412,7 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         var card = el('div', 'game-card');
         var top = el('div', 'game-card-top');
         var done = el('span', 'badge-done');
-        done.appendChild(icon("{% include icon.html id='fas-check' %}"));
+        done.appendChild(el('i', 'fas fa-check'));
         done.appendChild(bi(el('span'), ' Terminé', ' Completed'));
         top.appendChild(done);
         if (f.genre) { var genre = el('span', 'badge-genre'); genre.textContent = f.genre; top.appendChild(genre); }
@@ -351,13 +423,13 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         var meta = el('div', 'game-meta');
         if (minutes) {
           var h = el('span', 'game-stat');
-          h.appendChild(icon("{% include icon.html id='fas-clock' %}"));
+          h.appendChild(el('i', 'fas fa-clock'));
           h.appendChild(bi(el('span'), ' ' + hours(minutes, 'fr'), ' ' + hours(minutes, 'en')));
           meta.appendChild(h);
         }
         if (g.ach) {
           var t = el('span', 'game-stat');
-          t.appendChild(icon("{% include icon.html id='fas-trophy' %}"));
+          t.appendChild(el('i', 'fas fa-trophy'));
           t.appendChild(document.createTextNode(' ' + g.ach[0] + ' / ' + g.ach[1]));
           meta.appendChild(t);
         }
@@ -372,7 +444,9 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
           var lbl = el('div', 'achiev-label');
           lbl.appendChild(bi(el('span'), 'Succès', 'Achievements'));
           var p = el('span', 'pct' + (pct >= 100 ? ' perfect' : ''));
-          bi(p, percent(pct / 100, 'fr'), percent(pct / 100, 'en'));
+          p.textContent = Math.round(pct) + (LANG === 'en' ? '%' : ' %');
+          p.setAttribute('data-fr', Math.round(pct) + ' %');
+          p.setAttribute('data-en', Math.round(pct) + '%');
           lbl.appendChild(p);
           card.appendChild(lbl);
         }
@@ -407,6 +481,14 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
         ns.appendChild(item);
       });
       document.getElementById('unplayed-block').hidden = !unplayed.length;
+
+      /* ---- Apparition au défilement ---- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(function (r) { io.observe(r); });
     })();
   </script>
 

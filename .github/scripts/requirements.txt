@@ -1,2 +1,0 @@
-# Dépendances des scripts de .github/scripts (photos.py). Installation : pip install -r .github/scripts/requirements.txt
-pillow==12.3.0

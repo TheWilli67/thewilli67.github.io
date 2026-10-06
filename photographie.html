@@ -1,20 +1,97 @@
 ---
-# Page traitée par Jekyll (GitHub Pages) : la galerie est construite à partir de
-# _data/galerie.json (versions WebP créées par .github/scripts/photos.py à partir des
-# originaux du dossier _photos/) et des titres facultatifs de _data/photos.yml.
-title: "Photographie"
-description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
+# Page traitée par Jekyll (GitHub Pages) : la galerie liste automatiquement
+# les photos du dossier /photo/ (titres facultatifs dans _data/photos.yml).
 ---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  {% include head.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="William Hertrich · Galerie photo amateur, Canon EOS 600D">
+  <link rel="canonical" href="https://thewilli67.github.io/photographie.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Photographie">
+  <meta property="og:description" content="William Hertrich · Galerie photo amateur, Canon EOS 600D">
+  <meta property="og:url" content="https://thewilli67.github.io/photographie.html">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — Photographie</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
+  <script src="/scripts/animation_page.js" defer></script>
   <style>
     :root {
+      --bg:        #f8fafc;
+      --bg-alt:    #f1f5f9;
+      --bg-card:   #ffffff;
+      --bg-dark:   #0f172a;
+      --bg-dark-2: #1e293b;
       --bg-dark-3: #334155;
+      --accent:    #2563eb;
+      --accent-h:  #1d4ed8;
+      --accent-lt: #dbeafe;
+      --text:      #0f172a;
+      --text-m:    #64748b;
+      --text-lt:   #94a3b8;
+      --border:    #e2e8f0;
       --sh-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --sh:    0 4px 16px rgba(0,0,0,.08);
       --sh-lg: 0 8px 32px rgba(0,0,0,.12);
+      --r:     12px;
+      --font:  'Inter', system-ui, sans-serif;
+      --t:     0.25s ease;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      line-height: 1.6;
+    }
+    body.fade-in  { opacity: 1; }
+    body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
+    a   { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul  { list-style: none; }
+
+    /* ===== Navbar ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 64px;
+      background: rgba(15,23,42,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a {
+      display: block; padding: .45rem 1rem;
+      color: #94a3b8; font-size: .82rem; font-weight: 500;
+      letter-spacing: .07em; text-transform: uppercase;
+      border-radius: 6px; transition: var(--t);
+    }
+    .nav-links a:hover  { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
 
     /* ===== Hero ===== */
     .hero {
@@ -26,12 +103,16 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: none;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(37,99,235,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 85% 20%, rgba(99,102,241,.06) 0%, transparent 50%);
       pointer-events: none;
     }
     .hero::after {
       content: ''; position: absolute; inset: 0;
-      background-image: none;
+      background-image:
+        linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
       pointer-events: none;
@@ -42,47 +123,59 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: .5rem;
-      font-size: .8125rem; font-weight: 400; color: var(--mute);
-      letter-spacing: 0; text-transform: lowercase; font-family: var(--font-mono); margin-bottom: 1rem;
+      font-size: .8rem; font-weight: 600; color: #60a5fa;
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
     }
-    .hero-eyebrow::before { content: '$'; color: var(--accent); font-family: var(--font-mono); }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 24px; height: 2px;
+      background: #60a5fa; border-radius: 2px;
+    }
     .hero-title {
-      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500;
-      color: var(--ink); line-height: 1.08;
+      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800;
+      color: #f8fafc; line-height: 1.08;
       margin-bottom: .75rem; letter-spacing: -.02em;
     }
-    .hero-sub { font-size: 1rem; color: var(--body); margin-bottom: 1.75rem; max-width: 520px; line-height: 1.7; }
-    .hero-sub strong { color: var(--body-strong); font-weight: 600; }
+    .hero-sub { font-size: 1rem; color: #94a3b8; margin-bottom: 1.75rem; max-width: 520px; line-height: 1.7; }
+    .hero-sub strong { color: #cbd5e1; font-weight: 600; }
     .hero-meta {
       display: flex; flex-wrap: wrap; gap: .75rem; align-items: center;
     }
     .hero-chip {
       display: inline-flex; align-items: center; gap: .4rem;
       padding: .3rem .85rem;
-      background: var(--tint);
-      border: 1px solid var(--hairline);
-      color: var(--body-strong); border-radius: 3px;
+      background: rgba(37,99,235,.1);
+      border: 1px solid rgba(37,99,235,.25);
+      color: #93c5fd; border-radius: 100px;
       font-size: .78rem; font-weight: 500;
     }
     .btn-cheatsheet {
       display: inline-flex; align-items: center; gap: .5rem;
-      padding: .6rem 1.3rem; border-radius: 3px;
+      padding: .6rem 1.3rem; border-radius: 8px;
       font-weight: 600; font-size: .82rem;
-      background: transparent; color: var(--body-strong);
-      border: 1.5px solid var(--hairline); transition: var(--tr);
+      background: transparent; color: #cbd5e1;
+      border: 1.5px solid #2d3f57; transition: var(--t);
     }
     .btn-cheatsheet:hover {
-      border-color: var(--mute); color: var(--accent-hover);
-      background: var(--tint); transform: translateY(-1px);
+      border-color: #60a5fa; color: #93c5fd;
+      background: rgba(37,99,235,.07); transform: translateY(-1px);
     }
 
     /* ===== Gallery ===== */
     .gallery-section { padding: 4rem 5% 5rem; }
-    .inner { max-width: 1200px; }
+    .inner { max-width: 1200px; margin: 0 auto; }
 
-    .s-header { text-align: center; }
-    .s-title { line-height: 1.2; }
-    .s-sub { font-size: .9rem; }
+    .s-header { text-align: center; margin-bottom: 2.5rem; }
+    .s-tag {
+      display: inline-block; margin-bottom: .75rem;
+      font-size: .72rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px;
+    }
+    .s-title {
+      font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800;
+      color: var(--text); letter-spacing: -.02em; line-height: 1.2;
+    }
+    .s-sub { font-size: .9rem; color: var(--text-m); margin-top: .5rem; }
 
     /* Masonry grid */
     .photo-grid {
@@ -90,8 +183,6 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       column-gap: 1.25rem;
     }
     .photo-item {
-      display: block; width: 100%; padding: 0; border: 0;   /* <button> : réinitialisation */
-      font: inherit; color: inherit; text-align: left;
       break-inside: avoid;
       margin-bottom: 1.25rem;
       position: relative;
@@ -99,9 +190,10 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       overflow: hidden;
       cursor: pointer;
       background: var(--bg-dark-2);
+      box-shadow: var(--sh-sm);
       transition: transform var(--t), box-shadow var(--t);
     }
-    .photo-item:hover, .photo-item:focus-visible {
+    .photo-item:hover {
       transform: translateY(-4px);
       box-shadow: var(--sh-lg);
     }
@@ -110,50 +202,43 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       display: block;
       transition: transform 0.4s ease, filter 0.3s ease;
     }
-    .photo-item:hover img, .photo-item:focus-visible img {
+    .photo-item:hover img {
       transform: scale(1.03);
       filter: brightness(0.85);
     }
     .photo-overlay {
       position: absolute; inset: 0;
-      background: none;
+      background: linear-gradient(to top, rgba(15,23,42,.85) 0%, transparent 55%);
       opacity: 0; transition: opacity 0.3s ease;
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 1.25rem 1.25rem 1rem;
     }
-    .photo-item:hover .photo-overlay, .photo-item:focus-visible .photo-overlay { opacity: 1; }
-    .photo-title, .photo-desc { display: block; }
+    .photo-item:hover .photo-overlay { opacity: 1; }
     .photo-title {
-      font-size: .92rem; font-weight: 600; color: var(--ink);
+      font-size: .92rem; font-weight: 700; color: #f8fafc;
       margin-bottom: .2rem; line-height: 1.3;
     }
-    .photo-desc { font-size: .77rem; color: var(--body); line-height: 1.4; }
+    .photo-desc { font-size: .77rem; color: #94a3b8; line-height: 1.4; }
     .photo-zoom-icon {
       position: absolute; top: .85rem; right: .85rem;
       width: 34px; height: 34px;
-      background: rgba(43, 38, 34, 0.7); border-radius: 4px;
+      background: rgba(15,23,42,.7); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      color: var(--ink); font-size: .8rem;
+      color: #f8fafc; font-size: .8rem;
       opacity: 0; transition: opacity 0.3s ease;
     }
-    .photo-item:hover .photo-zoom-icon, .photo-item:focus-visible .photo-zoom-icon { opacity: 1; }
+    .photo-item:hover .photo-zoom-icon { opacity: 1; }
 
     /* ===== Lightbox ===== */
-    /* <dialog> plein écran : il sert lui-même de fond, le ::backdrop reste transparent */
     .lightbox {
-      width: 100%; height: 100%; max-width: none; max-height: none;
-      margin: 0; padding: 0; border: 0; color: inherit; overscroll-behavior: contain;
       position: fixed; inset: 0; z-index: 9000;
-      background: rgba(43, 38, 34, 0.96);
+      background: rgba(9,11,17,.96);
       backdrop-filter: blur(8px);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s ease;
     }
-    .lightbox:not([open]) { display: none; }
-    .lightbox::backdrop { background: transparent; }
-    @media (prefers-reduced-motion: no-preference) {
-      .lightbox[open] { animation: lb-in .25s ease; }
-      @keyframes lb-in { from { opacity: 0; } }
-    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
     .lightbox-img-wrap {
       position: relative;
       max-width: 92vw; max-height: 82vh;
@@ -162,41 +247,55 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     .lightbox-img-wrap img {
       max-width: 92vw; max-height: 80vh;
       object-fit: contain;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.6);
       transition: opacity 0.2s ease;
     }
     .lightbox-caption {
       margin-top: 1.25rem; text-align: center;
     }
-    .lightbox-caption h3 { font-size: 1rem; font-weight: 600; color: var(--ink); }
-    .lightbox-caption p  { font-size: .82rem; color: var(--body); margin-top: .2rem; }
+    .lightbox-caption h3 { font-size: 1rem; font-weight: 700; color: #f8fafc; }
+    .lightbox-caption p  { font-size: .82rem; color: #94a3b8; margin-top: .2rem; }
     .lightbox-close {
       position: absolute; top: 1.25rem; right: 1.25rem;
       width: 42px; height: 42px;
-      background: var(--tint); border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: var(--body-strong); font-size: 1rem; cursor: pointer;
+      color: #cbd5e1; font-size: 1rem; cursor: pointer;
       transition: background var(--t), color var(--t);
     }
-    .lightbox-close:hover { background: var(--tint); color: var(--accent-hover); }
+    .lightbox-close:hover { background: rgba(239,68,68,.15); color: #f87171; }
     .lightbox-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 46px; height: 46px;
-      background: var(--tint); border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: var(--body-strong); font-size: .95rem; cursor: pointer;
+      color: #cbd5e1; font-size: .95rem; cursor: pointer;
       transition: background var(--t), color var(--t), transform var(--t);
     }
     .lightbox-nav:hover {
-      background: var(--tint); color: var(--accent-hover);
+      background: rgba(37,99,235,.2); color: #93c5fd;
       transform: translateY(-50%) scale(1.08);
     }
     .lightbox-prev { left: 1.25rem; }
     .lightbox-next { right: 1.25rem; }
     .lightbox-counter {
       position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
-      font-size: .75rem; color: var(--body); letter-spacing: .08em;
+      font-size: .75rem; color: #94a3b8; letter-spacing: .08em;
     }
+
+    /* ===== Reveal ===== */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* ===== Footer ===== */
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    [hidden] { display: none !important; }
     .photo-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     .gallery-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 0; }
 
@@ -209,35 +308,46 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       .hero { padding: 6rem 1.25rem 3.5rem; }
       .gallery-section { padding: 3rem 1.25rem 4rem; }
       .photo-grid { columns: 1; }
+      .nav-links a { display: none; }
+      .nav-links .show { display: block; }
       .lightbox-nav { display: none; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  {% include nav.html active="apropos" %}
-
-  <main id="contenu" tabindex="-1">
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="show" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="/photographie.html" class="active show">Photo</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+    </ul>
+  </nav>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
-      <span class="hero-eyebrow">{% include icon.html id="fas-camera" %} <span data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</span></span>
+      <span class="hero-eyebrow"><i class="fas fa-camera"></i> <span data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</span></span>
       <h1 class="hero-title" data-fr="Ma galerie photo" data-en="My photo gallery">Ma galerie photo</h1>
       <p class="hero-sub"
-         data-fr="Quelques clichés dont je suis fier, capturés avec mon &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Macro florale, faune, lumières nocturnes et compositions atmosphériques&nbsp;: autant de sujets qui m’apprennent à voir différemment."
-         data-en="A few shots I’m proud of, taken with my &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Floral macro, wildlife, night lights and atmospheric compositions: subjects that teach me to see differently."
+         data-fr="Quelques clichés dont je suis fier, capturés avec mon &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Macro florale, faune, lumières nocturnes et compositions atmosphériques : autant de sujets qui m'apprennent à voir différemment."
+         data-en="A few shots I'm proud of, taken with my &lt;strong&gt;Canon EOS 600D&lt;/strong&gt;. Floral macro, wildlife, night lights and atmospheric compositions: subjects that teach me to see differently."
          data-i18n-html>
         Quelques clichés dont je suis fier, capturés avec mon <strong>Canon EOS 600D</strong>.
-        Macro florale, faune, lumières nocturnes et compositions atmosphériques&nbsp;: autant de sujets
-        qui m’apprennent à voir différemment.
+        Macro florale, faune, lumières nocturnes et compositions atmosphériques : autant de sujets
+        qui m'apprennent à voir différemment.
       </p>
       <div class="hero-meta">
-        <span class="hero-chip">{% include icon.html id="fas-camera-retro" %} Canon EOS 600D</span>
-        <span class="hero-chip" id="photo-count-chip" hidden>{% include icon.html id="fas-images" %} <span id="photo-count"></span> photos</span>
-        <a href="https://thewilli67.github.io/photographie-helper-Canon600D/" target="_blank" class="btn-cheatsheet" aria-describedby="nouvel-onglet">
-          {% include icon.html id="fas-book-open" %} Cheat sheet Canon 600D
+        <span class="hero-chip"><i class="fas fa-camera-retro"></i> Canon EOS 600D</span>
+        <span class="hero-chip" id="photo-count-chip" hidden><i class="fas fa-images"></i> <span id="photo-count"></span> photos</span>
+        <a href="https://thewilli67.github.io/photographie-helper-Canon600D/" target="_blank" class="btn-cheatsheet no-script-execution">
+          <i class="fas fa-book-open"></i> Cheat sheet Canon 600D
         </a>
       </div>
     </div>
@@ -249,41 +359,49 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       <div class="s-header reveal">
         <span class="s-tag" data-fr="Galerie" data-en="Gallery">Galerie</span>
         <h2 class="s-title" data-fr="Mes meilleures prises" data-en="My best shots">Mes meilleures prises</h2>
-        <p class="s-sub" data-fr="Cliquez sur une photo pour l’agrandir" data-en="Click a photo to enlarge it">Cliquez sur une photo pour l’agrandir</p>
+        <p class="s-sub" data-fr="Cliquez sur une photo pour l'agrandir" data-en="Click a photo to enlarge it">Cliquez sur une photo pour l'agrandir</p>
       </div>
 
-      <!-- Rempli automatiquement à partir de _data/galerie.json (voir _data/photos.yml) -->
+      <!-- Rempli automatiquement à partir du dossier /photo/ (voir _data/photos.yml) -->
       <div class="photo-grid" id="photo-grid"></div>
       <p class="gallery-empty" id="gallery-empty" hidden></p>
     </div>
   </section>
 
   <!-- ===== LIGHTBOX ===== -->
-  <dialog class="lightbox" id="lightbox" aria-label="Visionneuse photo" data-en-aria-label="Photo viewer">
-    <button type="button" class="lightbox-close" id="lb-close" aria-label="Fermer" data-en-aria-label="Close">{% include icon.html id="fas-times" %}</button>
-    <button type="button" class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Photo précédente" data-en-aria-label="Previous photo">{% include icon.html id="fas-chevron-left" %}</button>
-    <button type="button" class="lightbox-nav lightbox-next" id="lb-next" aria-label="Photo suivante" data-en-aria-label="Next photo">{% include icon.html id="fas-chevron-right" %}</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+    <button class="lightbox-close" id="lb-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Photo précédente"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Photo suivante"><i class="fas fa-chevron-right"></i></button>
     <div class="lightbox-img-wrap">
-      <img id="lb-img" alt="">
+      <img id="lb-img" src="" alt="">
     </div>
-    <div class="lightbox-caption" aria-live="polite">
+    <div class="lightbox-caption">
       <h3 id="lb-title"></h3>
       <p id="lb-desc"></p>
     </div>
     <p class="lightbox-counter" id="lb-counter"></p>
-  </dialog>
-
-  </main>
+  </div>
 
   <!-- ===== FOOTER ===== -->
-  {% include footer.html %}
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+    </div>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
 
   <!--
-    Données injectées par Jekyll : versions WebP de chaque photo (_data/galerie.json, écrit
-    par .github/scripts/photos.py) et titres (_data/photos.yml). Sans Jekyll (simple serveur
-    statique), ces blocs ne sont pas interprétés et la galerie affiche un message.
+    Liste des photos générée par Jekyll (GitHub Pages) au moment de la publication :
+    tous les fichiers .jpg/.jpeg/.png/.webp du dossier /photo/, plus les titres de _data/photos.yml.
+    En local (sans Jekyll), ces blocs ne sont pas interprétés et la galerie affiche un message.
   -->
-  <script id="photo-data" type="application/json">{{ site.data.galerie | jsonify }}</script>
+  <script id="photo-files" type="application/json">[{% for f in site.static_files %}{% if f.path contains '/photo/' %}{% assign ext = f.extname | downcase %}{% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.webp' %}{{ f.path | jsonify }},{% endif %}{% endif %}{% endfor %}null]</script>
   <script id="photo-meta" type="application/json">{{ site.data.photos | jsonify }}</script>
 
   <script>
@@ -307,7 +425,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       var empty = document.getElementById('gallery-empty');
       var files, meta;
       try {
-        files = JSON.parse(document.getElementById('photo-data').textContent) || {};
+        files = JSON.parse(document.getElementById('photo-files').textContent).filter(Boolean);
         meta = JSON.parse(document.getElementById('photo-meta').textContent) || {};
       } catch (e) {
         files = null;
@@ -322,19 +440,20 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
 
       var photos = [];
       if (files === null) {
-        showEmpty('La galerie est générée par GitHub Pages : elle s’affiche sur le site en ligne.',
+        showEmpty('La galerie est générée par GitHub Pages : elle s\'affiche sur le site en ligne.',
                   'The gallery is generated by GitHub Pages: it shows up on the live site.');
       } else {
-        var ordered = Object.keys(meta).filter(function (n) { return files[n]; });
-        Object.keys(files).sort(function (a, b) { return a.localeCompare(b, 'fr', { numeric: true }); })
+        var byName = {};
+        files.forEach(function (path) { byName[path.split('/').pop()] = path; });
+        var ordered = Object.keys(meta).filter(function (n) { return byName[n]; });
+        Object.keys(byName).sort(function (a, b) { return a.localeCompare(b, 'fr', { numeric: true }); })
           .forEach(function (n) { if (ordered.indexOf(n) === -1) ordered.push(n); });
 
         photos = ordered.map(function (name) {
-          var m = meta[name] || {}, f = files[name];
+          var m = meta[name] || {};
           var title = m.title || titleFromName(name);
           return {
-            grid: [f['800'], f['1200']],   /* versions de la grille : {src, w, h} */
-            full: f['2048'],               /* version de la visionneuse */
+            src: encodeURI(byName[name]),
             title: { fr: title, en: m.title_en || title },
             tags: { fr: m.tags || '', en: m.tags_en || m.tags || '' },
             desc: { fr: m.desc || '', en: m.desc_en || m.desc || '' },
@@ -359,36 +478,32 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       }
 
       photos.forEach(function (p, i) {
-        var item = el('button', 'photo-item reveal');
-        item.type = 'button';
+        var item = el('div', 'photo-item reveal');
         item.style.transitionDelay = ((i % 3) * 0.08) + 's';
+        item.tabIndex = 0;
+        item.setAttribute('role', 'button');
 
-        /* Grille : 3 colonnes (max. 384 px), 2 sous 900 px, 1 sous 600 px */
         var img = document.createElement('img');
-        img.src = p.grid[0].src;
-        img.srcset = p.grid.map(function (v) { return v.src + ' ' + v.w + 'w'; }).join(', ');
-        img.sizes = '(max-width: 600px) calc(100vw - 2.5rem), (max-width: 900px) calc(50vw - 2rem), 384px';
-        img.width = p.grid[0].w;
-        img.height = p.grid[0].h;
+        img.src = p.src;
         img.alt = p.alt[lang()] || p.alt.fr;
-        img.setAttribute('data-fr-alt', p.alt.fr);   /* bascule FR / EN : voir i18n.js */
-        img.setAttribute('data-en-alt', p.alt.en);
-        if (i >= 3) img.loading = 'lazy';  /* la première rangée est visible dès l'arrivée */
+        img.loading = 'lazy';
         img.decoding = 'async';
         item.appendChild(img);
 
         if (p.title.fr || p.tags.fr) {
-          var overlay = el('span', 'photo-overlay');
-          overlay.setAttribute('aria-hidden', 'true');  /* le bouton est nommé par le texte alternatif de la photo */
-          if (p.title.fr) overlay.appendChild(el('span', 'photo-title', p.title.fr, p.title.en));
-          if (p.tags.fr) overlay.appendChild(el('span', 'photo-desc', p.tags.fr, p.tags.en));
+          var overlay = el('div', 'photo-overlay');
+          if (p.title.fr) overlay.appendChild(el('p', 'photo-title', p.title.fr, p.title.en));
+          if (p.tags.fr) overlay.appendChild(el('p', 'photo-desc', p.tags.fr, p.tags.en));
           item.appendChild(overlay);
         }
-        var zoom = el('span', 'photo-zoom-icon');
-        zoom.innerHTML = "{% include icon.html id='fas-expand' %}";
+        var zoom = el('div', 'photo-zoom-icon');
+        zoom.innerHTML = '<i class="fas fa-expand"></i>';
         item.appendChild(zoom);
 
         item.addEventListener('click', function () { openLightbox(i); });
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+        });
         grid.appendChild(item);
       });
 
@@ -396,6 +511,14 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
         document.getElementById('photo-count').textContent = photos.length;
         document.getElementById('photo-count-chip').hidden = false;
       }
+
+      /* ---- Apparition au défilement ---- */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (r) { io.observe(r); });
 
       /* ---- Visionneuse ---- */
       var lb = document.getElementById('lightbox');
@@ -406,42 +529,38 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       var current = 0;
       var lastFocus = null;
 
-      /* <dialog> modal : page derrière inerte, Échap ferme, focus rendu à la photo d'origine */
-      function show(idx) {
+      function openLightbox(idx) {
         var p = photos[idx], l = lang();
+        if (!lb.classList.contains('open')) lastFocus = document.activeElement;
         current = idx;
-        lbImg.src = p.full.src;
+        lbImg.src = p.src;
         lbImg.alt = p.alt[l] || p.alt.fr;
         lbTitle.textContent = p.title[l] || p.title.fr;
         lbDesc.textContent = p.desc[l] || p.desc.fr;
         lbCounter.textContent = (idx + 1) + ' / ' + photos.length;
-      }
-
-      function openLightbox(idx) {
-        lastFocus = document.activeElement;
-        show(idx);
-        document.documentElement.classList.add('modal-open');
-        lb.showModal();
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
         document.getElementById('lb-close').focus();
       }
 
-      function navigate(dir) {
-        show((current + dir + photos.length) % photos.length);
-      }
-
       function closeLightbox() {
-        if (lb.open) lb.close();
-        document.documentElement.classList.remove('modal-open');
-        if (lastFocus) { lastFocus.focus(); lastFocus = null; }
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
       }
 
-      lb.addEventListener('cancel', function (e) { e.preventDefault(); closeLightbox(); });  /* Échap */
-      lb.addEventListener('close', function () { document.documentElement.classList.remove('modal-open'); });
+      function navigate(dir) {
+        openLightbox((current + dir + photos.length) % photos.length);
+      }
+
       document.getElementById('lb-close').addEventListener('click', closeLightbox);
       document.getElementById('lb-prev').addEventListener('click', function () { navigate(-1); });
       document.getElementById('lb-next').addEventListener('click', function () { navigate(1); });
-      lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });  /* clic sur le fond */
-      lb.addEventListener('keydown', function (e) {
+      lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') navigate(-1);
         if (e.key === 'ArrowRight') navigate(1);
       });

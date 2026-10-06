@@ -1,10 +1,8 @@
-# Titres et descriptions des photos de la galerie (page photographie.html).
+# Titres et descriptions des photos du dossier /photo/ (page photographie.html).
 #
-# AJOUTER UNE PHOTO : déposer l'original dans _photos/, puis lancer
-#   python .github/scripts/photos.py
-# (métadonnées retirées, versions WebP créées dans assets/photos/, dimensions écrites dans
-# _data/galerie.json). Sans cette étape, l'Action « Publication du site » s'en charge au
-# prochain push : faire ensuite un Pull avant de pousser à nouveau.
+# AJOUTER UNE PHOTO : la déposer dans /photo/ puis pousser sur GitHub. Elle apparaît
+# automatiquement dans la galerie (GitHub Pages liste le dossier à chaque publication)
+# et ses métadonnées EXIF sont retirées par l'Action GitHub « Nettoyage des métadonnées photo ».
 #
 # Sans entrée dans ce fichier, le titre est déduit du nom du fichier :
 #   « Coucher de soleil.jpg »  →  « Coucher de soleil »

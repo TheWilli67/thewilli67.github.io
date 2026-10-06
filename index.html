@@ -1,19 +1,95 @@
----
-# Page traitée par Jekyll : en-tête, menu et pied de page communs (_includes/).
-title: "Ingénieur Systèmes & Réseaux"
-description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informatique, diplômé du Master CDSI de l'INSA Hauts-de-France"
----
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  {% include head.html %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informatique, diplômé du Master CDSI de l'INSA Hauts-de-France">
+  <link rel="canonical" href="https://thewilli67.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William Hertrich">
+  <meta property="og:title" content="William Hertrich · Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:description" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux chez OCI Informatique, diplômé du Master CDSI de l&#x27;INSA Hauts-de-France">
+  <meta property="og:url" content="https://thewilli67.github.io/">
+  <meta property="og:image" content="https://thewilli67.github.io/Images_photos/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="William Hertrich, Ingénieur Systèmes &amp; Réseaux">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>William Hertrich — Ingénieur Systèmes & Réseaux</title>
+  <link rel="icon" href="/Images_photos/reprendre.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="/scripts/i18n.js" defer></script>
+  <script src="/scripts/animation_page.js" defer></script>
   <style>
     /* ===== Variables ===== */
     :root {
-      --bg-dark-3: #334155;
+      --bg:          #f8fafc; 
+      --bg-alt:      #f1f5f9;
+      --bg-card:     #ffffff;
+      --bg-dark:     #0f172a;
+      --bg-dark-2:   #1e293b;
+      --bg-dark-3:   #334155;
+      --accent:      #2563eb;
+      --accent-h:    #1d4ed8;
+      --accent-lt:   #dbeafe;
+      --text:        #0f172a;
+      --text-m:      #64748b;
+      --text-lt:     #94a3b8;
+      --border:      #e2e8f0;
       --sh-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --sh:    0 4px 16px rgba(0,0,0,.08);
       --sh-lg: 0 8px 32px rgba(0,0,0,.12);
+      --r:     12px;
+      --font:  'Inter', system-ui, sans-serif;
+      --t:     0.25s ease;
     }
+
+    /* ===== Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      line-height: 1.6;
+    }
+    body.fade-in  { opacity: 1; }
+    body.fade-out { opacity: 0; }
+    /* Footer toujours en bas de l'écran, même quand la page est courte */
+    body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+    footer { margin-top: auto; }
+    a   { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul  { list-style: none; }
+
+    /* ===== Navbar ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 64px;
+      background: rgba(15,23,42,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav-brand { font-size: 1rem; font-weight: 700; color: #f8fafc; letter-spacing: .03em; }
+    .nav-brand span { color: #60a5fa; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a {
+      display: block; padding: .45rem 1rem;
+      color: #94a3b8; font-size: .82rem; font-weight: 500;
+      letter-spacing: .07em; text-transform: uppercase;
+      border-radius: 6px; transition: var(--t);
+    }
+    .nav-links a:hover  { color: #f1f5f9; background: rgba(255,255,255,.06); }
+    .nav-links a.active { color: #93c5fd; background: rgba(37,99,235,.15); }
 
     /* ===== Hero ===== */
     .hero {
@@ -25,12 +101,16 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: none;
+      background:
+        radial-gradient(ellipse 70% 70% at 75% 50%, rgba(37,99,235,.1)  0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 15% 80%, rgba(99,102,241,.07) 0%, transparent 50%);
       pointer-events: none;
     }
     .hero::after {
       content: ''; position: absolute; inset: 0;
-      background-image: none;
+      background-image:
+        linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
       pointer-events: none;
@@ -43,90 +123,105 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     .hero-text { flex: 1; min-width: 0; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: .5rem;
-      font-size: .8125rem; font-weight: 400; color: var(--mute);
-      letter-spacing: 0; text-transform: lowercase; font-family: var(--font-mono); margin-bottom: 1rem;
+      font-size: .8rem; font-weight: 600; color: #60a5fa;
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
     }
-    .hero-eyebrow::before { content: '$'; color: var(--accent); font-family: var(--font-mono); }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 24px; height: 2px;
+      background: #60a5fa; border-radius: 2px;
+    }
     .hero-name {
-      font-size: clamp(2.75rem, 5vw, 4rem); font-weight: 400;
-      color: var(--ink); line-height: 1.1;
-      margin-bottom: .75rem; letter-spacing: -.025em;
+      font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 800;
+      color: #f8fafc; line-height: 1.05;
+      margin-bottom: .6rem; letter-spacing: -.02em;
     }
-    .hero-role { font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400; color: var(--body); margin-bottom: 1.75rem; }
-    .hero-role strong { color: var(--body-strong); font-weight: 600; }
+    .hero-role { font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400; color: #94a3b8; margin-bottom: 1.75rem; }
+    .hero-role strong { color: #cbd5e1; font-weight: 600; }
     .hero-desc {
-      font-size: .97rem; color: var(--body);
+      font-size: .97rem; color: #94a3b8;
       max-width: 500px; line-height: 1.75; margin-bottom: 2rem;
     }
     .hero-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
     .hero-chip {
       display: inline-flex; align-items: center; gap: .4rem;
       padding: .3rem .85rem;
-      background: var(--tint);
-      border: 1px solid var(--hairline);
-      color: var(--body-strong); border-radius: 3px;
+      background: rgba(37,99,235,.1);
+      border: 1px solid rgba(37,99,235,.25);
+      color: #93c5fd; border-radius: 100px;
       font-size: .78rem; font-weight: 500;
     }
-    .hero-chip .icon { font-size: .7rem; }
+    .hero-chip i { font-size: .7rem; }
     .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
 
     .btn {
       display: inline-flex; align-items: center; gap: .5rem;
-      padding: .7rem 1.6rem; border-radius: 3px;
+      padding: .7rem 1.6rem; border-radius: 8px;
       font-weight: 600; font-size: .875rem;
-      transition: var(--tr); cursor: pointer;
+      transition: var(--t); cursor: pointer;
     }
     .btn-primary {
-      background: var(--accent); color: var(--on-primary);
+      background: var(--accent); color: white;
+      box-shadow: 0 4px 14px rgba(37,99,235,.3);
     }
     .btn-primary:hover {
-      background: var(--accent-hover); transform: translateY(-2px);
+      background: var(--accent-h); transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,99,235,.45);
     }
     .btn-ghost {
-      background: transparent; color: var(--body-strong);
-      border: 1.5px solid var(--hairline);
+      background: transparent; color: #cbd5e1;
+      border: 1.5px solid #2d3f57;
     }
     .btn-ghost:hover {
-      border-color: var(--mute); color: var(--accent-hover);
-      background: var(--tint); transform: translateY(-2px);
+      border-color: #60a5fa; color: #93c5fd;
+      background: rgba(37,99,235,.07); transform: translateY(-2px);
     }
 
     .hero-visual { position: relative; flex-shrink: 0; }
     .hero-ring {
-      width: 300px; height: 380px; border-radius: 4px; padding: 0;
-      border: 1px solid var(--hairline); background: var(--canvas-soft);
+      width: 300px; height: 380px; border-radius: 18px; padding: 3px;
+      background: conic-gradient(from 180deg, #2563eb, #6366f1, #2563eb);
+      box-shadow: 0 0 60px rgba(37,99,235,.2);
     }
     .hero-img-clip {
-      width: 100%; height: 100%; border-radius: 4px;
+      width: 100%; height: 100%; border-radius: 18px;
       overflow: hidden;
+      border: 4px solid var(--bg-dark);
     }
     .hero-photo {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: 50% 0;
+      background-image: url('/Images_photos/photo_william.jpg');
+      background-repeat: no-repeat;
+      background-size: 102%;
+      background-position: 50% 0%;
     }
     .hero-badge {
       position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
       background: var(--bg-dark-2);
-      border: 1px solid var(--hairline);
-      border-radius: 4px; padding: .6rem 1rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: .6rem 1rem;
       display: flex; align-items: center; gap: .5rem;
-      font-size: .75rem; color: var(--body);
-      white-space: nowrap;
+      font-size: .75rem; color: #94a3b8;
+      white-space: nowrap; box-shadow: var(--sh-lg);
     }
-    .badge-icon { color: var(--body-strong); font-size: .8rem; flex-shrink: 0; }
+    .badge-icon { color: #60a5fa; font-size: .8rem; flex-shrink: 0; }
     .dot-green {
-      width: 8px; height: 8px; background: var(--accent);
+      width: 8px; height: 8px; background: #22c55e;
       border-radius: 50%; flex-shrink: 0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+      50%      { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
     }
     .hero-scroll {
       position: absolute; bottom: 2rem; left: 50%;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: .4rem;
-      color: var(--body); font-size: .7rem;
-      letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono);
+      color: #94a3b8; font-size: .7rem;
+      letter-spacing: .12em; text-transform: uppercase;
       animation: scroll-bounce 2.5s ease-in-out infinite;
     }
-    .hero-scroll .icon { color: var(--body); font-size: .85rem; }
+    .hero-scroll i { color: #94a3b8; font-size: .85rem; }
     @keyframes scroll-bounce {
       0%,100% { transform: translateX(-50%) translateY(0); }
       50%      { transform: translateX(-50%) translateY(8px); }
@@ -134,8 +229,19 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
 
     /* ===== Sections ===== */
     .section     { padding: 5.5rem 5%; }
+    .section-alt { background: var(--bg-alt); }
+    .inner       { max-width: 1100px; margin: 0 auto; }
     .s-header    { text-align: center; margin-bottom: 3.5rem; }
-    .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; }
+    .s-tag {
+      display: inline-block; margin-bottom: .75rem;
+      font-size: .72rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .14em; text-transform: uppercase;
+      padding: .25rem .8rem; background: var(--accent-lt); border-radius: 100px;
+    }
+    .s-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+      color: var(--text); letter-spacing: -.02em; line-height: 1.2;
+    }
 
     /* ===== About ===== */
     .about-grid {
@@ -146,61 +252,63 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     .about-body p { font-size: .93rem; color: var(--text-m); line-height: 1.8; margin-bottom: .85rem; }
     .info-list { margin-top: 1.75rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem 2rem; }
     .info-item { display: flex; align-items: center; gap: .75rem; font-size: .875rem; color: var(--text-m); }
-    .info-item .icon { color: var(--body-strong); width: 16px; font-size: .85rem; flex-shrink: 0; }
-    .info-item a { color: var(--accent); transition: var(--tr); }
-    .info-item a:hover { color: var(--accent-hover); text-decoration: underline; }
+    .info-item i { color: var(--accent); width: 16px; text-align: center; font-size: .85rem; flex-shrink: 0; }
+    .info-item a { color: var(--accent); transition: var(--t); }
+    .info-item a:hover { color: var(--accent-h); text-decoration: underline; }
 
     /* Education Timeline */
     .edu-tl { position: relative; padding-left: 1.25rem; }
     .edu-tl::before {
       content: ''; position: absolute;
       left: 0; top: 8px; bottom: 0; width: 2px;
-      background: var(--hairline);
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(37,99,235,.15) 100%);
       border-radius: 2px;
     }
     .edu-item { position: relative; padding-left: 1.5rem; margin-bottom: 1.75rem; }
     .edu-item:last-child { margin-bottom: 0; }
     .edu-dot {
       position: absolute; left: -1.25rem; top: 5px;
-      width: 10px; height: 10px; background: var(--mute);
+      width: 10px; height: 10px; background: var(--accent);
       border-radius: 50%; border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
     }
     .edu-period {
       display: inline-block; font-size: .72rem; font-weight: 600;
-      color: var(--body-strong); letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono);
-      background: var(--tint); padding: .15rem .55rem;
+      color: var(--accent); letter-spacing: .06em; text-transform: uppercase;
+      background: var(--accent-lt); padding: .15rem .55rem;
       border-radius: 4px; margin-bottom: .35rem;
     }
-    .edu-degree  { font-size: .92rem; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: .2rem; }
+    .edu-degree  { font-size: .92rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: .2rem; }
     .edu-sub     { font-size: .8rem; color: var(--text-m); font-weight: 400; }
     .edu-school  { font-size: .82rem; color: var(--text-lt); margin-top: .2rem; }
-    .edu-school .icon { margin-right: .3rem; font-size: .75rem; }
-    .edu-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: .45rem; font-size: .8rem; font-weight: 600; color: var(--accent); transition: var(--tr); }
-    .edu-link:hover { color: var(--accent-hover); gap: .6rem; }
-    .edu-link .icon { font-size: .7rem; }
+    .edu-school i { margin-right: .3rem; font-size: .75rem; }
+    .edu-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: .45rem; font-size: .8rem; font-weight: 600; color: var(--accent); transition: var(--t); }
+    .edu-link:hover { color: var(--accent-h); gap: .6rem; }
+    .edu-link i { font-size: .7rem; }
 
     /* ===== Skills ===== */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.25rem; }
     .skill-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.4rem; transition: var(--tr);
+      border-radius: var(--r); padding: 1.4rem;
+      box-shadow: var(--sh-sm); transition: var(--t);
     }
-    .skill-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
+    .skill-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
     .skill-head { display: flex; align-items: center; gap: .65rem; margin-bottom: 1rem; }
     .skill-icon {
-      width: 38px; height: 38px; background: var(--tint);
-      border-radius: 4px; display: flex; align-items: center; justify-content: center;
-      color: var(--body-strong); font-size: .95rem; flex-shrink: 0;
+      width: 38px; height: 38px; background: var(--accent-lt);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: .95rem; flex-shrink: 0;
     }
-    .skill-cat { font-size: .9rem; font-weight: 600; color: var(--text); }
+    .skill-cat { font-size: .9rem; font-weight: 700; color: var(--text); }
     .skill-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
     .stag {
-      padding: .22rem .65rem; background: var(--canvas-soft); color: var(--text-m);
-      border-radius: 3px; font-size: .75rem; font-weight: 500;
-      border: 1px solid var(--border); transition: var(--tr);
+      padding: .22rem .65rem; background: #f1f5f9; color: var(--text-m);
+      border-radius: 100px; font-size: .75rem; font-weight: 500;
+      border: 1px solid var(--border); transition: var(--t);
     }
-    .stag:hover { background: var(--tint); color: var(--accent-hover); border-color: var(--hairline); }
-    .skill-sub { font-size: .7rem; font-weight: 600; color: var(--text-m); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin: .9rem 0 .45rem; }
+    .stag:hover { background: var(--accent-lt); color: var(--accent); border-color: rgba(37,99,235,.3); }
+    .skill-sub { font-size: .7rem; font-weight: 600; color: var(--text-m); text-transform: uppercase; letter-spacing: .06em; margin: .9rem 0 .45rem; }
     .stag-course { background: transparent; border-style: dashed; }
 
     /* Certifications */
@@ -208,14 +316,15 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     .cert {
       display: flex; align-items: center; gap: .85rem;
       padding: .9rem 1.25rem; background: var(--bg-card);
-      border: 1px solid var(--border); border-radius: var(--r); transition: var(--tr); min-width: 260px;
+      border: 1px solid var(--border); border-radius: var(--r);
+      box-shadow: var(--sh-sm); transition: var(--t); min-width: 260px;
     }
-    .cert:hover { transform: translateY(-2px); border-color: var(--mute); }
+    .cert:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: var(--accent); }
     .cert-icon {
       width: 38px; height: 38px;
-      background: var(--tint); border: 1px solid var(--hairline);
-      border-radius: 4px; display: flex; align-items: center; justify-content: center;
-      color: var(--ink); font-size: .9rem; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), #6366f1);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: .9rem; flex-shrink: 0;
     }
     .cert-name { font-size: .84rem; font-weight: 600; color: var(--text); }
     .cert-sub   { font-size: .75rem; color: var(--text-m); margin-top: .1rem; }
@@ -225,45 +334,46 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     .exp-tl::before {
       content: ''; position: absolute;
       left: 20px; top: 0; bottom: 0; width: 2px;
-      background: var(--hairline);
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(37,99,235,.1) 100%);
     }
     .exp-item { display: flex; gap: 1.75rem; margin-bottom: 2.5rem; position: relative; }
     .exp-item:last-child { margin-bottom: 0; }
     .exp-marker {
       flex-shrink: 0; width: 42px; height: 42px;
-      background: var(--bg-dark); border: 2.5px solid var(--mute);
+      background: var(--bg-dark); border: 2.5px solid var(--accent);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: var(--body-strong); font-size: .85rem;
+      color: #60a5fa; font-size: .85rem;
       position: relative; z-index: 1;
-      transition: var(--tr); margin-left: -21px;
+      box-shadow: 0 0 0 4px var(--accent-lt);
+      transition: var(--t); margin-left: -21px;
     }
-    .exp-item:hover .exp-marker { background: var(--accent-hover); color: var(--on-primary); }
+    .exp-item:hover .exp-marker { background: var(--accent); color: white; }
     .exp-card {
       flex: 1; background: var(--bg-card);
       border: 1px solid var(--border); border-radius: var(--r);
-      padding: 1.5rem 1.75rem; transition: var(--tr);
+      padding: 1.5rem 1.75rem; box-shadow: var(--sh-sm); transition: var(--t);
     }
-    .exp-card:hover { ; border-color: var(--hairline); }
+    .exp-card:hover { box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
     .exp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; flex-wrap: wrap; }
-    .exp-role    { font-size: 1rem; font-weight: 600; color: var(--text); }
-    .exp-company { font-size: .875rem; color: var(--body-strong); font-weight: 600; }
+    .exp-role    { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .exp-company { font-size: .875rem; color: var(--accent); font-weight: 600; }
     .exp-loc     { font-size: .8rem; color: var(--text-lt); margin-top: .15rem; }
-    .exp-loc .icon { margin-right: .3rem; }
+    .exp-loc i   { margin-right: .3rem; }
     .exp-period  {
       display: inline-flex; align-items: center; gap: .4rem;
       font-size: .77rem; color: var(--text-m);
       padding: .3rem .8rem; background: var(--bg-alt);
-      border: 1px solid var(--border); border-radius: 3px;
+      border: 1px solid var(--border); border-radius: 100px;
       white-space: nowrap; flex-shrink: 0;
     }
-    .exp-period.current { background: var(--tint); border-color: var(--hairline); color: var(--accent); }
-    .exp-period.current .icon { color: var(--accent); font-size: .65rem; }
+    .exp-period.current { background: rgba(34,197,94,.07); border-color: rgba(34,197,94,.3); color: #15803d; }
+    .exp-period.current i { color: #22c55e; font-size: .65rem; }
     .exp-desc { font-size: .875rem; color: var(--text-m); line-height: 1.75; margin-bottom: 1.1rem; }
     .exp-cats   { display: flex; flex-direction: column; gap: .6rem; }
     .exp-cat    { display: flex; align-items: flex-start; gap: .6rem; }
     .exp-clabel {
-      font-size: .72rem; font-weight: 600; color: var(--body-strong);
-      text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em;
+      font-size: .72rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .06em;
       min-width: 90px; padding-top: .2rem; white-space: nowrap; flex-shrink: 0;
     }
     .exp-chips  { display: flex; flex-wrap: wrap; gap: .3rem; }
@@ -271,6 +381,17 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
       padding: .18rem .55rem; background: var(--bg-alt); color: var(--text-m);
       border-radius: 4px; font-size: .73rem; font-weight: 500; border: 1px solid var(--border);
     }
+
+    /* ===== Footer ===== */
+    footer { background: var(--bg-dark); color: #94a3b8; padding: 2rem 5%; text-align: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+    .footer-links a { color: #94a3b8; font-size: .85rem; transition: var(--t); }
+    .footer-links a:hover { color: #60a5fa; }
+    footer p { font-size: .8rem; }
+
+    /* ===== Reveal animation ===== */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
 
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
@@ -289,16 +410,26 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
       .section         { padding: 4rem 1.25rem; }
       .hero            { padding: 6rem 1.25rem 4rem; }
       .hero-name       { font-size: 2.2rem; }
+      .nav-links a     { display: none; }
+      .nav-links .show { display: block; }
       .info-list       { grid-template-columns: 1fr; }
     }
   </style>
+  <noscript><style>body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  {% include nav.html active="accueil" %}
-
-  <main id="contenu" tabindex="-1">
+  <nav class="nav">
+    <a class="nav-brand" href="/index.html">HERTRICH <span>William</span></a>
+    <ul class="nav-links">
+      <li><a href="/index.html" class="active show" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/a_propos.html" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><button class="lang-toggle-btn" title="Switch to English">EN</button></li>
+    </ul>
+  </nav>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
@@ -306,34 +437,34 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
 
       <div class="hero-text">
         <span class="hero-eyebrow" data-fr="Bonjour, je suis" data-en="Hello, I'm">Bonjour, je suis</span>
-        <h1 class="hero-name" translate="no">William Hertrich</h1>
+        <h1 class="hero-name">William Hertrich</h1>
         <p class="hero-role" data-fr="Ingénieur <strong>Systèmes &amp; Réseaux</strong> chez OCI" data-en="<strong>Systems &amp; Network</strong> Engineer at OCI" data-i18n-html>Ingénieur <strong>Systèmes &amp; Réseaux</strong> chez OCI</p>
         <p class="hero-desc"
-           data-fr="Passionné par les infrastructures numériques et la cybersécurité, je suis Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms option Cyberdéfense de l'<strong>INSA Hauts-de-France</strong> et fort de deux ans d’alternance chez Réseau-Net."
-           data-en="Passionate about digital infrastructure and cybersecurity, I’m a permanent Systems &amp; Network Engineer at <strong>OCI Informatique</strong>, a graduate of the Networks &amp; Telecoms Master’s (Cyberdefense track) from <strong>INSA Hauts-de-France</strong>, with two years of prior work-study experience at Réseau-Net."
+           data-fr="Passionné par les infrastructures numériques et la cybersécurité, je suis Ingénieur Systèmes &amp; Réseaux en CDI chez <strong style=&quot;color:#cbd5e1&quot;>OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms option Cyberdéfense de l'<strong style=&quot;color:#cbd5e1&quot;>INSA Hauts-de-France</strong> et fort de deux ans d'alternance chez Réseau-Net."
+           data-en="Passionate about digital infrastructure and cybersecurity, I'm a permanent Systems &amp; Network Engineer at <strong style=&quot;color:#cbd5e1&quot;>OCI Informatique</strong>, a graduate of the Networks &amp; Telecoms Master's (Cyberdefense track) from <strong style=&quot;color:#cbd5e1&quot;>INSA Hauts-de-France</strong>, with two years of prior work-study experience at Réseau-Net."
            data-i18n-html>
           Passionné par les infrastructures numériques et la cybersécurité, je suis Ingénieur Systèmes &amp; Réseaux
-          en CDI chez <strong style="color: var(--body-strong)">OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms
-          option Cyberdéfense de l'<strong style="color: var(--body-strong)">INSA Hauts-de-France</strong> et fort de deux ans
-          d’alternance chez Réseau-Net.
+          en CDI chez <strong style="color:#cbd5e1">OCI Informatique</strong>, diplômé du Master Réseaux &amp; Télécoms
+          option Cyberdéfense de l'<strong style="color:#cbd5e1">INSA Hauts-de-France</strong> et fort de deux ans
+          d'alternance chez Réseau-Net.
         </p>
         <div class="hero-chips">
-          <span class="hero-chip">{% include icon.html id="fas-shield-halved" %} <span data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span></span>
-          <span class="hero-chip">{% include icon.html id="fas-network-wired" %} <span data-fr="Réseaux" data-en="Networks">Réseaux</span></span>
-          <span class="hero-chip">{% include icon.html id="fas-server" %} <span data-fr="Systèmes" data-en="Systems">Systèmes</span></span>
-          <span class="hero-chip">{% include icon.html id="fas-cloud" %} <span data-fr="Virtualisation" data-en="Virtualization">Virtualisation</span></span>
+          <span class="hero-chip"><i class="fas fa-shield-halved"></i> <span data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span></span>
+          <span class="hero-chip"><i class="fas fa-network-wired"></i> <span data-fr="Réseaux" data-en="Networks">Réseaux</span></span>
+          <span class="hero-chip"><i class="fas fa-server"></i> <span data-fr="Systèmes" data-en="Systems">Systèmes</span></span>
+          <span class="hero-chip"><i class="fas fa-cloud"></i> <span data-fr="Virtualisation" data-en="Virtualization">Virtualisation</span></span>
         </div>
         <div class="hero-actions">
-          <a href="/contact.html" class="btn btn-primary">{% include icon.html id="fas-envelope" %} <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
-          <a href="/portfolio.html" class="btn btn-ghost">{% include icon.html id="fas-folder-open" %} Portfolio</a>
-          <a href="/documents/CV_HERTRICH_William.pdf" class="btn btn-ghost" target="_blank" aria-describedby="nouvel-onglet">{% include icon.html id="fas-file-pdf" %} CV</a>
+          <a href="/contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> <span data-fr="Me contacter" data-en="Contact me">Me contacter</span></a>
+          <a href="/portfolio.html" class="btn btn-ghost"><i class="fas fa-folder-open"></i> Portfolio</a>
+          <a href="/documents/CV_HERTRICH_William.pdf" class="btn btn-ghost no-script-execution" target="_blank"><i class="fas fa-file-pdf"></i> CV</a>
         </div>
       </div>
 
       <div class="hero-visual">
         <div class="hero-ring">
           <div class="hero-img-clip">
-            <img class="hero-photo" src="/Images_photos/portrait-640.webp" srcset="/Images_photos/portrait-320.webp 320w, /Images_photos/portrait-640.webp 640w, /Images_photos/portrait-960.webp 960w" sizes="(max-width: 900px) 206px, 286px" width="320" height="418" alt="Photo de William Hertrich" data-en-alt="Photo of William Hertrich" fetchpriority="high" decoding="async">
+            <div class="hero-photo" role="img" aria-label="Photo de William Hertrich"></div>
           </div>
         </div>
         <div class="hero-badge">
@@ -345,7 +476,7 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     </div>
     <div class="hero-scroll">
       <span>Scroll</span>
-      {% include icon.html id="fas-chevron-down" %}
+      <i class="fas fa-chevron-down"></i>
     </div>
   </section>
 
@@ -359,37 +490,37 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
       <div class="about-grid">
 
         <div class="about-body reveal">
-          <p class="about-lead" data-fr="Un passionné d’infrastructures IT et de cybersécurité" data-en="A passionate IT infrastructure and cybersecurity engineer">Un passionné d’infrastructures IT et de cybersécurité</p>
-          <p data-fr="Diplômé en 2026 du Master Réseaux et Télécommunications (parcours CDSI&nbsp;: Cyberdéfense et Sécurité de l’Information) de l’INSA Hauts-de-France, j’ai construit une expertise solide en ingénierie réseaux, systèmes et sécurité." data-en="A 2026 graduate of the Master’s in Networks &amp; Telecommunications (CDSI track: Cyberdefense &amp; Information Security) at INSA Hauts-de-France, I have built solid expertise in network, systems, and security engineering.">
-            Diplômé en 2026 du Master Réseaux et Télécommunications (parcours CDSI&nbsp;: Cyberdéfense et
-            Sécurité de l’Information) de l’INSA Hauts-de-France, j’ai construit une expertise solide en
+          <p class="about-lead" data-fr="Un passionné d'infrastructures IT et de cybersécurité" data-en="A passionate IT infrastructure and cybersecurity engineer">Un passionné d'infrastructures IT et de cybersécurité</p>
+          <p data-fr="Diplômé en 2026 du Master Réseaux et Télécommunications (parcours CDSI : Cyberdéfense et Sécurité de l'Information) de l'INSA Hauts-de-France, j'ai construit une expertise solide en ingénierie réseaux, systèmes et sécurité." data-en="A 2026 graduate of the Master's in Networks &amp; Telecommunications (CDSI track: Cyberdefense &amp; Information Security) at INSA Hauts-de-France, I have built solid expertise in network, systems, and security engineering.">
+            Diplômé en 2026 du Master Réseaux et Télécommunications (parcours CDSI : Cyberdéfense et
+            Sécurité de l'Information) de l'INSA Hauts-de-France, j'ai construit une expertise solide en
             ingénierie réseaux, systèmes et sécurité.
           </p>
-          <p data-fr="Depuis septembre 2026, j’occupe le poste d’Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, au sein de la DSI interne&nbsp;: gestion de tickets, conduite de projets d’infrastructure et maintenance opérationnelle." data-en="Since September 2026, I have held the role of permanent Systems &amp; Network Engineer at <strong>OCI Informatique</strong>, within the internal IT department: ticket management, infrastructure project delivery, and operational maintenance." data-i18n-html>
-            Depuis septembre 2026, j’occupe le poste d’Ingénieur Systèmes &amp; Réseaux en CDI chez
-            <strong>OCI Informatique</strong>, au sein de la DSI interne&nbsp;: gestion de tickets, conduite
-            de projets d’infrastructure et maintenance opérationnelle.
+          <p data-fr="Depuis septembre 2026, j'occupe le poste d'Ingénieur Systèmes &amp; Réseaux en CDI chez <strong>OCI Informatique</strong>, au sein de la DSI interne : gestion de tickets, conduite de projets d'infrastructure et maintenance opérationnelle." data-en="Since September 2026, I have held the role of permanent Systems &amp; Network Engineer at <strong>OCI Informatique</strong>, within the internal IT department: ticket management, infrastructure project delivery, and operational maintenance." data-i18n-html>
+            Depuis septembre 2026, j'occupe le poste d'Ingénieur Systèmes &amp; Réseaux en CDI chez
+            <strong>OCI Informatique</strong>, au sein de la DSI interne : gestion de tickets, conduite
+            de projets d'infrastructure et maintenance opérationnelle.
           </p>
-          <p data-fr="Mes deux ans d’alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance, m’ont permis d’intervenir quotidiennement sur des infrastructures multi-clients variées&nbsp;: virtualisation, firewalling, supervision, sauvegarde et support (hotline, tickets et escalades)." data-en="My two years of work-study at <strong>Réseau-Net</strong>, an MSP specializing in managed IT services, had me working daily on varied multi-client infrastructures: virtualization, firewalling, monitoring, backup, and support (helpdesk, tickets and escalations)." data-i18n-html>
-            Mes deux ans d’alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance,
-            m’ont permis d’intervenir quotidiennement sur des infrastructures multi-clients variées&nbsp;:
+          <p data-fr="Mes deux ans d'alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance, m'ont permis d'intervenir quotidiennement sur des infrastructures multi-clients variées : virtualisation, firewalling, supervision, sauvegarde et support (hotline, tickets et escalades)." data-en="My two years of work-study at <strong>Réseau-Net</strong>, an MSP specializing in managed IT services, had me working daily on varied multi-client infrastructures: virtualization, firewalling, monitoring, backup, and support (helpdesk, tickets and escalations)." data-i18n-html>
+            Mes deux ans d'alternance chez <strong>Réseau-Net</strong>, ESN spécialisée en infogérance,
+            m'ont permis d'intervenir quotidiennement sur des infrastructures multi-clients variées :
             virtualisation, firewalling, supervision, sauvegarde et support (hotline, tickets et escalades).
           </p>
-          <p data-fr="En dehors du technique, je suis passionné par la moto, la musique, la lecture, la pêche, la <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>photographie amateure</a> et les jeux de stratégie &amp; coopération, des centres d’intérêt qui reflètent ma rigueur et ma curiosité." data-en="Outside of work, I am passionate about motorcycles, music, reading, fishing, <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>amateur photography</a>, and strategy &amp; co-op games, hobbies that reflect my discipline and curiosity." data-i18n-html>
+          <p data-fr="En dehors du technique, je suis passionné par la moto, la musique, la lecture, la pêche, la <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>photographie amateure</a> et les jeux de stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité." data-en="Outside of work, I am passionate about motorcycles, music, reading, fishing, <a href=&quot;/photographie.html&quot; style=&quot;color:var(--accent)&quot;>amateur photography</a>, and strategy &amp; co-op games, hobbies that reflect my discipline and curiosity." data-i18n-html>
             En dehors du technique, je suis passionné par la moto, la musique, la lecture, la pêche, la
-            <a href="/photographie.html" style="color: var(--body-strong)">photographie amateure</a> et les jeux de
-            stratégie &amp; coopération, des centres d’intérêt qui reflètent ma rigueur et ma curiosité.
+            <a href="/photographie.html" style="color:var(--accent)">photographie amateure</a> et les jeux de
+            stratégie &amp; coopération, des centres d'intérêt qui reflètent ma rigueur et ma curiosité.
           </p>
           <div class="info-list">
-            <div class="info-item">{% include icon.html id="fas-map-marker-alt" %}<span>Bas-Rhin (67), Alsace</span></div>
-            <div class="info-item">{% include icon.html id="fas-envelope" %}<a href="mailto:william.hertrich@proton.me">william.hertrich@proton.me</a></div>
-            <div class="info-item">{% include icon.html id="fab-github" %}<a href="https://github.com/TheWilli67" target="_blank" aria-describedby="nouvel-onglet">github.com/TheWilli67</a></div>
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Bas-Rhin (67), Alsace</span></div>
+            <div class="info-item"><i class="fas fa-envelope"></i><a href="mailto:william.hertrich@proton.me" class="no-script-execution">william.hertrich@proton.me</a></div>
+            <div class="info-item"><i class="fab fa-github"></i><a href="https://github.com/TheWilli67" target="_blank" class="no-script-execution">github.com/TheWilli67</a></div>
             <div class="info-item">
-              {% include icon.html id="fab-linkedin" %}
-              <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" aria-describedby="nouvel-onglet">linkedin.com/in/williamhertrich-67860-2003</a>
+              <i class="fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">linkedin.com/in/williamhertrich-67860-2003</a>
             </div>
-            <div class="info-item">{% include icon.html id="fas-language" %}<span data-fr="Anglais&nbsp;: TOEIC 915 / 990" data-en="English: TOEIC 915 / 990">Anglais&nbsp;: TOEIC 915 / 990</span></div>
-            <div class="info-item">{% include icon.html id="fas-motorcycle" %}<span data-fr="Permis B, A1-A2" data-en="Driving licence B, A1-A2">Permis B, A1-A2</span></div>
+            <div class="info-item"><i class="fas fa-language"></i><span data-fr="Anglais : TOEIC 915 / 990" data-en="English: TOEIC 915 / 990">Anglais : TOEIC 915 / 990</span></div>
+            <div class="info-item"><i class="fas fa-motorcycle"></i><span data-fr="Permis B, A1-A2" data-en="Driving licence B, A1-A2">Permis B, A1-A2</span></div>
           </div>
         </div>
 
@@ -397,22 +528,22 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
           <div class="edu-item">
             <span class="edu-dot"></span>
             <span class="edu-period">2024 → 2026</span>
-            <p class="edu-degree">Master Réseaux &amp; Télécommunications<br><span class="edu-sub" data-fr="option Cyberdéfense &amp; Sécurité de l’Information" data-en="Cyberdefense &amp; Information Security track">option Cyberdéfense &amp; Sécurité de l’Information</span></p>
-            <p class="edu-school">{% include icon.html id="fas-university" %}INSA Hauts-de-France, Maubeuge</p>
-            <p class="edu-school">{% include icon.html id="fas-graduation-cap" %}<span data-fr="Diplôme obtenu en 2026" data-en="Degree awarded in 2026">Diplôme obtenu en 2026</span></p>
-            <a href="/master.html" class="edu-link" data-fr="Voir le détail du Master {% include icon.html id='fas-arrow-right' %}" data-en="See the Master’s in detail {% include icon.html id='fas-arrow-right' %}" data-i18n-html>Voir le détail du Master {% include icon.html id="fas-arrow-right" %}</a>
+            <p class="edu-degree">Master Réseaux &amp; Télécommunications<br><span class="edu-sub" data-fr="option Cyberdéfense &amp; Sécurité de l'Information" data-en="Cyberdefense &amp; Information Security track">option Cyberdéfense &amp; Sécurité de l'Information</span></p>
+            <p class="edu-school"><i class="fas fa-university"></i>INSA Hauts-de-France, Maubeuge</p>
+            <p class="edu-school"><i class="fas fa-graduation-cap"></i><span data-fr="Diplôme obtenu en 2026" data-en="Degree awarded in 2026">Diplôme obtenu en 2026</span></p>
+            <a href="/master.html" class="edu-link" data-fr="Voir le détail du Master &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-en="See the Master's in detail &lt;i class=&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;" data-i18n-html>Voir le détail du Master <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="edu-item">
             <span class="edu-dot"></span>
             <span class="edu-period">2021 → 2024</span>
             <p class="edu-degree">BUT Réseaux &amp; Télécommunications<br><span class="edu-sub" data-fr="option Cybersécurité" data-en="Cybersecurity track">option Cybersécurité</span></p>
-            <p class="edu-school">{% include icon.html id="fas-university" %}Université de Haute-Alsace, Colmar</p>
+            <p class="edu-school"><i class="fas fa-university"></i>Université de Haute-Alsace, Colmar</p>
           </div>
           <div class="edu-item">
             <span class="edu-dot"></span>
             <span class="edu-period">2018 → 2021</span>
             <p class="edu-degree" data-fr="Baccalauréat Technologique<br><span class=&quot;edu-sub&quot;>ITEC · Innovation Technologique</span>" data-en="Technology Baccalaureate<br><span class=&quot;edu-sub&quot;>ITEC · Technological Innovation</span>" data-i18n-html>Baccalauréat Technologique<br><span class="edu-sub">ITEC · Innovation Technologique</span></p>
-            <p class="edu-school">{% include icon.html id="fas-school" %}Lycée Jean-Baptiste Schwillgué, Sélestat</p>
+            <p class="edu-school"><i class="fas fa-school"></i>Lycée Jean-Baptiste Schwillgué, Sélestat</p>
           </div>
         </div>
 
@@ -431,79 +562,79 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
 
         <div class="skill-card reveal">
           <div class="skill-head">
-            <div class="skill-icon">{% include icon.html id="fas-shield-halved" %}</div>
+            <div class="skill-icon"><i class="fas fa-shield-halved"></i></div>
             <span class="skill-cat" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span>
           </div>
           <div class="skill-tags">
-            <span class="stag" translate="no">Fortinet FortiGate</span>
-            <span class="stag" translate="no">FortiManager</span>
-            <span class="stag" translate="no">Stormshield CSNA</span>
-            <span class="stag" translate="no">SentinelOne EDR</span>
-            <span class="stag" translate="no">WithSecure</span>
-            <span class="stag" translate="no">VPN site-to-site</span>
-            <span class="stag" translate="no">VPN client-to-site</span>
+            <span class="stag">Fortinet FortiGate</span>
+            <span class="stag">FortiManager</span>
+            <span class="stag">Stormshield CSNA</span>
+            <span class="stag">SentinelOne EDR</span>
+            <span class="stag">WithSecure</span>
+            <span class="stag">VPN site-to-site</span>
+            <span class="stag">VPN client-to-site</span>
             <span class="stag" data-fr="Segmentation réseau" data-en="Network segmentation">Segmentation réseau</span>
-            <span class="stag" translate="no">TryHackMe</span>
+            <span class="stag">TryHackMe</span>
           </div>
         </div>
 
         <div class="skill-card reveal" style="transition-delay:.1s">
           <div class="skill-head">
-            <div class="skill-icon">{% include icon.html id="fas-network-wired" %}</div>
+            <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
             <span class="skill-cat" data-fr="Réseaux" data-en="Networks">Réseaux</span>
           </div>
           <div class="skill-tags">
-            <span class="stag" translate="no">TCP/IP</span>
-            <span class="stag" translate="no">VLAN</span>
-            <span class="stag" translate="no">LACP</span>
-            <span class="stag" translate="no">NAT / PAT</span>
-            <span class="stag" translate="no">QoS</span>
-            <span class="stag" translate="no">Switching</span>
-            <span class="stag" translate="no">Cisco</span>
-            <span class="stag" translate="no">Fortinet</span>
-            <span class="stag" translate="no">Observium</span>
-            <span class="stag" translate="no">Centreon</span>
-            <span class="stag" translate="no">Aruba Instant</span>
+            <span class="stag">TCP/IP</span>
+            <span class="stag">VLAN</span>
+            <span class="stag">LACP</span>
+            <span class="stag">NAT / PAT</span>
+            <span class="stag">QoS</span>
+            <span class="stag">Switching</span>
+            <span class="stag">Cisco</span>
+            <span class="stag">Fortinet</span>
+            <span class="stag">Observium</span>
+            <span class="stag">Centreon</span>
+            <span class="stag">Aruba Instant</span>
           </div>
           <p class="skill-sub" data-fr="Vus en formation" data-en="Covered in training">Vus en formation</p>
           <div class="skill-tags">
-            <span class="stag stag-course" translate="no">OSPF</span>
-            <span class="stag stag-course" translate="no">BGP</span>
+            <span class="stag stag-course">OSPF</span>
+            <span class="stag stag-course">BGP</span>
             <span class="stag stag-course" data-fr="Routage dynamique" data-en="Dynamic routing">Routage dynamique</span>
-            <span class="stag stag-course" translate="no">MSTP / STP</span>
-            <span class="stag stag-course" translate="no">Wi-Fi</span>
+            <span class="stag stag-course">MSTP / STP</span>
+            <span class="stag stag-course">Wi-Fi</span>
           </div>
         </div>
 
         <div class="skill-card reveal" style="transition-delay:.2s">
           <div class="skill-head">
-            <div class="skill-icon">{% include icon.html id="fas-server" %}</div>
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
             <span class="skill-cat" data-fr="Systèmes &amp; Virtualisation" data-en="Systems &amp; Virtualization">Systèmes &amp; Virtualisation</span>
           </div>
           <div class="skill-tags">
-            <span class="stag" translate="no">Windows Server 2025</span>
-            <span class="stag" translate="no">Linux RHEL</span>
-            <span class="stag" translate="no">Ubuntu Server</span>
-            <span class="stag" translate="no">Debian</span>
-            <span class="stag" translate="no">VMware vCenter</span>
-            <span class="stag" translate="no">VMware ESXi</span>
-            <span class="stag" translate="no">Hyper-V</span>
-            <span class="stag" translate="no">Veeam</span>
-            <span class="stag" translate="no">Synology ActiveBackup</span>
+            <span class="stag">Windows Server 2025</span>
+            <span class="stag">Linux RHEL</span>
+            <span class="stag">Ubuntu Server</span>
+            <span class="stag">Debian</span>
+            <span class="stag">VMware vCenter</span>
+            <span class="stag">VMware ESXi</span>
+            <span class="stag">Hyper-V</span>
+            <span class="stag">Veeam</span>
+            <span class="stag">Synology ActiveBackup</span>
           </div>
         </div>
 
         <div class="skill-card reveal" style="transition-delay:.3s">
           <div class="skill-head">
-            <div class="skill-icon">{% include icon.html id="fas-code" %}</div>
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
             <span class="skill-cat" data-fr="Automatisation &amp; Support" data-en="Automation &amp; Support">Automatisation &amp; Support</span>
           </div>
           <div class="skill-tags">
-            <span class="stag" translate="no">Python</span>
-            <span class="stag" translate="no">Bash scripting</span>
-            <span class="stag" translate="no">GLPI</span>
-            <span class="stag" translate="no">Office 365</span>
-            <span class="stag" translate="no">Google Workspace</span>
+            <span class="stag">Python</span>
+            <span class="stag">Bash scripting</span>
+            <span class="stag">GLPI</span>
+            <span class="stag">Office 365</span>
+            <span class="stag">Google Workspace</span>
             <span class="stag" data-fr="Helpdesk N1 à N3" data-en="Helpdesk L1 to L3">Helpdesk N1 à N3</span>
           </div>
         </div>
@@ -511,18 +642,18 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
       </div>
 
       <div class="certs-row">
-        <a href="/documents/HERTRICH_William_stormshield.pdf" class="cert" target="_blank" aria-describedby="nouvel-onglet">
-          <div class="cert-icon">{% include icon.html id="fas-certificate" %}</div>
+        <a href="/documents/HERTRICH_William_stormshield.pdf" class="cert no-script-execution" target="_blank">
+          <div class="cert-icon"><i class="fas fa-certificate"></i></div>
           <div>
             <p class="cert-name">Certified Stormshield Network Administrator</p>
             <p class="cert-sub" data-fr="CSNA · Valable 2024 → 2027" data-en="CSNA · Valid 2024 → 2027">CSNA · Valable 2024 → 2027</p>
           </div>
         </a>
         <div class="cert">
-          <div class="cert-icon">{% include icon.html id="fas-language" %}</div>
+          <div class="cert-icon"><i class="fas fa-language"></i></div>
           <div>
             <p class="cert-name">TOEIC Listening &amp; Reading</p>
-            <p class="cert-sub">Score&nbsp;: 915 / 990</p>
+            <p class="cert-sub">Score : 915 / 990</p>
           </div>
         </div>
       </div>
@@ -540,55 +671,55 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
 
         <!-- OCI -->
         <div class="exp-item reveal">
-          <div class="exp-marker">{% include icon.html id="fas-network-wired" %}</div>
+          <div class="exp-marker"><i class="fas fa-network-wired"></i></div>
           <div class="exp-card">
             <div class="exp-head">
               <div>
                 <p class="exp-role" data-fr="Ingénieur Systèmes &amp; Réseaux" data-en="Systems &amp; Network Engineer">Ingénieur Systèmes &amp; Réseaux</p>
                 <p class="exp-company" data-fr="OCI Informatique ESN" data-en="OCI Informatique MSP">OCI Informatique ESN</p>
-                <p class="exp-loc">{% include icon.html id="fas-map-pin" %}Grand Est</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Grand Est</p>
               </div>
-              <span class="exp-period current" data-fr="{% include icon.html id='fas-circle' %} Depuis Sept. 2026" data-en="{% include icon.html id='fas-circle' %} Since Sep 2026" data-i18n-html>{% include icon.html id="fas-circle" %} Depuis Sept. 2026</span>
+              <span class="exp-period current" data-fr="<i class=&quot;fas fa-circle&quot;></i> Depuis Sept. 2026" data-en="<i class=&quot;fas fa-circle&quot;></i> Since Sep 2026" data-i18n-html><i class="fas fa-circle"></i> Depuis Sept. 2026</span>
             </div>
-            <p class="exp-desc" data-fr="En CDI au sein de la DSI interne d’OCI Informatique, j’assure la gestion de tickets, la conduite de projets d’infrastructure et la maintenance opérationnelle du parc et des réseaux." data-en="Permanent role within OCI Informatique’s internal IT department: ticket management, infrastructure project delivery, and operational maintenance of the network and fleet.">
-              En CDI au sein de la DSI interne d’OCI Informatique, j’assure la gestion de tickets, la
-              conduite de projets d’infrastructure et la maintenance opérationnelle du parc et des réseaux.
+            <p class="exp-desc" data-fr="En CDI au sein de la DSI interne d'OCI Informatique, j'assure la gestion de tickets, la conduite de projets d'infrastructure et la maintenance opérationnelle du parc et des réseaux." data-en="Permanent role within OCI Informatique's internal IT department: ticket management, infrastructure project delivery, and operational maintenance of the network and fleet.">
+              En CDI au sein de la DSI interne d'OCI Informatique, j'assure la gestion de tickets, la
+              conduite de projets d'infrastructure et la maintenance opérationnelle du parc et des réseaux.
             </p>
             <div class="exp-cats">
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Réseau" data-en="Network">Réseau</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">Aruba ArubaOS-CX</span>
+                  <span class="echip">Aruba ArubaOS-CX</span>
                   <span class="echip" data-fr="Stacking VSF" data-en="VSF stacking">Stacking VSF</span>
-                  <span class="echip" translate="no">VLAN / LAG / LACP</span>
-                  <span class="echip" translate="no">802.1X / RADIUS</span>
+                  <span class="echip">VLAN / LAG / LACP</span>
+                  <span class="echip">802.1X / RADIUS</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Systèmes" data-en="Systems">Systèmes</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">VMware / ESXi</span>
-                  <span class="echip" translate="no">Veeam</span>
-                  <span class="echip" translate="no">Active Directory</span>
-                  <span class="echip" translate="no">MDT / GPO</span>
+                  <span class="echip">VMware / ESXi</span>
+                  <span class="echip">Veeam</span>
+                  <span class="echip">Active Directory</span>
+                  <span class="echip">MDT / GPO</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Sécurité" data-en="Security">Sécurité</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">WatchGuard</span>
-                  <span class="echip" translate="no">WithSecure EDR</span>
-                  <span class="echip" translate="no">OpenCVE</span>
-                  <span class="echip" translate="no">Keeper</span>
-                  <span class="echip" translate="no">Vade / Hornetsecurity</span>
-                  <span class="echip" translate="no">Barracuda M365</span>
+                  <span class="echip">WatchGuard</span>
+                  <span class="echip">WithSecure EDR</span>
+                  <span class="echip">OpenCVE</span>
+                  <span class="echip">Keeper</span>
+                  <span class="echip">Vade / Hornetsecurity</span>
+                  <span class="echip">Barracuda M365</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Parc &amp; ITSM" data-en="Fleet &amp; ITSM">Parc &amp; ITSM</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">Lansweeper</span>
-                  <span class="echip" translate="no">3CX</span>
+                  <span class="echip">Lansweeper</span>
+                  <span class="echip">3CX</span>
                   <span class="echip" data-fr="Base de connaissances" data-en="Knowledge base">Base de connaissances</span>
                 </div>
               </div>
@@ -598,19 +729,19 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
 
         <!-- Réseau-Net -->
         <div class="exp-item reveal">
-          <div class="exp-marker">{% include icon.html id="fas-building" %}</div>
+          <div class="exp-marker"><i class="fas fa-building"></i></div>
           <div class="exp-card">
             <div class="exp-head">
               <div>
                 <p class="exp-role" data-fr="Alternant Ingénieur Systèmes &amp; Réseaux" data-en="Work-study Systems &amp; Network Engineer">Alternant Ingénieur Systèmes &amp; Réseaux</p>
                 <p class="exp-company" data-fr="Réseau-Net · ESN / Infogérance" data-en="Réseau-Net · MSP / Managed Services">Réseau-Net · ESN / Infogérance</p>
-                <p class="exp-loc">{% include icon.html id="fas-map-pin" %}Oberhausbergen, Grand Est</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Oberhausbergen, Grand Est</p>
               </div>
-              <span class="exp-period" data-fr="{% include icon.html id='far-calendar' %} Août 2024 → Sept. 2026" data-en="{% include icon.html id='far-calendar' %} Aug 2024 → Sep 2026" data-i18n-html>{% include icon.html id="far-calendar" %} Août 2024 → Sept. 2026</span>
+              <span class="exp-period" data-fr="<i class=&quot;far fa-calendar&quot;></i> Août 2024 → Sept. 2026" data-en="<i class=&quot;far fa-calendar&quot;></i> Aug 2024 → Sep 2026" data-i18n-html><i class="far fa-calendar"></i> Août 2024 → Sept. 2026</span>
             </div>
-            <p class="exp-desc" data-fr="Au sein d’un MSP multi-clients, j’ai assuré le maintien en condition opérationnelle et la sécurisation des infrastructures IT d’un portefeuille de clients multi-secteurs. J’ai travaillé en tandem avec différents prestataires et interlocuteurs métiers pour garantir la disponibilité et la performance des environnements de production." data-en="Within a multi-client MSP, I ensured the operational maintenance and security of IT infrastructures for a portfolio of multi-sector clients. I worked alongside various service providers and business contacts to guarantee the availability and performance of production environments.">
-              Au sein d’un MSP multi-clients, j’ai assuré le maintien en condition opérationnelle et la sécurisation
-              des infrastructures IT d’un portefeuille de clients multi-secteurs. J’ai travaillé en tandem avec
+            <p class="exp-desc" data-fr="Au sein d'un MSP multi-clients, j'ai assuré le maintien en condition opérationnelle et la sécurisation des infrastructures IT d'un portefeuille de clients multi-secteurs. J'ai travaillé en tandem avec différents prestataires et interlocuteurs métiers pour garantir la disponibilité et la performance des environnements de production." data-en="Within a multi-client MSP, I ensured the operational maintenance and security of IT infrastructures for a portfolio of multi-sector clients. I worked alongside various service providers and business contacts to guarantee the availability and performance of production environments.">
+              Au sein d'un MSP multi-clients, j'ai assuré le maintien en condition opérationnelle et la sécurisation
+              des infrastructures IT d'un portefeuille de clients multi-secteurs. J'ai travaillé en tandem avec
               différents prestataires et interlocuteurs métiers pour garantir la disponibilité et la performance
               des environnements de production.
             </p>
@@ -618,37 +749,37 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Systèmes" data-en="Systems">Systèmes</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">Windows Server 2025</span>
-                  <span class="echip" translate="no">Linux RHEL / Ubuntu / Debian</span>
-                  <span class="echip" translate="no">VMware vCenter / ESXi</span>
-                  <span class="echip" translate="no">Hyper-V</span>
-                  <span class="echip" translate="no">Snapshots &amp; migration VM</span>
+                  <span class="echip">Windows Server 2025</span>
+                  <span class="echip">Linux RHEL / Ubuntu / Debian</span>
+                  <span class="echip">VMware vCenter / ESXi</span>
+                  <span class="echip">Hyper-V</span>
+                  <span class="echip">Snapshots &amp; migration VM</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Sécurité" data-en="Security">Sécurité</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">FortiGate / FortiManager</span>
+                  <span class="echip">FortiGate / FortiManager</span>
                   <span class="echip" data-fr="Règles firewall" data-en="Firewall rules">Règles firewall</span>
-                  <span class="echip" translate="no">VPN S2S &amp; C2S</span>
-                  <span class="echip" translate="no">SentinelOne EDR</span>
+                  <span class="echip">VPN S2S &amp; C2S</span>
+                  <span class="echip">SentinelOne EDR</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Supervision" data-en="Monitoring">Supervision</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">Observium</span>
-                  <span class="echip" translate="no">Centreon</span>
-                  <span class="echip" translate="no">Veeam</span>
-                  <span class="echip" translate="no">Synology ActiveBackup</span>
+                  <span class="echip">Observium</span>
+                  <span class="echip">Centreon</span>
+                  <span class="echip">Veeam</span>
+                  <span class="echip">Synology ActiveBackup</span>
                   <span class="echip" data-fr="Hotline &amp; tickets GLPI" data-en="Helpdesk &amp; GLPI tickets">Hotline &amp; tickets GLPI</span>
                 </div>
               </div>
               <div class="exp-cat">
                 <span class="exp-clabel">Scripts</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">Bash</span>
-                  <span class="echip" translate="no">Python</span>
+                  <span class="echip">Bash</span>
+                  <span class="echip">Python</span>
                   <span class="echip" data-fr="Automatisation reporting" data-en="Reporting automation">Automatisation reporting</span>
                 </div>
               </div>
@@ -658,27 +789,27 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
 
         <!-- SOLINEST -->
         <div class="exp-item reveal" style="transition-delay:.1s">
-          <div class="exp-marker">{% include icon.html id="fas-industry" %}</div>
+          <div class="exp-marker"><i class="fas fa-industry"></i></div>
           <div class="exp-card">
             <div class="exp-head">
               <div>
                 <p class="exp-role" data-fr="Alternant Technicien Systèmes &amp; Réseaux" data-en="Work-study Systems &amp; Network Technician">Alternant Technicien Systèmes &amp; Réseaux</p>
                 <p class="exp-company" data-fr="SOLINEST · Secteur agroalimentaire" data-en="SOLINEST · Food industry">SOLINEST · Secteur agroalimentaire</p>
-                <p class="exp-loc">{% include icon.html id="fas-map-pin" %}Brunstatt-Didenheim, Grand Est</p>
+                <p class="exp-loc"><i class="fas fa-map-pin"></i>Brunstatt-Didenheim, Grand Est</p>
               </div>
-              <span class="exp-period" data-fr="{% include icon.html id='far-calendar' %} Sept. 2022 → Août 2024" data-en="{% include icon.html id='far-calendar' %} Sep 2022 → Aug 2024" data-i18n-html>{% include icon.html id="far-calendar" %} Sept. 2022 → Août 2024</span>
+              <span class="exp-period" data-fr="<i class=&quot;far fa-calendar&quot;></i> Sept. 2022 → Août 2024" data-en="<i class=&quot;far fa-calendar&quot;></i> Sep 2022 → Aug 2024" data-i18n-html><i class="far fa-calendar"></i> Sept. 2022 → Août 2024</span>
             </div>
-            <p class="exp-desc" data-fr="Au sein du service IT d’une entreprise agroalimentaire multi-sites, j’ai assuré le bon fonctionnement du système d’information en étant l’interlocuteur direct des collaborateurs pour leurs besoins IT, tout en participant à des projets de migration d’infrastructure." data-en="Within the IT department of a multi-site food company, I maintained the information system by being the direct point of contact for staff IT needs, while participating in infrastructure migration projects.">
-              Au sein du service IT d’une entreprise agroalimentaire multi-sites, j’ai assuré le bon fonctionnement
-              du système d’information en étant l’interlocuteur direct des collaborateurs pour leurs besoins IT,
-              tout en participant à des projets de migration d’infrastructure.
+            <p class="exp-desc" data-fr="Au sein du service IT d'une entreprise agroalimentaire multi-sites, j'ai assuré le bon fonctionnement du système d'information en étant l'interlocuteur direct des collaborateurs pour leurs besoins IT, tout en participant à des projets de migration d'infrastructure." data-en="Within the IT department of a multi-site food company, I maintained the information system by being the direct point of contact for staff IT needs, while participating in infrastructure migration projects.">
+              Au sein du service IT d'une entreprise agroalimentaire multi-sites, j'ai assuré le bon fonctionnement
+              du système d'information en étant l'interlocuteur direct des collaborateurs pour leurs besoins IT,
+              tout en participant à des projets de migration d'infrastructure.
             </p>
             <div class="exp-cats">
               <div class="exp-cat">
                 <span class="exp-clabel">Support</span>
                 <div class="exp-chips">
                   <span class="echip" data-fr="Helpdesk N1 / N2 GLPI" data-en="Helpdesk L1 / L2 GLPI">Helpdesk N1 / N2 GLPI</span>
-                  <span class="echip" translate="no">Google Workspace</span>
+                  <span class="echip">Google Workspace</span>
                   <span class="echip" data-fr="Gestion de parc" data-en="Asset management">Gestion de parc</span>
                   <span class="echip" data-fr="Masterisation postes" data-en="PC imaging">Masterisation postes</span>
                 </div>
@@ -686,11 +817,11 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
               <div class="exp-cat">
                 <span class="exp-clabel" data-fr="Projets" data-en="Projects">Projets</span>
                 <div class="exp-chips">
-                  <span class="echip" translate="no">Migration WS 2008 R2 → 2016</span>
-                  <span class="echip" translate="no">VMware vCenter / ESXi</span>
-                  <span class="echip" translate="no">Veeam</span>
-                  <span class="echip" translate="no">Centreon</span>
-                  <span class="echip" translate="no">WithSecure AV</span>
+                  <span class="echip">Migration WS 2008 R2 → 2016</span>
+                  <span class="echip">VMware vCenter / ESXi</span>
+                  <span class="echip">Veeam</span>
+                  <span class="echip">Centreon</span>
+                  <span class="echip">WithSecure AV</span>
                 </div>
               </div>
               <div class="exp-cat">
@@ -708,10 +839,28 @@ description: "William Hertrich, Ingénieur Systèmes & Réseaux chez OCI Informa
     </div>
   </section>
 
-  </main>
-
   <!-- ===== FOOTER ===== -->
-  {% include footer.html %}
+  <footer>
+    <div class="footer-links">
+      <a href="/index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/williamhertrich-67860-2003" target="_blank" class="no-script-execution">LinkedIn</a>
+      <a href="https://github.com/thewilli67" target="_blank" class="no-script-execution">GitHub</a>
+      <a href="/mentions_legales.html">Mentions légales</a>
+    </div>
+    <p data-fr="© 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux" data-en="© 2026 William Hertrich · Systems &amp; Network Engineer">&copy; 2026 William Hertrich · Ingénieur Systèmes &amp; Réseaux</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
 
 </body>
 </html>
