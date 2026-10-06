@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-04",
+ "updated": "2026-10-06",
  "games": [
   {
    "appid": 582010,
@@ -373,6 +373,16 @@
    ]
   },
   {
+   "appid": 2909400,
+   "name": "FINAL FANTASY VII REBIRTH",
+   "minutes": 515,
+   "last": 1791229792,
+   "ach": [
+    19,
+    61
+   ]
+  },
+  {
    "appid": 489830,
    "name": "The Elder Scrolls V: Skyrim Special Edition",
    "minutes": 507,
@@ -380,16 +390,6 @@
    "ach": [
     8,
     75
-   ]
-  },
-  {
-   "appid": 2909400,
-   "name": "FINAL FANTASY VII REBIRTH",
-   "minutes": 463,
-   "last": 1763591123,
-   "ach": [
-    18,
-    61
    ]
   },
   {
