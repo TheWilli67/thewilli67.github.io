@@ -10,14 +10,14 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
   <style>
     /* Page header */
     .pheader { padding: 7rem 5% 5rem; }
-    .pheader::before { background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(37,99,235,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 15% 70%, rgba(99,102,241,.08) 0%, transparent 50%); }
+    .pheader::before { background: none; }
     .ph-inner { display: flex; align-items: center; gap: 4rem; }
     .ph-text { flex: 1; }
     .ph-title { margin-bottom: .75rem; }
     .ph-sub { max-width: 550px; line-height: 1.75; }
     .ph-photo { flex-shrink: 0; }
-    .ph-ring { width: 220px; height: 279px; border-radius: 18px; padding: 3px; background: conic-gradient(from 180deg, #2563eb, #6366f1, #2563eb); box-shadow: 0 0 60px rgba(37,99,235,.2); }
-    .ph-img-clip { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; border: 4px solid #0f172a; }
+    .ph-ring { width: 220px; height: 279px; border-radius: 4px; padding: 0; border: 1px solid var(--hairline); background: var(--canvas-soft); }
+    .ph-img-clip { width: 100%; height: 100%; border-radius: 4px; overflow: hidden; }
     .ph-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 
     /* Sections */
@@ -26,11 +26,11 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
 
     /* Story section */
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .story-block h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .75rem; }
+    .story-block h3 { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
     .story-block p { font-size: .93rem; color: var(--text-m); line-height: 1.8; margin-bottom: .85rem; }
     .story-block p:last-child { margin-bottom: 0; }
     .story-quote {
-      background: var(--accent-lt); border-left: 3px solid var(--accent);
+      background: var(--tint); border-left: 3px solid var(--mute);
       border-radius: 0 var(--r) var(--r) 0;
       padding: 1.25rem 1.5rem; margin: 1.5rem 0;
       font-style: italic; color: var(--text-m); font-size: .93rem; line-height: 1.75;
@@ -40,12 +40,11 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
     .value-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.5rem;
-      box-shadow: var(--sh-sm); transition: var(--t); text-align: center;
+      border-radius: var(--r); padding: 1.5rem; transition: var(--tr); text-align: center;
     }
-    .value-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .value-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
     .value-icon { font-size: 1.75rem; margin-bottom: .75rem; }
-    .value-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .value-title { font-size: .92rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
     .value-desc { font-size: .83rem; color: var(--text-m); line-height: 1.6; }
 
     /* Interests grid */
@@ -53,38 +52,37 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
     .interest-card {
       display: flex; align-items: flex-start; gap: 1rem;
       padding: 1.25rem 1.5rem; background: var(--bg-card);
-      border: 1px solid var(--border); border-radius: var(--r);
-      box-shadow: var(--sh-sm); transition: var(--t);
+      border: 1px solid var(--border); border-radius: var(--r); transition: var(--tr);
     }
 
-    .interest-card:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .interest-card:hover { transform: translateY(-2px); border-color: var(--hairline); }
     .interest-icon {
-      width: 44px; height: 44px; border-radius: 10px;
+      width: 44px; height: 44px; border-radius: 4px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem;
     }
     .interest-title { font-size: .9rem; font-weight: 600; color: var(--text); }
     .interest-desc  { font-size: .82rem; color: var(--text-m); margin-top: .25rem; line-height: 1.55; }
-    .interest-link  { display: block; text-align: right; margin-top: .6rem; font-size: .76rem; font-weight: 600; color: #6366f1; transition: var(--t); }
+    .interest-link  { display: block; text-align: right; margin-top: .6rem; font-size: .76rem; font-weight: 600; color: var(--accent); transition: var(--tr); }
     .interest-link:hover { opacity: .7; }
 
     /* Goals timeline */
     .goals-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin: 0 auto; }
-    .goal-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-sm); }
-    .goal-num { width: 36px; height: 36px; background: var(--accent-lt); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
-    .goal-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+    .goal-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); }
+    .goal-num { width: 36px; height: 36px; background: var(--tint); color: var(--body-strong); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: .85rem; flex-shrink: 0; }
+    .goal-title { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .2rem; }
     .goal-desc  { font-size: .84rem; color: var(--text-m); line-height: 1.6; }
 
     /* CTA */
-    .cta-block { text-align: center; padding: 3.5rem 2rem; background: var(--bg-dark); border-radius: var(--r); color: #f8fafc; }
-    .cta-block h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: .75rem; letter-spacing: -.01em; }
-    .cta-block p { font-size: .95rem; color: #94a3b8; margin-bottom: 2rem; }
+    .cta-block { text-align: center; padding: 3.5rem 2rem; background: var(--bg-dark); border-radius: 3px; color: var(--ink); }
+    .cta-block h3 { font-size: 1.5rem; font-weight: 500; margin-bottom: .75rem; letter-spacing: -.01em; }
+    .cta-block p { font-size: .95rem; color: var(--body); margin-bottom: 2rem; }
     .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: .875rem; transition: var(--t); }
-    .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(37,99,235,.3); }
-    .btn-primary:hover { background: var(--accent-h); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: #cbd5e1; border: 1.5px solid #2d3f57; }
-    .btn-ghost:hover { border-color: #60a5fa; color: #93c5fd; transform: translateY(-2px); }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.6rem; border-radius: 3px; font-weight: 600; font-size: .875rem; transition: var(--tr); }
+    .btn-primary { background: var(--accent); color: var(--on-primary); }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--body-strong); border: 1.5px solid var(--hairline); }
+    .btn-ghost:hover { border-color: var(--mute); color: var(--accent-hover); transform: translateY(-2px); }
 
     @media (max-width: 900px) {
       .ph-inner { flex-direction: column-reverse; gap: 2rem; align-items: center; text-align: center; }
@@ -200,7 +198,7 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
       </div>
       <div class="interests-grid reveal">
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(99,102,241,.1);color:#6366f1">{% include icon.html id="fas-gamepad" %}</div>
+          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-gamepad" %}</div>
           <div style="flex:1">
             <p class="interest-title" data-fr="Jeux vidéos" data-en="Video games">Jeux vidéos</p>
             <p class="interest-desc" data-fr="Stratégie et coopération : j'aime les jeux qui demandent réflexion, planification et travail d'équipe." data-en="Strategy and co-op: I enjoy games that require thinking, planning, and teamwork.">Stratégie et coopération : j'aime les jeux qui demandent réflexion, planification et travail d'équipe.</p>
@@ -208,21 +206,21 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(239,68,68,.1);color:#dc2626">{% include icon.html id="fas-motorcycle" %}</div>
+          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-motorcycle" %}</div>
           <div>
             <p class="interest-title" data-fr="Moto" data-en="Motorcycles">Moto</p>
             <p class="interest-desc" data-fr="Titulaire du permis A1-A2, j'aime la conduite sur route." data-en="A1-A2 licence holder, I enjoy road riding.">Titulaire du permis A1-A2, j'aime la conduite sur route.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(234,179,8,.1);color:#b45309">{% include icon.html id="fas-music" %}</div>
+          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-music" %}</div>
           <div>
             <p class="interest-title" data-fr="Musique" data-en="Music">Musique</p>
             <p class="interest-desc" data-fr="Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code." data-en="A passionate listener across many genres, music accompanies my long work and coding sessions.">Auditeur passionné de nombreux genres, la musique accompagne mes longues sessions de travail et de code.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(168,85,247,.1);color:#9333ea">{% include icon.html id="fas-camera" %}</div>
+          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-camera" %}</div>
           <div style="flex:1">
             <p class="interest-title" data-fr="Photographie amateure" data-en="Amateur photography">Photographie amateure</p>
             <p class="interest-desc" data-fr="Canon EOS 600D au poing : macro florale, faune, lumières nocturnes et compositions atmosphériques." data-en="Canon EOS 600D in hand: floral macro, wildlife, night lights, and atmospheric compositions.">Canon EOS 600D au poing : macro florale, faune, lumières nocturnes et compositions atmosphériques.</p>
@@ -230,14 +228,14 @@ description: "À propos de William Hertrich · Ingénieur Systèmes & Réseaux, 
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(34,197,94,.1);color:#16a34a">{% include icon.html id="fas-fish" %}</div>
+          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-fish" %}</div>
           <div>
             <p class="interest-title" data-fr="Pêche" data-en="Fishing">Pêche</p>
             <p class="interest-desc" data-fr="Une activité qui demande patience et observation, deux qualités qui se retrouvent aussi dans le métier de sysadmin." data-en="An activity requiring patience and observation, two qualities that also come in handy as a sysadmin.">Une activité qui demande patience et observation, deux qualités qui se retrouvent aussi dans le métier de sysadmin.</p>
           </div>
         </div>
         <div class="interest-card">
-          <div class="interest-icon" style="background:rgba(37,99,235,.1);color:var(--accent)">{% include icon.html id="fas-shield-halved" %}</div>
+          <div class="interest-icon" style="background: var(--tint);color: var(--body-strong)">{% include icon.html id="fas-shield-halved" %}</div>
           <div>
             <p class="interest-title">TryHackMe &amp; CTF</p>
             <p class="interest-desc" data-fr="Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives." data-en="Online cybersecurity challenges to maintain and develop my offensive and defensive skills.">Défis de cybersécurité en ligne pour entretenir et développer mes compétences offensives et défensives.</p>

@@ -62,7 +62,7 @@ thewilli67.github.io/
 │   └── icon.html               # Icône du sprite SVG
 ├── assets/
 │   ├── css/site.css            # Styles communs : polices, variables, icônes, menu, en-tête, sections, pied de page
-│   ├── fonts/                  # Geist et Geist Mono en woff2 (Regular / Medium) + licence OFL
+│   ├── fonts/                  # Geist et Geist Mono en woff2 variables (un fichier par famille) + licence OFL
 │   ├── icons.svg               # Sprite des icônes utilisées (Font Awesome Free, CC BY 4.0)
 │   ├── flags/                  # Drapeaux FR / GB du bouton de langue (flag-icons, MIT)
 │   └── photos/                 # Versions WebP de la galerie (générées, ne pas modifier)
@@ -115,7 +115,7 @@ Aucun framework CSS ni bundler, aucune ressource chargée depuis un autre domain
 
 ## Fonctionnalités
 
-- **Design system cohérent** : variables CSS (`--accent`, `--bg-dark`, `--text-m`…) et composants communs (menu, en-tête de page, sections, pied de page) définis une seule fois dans `assets/css/site.css`, contrastes conformes WCAG AA sur les fonds sombres
+- **Design system** ([`DESIGN.md`](DESIGN.md)) : canvas brun-charbon, textes off-white, un seul accent ambre (`#e5a54b`) réservé aux liens, au focus et au bouton principal, Geist / Geist Mono ; jetons et composants communs dans `assets/css/site.css`, contrastes WCAG AA vérifiés sur toutes les surfaces
 - **Bilinguisme FR / EN** : attributs `data-fr` / `data-en` traduits par `i18n.js` ; au premier passage, une popup propose la langue (affichée en même temps que la page, sans flash), puis le choix est mémorisé dans le navigateur
 - **Transitions de page** : fondu natif du navigateur (View Transitions, en CSS), en simple amélioration et désactivé si le système demande moins d'animations
 - **Scroll reveal** : les éléments `.reveal` situés sous l'écran apparaissent au défilement (`reveal.js`) ; rien n'est masqué sans JavaScript ni avec `prefers-reduced-motion`

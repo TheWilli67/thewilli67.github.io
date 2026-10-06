@@ -15,19 +15,19 @@ lang: en
     }
 
     /* Language toggle */
-    .lang-toggle { display: inline-flex; align-items: center; gap: .3rem; padding: .3rem .8rem; border-radius: 100px; font-size: .75rem; font-weight: 600; background: rgba(255,255,255,.08); color: #94a3b8; border: 1px solid rgba(255,255,255,.1); transition: var(--t); }
-    .lang-toggle:hover { background: rgba(255,255,255,.14); color: #f1f5f9; }
+    .lang-toggle { display: inline-flex; align-items: center; gap: .3rem; padding: .3rem .8rem; border-radius: 100px; font-size: .75rem; font-weight: 600; background: var(--tint); color: var(--body); border: 1px solid var(--hairline); transition: var(--tr); }
+    .lang-toggle:hover { background: var(--tint); color: var(--ink); }
 
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(59,130,246,.1) 0%, transparent 60%); }
+    .pheader::before { background: none; }
     .ph-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
     .ph-back { margin-bottom: 0; }
     .ph-title { font-size: clamp(2rem, 4vw, 3.2rem); }
-    .ph-title span { color: #60a5fa; }
+    .ph-title span { color: var(--body-strong); }
     .ph-sub { max-width: 620px; margin-bottom: 1.5rem; }
-    .chip-year { background: rgba(96,165,250,.15); color: #60a5fa; }
-    .chip-team { background: rgba(139,92,246,.15); color: #a78bfa; }
-    .chip-tech { background: rgba(59,130,246,.15); color: #93c5fd; }
+    .chip-year { background: var(--tint); color: var(--body-strong); }
+    .chip-team { background: var(--tint); color: var(--body-strong); }
+    .chip-tech { background: var(--tint); color: var(--body-strong); }
 
     /* Two col */
     .two-col { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
@@ -35,38 +35,38 @@ lang: en
 
     /* Schema list */
     .schema-list { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
-    .schema-list h4 { font-size: .8rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+    .schema-list h4 { font-size: .8rem; font-weight: 600; color: var(--text-lt); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-bottom: 1rem; }
     .schema-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .875rem; color: var(--text-m); padding: .4rem 0; border-bottom: 1px solid var(--border); }
     .schema-list li:last-child { border-bottom: none; }
-    .schema-list li .icon { color: var(--accent); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
+    .schema-list li .icon { color: var(--body-strong); margin-top: .15rem; flex-shrink: 0; font-size: .8rem; }
 
     /* Screenshot */
-    .screenshot-card { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh); }
+    .screenshot-card { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); }
     .screenshot-card img { width: 100%; display: block; }
     .screenshot-cap { padding: .85rem 1.25rem; font-size: .82rem; color: var(--text-m); background: var(--bg-alt); border-top: 1px solid var(--border); font-weight: 500; }
 
     /* Stack */
     .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-    .stack-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem; text-align: center; transition: var(--t); }
-    .stack-item:hover { transform: translateY(-2px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .stack-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem; text-align: center; transition: var(--tr); }
+    .stack-item:hover { transform: translateY(-2px); border-color: var(--hairline); }
     .stack-icon { font-size: 1.5rem; margin-bottom: .5rem; }
-    .stack-name { font-size: .88rem; font-weight: 700; color: var(--text); }
+    .stack-name { font-size: .88rem; font-weight: 600; color: var(--text); }
     .stack-desc { font-size: .75rem; color: var(--text-m); margin-top: .2rem; }
 
     /* Tasks image */
-    .img-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm); }
+    .img-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
     .img-card img { width: 100%; }
     .img-card-cap { padding: .85rem 1.25rem; font-size: .82rem; color: var(--text-m); background: var(--bg-alt); border-top: 1px solid var(--border); }
 
     /* GitHub links */
     .gh-list { display: flex; flex-direction: column; gap: .75rem; }
-    .gh-link { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); transition: var(--t); }
-    .gh-link:hover { border-color: rgba(37,99,235,.3); box-shadow: var(--sh); transform: translateX(3px); }
-    .gh-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(36,41,47,.08); color: #24292f; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .gh-link { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); transition: var(--tr); }
+    .gh-link:hover { border-color: var(--hairline); transform: translateX(3px); }
+    .gh-icon { width: 40px; height: 40px; border-radius: 4px; background: var(--tint); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
     .gh-name { font-size: .88rem; font-weight: 600; color: var(--text); }
     .gh-handle { font-size: .75rem; color: var(--text-lt); }
-    .gh-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--t); }
-    .gh-link:hover .gh-arrow { color: var(--accent); }
+    .gh-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--tr); }
+    .gh-link:hover .gh-arrow { color: var(--accent-hover); }
 
     @media (max-width: 900px) {
       .two-col { grid-template-columns: 1fr; }
@@ -156,32 +156,32 @@ lang: en
       </div>
       <div class="stack-grid">
         <div class="stack-item reveal">
-          <div class="stack-icon" style="color:#3776ab;">{% include icon.html id="fab-python" %}</div>
+          <div class="stack-icon" style="color: var(--body-strong);">{% include icon.html id="fab-python" %}</div>
           <p class="stack-name">Python</p>
           <p class="stack-desc">Backend logic</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.05s">
-          <div class="stack-icon" style="color:#092e20;">{% include icon.html id="fas-leaf" %}</div>
+          <div class="stack-icon" style="color: var(--ink);">{% include icon.html id="fas-leaf" %}</div>
           <p class="stack-name">Django</p>
           <p class="stack-desc">Web framework</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.1s">
-          <div class="stack-icon" style="color:#e44d26;">{% include icon.html id="fab-html5" %}</div>
+          <div class="stack-icon" style="color: var(--body-strong);">{% include icon.html id="fab-html5" %}</div>
           <p class="stack-name">HTML5</p>
           <p class="stack-desc">Markup &amp; templates</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.15s">
-          <div class="stack-icon" style="color:#1572b6;">{% include icon.html id="fab-css3-alt" %}</div>
+          <div class="stack-icon" style="color: var(--body-strong);">{% include icon.html id="fab-css3-alt" %}</div>
           <p class="stack-name">CSS</p>
           <p class="stack-desc">Styling &amp; layout</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.2s">
-          <div class="stack-icon" style="color:#4479a1;">{% include icon.html id="fas-database" %}</div>
+          <div class="stack-icon" style="color: var(--body-strong);">{% include icon.html id="fas-database" %}</div>
           <p class="stack-name">MySQL</p>
           <p class="stack-desc">Relational database</p>
         </div>
         <div class="stack-item reveal" style="transition-delay:.25s">
-          <div class="stack-icon" style="color:#183a61;">{% include icon.html id="fas-server" %}</div>
+          <div class="stack-icon" style="color: var(--body-strong);">{% include icon.html id="fas-server" %}</div>
           <p class="stack-name">VirtualBox</p>
           <p class="stack-desc">VM deployment</p>
         </div>

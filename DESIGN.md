@@ -529,8 +529,8 @@ The brand uses surface-contrast and hairline borders for elevation; soft drop-sh
 ## Adaptations thewilli67 (prioritaires sur tout ce qui précède)
 - Polices : Geist (texte, titres) + Geist Mono (labels, titres techniques, code, prompts).
   Remplace Inter et Instrument Serif partout. Pas de serif.
-- Hébergement : woff2 auto-hébergés dans /assets/fonts, 2 graisses max par famille,
-  font-display: swap, preload de Geist Regular uniquement.
+- Hébergement : woff2 variables auto-hébergés dans /assets/fonts (un fichier par famille,
+  graisses utilisées 400, 500 et 600), font-display: swap, preload de Geist uniquement.
 - Accent : un seul, usage parcimonieux (liens, focus, CTA principal). Proposer 2-3 options avant d'appliquer.
 - Motifs autorisés : prompt `$`, curseur clignotant, blocs façon sortie de commande.
 - Interdits : effets glitch, matrix, néons multiples, fonds animés.

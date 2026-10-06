@@ -14,17 +14,17 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     }
 
     .pheader { padding: 7rem 5% 5rem; }
-    .pheader::before { background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(99,102,241,.12) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 15% 70%, rgba(37,99,235,.08) 0%, transparent 50%); }
-    .ph-eyebrow { color: #a5b4fc; }
+    .pheader::before { background: none; }
+    .ph-eyebrow { color: var(--body-strong); }
     .ph-title { margin-bottom: .75rem; }
     .ph-sub { line-height: 1.75; }
     .stats-banner { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
     .stat-item { display: flex; flex-direction: column; }
-    .stat-num { font-size: 1.75rem; font-weight: 800; color: #a5b4fc; line-height: 1; }
-    .stat-label { font-size: .72rem; color: #94a3b8; margin-top: .3rem; letter-spacing: .06em; text-transform: uppercase; }
+    .stat-num { font-size: 1.75rem; font-weight: 500; color: var(--body-strong); line-height: 1; }
+    .stat-label { font-size: .72rem; color: var(--body); margin-top: .3rem; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); }
 
     .s-header { text-align: center; margin-bottom: 3rem; }
-    .s-tag.indigo { color: var(--indigo); background: rgba(99,102,241,.1); }
+    .s-tag.indigo { color: var(--body-strong); background: var(--tint); }
     .s-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
     .s-sub { font-size: .88rem; }
 
@@ -32,52 +32,51 @@ description: "Ma ludothèque · Jeux terminés et bibliothèque Steam de William
     .finished-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .game-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.4rem;
-      box-shadow: var(--sh-sm); transition: var(--t);
+      border-radius: var(--r); padding: 1.4rem; transition: var(--tr);
       display: flex; flex-direction: column; gap: .6rem;
     }
-    .game-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(99,102,241,.3); }
+    .game-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
     .game-card-top { display: flex; justify-content: space-between; align-items: center; }
-    .badge-done { display: inline-flex; align-items: center; gap: .3rem; font-size: .68rem; font-weight: 700; color: #16a34a; background: rgba(34,197,94,.1); padding: .2rem .6rem; border-radius: 100px; letter-spacing: .04em; text-transform: uppercase; }
-    .badge-genre { font-size: .68rem; font-weight: 600; color: var(--indigo); background: rgba(99,102,241,.1); padding: .2rem .6rem; border-radius: 100px; }
-    .game-title { font-size: .92rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .badge-done { display: inline-flex; align-items: center; gap: .3rem; font-size: .68rem; font-weight: 600; color: var(--body-strong); background: var(--tint); padding: .2rem .6rem; border-radius: 3px; letter-spacing: .04em; text-transform: uppercase; font-family: var(--font-mono); }
+    .badge-genre { font-size: .68rem; font-weight: 600; color: var(--body-strong); background: var(--tint); padding: .2rem .6rem; border-radius: 3px; }
+    .game-title { font-size: .92rem; font-weight: 600; color: var(--text); line-height: 1.3; }
     .game-meta { display: flex; gap: 1rem; }
     .game-stat { display: flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--text-m); }
     .game-stat .icon { font-size: .72rem; opacity: .7; }
     .achiev-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
-    .achiev-fill { height: 100%; background: var(--indigo); border-radius: 2px; }
+    .achiev-fill { height: 100%; background: var(--accent); border-radius: 2px; }
     .achiev-label { display: flex; justify-content: space-between; font-size: .7rem; color: var(--text-lt); }
-    .achiev-label .pct { color: var(--indigo); font-weight: 600; }
-    .achiev-label .pct.perfect { color: #16a34a; }
+    .achiev-label .pct { color: var(--body-strong); font-weight: 600; }
+    .achiev-label .pct.perfect { color: var(--body-strong); }
 
     /* Steam section */
-    .steam-stats-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm); margin-bottom: 2rem; }
+    .steam-stats-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 2rem; }
     .steam-stat-cell { flex: 1; background: var(--bg-card); padding: 1.25rem 1rem; text-align: center; }
-    .steam-stat-num { font-size: 1.4rem; font-weight: 800; color: var(--indigo); display: block; }
-    .steam-stat-lbl { font-size: .7rem; color: var(--text-m); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; display: block; }
+    .steam-stat-num { font-size: 1.4rem; font-weight: 500; color: var(--body-strong); display: block; }
+    .steam-stat-lbl { font-size: .7rem; color: var(--text-m); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-top: .2rem; display: block; }
 
-    .games-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-sm); }
+    .games-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r); }
     .games-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
     .games-table thead { background: var(--bg-alt); }
-    .games-table th { text-align: left; padding: .75rem 1rem; font-size: .7rem; font-weight: 700; color: var(--text-m); text-transform: uppercase; letter-spacing: .08em; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    .games-table th { text-align: left; padding: .75rem 1rem; font-size: .7rem; font-weight: 600; color: var(--text-m); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; border-bottom: 1px solid var(--border); white-space: nowrap; }
     .games-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
     .games-table tbody tr:last-child td { border-bottom: none; }
-    .games-table tbody tr:hover td { background: rgba(99,102,241,.03); }
+    .games-table tbody tr:hover td { background: var(--tint); }
     .td-name { font-weight: 600; color: var(--text); }
-    .td-hours { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .td-hours { font-weight: 600; color: var(--text); white-space: nowrap; }
     .td-achiev { font-size: .78rem; color: var(--text-m); white-space: nowrap; }
-    .td-achiev.perfect { color: var(--indigo); font-weight: 700; }
+    .td-achiev.perfect { color: var(--body-strong); font-weight: 600; }
     .td-date { font-size: .76rem; color: var(--text-lt); white-space: nowrap; }
 
     .ns-header { display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 1.25rem; }
-    .ns-header span { font-size: .82rem; font-weight: 700; color: var(--text-m); white-space: nowrap; }
+    .ns-header span { font-size: .82rem; font-weight: 600; color: var(--text-m); white-space: nowrap; }
     .ns-header::before, .ns-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .ns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: .5rem; }
-    .ns-item { padding: .55rem .9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: .78rem; color: var(--text-m); transition: var(--t); }
-    .ns-item:hover { border-color: rgba(99,102,241,.3); color: var(--text); }
+    .ns-item { padding: .55rem .9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; font-size: .78rem; color: var(--text-m); transition: var(--tr); }
+    .ns-item:hover { border-color: var(--hairline); color: var(--text); }
     .sync-note { display: inline-flex; align-items: center; gap: .4rem; }
-    .sync-note .icon { color: var(--indigo); font-size: .8rem; }
-    .td-plat { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; font-size: .66rem; font-weight: 700; color: var(--indigo); background: rgba(99,102,241,.1); border-radius: 100px; vertical-align: middle; white-space: nowrap; }
+    .sync-note .icon { color: var(--body-strong); font-size: .8rem; }
+    .td-plat { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; font-size: .66rem; font-weight: 600; color: var(--body-strong); background: var(--tint); border-radius: 3px; vertical-align: middle; white-space: nowrap; }
     .steam-stat-lbl.top-name { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--text); }
     .games-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 1rem; }
 

@@ -14,17 +14,17 @@ description: "Projet 72h · Hydrolienne portative, William Hertrich, Terminale S
     }
 
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(13,148,136,.09) 0%, transparent 60%); }
-    .ph-eyebrow { color: #2dd4bf; }
+    .pheader::before { background: none; }
+    .ph-eyebrow { color: var(--body-strong); }
     .ph-title { font-size: clamp(2rem, 4vw, 3.2rem); }
-    .ph-title span { color: #2dd4bf; }
+    .ph-title span { color: var(--body-strong); }
     .ph-sub { max-width: 620px; margin-bottom: 1.5rem; }
-    .chip-year { background: rgba(45,212,191,.15); color: #2dd4bf; }
-    .chip-team { background: rgba(139,92,246,.15); color: #a78bfa; }
-    .chip-type { background: rgba(37,99,235,.15); color: #60a5fa; }
+    .chip-year { background: var(--tint); color: var(--body-strong); }
+    .chip-team { background: var(--tint); color: var(--body-strong); }
+    .chip-type { background: var(--tint); color: var(--body-strong); }
 
     /* Banner image */
-    .banner-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--r); box-shadow: var(--sh); margin-bottom: 3rem; }
+    .banner-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--r); margin-bottom: 3rem; }
 
     /* Text + 2-col */
     .two-col { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
@@ -33,37 +33,37 @@ description: "Projet 72h · Hydrolienne portative, William Hertrich, Terminale S
 
     /* Challenges list */
     .challenge-list { display: flex; flex-direction: column; gap: .6rem; }
-    .challenge-item { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: .875rem; color: var(--text-m); }
-    .challenge-item .icon { color: #f59e0b; margin-top: .1rem; flex-shrink: 0; }
+    .challenge-item { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; font-size: .875rem; color: var(--text-m); }
+    .challenge-item .icon { color: var(--body-strong); margin-top: .1rem; flex-shrink: 0; }
 
     /* Gallery */
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
-    .gallery-item { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--sh-sm); background: var(--bg-card); }
+    .gallery-item { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); background: var(--bg-card); }
     .gallery-item img { width: 100%; display: block; object-fit: cover; transition: transform .4s ease; }
     .gallery-item:hover img { transform: scale(1.03); }
     .gallery-caption { padding: .75rem 1rem; font-size: .8rem; color: var(--text-m); font-weight: 500; }
 
     /* Full width image card */
-    .img-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm); margin-bottom: 2rem; }
+    .img-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 2rem; }
     .img-card img { width: 100%; }
     .img-card-cap { padding: .9rem 1.25rem; font-size: .85rem; color: var(--text-m); font-weight: 500; background: var(--bg-alt); border-top: 1px solid var(--border); }
 
     /* Stack tags */
     .stack-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
-    .stag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
+    .stag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
 
     /* Documents */
     .docs-list { display: flex; flex-direction: column; gap: .75rem; }
-    .doc-link { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); transition: var(--t); }
-    .doc-link:hover { border-color: rgba(37,99,235,.3); box-shadow: var(--sh); transform: translateX(3px); }
-    .doc-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .di-word  { background: rgba(37,99,235,.1); color: var(--accent); }
-    .di-excel { background: rgba(34,197,94,.1); color: #16a34a; }
-    .di-img   { background: rgba(139,92,246,.1); color: #7c3aed; }
+    .doc-link { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); transition: var(--tr); }
+    .doc-link:hover { border-color: var(--hairline); transform: translateX(3px); }
+    .doc-icon { width: 40px; height: 40px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .di-word  { background: var(--tint); color: var(--body-strong); }
+    .di-excel { background: var(--tint); color: var(--body-strong); }
+    .di-img   { background: var(--tint); color: var(--body-strong); }
     .doc-name { font-size: .88rem; font-weight: 600; color: var(--text); }
     .doc-type { font-size: .75rem; color: var(--text-lt); }
-    .doc-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--t); }
-    .doc-link:hover .doc-arrow { color: var(--accent); }
+    .doc-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--tr); }
+    .doc-link:hover .doc-arrow { color: var(--accent-hover); }
 
     @media (max-width: 900px) {
       .two-col { grid-template-columns: 1fr; }

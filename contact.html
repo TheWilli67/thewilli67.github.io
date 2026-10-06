@@ -9,7 +9,7 @@ description: "Contacter William Hertrich · Ingénieur Systèmes & Réseaux"
   {% include head.html %}
   <style>
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%); }
+    .pheader::before { background: none; }
 
     /* Sections */
     .inner { max-width: 900px; }
@@ -22,32 +22,31 @@ description: "Contacter William Hertrich · Ingénieur Systèmes & Réseaux"
       display: flex; align-items: center; gap: 1.1rem;
       padding: 1.4rem 1.5rem;
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); box-shadow: var(--sh-sm);
-      transition: var(--t); cursor: pointer;
+      border-radius: var(--r);
+      transition: var(--tr); cursor: pointer;
     }
-    .ccard:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.25); }
+    .ccard:hover { transform: translateY(-3px); border-color: var(--hairline); }
     .ccard-icon {
-      width: 48px; height: 48px; border-radius: 10px;
+      width: 48px; height: 48px; border-radius: 4px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; flex-shrink: 0;
     }
-    .ci-linkedin  { background: rgba(10,102,194,.1);  color: #0a66c2; }
-    .ci-github    { background: rgba(36,41,47,.08);   color: #24292f; }
-    .ci-email     { background: rgba(37,99,235,.1);   color: var(--accent); }
-    .ci-phone     { background: rgba(34,197,94,.1);   color: #16a34a; }
-    .ci-cv        { background: rgba(239,68,68,.1);   color: #dc2626; }
-    .ci-facebook  { background: rgba(24,119,242,.1);  color: #1877f2; }
+    .ci-linkedin  { background: var(--tint);  color: var(--body-strong); }
+    .ci-github    { background: var(--tint);   color: var(--ink); }
+    .ci-email     { background: var(--tint);   color: var(--body-strong); }
+    .ci-phone     { background: var(--tint);   color: var(--body-strong); }
+    .ci-cv        { background: var(--tint);   color: var(--body-strong); }
+    .ci-facebook  { background: var(--tint);  color: var(--body-strong); }
     .ccard > div:not(.ccard-icon) { min-width: 0; flex: 1; }
-    .ccard-label { font-size: .72rem; font-weight: 600; color: var(--text-lt); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .2rem; }
+    .ccard-label { font-size: .72rem; font-weight: 600; color: var(--text-lt); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-bottom: .2rem; }
     .ccard-value { font-size: .92rem; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
-    .ccard-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; transition: var(--t); flex-shrink: 0; }
-    .ccard:hover .ccard-arrow { color: var(--accent); transform: translateX(3px); }
+    .ccard-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; transition: var(--tr); flex-shrink: 0; }
+    .ccard:hover .ccard-arrow { color: var(--accent-hover); transform: translateX(3px); }
 
     /* Message box */
     .msg-box {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 2rem; text-align: center;
-      box-shadow: var(--sh-sm); margin-bottom: 3rem;
+      border-radius: var(--r); padding: 2rem; text-align: center; margin-bottom: 3rem;
     }
     .msg-box p { font-size: .95rem; color: var(--text-m); line-height: 1.75; }
     .msg-box strong { color: var(--text); }

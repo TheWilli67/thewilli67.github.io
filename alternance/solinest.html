@@ -14,74 +14,73 @@ description: "Alternance SOLINEST · William Hertrich, Technicien Systèmes & R�
     }
 
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(230,126,34,.08) 0%, transparent 60%); }
+    .pheader::before { background: none; }
     .ph-inner { display: flex; align-items: flex-start; gap: 3rem; }
     .ph-text { flex: 1; }
-    .ph-eyebrow { color: #fb923c; }
-    .ph-title span { color: #fb923c; }
+    .ph-eyebrow { color: var(--body-strong); }
+    .ph-title span { color: var(--body-strong); }
     .ph-sub { margin-bottom: 1.5rem; }
-    .chip-period { background: rgba(251,146,60,.15); color: #fb923c; }
-    .chip-status { background: rgba(100,116,139,.15); color: #94a3b8; }
+    .chip-period { background: var(--tint); color: var(--body-strong); }
+    .chip-status { background: var(--tint); color: var(--body); }
 
     /* Company section */
     .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .company-text p { font-size: .95rem; color: var(--text-m); line-height: 1.8; margin-bottom: 1rem; }
     .company-images { display: flex; flex-direction: column; gap: 1rem; }
-    .company-images img { border-radius: var(--r); border: 1px solid var(--border); box-shadow: var(--sh); width: 100%; object-fit: cover; }
+    .company-images img { border-radius: var(--r); border: 1px solid var(--border); width: 100%; object-fit: cover; }
 
     /* Mission cards */
     .missions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
     .mission-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.75rem;
-      box-shadow: var(--sh-sm); transition: var(--t);
+      border-radius: var(--r); padding: 1.75rem; transition: var(--tr);
     }
-    .mission-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .mission-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
     .mission-icon {
-      width: 44px; height: 44px; border-radius: 10px;
+      width: 44px; height: 44px; border-radius: 4px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; margin-bottom: 1rem;
     }
-    .mi-blue  { background: rgba(37,99,235,.1);  color: var(--accent); }
-    .mi-green { background: rgba(34,197,94,.1);  color: #16a34a; }
-    .mi-amber { background: rgba(245,158,11,.1); color: #d97706; }
-    .mi-purple{ background: rgba(139,92,246,.1); color: #7c3aed; }
-    .mi-red   { background: rgba(239,68,68,.1);  color: #dc2626; }
-    .mission-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; }
+    .mi-blue  { background: var(--tint);  color: var(--body-strong); }
+    .mi-green { background: var(--tint);  color: var(--body-strong); }
+    .mi-amber { background: var(--tint); color: var(--body-strong); }
+    .mi-purple{ background: var(--tint); color: var(--body-strong); }
+    .mi-red   { background: var(--tint);  color: var(--body-strong); }
+    .mission-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .6rem; }
     .mission-desc { font-size: .875rem; color: var(--text-m); line-height: 1.75; }
 
     /* Featured project (highlight) */
     .feat-card {
       display: flex; align-items: stretch; gap: 0;
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-sm);
-      transition: var(--t);
+      border-radius: var(--r); overflow: hidden;
+      transition: var(--tr);
     }
-    .feat-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(249,115,22,.3); }
+    .feat-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
     .feat-visual {
       flex: 0 0 200px;
-      background: linear-gradient(135deg, #2a1a0a, #3d2818);
+      background: var(--canvas);
       display: flex; align-items: center; justify-content: center;
-      color: #fb923c; font-size: 3.5rem;
+      color: var(--body-strong); font-size: 3.5rem;
       position: relative;
     }
     .feat-visual::after {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(251,146,60,.15), transparent 60%);
+      background: none;
     }
     .feat-body { flex: 1; padding: 1.75rem 2rem; display: flex; flex-direction: column; }
     .feat-tag {
       display: inline-flex; align-items: center; gap: .35rem; width: fit-content;
-      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
-      padding: .25rem .7rem; border-radius: 100px;
-      background: rgba(249,115,22,.1); color: #ea580c; margin-bottom: .75rem;
+      font-size: .7rem; font-weight: 600; text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em;
+      padding: .25rem .7rem; border-radius: 3px;
+      background: var(--tint); color: var(--body-strong); margin-bottom: .75rem;
     }
-    .feat-title { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.35; }
+    .feat-title { font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; line-height: 1.35; }
     .feat-desc { font-size: .88rem; color: var(--text-m); line-height: 1.7; margin-bottom: 1rem; flex: 1; }
     .feat-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
-    .feat-tag-item { padding: .2rem .6rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .72rem; font-weight: 500; color: var(--text-m); }
-    .feat-link { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: #ea580c; transition: var(--t); width: fit-content; }
-    .feat-link:hover { color: #c2410c; gap: .6rem; }
+    .feat-tag-item { padding: .2rem .6rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; font-size: .72rem; font-weight: 500; color: var(--text-m); }
+    .feat-link { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: var(--accent); transition: var(--tr); width: fit-content; }
+    .feat-link:hover { color: var(--accent-hover); gap: .6rem; }
     @media (max-width: 700px) {
       .feat-card { flex-direction: column; }
       .feat-visual { flex-basis: 140px; }
@@ -90,9 +89,9 @@ description: "Alternance SOLINEST · William Hertrich, Technicien Systèmes & R�
     /* Tools section */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .tool-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
-    .tool-cat-title { font-size: .75rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+    .tool-cat-title { font-size: .75rem; font-weight: 600; color: var(--text-lt); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-bottom: 1rem; }
     .tool-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .ttag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
+    .ttag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
 
     /* Documents section */
     .docs-list { display: flex; flex-direction: column; gap: .75rem; }
@@ -100,15 +99,15 @@ description: "Alternance SOLINEST · William Hertrich, Technicien Systèmes & R�
       display: flex; align-items: center; gap: 1rem;
       padding: 1.1rem 1.25rem;
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); transition: var(--t);
+      border-radius: var(--r); transition: var(--tr);
     }
-    .doc-link:hover { border-color: rgba(37,99,235,.3); box-shadow: var(--sh); transform: translateX(3px); }
-    .doc-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(239,68,68,.1); color: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .doc-icon.img { background: rgba(37,99,235,.1); color: var(--accent); }
+    .doc-link:hover { border-color: var(--hairline); transform: translateX(3px); }
+    .doc-icon { width: 40px; height: 40px; border-radius: 4px; background: var(--tint); color: var(--body-strong); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .doc-icon.img { background: var(--tint); color: var(--body-strong); }
     .doc-name { font-size: .88rem; font-weight: 600; color: var(--text); }
     .doc-type { font-size: .75rem; color: var(--text-lt); }
-    .doc-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--t); }
-    .doc-link:hover .doc-arrow { color: var(--accent); }
+    .doc-arrow { margin-left: auto; color: var(--text-lt); font-size: .85rem; flex-shrink: 0; transition: var(--tr); }
+    .doc-link:hover .doc-arrow { color: var(--accent-hover); }
 
     @media (max-width: 900px) {
       .company-grid { grid-template-columns: 1fr; }

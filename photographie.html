@@ -26,16 +26,12 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(37,99,235,.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 85% 20%, rgba(99,102,241,.06) 0%, transparent 50%);
+      background: none;
       pointer-events: none;
     }
     .hero::after {
       content: ''; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(51,65,85,.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(51,65,85,.3) 1px, transparent 1px);
+      background-image: none;
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
       pointer-events: none;
@@ -46,41 +42,38 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: .5rem;
-      font-size: .8rem; font-weight: 600; color: #60a5fa;
-      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+      font-size: .8125rem; font-weight: 400; color: var(--mute);
+      letter-spacing: 0; text-transform: lowercase; font-family: var(--font-mono); margin-bottom: 1rem;
     }
-    .hero-eyebrow::before {
-      content: ''; display: block; width: 24px; height: 2px;
-      background: #60a5fa; border-radius: 2px;
-    }
+    .hero-eyebrow::before { content: '$'; color: var(--accent); font-family: var(--font-mono); }
     .hero-title {
-      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800;
-      color: #f8fafc; line-height: 1.08;
+      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 500;
+      color: var(--ink); line-height: 1.08;
       margin-bottom: .75rem; letter-spacing: -.02em;
     }
-    .hero-sub { font-size: 1rem; color: #94a3b8; margin-bottom: 1.75rem; max-width: 520px; line-height: 1.7; }
-    .hero-sub strong { color: #cbd5e1; font-weight: 600; }
+    .hero-sub { font-size: 1rem; color: var(--body); margin-bottom: 1.75rem; max-width: 520px; line-height: 1.7; }
+    .hero-sub strong { color: var(--body-strong); font-weight: 600; }
     .hero-meta {
       display: flex; flex-wrap: wrap; gap: .75rem; align-items: center;
     }
     .hero-chip {
       display: inline-flex; align-items: center; gap: .4rem;
       padding: .3rem .85rem;
-      background: rgba(37,99,235,.1);
-      border: 1px solid rgba(37,99,235,.25);
-      color: #93c5fd; border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--hairline);
+      color: var(--body-strong); border-radius: 3px;
       font-size: .78rem; font-weight: 500;
     }
     .btn-cheatsheet {
       display: inline-flex; align-items: center; gap: .5rem;
-      padding: .6rem 1.3rem; border-radius: 8px;
+      padding: .6rem 1.3rem; border-radius: 3px;
       font-weight: 600; font-size: .82rem;
-      background: transparent; color: #cbd5e1;
-      border: 1.5px solid #2d3f57; transition: var(--t);
+      background: transparent; color: var(--body-strong);
+      border: 1.5px solid var(--hairline); transition: var(--tr);
     }
     .btn-cheatsheet:hover {
-      border-color: #60a5fa; color: #93c5fd;
-      background: rgba(37,99,235,.07); transform: translateY(-1px);
+      border-color: var(--mute); color: var(--accent-hover);
+      background: var(--tint); transform: translateY(-1px);
     }
 
     /* ===== Gallery ===== */
@@ -106,7 +99,6 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       overflow: hidden;
       cursor: pointer;
       background: var(--bg-dark-2);
-      box-shadow: var(--sh-sm);
       transition: transform var(--t), box-shadow var(--t);
     }
     .photo-item:hover, .photo-item:focus-visible {
@@ -124,7 +116,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     }
     .photo-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(15,23,42,.85) 0%, transparent 55%);
+      background: none;
       opacity: 0; transition: opacity 0.3s ease;
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 1.25rem 1.25rem 1rem;
@@ -132,16 +124,16 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     .photo-item:hover .photo-overlay, .photo-item:focus-visible .photo-overlay { opacity: 1; }
     .photo-title, .photo-desc { display: block; }
     .photo-title {
-      font-size: .92rem; font-weight: 700; color: #f8fafc;
+      font-size: .92rem; font-weight: 600; color: var(--ink);
       margin-bottom: .2rem; line-height: 1.3;
     }
-    .photo-desc { font-size: .77rem; color: #94a3b8; line-height: 1.4; }
+    .photo-desc { font-size: .77rem; color: var(--body); line-height: 1.4; }
     .photo-zoom-icon {
       position: absolute; top: .85rem; right: .85rem;
       width: 34px; height: 34px;
-      background: rgba(15,23,42,.7); border-radius: 8px;
+      background: rgba(43, 38, 34, 0.7); border-radius: 4px;
       display: flex; align-items: center; justify-content: center;
-      color: #f8fafc; font-size: .8rem;
+      color: var(--ink); font-size: .8rem;
       opacity: 0; transition: opacity 0.3s ease;
     }
     .photo-item:hover .photo-zoom-icon, .photo-item:focus-visible .photo-zoom-icon { opacity: 1; }
@@ -152,7 +144,7 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
       width: 100%; height: 100%; max-width: none; max-height: none;
       margin: 0; padding: 0; border: 0; color: inherit; overscroll-behavior: contain;
       position: fixed; inset: 0; z-index: 9000;
-      background: rgba(9,11,17,.96);
+      background: rgba(43, 38, 34, 0.96);
       backdrop-filter: blur(8px);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
@@ -170,41 +162,40 @@ description: "William Hertrich · Galerie photo amateur, Canon EOS 600D"
     .lightbox-img-wrap img {
       max-width: 92vw; max-height: 80vh;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 24px 80px rgba(0,0,0,.6);
+      border-radius: 4px;
       transition: opacity 0.2s ease;
     }
     .lightbox-caption {
       margin-top: 1.25rem; text-align: center;
     }
-    .lightbox-caption h3 { font-size: 1rem; font-weight: 700; color: #f8fafc; }
-    .lightbox-caption p  { font-size: .82rem; color: #94a3b8; margin-top: .2rem; }
+    .lightbox-caption h3 { font-size: 1rem; font-weight: 600; color: var(--ink); }
+    .lightbox-caption p  { font-size: .82rem; color: var(--body); margin-top: .2rem; }
     .lightbox-close {
       position: absolute; top: 1.25rem; right: 1.25rem;
       width: 42px; height: 42px;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+      background: var(--tint); border: 1px solid var(--hairline);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: #cbd5e1; font-size: 1rem; cursor: pointer;
+      color: var(--body-strong); font-size: 1rem; cursor: pointer;
       transition: background var(--t), color var(--t);
     }
-    .lightbox-close:hover { background: rgba(239,68,68,.15); color: #f87171; }
+    .lightbox-close:hover { background: var(--tint); color: var(--accent-hover); }
     .lightbox-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 46px; height: 46px;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+      background: var(--tint); border: 1px solid var(--hairline);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: #cbd5e1; font-size: .95rem; cursor: pointer;
+      color: var(--body-strong); font-size: .95rem; cursor: pointer;
       transition: background var(--t), color var(--t), transform var(--t);
     }
     .lightbox-nav:hover {
-      background: rgba(37,99,235,.2); color: #93c5fd;
+      background: var(--tint); color: var(--accent-hover);
       transform: translateY(-50%) scale(1.08);
     }
     .lightbox-prev { left: 1.25rem; }
     .lightbox-next { right: 1.25rem; }
     .lightbox-counter {
       position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
-      font-size: .75rem; color: #94a3b8; letter-spacing: .08em;
+      font-size: .75rem; color: var(--body); letter-spacing: .08em;
     }
     .photo-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     .gallery-empty { text-align: center; color: var(--text-m); font-size: .92rem; padding: 2rem 0; }

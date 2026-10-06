@@ -15,7 +15,8 @@ Objectif : site rapide, sobre, style « terminal technique premium ».
 - Site 100 % statique HTML/CSS, aucun framework ni étape de build.
 - JS vanilla uniquement si indispensable, chargé en defer. Pas de GSAP ni librairie d'animation.
 - Objectif Lighthouse ≥ 95 sur les 4 axes, mobile compris.
-- Polices woff2 auto-hébergées, 2 graisses max, font-display: swap, preload de la principale.
+- Polices woff2 auto-hébergées : Geist et Geist Mono en version variable, un seul fichier
+  woff2 par famille (graisses utilisées : 400, 500 et 600), font-display: swap, preload de Geist uniquement.
 - Images WebP/AVIF avec width/height explicites et loading="lazy" hors premier écran.
 - Animations CSS uniquement (transform/opacity), toujours avec prefers-reduced-motion.
 

@@ -9,7 +9,7 @@ description: "Mentions légales · William Hertrich"
   {% include head.html %}
   <style>
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.08) 0%, transparent 60%); }
+    .pheader::before { background: none; }
     .ph-inner { max-width: 860px; }
     .ph-title { font-size: clamp(2rem, 4vw, 3rem); }
     .ph-sub { font-size: .95rem; max-width: none; }
@@ -20,29 +20,28 @@ description: "Mentions légales · William Hertrich"
 
     .ml-block {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 2rem 2.25rem;
-      box-shadow: var(--sh-sm); margin-bottom: 1.5rem;
+      border-radius: var(--r); padding: 2rem 2.25rem; margin-bottom: 1.5rem;
     }
     .ml-block-title {
       display: flex; align-items: center; gap: .75rem;
-      font-size: 1rem; font-weight: 700; color: var(--text);
+      font-size: 1rem; font-weight: 600; color: var(--text);
       margin-bottom: 1.25rem; padding-bottom: .75rem;
       border-bottom: 1px solid var(--border);
     }
     .ml-block-title .icon {
-      width: 36px; height: 36px; padding: calc((36px - .9rem) / 2); border-radius: 8px;
-      background: var(--accent-lt); color: var(--accent); flex-shrink: 0;
+      width: 36px; height: 36px; padding: calc((36px - .9rem) / 2); border-radius: 4px;
+      background: var(--tint); color: var(--body-strong); flex-shrink: 0;
     }
     .ml-row { display: flex; gap: .6rem; margin-bottom: .6rem; font-size: .9rem; }
     .ml-row:last-child { margin-bottom: 0; }
     .ml-label { font-weight: 600; color: var(--text); min-width: 180px; flex-shrink: 0; }
     .ml-val { color: var(--text-m); }
-    .ml-val a { color: var(--accent); transition: var(--t); }
-    .ml-val a:hover { color: var(--accent-h); text-decoration: underline; }
+    .ml-val a { color: var(--accent); transition: var(--tr); }
+    .ml-val a:hover { color: var(--accent-hover); text-decoration: underline; }
 
     .ml-note {
-      background: var(--bg-alt); border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0; padding: 1rem 1.25rem;
+      background: var(--bg-alt); border-left: 3px solid var(--mute);
+      border-radius: 0 4px 4px 0; padding: 1rem 1.25rem;
       font-size: .87rem; color: var(--text-m); line-height: 1.75;
       margin-top: .85rem;
     }

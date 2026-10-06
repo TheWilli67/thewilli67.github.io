@@ -15,16 +15,16 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     }
 
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 20% 50%, rgba(14,165,233,.12) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(37,99,235,.06) 0%, transparent 50%); }
-    .ph-eyebrow { color: #38bdf8; }
-    .ph-title span { color: #38bdf8; }
+    .pheader::before { background: none; }
+    .ph-eyebrow { color: var(--body-strong); }
+    .ph-title span { color: var(--body-strong); }
     .ph-sub { max-width: 720px; margin-bottom: 1.5rem; }
-    .chip-comp { background: rgba(255,255,255,.08); color: #94a3b8; }
-    .chip-period { background: rgba(56,189,248,.15); color: #38bdf8; }
-    .chip-status { background: rgba(34,197,94,.15); color: #4ade80; }
+    .chip-comp { background: var(--tint); color: var(--body); }
+    .chip-period { background: var(--tint); color: var(--body-strong); }
+    .chip-status { background: var(--tint); color: var(--body-strong); }
 
     /* Sections */
-    .s-tag { color: var(--sky-h); background: var(--sky-lt); }
+    .s-tag { color: var(--body-strong); background: var(--tint); }
 
     /* Context two-column */
     .ctx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
@@ -32,7 +32,7 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     .ctx-text p strong { color: var(--text); }
 
     /* Callout */
-    .callout { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--sky); border-radius: var(--r); padding: 1.5rem 1.75rem; box-shadow: var(--sh-sm); }
+    .callout { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--mute); border-radius: var(--r); padding: 1.5rem 1.75rem; }
     .callout p { font-size: .9rem; color: var(--text-m); line-height: 1.7; margin: 0; }
     .callout p + p { margin-top: .75rem; }
     .callout strong { color: var(--text); }
@@ -40,48 +40,48 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     /* Confidentiality banner */
     .conf-banner {
       display: flex; align-items: center; gap: 1rem;
-      background: linear-gradient(135deg, #0f172a, #1e3a5f);
-      border: 1px solid rgba(56,189,248,.2);
+      background: var(--canvas);
+      border: 1px solid var(--hairline);
       border-radius: var(--r); padding: 1.25rem 1.5rem;
       margin-bottom: 2rem;
     }
-    .conf-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(56,189,248,.15); color: #38bdf8; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .conf-text { font-size: .85rem; color: #94a3b8; line-height: 1.6; }
-    .conf-text strong { color: #f1f5f9; }
+    .conf-icon { width: 40px; height: 40px; border-radius: 4px; background: var(--tint); color: var(--body-strong); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .conf-text { font-size: .85rem; color: var(--body); line-height: 1.6; }
+    .conf-text strong { color: var(--ink); }
 
     /* Objectives */
     .obj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-    .obj-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh-sm); transition: var(--t); }
-    .obj-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(14,165,233,.25); }
-    .obj-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: var(--sky-lt); color: var(--sky-h); font-weight: 800; font-size: .95rem; margin-bottom: .9rem; }
-    .obj-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .45rem; }
+    .obj-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; transition: var(--tr); }
+    .obj-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
+    .obj-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 4px; background: var(--tint); color: var(--body-strong); font-weight: 500; font-size: .95rem; margin-bottom: .9rem; }
+    .obj-title { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .45rem; }
     .obj-desc { font-size: .85rem; color: var(--text-m); line-height: 1.7; }
 
     /* Realisations */
     .real-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-    .real-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.75rem; box-shadow: var(--sh-sm); transition: var(--t); }
-    .real-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(14,165,233,.25); }
-    .real-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1rem; }
-    .ri-sky    { background: rgba(14,165,233,.1); color: var(--sky-h); }
-    .ri-blue   { background: rgba(37,99,235,.1); color: var(--accent); }
-    .ri-green  { background: rgba(34,197,94,.1); color: #16a34a; }
-    .ri-purple { background: rgba(139,92,246,.1); color: #7c3aed; }
-    .ri-amber  { background: rgba(245,158,11,.1); color: #d97706; }
-    .real-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; }
+    .real-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.75rem; transition: var(--tr); }
+    .real-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
+    .real-icon { width: 44px; height: 44px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1rem; }
+    .ri-sky    { background: var(--tint); color: var(--body-strong); }
+    .ri-blue   { background: var(--tint); color: var(--body-strong); }
+    .ri-green  { background: var(--tint); color: var(--body-strong); }
+    .ri-purple { background: var(--tint); color: var(--body-strong); }
+    .ri-amber  { background: var(--tint); color: var(--body-strong); }
+    .real-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .6rem; }
     .real-desc { font-size: .875rem; color: var(--text-m); line-height: 1.75; }
     .real-list { margin-top: .8rem; padding-left: 1.1rem; }
     .real-list li { font-size: .84rem; color: var(--text-m); line-height: 1.7; list-style: disc; margin-bottom: .2rem; }
 
     /* Architecture diagram */
-    .arch-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; box-shadow: var(--sh-sm); }
+    .arch-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; }
     .arch-flow { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
     .arch-layer {
       width: 100%; max-width: 640px;
       background: var(--bg-alt); border: 1px solid var(--border);
       border-radius: var(--r); padding: 1rem 1.25rem;
     }
-    .arch-layer.primary { background: linear-gradient(135deg, #e0f2fe, #dbeafe); border-color: rgba(14,165,233,.3); }
-    .arch-layer-title { font-size: .7rem; font-weight: 700; color: var(--sky-h); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .5rem; }
+    .arch-layer.primary { background: var(--canvas); border-color: var(--hairline); }
+    .arch-layer-title { font-size: .7rem; font-weight: 600; color: var(--body-strong); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-bottom: .5rem; }
     .arch-layer-body { font-size: .88rem; color: var(--text); font-weight: 500; }
     .arch-arrow { color: var(--text-lt); font-size: 1.1rem; }
     .arch-note { font-size: .78rem; color: var(--text-m); font-style: italic; }
@@ -89,23 +89,23 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     /* Tools */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
     .tool-cat { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
-    .tool-cat-title { font-size: .75rem; font-weight: 700; color: var(--text-lt); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
+    .tool-cat-title { font-size: .75rem; font-weight: 600; color: var(--text-lt); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .04em; margin-bottom: 1rem; }
     .tool-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .ttag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
+    .ttag { display: inline-block; padding: .3rem .7rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px; font-size: .78rem; font-weight: 500; color: var(--text-m); }
 
     /* Gallery (dark section) */
-    .gallery-dark { background: var(--bg-dark); color: #cbd5e1; position: relative; overflow: hidden; }
-    .gallery-dark::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 15% 30%, rgba(56,189,248,.08) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 85% 70%, rgba(37,99,235,.06) 0%, transparent 55%); pointer-events: none; }
+    .gallery-dark { background: var(--bg-dark); color: var(--body-strong); position: relative; overflow: hidden; }
+    .gallery-dark::before { content: ''; position: absolute; inset: 0; background: none; pointer-events: none; }
     .gallery-dark .inner { position: relative; z-index: 1; }
-    .gallery-dark .s-tag { background: rgba(56,189,248,.15); color: #38bdf8; }
-    .gallery-dark .s-title { color: #f8fafc; }
-    .gallery-dark .s-sub { color: #94a3b8; }
+    .gallery-dark .s-tag { background: var(--tint); color: var(--body-strong); }
+    .gallery-dark .s-title { color: var(--ink); }
+    .gallery-dark .s-sub { color: var(--body); }
 
     .shot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
     .shot-card {
       position: relative;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
+      background: var(--tint);
+      border: 1px solid var(--hairline);
       border-radius: var(--r);
       overflow: hidden;
       cursor: pointer;
@@ -113,14 +113,14 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     }
     .shot-card:hover, .shot-card:focus-within {
       transform: translateY(-4px);
-      border-color: rgba(56,189,248,.4);
+      border-color: var(--hairline);
       box-shadow: 0 12px 32px rgba(0,0,0,.4);
     }
     .shot-img-wrap {
       position: relative;
       aspect-ratio: 16/10;
       overflow: hidden;
-      background: #0b1220;
+      background: var(--canvas);
     }
     .shot-img-wrap img {
       width: 100%; height: 100%;
@@ -130,20 +130,20 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     .shot-card:hover .shot-img-wrap img, .shot-card:focus-within .shot-img-wrap img { transform: scale(1.03); }
     .shot-badge {
       position: absolute; top: .75rem; left: .75rem;
-      background: rgba(15,23,42,.85);
-      color: #38bdf8;
+      background: rgba(43, 38, 34, 0.85);
+      color: var(--body-strong);
       padding: .3rem .65rem;
-      border-radius: 100px;
+      border-radius: 3px;
       font-size: .68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
+      font-weight: 600;
+      text-transform: uppercase; font-family: var(--font-mono);
+      letter-spacing: .04em;
       backdrop-filter: blur(8px);
     }
     .shot-zoom {
       position: absolute; top: .75rem; right: .75rem;
-      background: rgba(15,23,42,.85);
-      color: #cbd5e1;
+      background: rgba(43, 38, 34, 0.85);
+      color: var(--body-strong);
       width: 34px; height: 34px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -154,24 +154,24 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
     }
     .shot-card:hover .shot-zoom, .shot-card:focus-within .shot-zoom { opacity: 1; }
     /* Bouton qui couvre toute la carte : ouvre la capture (clic, Entrée, Espace) */
-    .shot-open { position: absolute; inset: 0; z-index: 2; width: 100%; padding: 0; border: 0; border-radius: inherit; background: none; cursor: pointer; }
+    .shot-open { position: absolute; inset: 0; z-index: 2; width: 100%; padding: 0; border: 0; border-radius: inherit; background: none; color: inherit; cursor: pointer; }
     .shot-open:focus-visible { outline-offset: -3px; }
     .shot-info { padding: 1rem 1.25rem 1.15rem; }
-    .shot-title { font-size: .9rem; font-weight: 700; color: #f1f5f9; margin-bottom: .3rem; }
-    .shot-desc { font-size: .8rem; color: #94a3b8; line-height: 1.55; }
+    .shot-title { font-size: .9rem; font-weight: 600; color: var(--ink); margin-bottom: .3rem; }
+    .shot-desc { font-size: .8rem; color: var(--body); line-height: 1.55; }
 
     .gallery-note {
       margin-top: 2rem;
       display: flex; align-items: center; gap: .65rem;
-      font-size: .78rem; color: #94a3b8;
+      font-size: .78rem; color: var(--body);
       justify-content: center;
     }
-    .gallery-note .icon { color: #38bdf8; }
+    .gallery-note .icon { color: var(--body-strong); }
 
     /* Lightbox */
     .lb-overlay {
       position: fixed; inset: 0;
-      background: rgba(2,6,23,.92);
+      background: rgba(43, 38, 34, 0.92);
       display: none;
       align-items: center; justify-content: center;
       z-index: 10000;
@@ -189,31 +189,31 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
       align-items: center;
       gap: 1rem;
     }
-    .lb-img { max-width: 92vw; max-height: 78vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.08); }
-    .lb-caption { color: #cbd5e1; font-size: .9rem; text-align: center; max-width: 720px; line-height: 1.5; }
-    .lb-caption strong { color: #f1f5f9; font-weight: 600; }
-    .lb-caption-count { display: block; margin-top: .35rem; font-size: .75rem; color: #94a3b8; letter-spacing: .05em; }
+    .lb-img { max-width: 92vw; max-height: 78vh; border-radius: 4px; border: 1px solid var(--hairline); }
+    .lb-caption { color: var(--body-strong); font-size: .9rem; text-align: center; max-width: 720px; line-height: 1.5; }
+    .lb-caption strong { color: var(--ink); font-weight: 600; }
+    .lb-caption-count { display: block; margin-top: .35rem; font-size: .75rem; color: var(--body); letter-spacing: .05em; }
     .lb-close {
       position: absolute; top: -3rem; right: 0;
-      background: rgba(255,255,255,.1); color: #f8fafc;
+      background: var(--tint); color: var(--ink);
       border: none; border-radius: 50%;
       width: 40px; height: 40px;
       cursor: pointer; font-size: 1.05rem;
       display: flex; align-items: center; justify-content: center;
       transition: background var(--t);
     }
-    .lb-close:hover { background: rgba(255,255,255,.2); }
+    .lb-close:hover { background: var(--tint); }
     .lb-nav {
       position: fixed; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,.08); color: #f8fafc;
-      border: 1px solid rgba(255,255,255,.1);
+      background: var(--tint); color: var(--ink);
+      border: 1px solid var(--hairline);
       border-radius: 50%;
       width: 48px; height: 48px;
       cursor: pointer; font-size: 1rem;
       display: flex; align-items: center; justify-content: center;
       transition: background var(--t), border-color var(--t);
     }
-    .lb-nav:hover { background: rgba(56,189,248,.2); border-color: rgba(56,189,248,.4); }
+    .lb-nav:hover { background: var(--tint); border-color: var(--hairline); }
     .lb-prev { left: 1.5rem; }
     .lb-next { right: 1.5rem; }
 
@@ -226,19 +226,19 @@ description: "Portail d'administration de la supervision chez Réseau-Net : inte
 
     /* Security & isolation */
     .sec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
-    .sec-card { display: flex; align-items: flex-start; gap: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.4rem; box-shadow: var(--sh-sm); transition: var(--t); }
-    .sec-card:hover { border-color: rgba(14,165,233,.3); box-shadow: var(--sh); transform: translateY(-2px); }
-    .sec-icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; background: var(--sky-lt); color: var(--sky-h); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .sec-card { display: flex; align-items: flex-start; gap: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.4rem; transition: var(--tr); }
+    .sec-card:hover { border-color: var(--hairline); transform: translateY(-2px); }
+    .sec-icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 4px; background: var(--tint); color: var(--body-strong); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
     .sec-body { flex: 1; }
-    .sec-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .35rem; }
+    .sec-title { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .35rem; }
     .sec-desc { font-size: .83rem; color: var(--text-m); line-height: 1.65; }
 
     /* Results */
     .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
-    .res-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.75rem; text-align: center; box-shadow: var(--sh-sm); transition: var(--t); }
-    .res-card:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: rgba(14,165,233,.25); }
-    .res-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--sky-lt); color: var(--sky-h); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto .9rem; }
-    .res-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .res-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.75rem; text-align: center; transition: var(--tr); }
+    .res-card:hover { transform: translateY(-3px); border-color: var(--hairline); }
+    .res-icon { width: 48px; height: 48px; border-radius: 4px; background: var(--tint); color: var(--body-strong); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto .9rem; }
+    .res-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
     .res-desc { font-size: .84rem; color: var(--text-m); line-height: 1.65; }
 
     @media (max-width: 900px) { .ctx-grid { grid-template-columns: 1fr; } }

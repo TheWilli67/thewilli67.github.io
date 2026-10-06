@@ -9,7 +9,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
   {% include head.html %}
   <style>
     /* Page header */
-    .pheader::before { background: radial-gradient(ellipse 70% 70% at 30% 50%, rgba(37,99,235,.1) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 80%, rgba(99,102,241,.07) 0%, transparent 50%); }
+    .pheader::before { background: none; }
 
     /* Sections */
     .s-header { text-align: center; margin-bottom: 3rem; }
@@ -22,11 +22,10 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
 
     .proj-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--r); overflow: hidden;
-      box-shadow: var(--sh-sm); transition: var(--t);
+      border-radius: var(--r); overflow: hidden; transition: var(--tr);
       display: flex; flex-direction: column;
     }
-    .proj-card:hover { transform: translateY(-4px); box-shadow: var(--sh); border-color: rgba(37,99,235,.2); }
+    .proj-card:hover { transform: translateY(-4px); border-color: var(--hairline); }
     .proj-card-thumb {
       height: 160px; display: flex; align-items: center; justify-content: center;
       font-size: 3rem; position: relative; overflow: hidden;
@@ -34,38 +33,38 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
     .proj-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
     .proj-badge {
       display: inline-flex; align-items: center; gap: .35rem;
-      font-size: .7rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: .07em; padding: .2rem .6rem; border-radius: 100px;
+      font-size: .7rem; font-weight: 600; text-transform: uppercase; font-family: var(--font-mono);
+      letter-spacing: .04em; padding: .2rem .6rem; border-radius: 3px;
       margin-bottom: .75rem; width: fit-content;
     }
-    .badge-alt   { background: rgba(37,99,235,.1);  color: var(--accent); }
-    .badge-form  { background: rgba(99,102,241,.1); color: #6366f1; }
-    .badge-proj  { background: rgba(234,179,8,.1);  color: #b45309; }
-    .badge-pro   { background: rgba(249,115,22,.1); color: #ea580c; }
-    .badge-wip   { background: rgba(100,116,139,.1); color: #64748b; }
-    .badge-live  { background: rgba(34,197,94,.12);  color: #16a34a; }
+    .badge-alt   { background: var(--tint);  color: var(--body-strong); }
+    .badge-form  { background: var(--tint); color: var(--body-strong); }
+    .badge-proj  { background: var(--tint);  color: var(--body-strong); }
+    .badge-pro   { background: var(--tint); color: var(--body-strong); }
+    .badge-wip   { background: var(--tint); color: var(--body); }
+    .badge-live  { background: var(--tint);  color: var(--body-strong); }
 
     /* Sub-section headers (inside a combined section) */
     .sub-header { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.4rem; }
     .sub-header:not(:first-child) { margin-top: 3rem; }
-    .sub-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .sub-title { font-size: 1.05rem; font-weight: 600; color: var(--text); }
     .sub-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .proj-title  { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; line-height: 1.3; }
+    .proj-title  { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; line-height: 1.3; }
     .proj-desc   { font-size: .845rem; color: var(--text-m); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
     .proj-tags   { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
     .ptag        { padding: .18rem .55rem; background: var(--bg-alt); color: var(--text-m); border-radius: 4px; font-size: .73rem; font-weight: 500; border: 1px solid var(--border); }
-    .proj-link   { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: auto; transition: var(--t); }
-    .proj-link:hover { color: var(--accent-h); gap: .6rem; }
+    .proj-link   { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 600; color: var(--accent); margin-top: auto; transition: var(--tr); }
+    .proj-link:hover { color: var(--accent-hover); gap: .6rem; }
     .proj-link.disabled { color: var(--text-lt); pointer-events: none; }
 
     /* Thumb backgrounds */
-    .thumb-alt  { background: linear-gradient(135deg, #0f172a, #1e293b); color: #60a5fa; }
-    .thumb-but  { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #a5b4fc; }
-    .thumb-proj { background: linear-gradient(135deg, #1c1917, #292524); color: #fbbf24; }
-    .thumb-insa { background: linear-gradient(135deg, #0c1832, #1e3a5f); color: #93c5fd; }
-    .thumb-pro  { background: linear-gradient(135deg, #2a1a0a, #3d2818); color: #fb923c; }
-    .thumb-mon  { background: linear-gradient(135deg, #0c1e2e, #14324a); color: #38bdf8; }
-    .thumb-wip  { background: linear-gradient(135deg, #1e293b, #334155); color: #64748b; }
+    .thumb-alt  { background: var(--canvas); color: var(--body-strong); }
+    .thumb-but  { background: var(--tint); border: 1px solid var(--hairline); color: var(--ink); }
+    .thumb-proj { background: var(--canvas); color: var(--body-strong); }
+    .thumb-insa { background: var(--canvas); color: var(--body-strong); }
+    .thumb-pro  { background: var(--canvas); color: var(--body-strong); }
+    .thumb-mon  { background: var(--canvas); color: var(--body-strong); }
+    .thumb-wip  { background: var(--canvas-soft); color: var(--body); }
 
   </style>
 </head>
@@ -126,9 +125,9 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
         </a>
 
         <a href="/alternance/solinest.html" class="proj-card reveal" style="transition-delay:.1s">
-          <div class="proj-card-thumb thumb-alt" style="background:linear-gradient(135deg,#1a2e1a,#1e3a1e);">{% include icon.html id="fas-industry" style="color:#4ade80" %}</div>
+          <div class="proj-card-thumb thumb-alt" style="background: var(--canvas-soft);">{% include icon.html id="fas-industry" style="color: var(--body-strong)" %}</div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-alt" style="background:rgba(74,222,128,.1);color:#16a34a" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminé (2024)" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed (2024)" data-i18n-html>{% include icon.html id="fas-check-circle" %} Terminé (2024)</span>
+            <span class="proj-badge badge-alt" style="background: var(--tint);color: var(--body-strong)" data-fr="<i class=&quot;fas fa-check-circle&quot;></i> Terminé (2024)" data-en="<i class=&quot;fas fa-check-circle&quot;></i> Completed (2024)" data-i18n-html>{% include icon.html id="fas-check-circle" %} Terminé (2024)</span>
             <h3 class="proj-title" data-fr="SOLINEST — Alternant Technicien Systèmes &amp; Réseaux" data-en="SOLINEST — Work-study Systems &amp; Network Technician">SOLINEST — Alternant Technicien Systèmes &amp; Réseaux</h3>
             <p class="proj-desc" data-fr="Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité." data-en="L1/L2 helpdesk support, multi-site asset management, Windows Server 2008 R2 to 2016 migration, Centreon monitoring, cybersecurity awareness.">Support helpdesk N1/N2, gestion de parc multi-sites, migration Windows Server 2008 R2 vers 2016, supervision Centreon, sensibilisation cybersécurité.</p>
             <div class="proj-tags">
@@ -168,7 +167,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
         <a href="/projets_pro/monitoring_admin.html" class="proj-card reveal" style="transition-delay:.1s">
           <div class="proj-card-thumb thumb-mon">{% include icon.html id="fas-chart-line" %}</div>
           <div class="proj-card-body">
-            <span class="proj-badge badge-pro" style="background:rgba(14,165,233,.1);color:#0284c7" data-fr="<i class=&quot;fas fa-building&quot;></i> Réseau-Net Projet phare" data-en="<i class=&quot;fas fa-building&quot;></i> Réseau-Net Flagship project" data-i18n-html>{% include icon.html id="fas-building" %} Réseau-Net Projet phare</span>
+            <span class="proj-badge badge-pro" style="background: var(--tint);color: var(--body-strong)" data-fr="<i class=&quot;fas fa-building&quot;></i> Réseau-Net Projet phare" data-en="<i class=&quot;fas fa-building&quot;></i> Réseau-Net Flagship project" data-i18n-html>{% include icon.html id="fas-building" %} Réseau-Net Projet phare</span>
             <h3 class="proj-title" data-fr="Portail d'administration de la supervision" data-en="Monitoring admin portal">Portail d'administration de la supervision</h3>
             <p class="proj-desc" data-fr="Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier. Livré en ≈ 2 semaines en pair avec Claude Code, isolé sur un segment réseau dédié." data-en="In-house web interface driving a multi-client Prometheus / Grafana / Blackbox Exporter stack: SQLite as source of truth, automatic config regeneration, HTML email alerts with embedded graphs, and daily digest. Shipped in ≈ 2 weeks paired with Claude Code, isolated on a dedicated network segment.">Interface web maison qui pilote une stack Prometheus / Grafana / Blackbox Exporter multi-clients : base SQLite comme source de vérité, régénération automatique des configurations, alertes email HTML avec graphes intégrés et digest journalier. Livré en ≈ 2 semaines en pair avec Claude Code, isolé sur un segment réseau dédié.</p>
             <div class="proj-tags">
@@ -243,7 +242,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
       <div class="proj-grid">
 
         <a href="/SAE23/SAE23_fr.html" class="proj-card reveal" style="transition-delay:.1s" data-href-fr="/SAE23/SAE23_fr.html" data-href-en="/SAE23/SAE23.html">
-          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1c1917,#292524);">{% include icon.html id="fas-code" style="color:#fb923c" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-code" style="color: var(--body-strong)" %}</div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj">{% include icon.html id="fas-terminal" %} SAE 2.3 · S2</span>
             <h3 class="proj-title" data-fr="SAE23 — Solution informatique pour l'entreprise" data-en="SAE23 — IT solution for business">SAE23 — Solution informatique pour l'entreprise</h3>
@@ -256,7 +255,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
         </a>
 
         <div class="proj-card reveal" style="transition-delay:.2s">
-          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#172028,#1a3040);">{% include icon.html id="fas-network-wired" style="color:#38bdf8" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-network-wired" style="color: var(--body-strong)" %}</div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj">{% include icon.html id="fas-diagram-project" %} SAE 3.03 · S3</span>
             <h3 class="proj-title" data-fr="SAE303 — Réseau multi-site" data-en="SAE303 — Multi-site network">SAE303 — Réseau multi-site</h3>
@@ -273,7 +272,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
         </div>
 
         <div class="proj-card reveal" style="transition-delay:.3s">
-          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a1a2e,#2d1a3e);">{% include icon.html id="fas-bug" style="color:#a78bfa" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-bug" style="color: var(--body-strong)" %}</div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj">{% include icon.html id="fas-shield-halved" %} SAE 3.04 · S3</span>
             <h3 class="proj-title" data-fr="SAE304 — Découverte du pentesting (Root-Me)" data-en="SAE304 — Introduction to pentesting (Root-Me)">SAE304 — Découverte du pentesting (Root-Me)</h3>
@@ -286,7 +285,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
         </div>
 
         <div class="proj-card reveal" style="transition-delay:.15s">
-          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2018,#283a20);">{% include icon.html id="fas-terminal" style="color:#86efac" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-terminal" style="color: var(--body-strong)" %}</div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj">{% include icon.html id="fas-code-branch" %} SAE 3.02 · S3</span>
             <h3 class="proj-title" data-fr="SAE302 — Interface de surveillance distante" data-en="SAE302 — Remote monitoring interface">SAE302 — Interface de surveillance distante</h3>
@@ -299,7 +298,7 @@ description: "Portfolio de William Hertrich · Projets, alternances et formation
         </div>
 
         <div class="proj-card reveal" style="transition-delay:.25s">
-          <div class="proj-card-thumb thumb-proj" style="background:linear-gradient(135deg,#1a2028,#1a3028);">{% include icon.html id="fas-list-check" style="color:#34d399" %}</div>
+          <div class="proj-card-thumb thumb-proj" style="background: var(--canvas);">{% include icon.html id="fas-list-check" style="color: var(--body-strong)" %}</div>
           <div class="proj-card-body">
             <span class="proj-badge badge-proj">{% include icon.html id="fas-users-gear" %} SAÉ 5.02 · S5</span>
             <h3 class="proj-title" data-fr="SAE502 — Pilotage de projet (TODO-List)" data-en="SAE502 — Project management (TODO-List)">SAE502 — Pilotage de projet (TODO-List)</h3>
