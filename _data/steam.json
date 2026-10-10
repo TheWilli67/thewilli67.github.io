@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-06",
+ "updated": "2026-10-10",
  "games": [
   {
    "appid": 582010,
@@ -353,6 +353,16 @@
    ]
   },
   {
+   "appid": 2909400,
+   "name": "FINAL FANTASY VII REBIRTH",
+   "minutes": 581,
+   "last": 1791572850,
+   "ach": [
+    20,
+    61
+   ]
+  },
+  {
    "appid": 49520,
    "name": "Borderlands 2",
    "minutes": 566,
@@ -370,16 +380,6 @@
    "ach": [
     9,
     52
-   ]
-  },
-  {
-   "appid": 2909400,
-   "name": "FINAL FANTASY VII REBIRTH",
-   "minutes": 515,
-   "last": 1791229792,
-   "ach": [
-    19,
-    61
    ]
   },
   {
