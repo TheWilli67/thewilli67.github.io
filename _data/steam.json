@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-12",
+ "updated": "2026-10-13",
  "games": [
   {
    "appid": 582010,
@@ -403,6 +403,16 @@
    ]
   },
   {
+   "appid": 3606890,
+   "name": "Upload Labs",
+   "minutes": 458,
+   "last": 1791831722,
+   "ach": [
+    9,
+    35
+   ]
+  },
+  {
    "appid": 361420,
    "name": "ASTRONEER",
    "minutes": 443,
@@ -420,16 +430,6 @@
    "ach": [
     5,
     11
-   ]
-  },
-  {
-   "appid": 3606890,
-   "name": "Upload Labs",
-   "minutes": 407,
-   "last": 1791755798,
-   "ach": [
-    8,
-    35
    ]
   },
   {
