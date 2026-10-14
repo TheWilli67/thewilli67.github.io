@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13",
+ "updated": "2026-10-14",
  "games": [
   {
    "appid": 582010,
@@ -393,6 +393,16 @@
    ]
   },
   {
+   "appid": 3606890,
+   "name": "Upload Labs",
+   "minutes": 494,
+   "last": 1791915514,
+   "ach": [
+    9,
+    35
+   ]
+  },
+  {
    "appid": 1328670,
    "name": "Mass Effect™ Legendary Edition",
    "minutes": 459,
@@ -400,16 +410,6 @@
    "ach": [
     5,
     127
-   ]
-  },
-  {
-   "appid": 3606890,
-   "name": "Upload Labs",
-   "minutes": 458,
-   "last": 1791831722,
-   "ach": [
-    9,
-    35
    ]
   },
   {
