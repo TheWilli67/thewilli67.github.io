@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14",
+ "updated": "2026-10-17",
  "games": [
   {
    "appid": 582010,
@@ -363,6 +363,16 @@
    ]
   },
   {
+   "appid": 3606890,
+   "name": "Upload Labs",
+   "minutes": 575,
+   "last": 1792184174,
+   "ach": [
+    9,
+    43
+   ]
+  },
+  {
    "appid": 49520,
    "name": "Borderlands 2",
    "minutes": 566,
@@ -390,16 +400,6 @@
    "ach": [
     8,
     75
-   ]
-  },
-  {
-   "appid": 3606890,
-   "name": "Upload Labs",
-   "minutes": 494,
-   "last": 1791915514,
-   "ach": [
-    9,
-    35
    ]
   },
   {
