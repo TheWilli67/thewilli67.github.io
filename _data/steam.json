@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-17",
+ "updated": "2026-10-19",
  "games": [
   {
    "appid": 582010,
@@ -343,6 +343,16 @@
    ]
   },
   {
+   "appid": 3606890,
+   "name": "Upload Labs",
+   "minutes": 624,
+   "last": 1792317869,
+   "ach": [
+    9,
+    43
+   ]
+  },
+  {
    "appid": 379720,
    "name": "DOOM",
    "minutes": 603,
@@ -360,16 +370,6 @@
    "ach": [
     20,
     61
-   ]
-  },
-  {
-   "appid": 3606890,
-   "name": "Upload Labs",
-   "minutes": 575,
-   "last": 1792184174,
-   "ach": [
-    9,
-    43
    ]
   },
   {
