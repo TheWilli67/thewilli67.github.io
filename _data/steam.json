@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26",
+ "updated": "2026-10-27",
  "games": [
   {
    "appid": 582010,
@@ -323,6 +323,16 @@
    ]
   },
   {
+   "appid": 5335510,
+   "name": "Moon Sweepers",
+   "minutes": 750,
+   "last": 1793050713,
+   "ach": [
+    24,
+    33
+   ]
+  },
+  {
    "appid": 1145360,
    "name": "Hades",
    "minutes": 713,
@@ -360,16 +370,6 @@
    "ach": [
     18,
     54
-   ]
-  },
-  {
-   "appid": 5335510,
-   "name": "Moon Sweepers",
-   "minutes": 592,
-   "last": 1792964818,
-   "ach": [
-    23,
-    33
    ]
   },
   {
@@ -749,7 +749,7 @@
   },
   {
    "appid": 386180,
-   "name": "Crossout",
+   "name": "Crossout Remastered",
    "minutes": 85,
    "last": 1676217100,
    "ach": [
