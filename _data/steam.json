@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28",
+ "updated": "2026-10-29",
  "games": [
   {
    "appid": 582010,
@@ -296,6 +296,16 @@
    ]
   },
   {
+   "appid": 5335510,
+   "name": "Moon Sweepers",
+   "minutes": 885,
+   "last": 1793221778,
+   "ach": [
+    24,
+    33
+   ]
+  },
+  {
    "appid": 1454400,
    "name": "Cookie Clicker",
    "minutes": 852,
@@ -320,16 +330,6 @@
    "ach": [
     6,
     17
-   ]
-  },
-  {
-   "appid": 5335510,
-   "name": "Moon Sweepers",
-   "minutes": 750,
-   "last": 1793050713,
-   "ach": [
-    24,
-    33
    ]
   },
   {
@@ -519,7 +519,7 @@
    "last": 1727039426,
    "ach": [
     4,
-    17
+    31
    ]
   },
   {
