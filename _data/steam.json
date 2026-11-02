@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31",
+ "updated": "2026-11-02",
  "games": [
   {
    "appid": 582010,
@@ -151,8 +151,8 @@
   {
    "appid": 526870,
    "name": "Satisfactory",
-   "minutes": 3123,
-   "last": 1779035535,
+   "minutes": 3228,
+   "last": 1793567584,
    "ach": [
     21,
     44
@@ -343,23 +343,23 @@
    ]
   },
   {
-   "appid": 1942280,
-   "name": "Brotato",
-   "minutes": 629,
-   "last": 1757585409,
+   "appid": 3606890,
+   "name": "Upload Labs",
+   "minutes": 676,
+   "last": 1793542685,
    "ach": [
-    35,
-    179
+    11,
+    43
    ]
   },
   {
-   "appid": 3606890,
-   "name": "Upload Labs",
-   "minutes": 624,
-   "last": 1792317869,
+   "appid": 1942280,
+   "name": "Brotato",
+   "minutes": 630,
+   "last": 1793560383,
    "ach": [
-    9,
-    43
+    35,
+    177
    ]
   },
   {
