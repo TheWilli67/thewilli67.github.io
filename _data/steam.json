@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-16",
  "games": [
   {
    "appid": 582010,
@@ -119,6 +119,16 @@
    ]
   },
   {
+   "appid": 526870,
+   "name": "Satisfactory",
+   "minutes": 4029,
+   "last": 1794782903,
+   "ach": [
+    22,
+    44
+   ]
+  },
+  {
    "appid": 413150,
    "name": "Stardew Valley",
    "minutes": 3878,
@@ -136,16 +146,6 @@
    "ach": [
     85,
     128
-   ]
-  },
-  {
-   "appid": 526870,
-   "name": "Satisfactory",
-   "minutes": 3635,
-   "last": 1794408801,
-   "ach": [
-    22,
-    44
    ]
   },
   {
