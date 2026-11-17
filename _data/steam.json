@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16",
+ "updated": "2026-11-17",
  "games": [
   {
    "appid": 582010,
@@ -121,10 +121,10 @@
   {
    "appid": 526870,
    "name": "Satisfactory",
-   "minutes": 4029,
-   "last": 1794782903,
+   "minutes": 4256,
+   "last": 1794872621,
    "ach": [
-    22,
+    23,
     44
    ]
   },
